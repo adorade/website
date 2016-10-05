@@ -1,5 +1,4 @@
 # adorade
-Just another repository
 
 ![Adorade Logo](images/logo-adorade.png)
 
