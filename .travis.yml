@@ -22,5 +22,4 @@ before_script:
   - node -v && npm -v && yarn -v && git --version && gulp -v
 
 script:
-  - yarn run test
   - yarn run build
