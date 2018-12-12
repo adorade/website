@@ -1,0 +1,11 @@
+//
+// Mixins - Box-shadow
+// ============================================================================
+
+// Box shadow.
+// If `$enable-shadows` is `true`, create box shadow.
+@mixin box-shadow($shadow...) {
+  @if $enable-shadows {
+    box-shadow: $shadow;
+  }
+}

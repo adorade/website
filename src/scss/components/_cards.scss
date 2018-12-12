@@ -1,0 +1,135 @@
+//
+// Cards
+// -----------------------------------------------------------------------------
+
+.card-deck {
+  margin: 0 0 3rem;//
+  // transform: translateY(-32%) translateX(57%) rotateX(55deg) rotateY(0deg) rotateZ(45deg);
+  // transform-style: preserve-3d;
+  // backface-visibility: hidden;
+
+  .card {
+    margin: 3rem 0 0;
+    border: 0 solid rgba(0, 0, 0, .125);
+    border-radius: .5rem;
+    box-shadow: 0 20px 30px rgba(0, 0, 0, .6);//
+    // box-shadow: 0 0 5px 1px rgba(0, 0, 0, .6);
+    // transform-style: preserve-3d;
+    // backface-visibility: hidden;
+    opacity: 0;
+    transition: opacity 5s;
+
+    // &:hover {
+    //   box-shadow: 0 0 10px 6px rgba(0, 0, 0, .6);
+
+    //   .card-img,
+    //   .card-d-flex {
+    //     transform-origin: center bottom;
+    //   }
+
+    //   .card-img {
+    //     transform: translate3d(0, 0, 30px);
+    //   }
+
+    //   .card-d-flex {
+    //     transform: translate3d(0, 0, 60px);
+    //   }
+    // }
+  }
+
+  @media (min-width: 768px) {
+    margin: 2rem 0;
+
+    .card {
+      margin: 2rem 1rem;
+    }
+  }
+
+  .card-img-top {
+    border-top-left-radius: .5rem;
+    border-top-right-radius: .5rem;
+  }
+
+  .card-body {
+    position: relative;
+  }
+}
+
+.card-img {
+  // transform: translate3d(0, 0, 20px);
+}
+
+.card-d-flex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 20rem;
+  @include gradient-radial-circle(rgba(0, 0, 0, .3), rgba(0, 0, 0, .9));//
+  // transform: translate3d(0, 0, 40px);
+}
+
+.card-button {
+  position: absolute;
+  top: -1.5rem;
+  right: 1.5rem;
+  display: inline-flex;
+  width: 3rem;
+  height: 3rem;
+  padding: .75rem;
+  border: 0;
+  border-radius: 100%;
+  background-color: $light-blue-500;
+  color: #fff;
+  font-size: 1.5rem;
+  line-height: 1.5;
+  text-align: center;
+  outline: 0 !important; // stylelint-disable-line
+  box-shadow: 0 3px 10px rgba(0, 0, 0, .23), 0 3px 10px rgba(0, 0, 0, .16);//
+  // transition: background-color 100ms linear;
+  transition: all 200ms ease;
+  cursor: pointer;
+
+  &:hover {
+    color: darken($white, 20%);
+    transform: scale(1.1) rotate(-90deg);
+  }
+}
+
+.card-link {
+  position: absolute;
+  bottom: 1.25rem;
+}
+
+// Light and Dark background
+.card-light {
+  background-color: $white;
+  color: $black;
+}
+
+.card-dark {
+  // background-color: $black;
+  background-color: rgba($black, .6);
+  color: $white;
+}
+
+// Gradient background
+.card-orange {
+  @include gradient-x($deep-orange-900, $deep-orange-500);
+  color: $white;
+}
+
+.card-blue {
+  @include gradient-x($light-blue-900, $light-blue-500);
+  color: $white;
+}
+
+.card-green {
+  @include gradient-x($green-900, $green-500);
+  color: $white;
+}
+
+.card-grey {
+  @include gradient-x($grey-900, $grey-700);
+  color: $white;
+}

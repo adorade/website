@@ -1,0 +1,35 @@
+//
+// Toasts
+// ============================================================================
+
+// Base class
+// ----------------------------
+.toast {
+  max-width: $toast-max-width;
+  overflow: hidden; // cheap rounded corners on nested items
+  border: $toast-border-width solid $toast-border-color;
+  border-radius: $toast-border-radius;
+  background-clip: padding-box;
+  background-color: $toast-background-color;
+  font-size: $toast-font-size; // knock it down to 14px
+  box-shadow: $toast-box-shadow;
+  backdrop-filter: blur(10px);
+
+  + .toast {
+    margin-top: $toast-padding-x;
+  }
+}
+
+.toast-header {
+  display: flex;
+  align-items: center;
+  padding: $toast-padding-y $toast-padding-x;
+  border-bottom: $toast-border-width solid $toast-header-border-color;
+  background-clip: padding-box;
+  background-color: $toast-header-background-color;
+  color: $toast-header-color;
+}
+
+.toast-body {
+  padding: $toast-padding-x; // apply to both vertical and horizontal
+}

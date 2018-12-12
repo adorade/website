@@ -1,0 +1,13 @@
+//- index.pug
+extends layout/_layout
+
+prepend setting
+  - title = 'Adorade - Web Design Company';
+  - description = '';
+  - currentUrl = 'index.html';
+
+block header
+  include includes/sections/_hero
+
+prepend content
+  include includes/cards/_cards

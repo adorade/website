@@ -1,0 +1,20 @@
+//
+// Navbar and Drawer
+// -----------------------------------------------------------------------------
+
+.navbar-toggler {
+  line-height: 1.5;
+}
+
+.svg-inline--fa.fa-1x {
+  width: 1.25rem;
+}
+
+.bg-navbar-orange {
+  @include gradient-y(rgba($deep-orange-500, .7), rgba($deep-orange-900, .7));//
+  // box-shadow: 0 2px 5px rgba(0, 0, 0, .26);
+}
+
+.navbar-brand {
+  font-family: Aclonica, sans-serif;
+}

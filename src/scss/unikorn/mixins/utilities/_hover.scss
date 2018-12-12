@@ -1,0 +1,35 @@
+//
+// Mixins - Hover
+// ============================================================================
+// Hover mixin and `$enable-hover-media-query` are deprecated.
+
+// Hover
+@mixin hover {
+  &:hover { @content; }
+}
+
+// Hover focus
+@mixin hover-focus {
+  &:hover,
+  &:focus {
+    @content;
+  }
+}
+
+// Plain hover focus
+@mixin plain-hover-focus {
+  &,
+  &:hover,
+  &:focus {
+    @content;
+  }
+}
+
+// Hover focus active
+@mixin hover-focus-active {
+  &:hover,
+  &:focus,
+  &:active {
+    @content;
+  }
+}

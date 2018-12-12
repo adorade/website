@@ -1,0 +1,30 @@
+//
+// Content
+// -----------------------------------------------------------------------------
+
+.newsletter {
+  @include gradient-radial-circle-top(rgba($black, .3), rgba($black, .9));
+  padding: 3rem 1.5rem;
+  margin-right: 0;
+  margin-left: 0;
+
+  .form-inline {
+    justify-content: center;
+
+    @media (min-width: 576px) {
+      .form-group {
+        flex: 0 0 33%;
+      }
+
+      .form-control {
+        width: 100%;
+      }
+    }
+  }
+
+  // .form-group {
+  //   display: flex;
+  //   align-items: center;
+  //   justify-content: center;
+  // }
+}

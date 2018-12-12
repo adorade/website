@@ -1,0 +1,20 @@
+/*!
+ * Adorade (v1.0.0): .babelrc.js
+ * Copyright (c) 2018 Adorade (https://adorade.ro)
+ * Licensed under MIT
+ * ============================================================================
+ */
+
+const presets = [
+  ['@babel/env', {
+    modules: 'false',
+    loose: true
+  }]
+];
+const plugins = [
+  // your plugins here
+];
+
+module.exports = {
+  presets, plugins
+};

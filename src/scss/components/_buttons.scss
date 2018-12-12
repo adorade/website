@@ -1,0 +1,11 @@
+//
+// Buttons
+// -----------------------------------------------------------------------------
+
+.btn-orange {
+  @include button-variant(rgba($primary-color, .5), rgba($primary-color, .5));
+}
+
+.btn-outline-orange {
+  @include button-outline-variant(rgba($primary-color, .5));
+}

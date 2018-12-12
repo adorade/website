@@ -1,0 +1,29 @@
+{
+  "menu": [
+    {
+      "label": "Home",
+      "link": "index.html",
+      "icon": "home"
+    },
+    {
+      "label": "Story",
+      "link": "story.html",
+      "icon": "history"
+    },
+    {
+      "label": "Info",
+      "link": "info.html",
+      "icon": "info-circle"
+    },
+    {
+      "label": "Portfolio",
+      "link": "portfolio.html",
+      "icon": "image"
+    },
+    {
+      "label": "Contact",
+      "link": "contact.html",
+      "icon": "envelope"
+    }
+  ]
+}

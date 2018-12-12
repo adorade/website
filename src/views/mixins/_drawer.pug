@@ -1,0 +1,16 @@
+//- mixins/_drawer.pug
+mixin drawerlink(menu)
+  if currentUrl
+    - currentUrl = currentUrl;
+  else
+    - currentUrl = './';
+
+  each menuItem in menu
+    if (currentUrl === menuItem.link)
+      - linkActive = 'active';
+      - scrOnly = '<span class="sr-only">(current)</span>';
+    else
+      - linkActive = '';
+      - scrOnly = '';
+    li.nav-item(class=linkActive)
+      a.nav-link(href=menuItem.link) #[span.fa-li #[i(class=`fas fa-${menuItem.icon} fa-fw`)]] #{menuItem.label} !{scrOnly}

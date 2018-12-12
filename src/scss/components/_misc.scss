@@ -1,0 +1,79 @@
+//
+// Misc
+// -----------------------------------------------------------------------------
+
+.scroll-down {
+  position: absolute;
+  bottom: 0;
+  width: auto;
+  text-align: center;
+
+  .scroll-down-icon {
+    color: rgba(255, 255, 255, .7);
+    font-size: 4rem;
+    transition: all .2s ease-in;
+    cursor: pointer;
+
+    &:hover {
+      color: rgba(255, 255, 255, 1);
+    }
+
+    @media (max-width: 479px) and (orientation: portrait) {
+      font-size: 3rem;
+    }
+  }
+
+  .scroll {
+    display: block;
+    margin: 0 auto;
+    animation-name: scroll;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+
+    &:hover {
+      animation: none;
+    }
+  }
+}
+
+.back-to-top {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  z-index: 20;
+  display: none;
+  width: 100%;
+  margin: 0 auto;
+
+  .back-to-top-icon {
+    position: absolute;
+    right: 1rem;
+    bottom: .5rem;
+    padding: .5rem;
+    margin: 0;
+    background: $gray;
+    background: rgba($gray, .5);
+    font-size: 1.5rem;
+    text-align: center;
+    transition: .5s;
+    cursor: pointer;
+
+    svg {
+      z-index: 20;
+    }
+
+    &:hover {
+      background: rgba($gray, .9);
+      transition: .5s;
+    }
+  }
+
+  .back-to-top-percent {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0%;
+    background-color: rgba($primary-color, .7);
+  }
+}

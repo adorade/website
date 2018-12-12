@@ -1,0 +1,12 @@
+//- includes/header/_header.pug
+header.masthead.bg-dark.pb-sm-5
+  .container
+    .row
+      .col-12
+        //- https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images
+        picture.d-block
+          source(type="image/webp" srcset="images/top/top.webp" media="(min-width: 576px)")
+          source(type="image/jpeg" srcset="images/top/top.jpg" media="(min-width: 576px)")
+          source(type="image/webp" srcset="images/top/top-min.webp")
+          source(type="image/jpeg" srcset="images/top/top-min.jpg")
+          img.img-fluid(src="images/top/top-min.jpg" alt="Adorade")

@@ -1,14 +1,48 @@
-[![shield.io](https://img.shields.io/badge/shields-io-green.svg?longCache=true&style=for-the-badge)](https://shields.io)
-[![license](https://img.shields.io/github/license/adorade/adorade.svg?longCache=true&style=for-the-badge)](https://mit-license.org)
-[![website](https://img.shields.io/website-up-down-green-red/https/adorade.ro.svg?label=website&longCache=true&style=for-the-badge)](https://adorade.ro)
+[![shield.io](https://img.shields.io/badge/shields-io-green.svg?longCache=true&style=flat-square)](https://shields.io)
+[![license](https://img.shields.io/github/license/adorade/website.svg?longCache=true&style=flat-square)](https://mit-license.org)
+[![website](https://img.shields.io/website-up-down-green-red/https/adorade.github.io/.svg?label=website&longCache=true&style=flat-square)](https://adorade.github.io/)
 
-# adorade
+# Adorade
 
-![Adorade Logo](images/logo-adorade.png)
+![Adorade Logo](src/images/logo/logo-adorade.png)
 
-> This is [website](https://adorade.ro/) project.
+This is the [website](https://adorade.github.io/) of the project..
 
-Once upon a time, we started a journey, to discover... to learn beautiful things.
+> Once upon a time, we started a journey, to discover... to learn beautiful things.
+
+## What's included
+
+You'll find the following directories and files, logically grouping common assets. You'll see something like this:
+
+```
+src/
+├── es6/
+│   └── script.es6
+├── images/
+│   ├── cards/**/*.jpg
+│   ├── hero-unit/**/*.jpg
+│   ├── logo/**/*.png
+│   ├── share/**/*.jpg
+│   ├── top/**/*.jpg
+│   └── **/*.{gif,jpg,jpeg,png,svg}
+├── scss/
+│   ├── components/**/*.scss
+│   ├── includes/**/*.scss
+│   ├── unikorn/**/*.scss
+│   └── style.scss
+├── statics/
+├── vendor/
+│   ├── css/**/*.css
+│   └── js/**/*.js
+└── views/
+│   ├── data/**/*.json
+│   ├── includes/**/_*.pug
+│   ├── layout/**/_*.pug
+│   ├── mixins/**/_*.pug
+│   └── **/*.pug
+```
+
+---
 
 ## License
 

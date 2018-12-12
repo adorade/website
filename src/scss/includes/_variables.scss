@@ -1,0 +1,85 @@
+//
+// Variables
+// -----------------------------------------------------------------------------
+
+// Colors
+// -----------------------------
+// Settings for some of the most global styles
+
+// Import Material Color Palette.
+@import "colors";
+
+// Primary and accent color
+$primary-color          : $deep-orange-500;  // #ff5722
+$accent-color           : $light-blue-a400;  // #00b0ff
+
+// Transparent color
+$transparent            : rgba($black, 0);   // rgba(0, 0, 0, 0)
+
+// Gray and Brand color for use across plugins
+$gray-base              : $black;            // #000
+$gray-darker            : $grey-900;         // #212121
+$gray-dark              : $grey-800;         // #424242
+$gray                   : $grey-700;         // #616161
+$gray-light             : $grey-400;         // #bdbdbd
+$gray-lighter           : $grey-200;         // #eee
+
+$brand-primary          : $primary-color;    // #ff5722
+$brand-accent           : $accent-color;     // #00b0ff
+$brand-success          : $green-500;        // #4caf50
+$brand-info             : $light-blue-300;   // #4fc3f7
+$brand-warning          : $yellow-800;       // #f9a825
+$brand-danger           : $pink-600;         // #d81b60
+
+// Light an Dark Background color
+$body-light-bg          : $grey-050; // #fafafa
+$status-light-bg        : $grey-300; // #e0e0e0
+$navbar-light-bg        : $grey-100; // #f5f5f5
+$drawer-light-bg        : $grey-100; // #f5f5f5
+$component-light-bg     : $white;    // #fff
+
+$body-dark-bg           : $grey-800; // #424242
+$status-dark-bg         : $black;    // #000
+$navbar-dark-bg         : $grey-900; // #212121
+$drawer-dark-bg         : $grey-900; // #212121
+$component-dark-bg      : $grey-700; // #616161
+
+// Global text color
+// White text on dark backgrounds
+$light-text             : rgba(255, 255, 255, 1);
+$light-primary-text     : rgba(255, 255, 255, 1);
+$light-secondary-text   : rgba(255, 255, 255, .7);
+$light-hint-text        : rgba(255, 255, 255, .5);
+$light-disabled-text    : rgba(255, 255, 255, .5);
+$light-dividers         : rgba(255, 255, 255, .12);
+
+// Dark text on light backgrounds
+$dark-text              : rgba(0, 0, 0, 1);
+$dark-primary-text      : rgba(0, 0, 0, .87);
+$dark-secondary-text    : rgba(0, 0, 0, .54);
+$dark-hint-text         : rgba(0, 0, 0, .38);
+$dark-disabled-text     : rgba(0, 0, 0, .38);
+$dark-dividers          : rgba(0, 0, 0, .12);
+
+// Icons color
+$light-icons            : rgba(255, 255, 255, 1);
+$light-active-icon      : rgba(255, 255, 255, 1);
+$light-inactive-icon    : rgba(255, 255, 255, .5);
+
+$dark-icons             : rgba(0, 0, 0, 1);
+$dark-active-icon       : rgba(0, 0, 0, .54);
+$dark-inactive-icon     : rgba(0, 0, 0, .38);
+
+// Body defaults
+$body-bg                : #fff;
+$body-color             : $gray-dark;
+
+// Links defaults
+$link-color             : $brand-accent;
+$link-decoration        : none;
+$link-hover-color       : darken($link-color, 15%);
+$link-hover-decoration  : none;
+
+$enable-gradients       : true;
+
+$drawer-dark-active-color: $primary-color;
