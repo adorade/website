@@ -1,6 +1,6 @@
 [![shield.io](https://img.shields.io/badge/shields-io-green.svg?longCache=true&style=flat-square)](https://shields.io)
 [![license](https://img.shields.io/github/license/adorade/website.svg?longCache=true&style=flat-square)](https://mit-license.org)
-[![website](https://img.shields.io/website-up-down-green-red/https/adorade.github.io/.svg?label=website&longCache=true&style=flat-square)](https://adorade.github.io/)
+[![website](https://img.shields.io/website-up-down-green-red/https/adorade.github.io/.svg?label=website&longCache=true&style=flat-square)](https://adorade.github.io/) [![Greenkeeper badge](https://badges.greenkeeper.io/adorade/website.svg)](https://greenkeeper.io/)
 
 # Adorade
 
