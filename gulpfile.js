@@ -1,7 +1,7 @@
 /*!
- * Adorade - Web Design Company - v1.0.0 - gulpfile.js
+ * Adorade (v1.0.0): gulpfile.js
  * Copyright (c) 2018 Adorade (https://adorade.ro)
- * Licensed under MIT (https://github.com/adorade/adorade/blob/master/LICENSE)
+ * Licensed under MIT
  * ============================================================================
  */
 'use strict';
@@ -33,155 +33,31 @@ const del = require('del');
 const fs = require('fs');
 const log = require('fancy-log');
 
-const pkg = require('./package.json');
-
-// Usage: debug({ title: 'unicorn:' })
+// For debugging
 // const debug = require('gulp-debug');
+// Usage:
+// .pipe(debug({ title: 'unicorn:' }));
 
 /**
  * ----------------------------------------------------------------------------
  * Dirs and Paths
  * ----------------------------------------------------------------------------
  */
-const dirs = {
-  root: './',
-  src: 'src',
-  build: 'build',
-  test: 'test',
-  dest: 'dist'
-};
-const paths = {
-  styles: {
-    src: `${dirs.src}/scss/**/*.scss`,
-    dest: `${dirs.dest}/css/`,
-    filter: `${dirs.dest}/css/*.css`
-  },
-  scripts: {
-    src: `${dirs.src}/es6/**/*.es6`,
-    dest: `${dirs.dest}/js/`,
-    filter: `${dirs.dest}/js/*.js`
-  },
-  vendor: {
-    src: {
-      css: `${dirs.src}/vendor/css/**/*.css`,
-      js: `${dirs.src}/vendor/js/**/*.js`
-    },
-    dest: {
-      css: `${dirs.dest}/css/vendor/`,
-      js: `${dirs.dest}/js/vendor/`
-    }
-  },
-  images: {
-    src: `${dirs.src}/images/**/*.{gif,jpg,jpeg,png,svg}`,
-    webp: `${dirs.src}/images/**/*.{jpg,jpeg,png}`,
-    dest: `${dirs.dest}/images/`
-  },
-  statics: {
-    src: `${dirs.src}/statics/**/*.{ico,png,xml,json,svg,webmanifest}`,
-    dest: `${dirs.dest}/statics/`
-  },
-  views: {
-    src: [`${dirs.src}/views/**/*.pug`, `!${dirs.src}/views/**/_*.pug`],
-    all: `${dirs.src}/views/**/*.pug`,
-    data: `${dirs.src}/views/data/**/*.json`,
-    datas: `${dirs.src}/views/data/`,
-    dest: `${dirs.dest}/`,
-    del: `${dirs.dest}/*.html`
-  },
-  test: {
-    js: `${dirs.test}/js/`
-  }
-};
+const { dirs, paths } = require('./util/config');
 
 /**
  * ----------------------------------------------------------------------------
  * Options and Settings
  * ----------------------------------------------------------------------------
  */
-const opts = {
-  styles: {
-    failAfterError: true,
-    reportOutputDir: 'logs/gulp',
-    reporters: [
-      { formatter: 'string', console: true, save: 'styles.txt' }
-    ],
-    syntax: 'scss'
-  },
-  sass: {
-    outputStyle: 'expanded',
-    precision: 6
-  },
-  autoprefixer: {
-    // for browsers options see .browserslistrc
-    cascade: false
-  },
-  csso: {
-    comments: false
-  },
-  eslint: {
-    // for more options see .eslintrc.json
-  },
-  babel: {
-    // for more options see .babelrc.js
-    comments: false
-  },
-  uglify: {
-    compress: {
-      evaluate: false
-    },
-    mangle: {
-      keep_fnames: true
-    }
-  },
-  images: [
-    imagemin.gifsicle({ interlaced: true }),
-    imagemin.jpegtran({ progressive: true }),
-    imagemin.optipng({ optimizationLevel: 4 }),
-    imagemin.svgo({ plugins: [{ removeViewBox: true }] })
-  ],
-  webp: {
-    // https://github.com/imagemin/imagemin-webp#options
-    preset: 'default',
-    quality: 60
-  },
-  pug: {
-    doctype: 'html',
-    pretty: true
-  },
-  html: {
-    collapseBooleanAttributes: true,
-    collapseInlineTagWhitespace: true,
-    collapseWhitespace: true,
-    minifyCSS: true,
-    minifyJS: true,
-    removeAttributeQuotes: true,
-    removeComments: true,
-    removeEmptyAttributes: true,
-    removeRedundantAttributes: true,
-    removeScriptTypeAttributes: true,
-    removeStyleLinkTypeAttributes: true
-  },
-  inline: {
-    rootpath: `${dirs.dest}/`
-  },
-  watch: {
-    delay: 2000
-  }
-};
+const { opts } = require('./util/options');
 
 /**
  * ----------------------------------------------------------------------------
- * Stamps: header, start, end
+ * Template for banner to add to file headers
  * ----------------------------------------------------------------------------
  */
-const stamp = {
-  top: `/*!
- * ${pkg.title} - ${pkg.description} - v${pkg.version} - <%= file.relative %>
- * Copyright (c) ${new Date().getFullYear()} ${pkg.author} (${pkg.homepage})
- * License under ${pkg.license} (${pkg.repository}/blob/master/LICENSE)
- * ============================================================================
- */\n`
-};
+const banner = require('./util/banner');
 
 /**
  * ----------------------------------------------------------------------------
@@ -222,7 +98,7 @@ gulp.task('compile', () => {
     // Compile
     .pipe(sass(opts.sass).on('error', sass.logError))
     .pipe(autoprefixer(opts.autoprefixer))
-    .pipe(header(stamp.top, { pkg: pkg }))
+    .pipe(header(banner()))
     .pipe(gulp.dest(paths.styles.dest, { sourcemaps: './maps' }))
     .pipe(bs.stream({ match: '**/*.css' }))
 
@@ -230,6 +106,7 @@ gulp.task('compile', () => {
     .pipe(filter(paths.styles.filter))
     .pipe(csso(opts.csso))
     .pipe(rename({ extname: '.min.css' }))
+    .pipe(header(banner()))
     .pipe(gulp.dest(paths.styles.dest))
     .pipe(bs.stream({ match: '**/*.min.css' }));
 });
@@ -275,7 +152,7 @@ gulp.task('transpile', () => {
   })
     // Transpile
     .pipe(babel(opts.babel))
-    .pipe(header(stamp.top, { pkg: pkg }))
+    .pipe(header(banner()))
     .pipe(gulp.dest(paths.scripts.dest, { sourcemaps: './maps' }))
     .pipe(bs.stream({ match: '**/*.js' }))
 
@@ -283,7 +160,7 @@ gulp.task('transpile', () => {
     .pipe(filter(paths.scripts.filter))
     .pipe(uglify(opts.uglify))
     .pipe(rename({ extname: '.min.js' }))
-    .pipe(header(stamp.top, { pkg: pkg }))
+    .pipe(header(banner()))
     .pipe(gulp.dest(paths.scripts.dest))
     .pipe(bs.stream({ match: '**/*.min.js' }));
 });
@@ -306,7 +183,12 @@ gulp.task('imagine', () => {
   return gulp.src(paths.images.src, {
     since: gulp.lastRun('imagine')
   })
-    .pipe(imagemin(opts.images, { verbose: true }))
+    .pipe(imagemin([
+      imagemin.gifsicle(opts.images.gif),
+      imagemin.jpegtran(opts.images.jpeg),
+      imagemin.optipng(opts.images.png),
+      imagemin.svgo(opts.images.svg)
+    ], { verbose: true }))
     .pipe(gulp.dest(paths.images.dest))
     .pipe(bs.stream({ match: '**/*.{gif,jpg,jpeg,png,svg}' }));
 });
@@ -314,7 +196,7 @@ gulp.task('convert', () => {
   return gulp.src(paths.images.webp, {
     since: gulp.lastRun('convert')
   })
-    .pipe(webp(opts.webp))
+    .pipe(webp(opts.images.webp))
     .pipe(gulp.dest(paths.images.dest))
     .pipe(bs.stream({ match: '**/*.{webp}' }));
 });
