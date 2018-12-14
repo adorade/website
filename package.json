@@ -7,6 +7,7 @@
   "homepage": "https://adorade.ro",
   "repository": "https://github.com/adorade/website",
   "scripts": {
+    "verify": "node -v && npm -v && yarn -v && git --version && gulp -v",
     "dev": "gulp dev",
     "build": "gulp build",
     "test": "echo \"Error: no test specified\" && exit 1"
