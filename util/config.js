@@ -10,6 +10,7 @@ const dirs = {
   src: 'src',
   build: 'build',
   test: 'test',
+  deploy: './.publish',
   dest: 'dist'
 };
 const paths = {

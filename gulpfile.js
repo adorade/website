@@ -15,6 +15,7 @@ const csso = require('gulp-csso');
 const data = require('gulp-data');
 const eslint = require('gulp-eslint');
 const filter = require('gulp-filter');
+const ghPages = require('gulp-gh-pages');
 const header = require('gulp-header');
 const htmlmin = require('gulp-htmlmin');
 const imagemin = require('gulp-imagemin');
@@ -255,6 +256,22 @@ gulp.task('pagile', () => {
 });
 gulp.task('pages', gulp.series('lint:pages', 'pagile'));
 gulp.task('build:pages', gulp.series('clean:pages', 'pages'));
+
+/**
+ * ----------------------------------------------------------------------------
+ * Deploy to GitHub Pages
+ * ----------------------------------------------------------------------------
+ */
+gulp.task('clean:deploy', () => {
+  log(`${green('Clean up')} ${magenta(dirs.deploy)} folder`);
+  return del(dirs.deploy);
+});
+gulp.task('deploy', () => {
+  log(`${green('-> Deploy to GitHub Pages...')}`);
+  return gulp.src(`${dirs.dest}/**/*`)
+    .pipe(ghPages(opts.deploy));
+});
+gulp.task('build:deploy', gulp.series('clean:deploy', 'deploy'));
 
 /**
  * ----------------------------------------------------------------------------

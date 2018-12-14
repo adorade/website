@@ -3,6 +3,7 @@
 .extra
 node_modules
 test
+.publish
 
 # To do Tasks
 .TODO

@@ -7,6 +7,10 @@
 
 const { dirs } = require('./config');
 
+const dates = new Date(
+  process.env.SOURCE_DATE_EPOCH ? process.env.SOURCE_DATE_EPOCH * 1000 : new Date().getTime()
+).toDateString();
+
 const opts = {
   styles: {
     failAfterError: true,
@@ -71,6 +75,14 @@ const opts = {
   },
   inline: {
     rootpath: `${dirs.dest}/`
+  },
+  deploy: {
+    remoteUrl: 'https://github.com/adorade/adorade.github.io.git',
+    // branch: 'gh-pages',
+    // cacheDir: '.publish',
+    // push: true,
+    // force: false,
+    message: `Update ${dates}`
   },
   watch: {
     delay: 2000
