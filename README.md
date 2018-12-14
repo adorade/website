@@ -8,7 +8,7 @@
 
 ![Adorade Logo](src/images/logo/logo-adorade.png)
 
-This is the [website](https://adorade.github.io/) of the project..
+This is the [website](https://adorade.github.io/) of the project.
 
 > Once upon a time, we started a journey, to discover... to learn beautiful things.
 
