@@ -6,38 +6,26 @@
  */
 'use strict';
 
-// Load plugins, require gulp v.4
-const gulp = require('gulp');
-const autoprefixer = require('gulp-autoprefixer');
-const babel = require('gulp-babel');
-const cached = require('gulp-cached');
-const csso = require('gulp-csso');
-const data = require('gulp-data');
-const eslint = require('gulp-eslint');
-const filter = require('gulp-filter');
-const ghPages = require('gulp-gh-pages');
-const header = require('gulp-header');
-const htmlmin = require('gulp-htmlmin');
-const imagemin = require('gulp-imagemin');
-const inlinesource = require('gulp-inline-source');
-const pug = require('gulp-pug');
-const puglint = require('gulp-pug-linter');
-const rename = require('gulp-rename');
-const sass = require('gulp-sass');
-const stylelint = require('gulp-stylelint');
-const uglify = require('gulp-uglify');
-const webp = require('gulp-webp');
+// Require gulp v4
+const { src, dest, task, series, parallel, lastRun, watch } = require('gulp');
+
+// Load all plugins in "devDependencies" into the variable $
+const $ = require('gulp-load-plugins')({
+  pattern: ['*'],
+  rename: {
+    'gulp-stylelint': 'gStylelint',
+    'gulp-eslint': 'gEslint',
+    'gulp-pug-linter': 'pugLinter',
+    'gulp-gh-pages': 'ghPages'
+  }
+});
 
 const { bgBlue, bgRed, green, magenta, red } = require('ansi-colors');
 const bs = require('browser-sync').create();
-const del = require('del');
 const fs = require('fs');
-const log = require('fancy-log');
+const http2 = require('http2');
 
-// For debugging
-// const debug = require('gulp-debug');
-// Usage:
-// .pipe(debug({ title: 'unicorn:' }));
+// For debugging usage: .pipe($.debug({ title: 'unicorn:' }))
 
 /**
  * ----------------------------------------------------------------------------
@@ -65,9 +53,9 @@ const banner = require('./util/banner');
  * Clean - clean all files from 'dist' folder
  * ----------------------------------------------------------------------------
  */
-gulp.task('clean', () => {
-  log(`${green('Clean all files')} in ${magenta(dirs.dest)} folder`);
-  return del(dirs.dest);
+task('clean', () => {
+  $.fancyLog(`${green('Clean all files')} in ${magenta(dirs.dest)} folder`);
+  return $.del(dirs.dest);
 });
 
 /**
@@ -75,203 +63,203 @@ gulp.task('clean', () => {
  * Styles - processes style files
  * ----------------------------------------------------------------------------
  */
-gulp.task('clean:styles', () => {
-  log(`Clean all styles in ${magenta(paths.styles.dest)} folder`);
-  return del(paths.styles.dest);
+task('clean:styles', () => {
+  $.fancyLog(`Clean all styles in ${magenta(paths.styles.dest)} folder`);
+  return $.del(paths.styles.dest);
 });
-gulp.task('vendor:styles', () => {
-  return gulp.src(paths.vendor.src.css, {
-    since: gulp.lastRun('vendor:styles')
+task('vendor:styles', () => {
+  return src(paths.vendor.src.css, {
+    since: lastRun('vendor:styles')
   })
-    .pipe(gulp.dest(paths.vendor.dest.css))
+    .pipe(dest(paths.vendor.dest.css))
     .pipe(bs.stream({ match: '**/*.min.css' }));
 });
-gulp.task('lint:styles', () => {
-  return gulp.src(paths.styles.src, {
-    since: gulp.lastRun('lint:styles')
+task('lint:styles', () => {
+  return src(paths.styles.src, {
+    since: lastRun('lint:styles')
   })
-    .pipe(stylelint(opts.styles));
+    .pipe($.gStylelint(opts.styles));
 });
-gulp.task('compile', () => {
-  return gulp.src(paths.styles.src, {
+task('compile', () => {
+  return src(paths.styles.src, {
     sourcemaps: true
   })
     // Compile
-    .pipe(sass(opts.sass).on('error', sass.logError))
-    .pipe(autoprefixer(opts.autoprefixer))
-    .pipe(header(banner()))
-    .pipe(gulp.dest(paths.styles.dest, { sourcemaps: './maps' }))
+    .pipe($.sass(opts.sass).on('error', $.sass.logError))
+    .pipe($.autoprefixer(opts.autoprefixer))
+    .pipe($.header(banner()))
+    .pipe(dest(paths.styles.dest, { sourcemaps: './maps' }))
     .pipe(bs.stream({ match: '**/*.css' }))
 
     // Minify
-    .pipe(filter(paths.styles.filter))
-    .pipe(csso(opts.csso))
-    .pipe(rename({ extname: '.min.css' }))
-    .pipe(header(banner()))
-    .pipe(gulp.dest(paths.styles.dest))
+    .pipe($.filter(paths.styles.filter))
+    .pipe($.csso(opts.csso))
+    .pipe($.rename({ extname: '.min.css' }))
+    .pipe($.header(banner()))
+    .pipe(dest(paths.styles.dest))
     .pipe(bs.stream({ match: '**/*.min.css' }));
 });
-gulp.task('styles', gulp.parallel(
+task('styles', parallel(
   'vendor:styles',
-  gulp.series('lint:styles', 'compile')
+  series('lint:styles', 'compile')
 ));
-gulp.task('build:styles', gulp.series('clean:styles', 'styles'));
+task('build:styles', series('clean:styles', 'styles'));
 
 /**
  * ----------------------------------------------------------------------------
  * Scripts - processes script files
  * ----------------------------------------------------------------------------
  */
-gulp.task('clean:scripts', () => {
-  log(`Clean all scripts in ${magenta(paths.scripts.dest)} folder`);
-  return del(paths.scripts.dest);
+task('clean:scripts', () => {
+  $.fancyLog(`Clean all scripts in ${magenta(paths.scripts.dest)} folder`);
+  return $.del(paths.scripts.dest);
 });
-gulp.task('vendor:scripts', () => {
-  return gulp.src(paths.vendor.src.js, {
-    since: gulp.lastRun('vendor:scripts')
+task('vendor:scripts', () => {
+  return src(paths.vendor.src.js, {
+    since: lastRun('vendor:scripts')
   })
-    .pipe(gulp.dest(paths.vendor.dest.js))
+    .pipe(dest(paths.vendor.dest.js))
     .pipe(bs.stream({ match: '**/*.min.js' }));
 });
-gulp.task('lint:scripts', () => {
+task('lint:scripts', () => {
   const outputDir = 'logs/gulp';
   fs.mkdirSync(`${outputDir}`, { recursive: true });
   const output = fs.createWriteStream( `${outputDir}/scripts.txt` );
 
-  return gulp.src(paths.scripts.src, {
-    since: gulp.lastRun('lint:scripts')
+  return src(paths.scripts.src, {
+    since: lastRun('lint:scripts')
   })
-    .pipe(eslint())
-    .pipe(eslint.format())
-    .pipe(eslint.format('stylish', output))
-    .pipe(eslint.failAfterError());
+    .pipe($.gEslint())
+    .pipe($.gEslint.format())
+    .pipe($.gEslint.format('stylish', output))
+    .pipe($.gEslint.failAfterError());
 });
-gulp.task('transpile', () => {
-  return gulp.src(paths.scripts.src, {
+task('transpile', () => {
+  return src(paths.scripts.src, {
     sourcemaps: true,
-    since: gulp.lastRun('transpile')
+    since: lastRun('transpile')
   })
     // Transpile
-    .pipe(babel(opts.babel))
-    .pipe(header(banner()))
-    .pipe(gulp.dest(paths.scripts.dest, { sourcemaps: './maps' }))
+    .pipe($.babel(opts.babel))
+    .pipe($.header(banner()))
+    .pipe(dest(paths.scripts.dest, { sourcemaps: './maps' }))
     .pipe(bs.stream({ match: '**/*.js' }))
 
     // Minify
-    .pipe(filter(paths.scripts.filter))
-    .pipe(uglify(opts.uglify))
-    .pipe(rename({ extname: '.min.js' }))
-    .pipe(header(banner()))
-    .pipe(gulp.dest(paths.scripts.dest))
+    .pipe($.filter(paths.scripts.filter))
+    .pipe($.uglify(opts.uglify))
+    .pipe($.rename({ extname: '.min.js' }))
+    .pipe($.header(banner()))
+    .pipe(dest(paths.scripts.dest))
     .pipe(bs.stream({ match: '**/*.min.js' }));
 });
-gulp.task('scripts', gulp.parallel(
+task('scripts', parallel(
   'vendor:scripts',
-  gulp.series('lint:scripts', 'transpile')
+  series('lint:scripts', 'transpile')
 ));
-gulp.task('build:scripts', gulp.series('clean:scripts', 'scripts'));
+task('build:scripts', series('clean:scripts', 'scripts'));
 
 /**
  * ----------------------------------------------------------------------------
  * Images - processes image files
  * ----------------------------------------------------------------------------
  */
-gulp.task('clean:images', () => {
-  log(`Clean all images in ${magenta(paths.images.dest)} folder`);
-  return del(paths.images.dest);
+task('clean:images', () => {
+  $.fancyLog(`Clean all images in ${magenta(paths.images.dest)} folder`);
+  return $.del(paths.images.dest);
 });
-gulp.task('imagine', () => {
-  return gulp.src(paths.images.src, {
-    since: gulp.lastRun('imagine')
+task('imagine', () => {
+  return src(paths.images.src, {
+    since: lastRun('imagine')
   })
-    .pipe(imagemin([
-      imagemin.gifsicle(opts.images.gif),
-      imagemin.jpegtran(opts.images.jpeg),
-      imagemin.optipng(opts.images.png),
-      imagemin.svgo(opts.images.svg)
+    .pipe($.imagemin([
+      $.imagemin.gifsicle(opts.images.gif),
+      $.imagemin.jpegtran(opts.images.jpeg),
+      $.imagemin.optipng(opts.images.png),
+      $.imagemin.svgo(opts.images.svg)
     ], { verbose: true }))
-    .pipe(gulp.dest(paths.images.dest))
+    .pipe(dest(paths.images.dest))
     .pipe(bs.stream({ match: '**/*.{gif,jpg,jpeg,png,svg}' }));
 });
-gulp.task('convert', () => {
-  return gulp.src(paths.images.webp, {
-    since: gulp.lastRun('convert')
+task('convert', () => {
+  return src(paths.images.webp, {
+    since: lastRun('convert')
   })
-    .pipe(webp(opts.images.webp))
-    .pipe(gulp.dest(paths.images.dest))
+    .pipe($.webp(opts.images.webp))
+    .pipe(dest(paths.images.dest))
     .pipe(bs.stream({ match: '**/*.{webp}' }));
 });
-gulp.task('images', gulp.series('imagine', 'convert'));
-gulp.task('build:images', gulp.series('clean:images', 'images'));
+task('images', series('imagine', 'convert'));
+task('build:images', series('clean:images', 'images'));
 
 /**
  * ----------------------------------------------------------------------------
  * Statics - processes static files
  * ----------------------------------------------------------------------------
  */
-gulp.task('clean:statics', () => {
-  log(`Clean all statics in ${magenta(paths.statics.dest)} folder`);
-  return del(paths.statics.dest);
+task('clean:statics', () => {
+  $.fancyLog(`Clean all statics in ${magenta(paths.statics.dest)} folder`);
+  return $.del(paths.statics.dest);
 });
-gulp.task('statica', () => {
-  return gulp.src(paths.statics.src, {
-    since: gulp.lastRun('statica')
+task('statica', () => {
+  return src(paths.statics.src, {
+    since: lastRun('statica')
   })
-    .pipe(gulp.dest(paths.statics.dest))
+    .pipe(dest(paths.statics.dest))
     .pipe(bs.stream({ match: '**/*.{ico,png,svg,xml,json,webmanifest}' }));
 });
-gulp.task('statics', gulp.parallel('statica'));
-gulp.task('build:statics', gulp.series('clean:statics', 'statica'));
+task('statics', parallel('statica'));
+task('build:statics', series('clean:statics', 'statica'));
 
 /**
  * ----------------------------------------------------------------------------
  * Templates - processes templates files
  * ----------------------------------------------------------------------------
  */
-gulp.task('clean:pages', () => {
-  log(`Clean all pages in ${magenta(paths.views.dest)} folder`);
-  return del(paths.views.del);
+task('clean:pages', () => {
+  $.fancyLog(`Clean all pages in ${magenta(paths.views.dest)} folder`);
+  return $.del(paths.views.del);
 });
-gulp.task('lint:pages', () => {
-  return gulp.src(paths.views.all, {
-    since: gulp.lastRun('lint:pages')
+task('lint:pages', () => {
+  return src(paths.views.all, {
+    since: lastRun('lint:pages')
   })
-    .pipe(puglint())
-    .pipe(puglint({ reporter: 'default' }))
-    .pipe(puglint({ failAfterError: true }));
+    .pipe($.pugLinter())
+    .pipe($.pugLinter({ reporter: 'default' }))
+    .pipe($.pugLinter({ failAfterError: true }));
 });
-gulp.task('pagile', () => {
+task('pagile', () => {
   var dataFile = paths.views.datas + 'menu.json';
 
-  return gulp.src(paths.views.src)
-    .pipe(data(() => {
+  return src(paths.views.src)
+    .pipe($.data(() => {
       return JSON.parse(fs.readFileSync(dataFile));
     }))
-    .pipe(pug(opts.pug))
-    .pipe(cached('pug_compile'))
-    .pipe(inlinesource(opts.inline))
-    .pipe(htmlmin(opts.html))
-    .pipe(gulp.dest(paths.views.dest))
+    .pipe($.pug(opts.pug))
+    .pipe($.cached('pug_compile'))
+    .pipe($.inlineSource(opts.inline))
+    .pipe($.htmlmin(opts.html))
+    .pipe(dest(paths.views.dest))
     .pipe(bs.stream({ match: '**/*.html' }));
 });
-gulp.task('pages', gulp.series('lint:pages', 'pagile'));
-gulp.task('build:pages', gulp.series('clean:pages', 'pages'));
+task('pages', series('lint:pages', 'pagile'));
+task('build:pages', series('clean:pages', 'pages'));
 
 /**
  * ----------------------------------------------------------------------------
  * Deploy to GitHub Pages
  * ----------------------------------------------------------------------------
  */
-gulp.task('clean:deploy', () => {
-  log(`${green('Clean up')} ${magenta(dirs.deploy)} folder`);
-  return del(dirs.deploy);
+task('clean:deploy', () => {
+  $.fancyLog(`${green('Clean up')} ${magenta(dirs.deploy)} folder`);
+  return $.del(dirs.deploy);
 });
-gulp.task('deploy', () => {
-  log(`${green('-> Deploy to GitHub Pages...')}`);
-  return gulp.src(`${dirs.dest}/**/*`)
-    .pipe(ghPages(opts.deploy));
+task('deploy', () => {
+  $.fancyLog(`${green('-> Deploy to GitHub Pages...')}`);
+  return src(`${dirs.dest}/**/*`)
+    .pipe($.ghPages(opts.deploy));
 });
-gulp.task('build:deploy', gulp.series('clean:deploy', 'deploy'));
+task('build:deploy', series('clean:deploy', 'deploy'));
 
 /**
  * ----------------------------------------------------------------------------
@@ -280,18 +268,19 @@ gulp.task('build:deploy', gulp.series('clean:deploy', 'deploy'));
  * Watch files for changes
  * ----------------------------------------------------------------------------
  */
-gulp.task('serve', () => {
+task('serve', () => {
   bs.init({
     server: {
       baseDir: dirs.dest
     },
     port: 6969,
     logPrefix: 'Adorade',
-    ui: false
+    ui: false,
+    httpModule: http2
   });
 
   function watchEvent(path, event, task) {
-    log(
+    $.fancyLog(
       `File ${magenta(path)} was ${green(event)} running ${red(task)}`
     );
   }
@@ -330,14 +319,14 @@ gulp.task('serve', () => {
   ];
 
   for (let watcher of watchers) {
-    log(bgRed(`Watching ${watcher.name}`));
+    $.fancyLog(bgRed(`Watching ${watcher.name}`));
 
     for (let p of [watcher.paths]) {
-      log(bgBlue('Source: '), magenta(p));
+      $.fancyLog(bgBlue('Source: '), magenta(p));
     }
 
-    gulp.watch(
-      watcher.paths, opts.watch, gulp.series(watcher.tasks)
+    watch(
+      watcher.paths, opts.watch, series(watcher.tasks)
     )
       .on('all', (event, path) => {
         watchEvent(path, event, watcher.tasks);
@@ -351,7 +340,7 @@ gulp.task('serve', () => {
  * Builds the documentation and framework files
  * ----------------------------------------------------------------------------
  */
-gulp.task('build', gulp.series(
+task('build', series(
   'clean', 'styles', 'scripts', 'images', 'statics', 'pages'
 ));
 
@@ -361,11 +350,11 @@ gulp.task('build', gulp.series(
  * Runs all of the above tasks and then waits for files to change
  * ----------------------------------------------------------------------------
  */
-gulp.task('dev', gulp.series('build', 'serve'));
+task('dev', series('build', 'serve'));
 
 /**
  * ----------------------------------------------------------------------------
  * Define default task that can be called by just running `gulp` from cli
  * ----------------------------------------------------------------------------
  */
-gulp.task('default', gulp.parallel('dev'));
+task('default', parallel('dev'));
