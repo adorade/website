@@ -212,7 +212,7 @@
   .nav-link.active {
     background-color: $drawer-light-active-bg;
     color: $drawer-light-active-color;
-    font-weight: 700;
+    font-weight: $font-weight-bolder;
   }
 
   .collapse-toggle {

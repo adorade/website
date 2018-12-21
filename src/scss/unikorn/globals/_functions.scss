@@ -9,7 +9,7 @@
   $prev-key: null;
   $prev-num: null;
   @each $key, $num in $map {
-    @if $prev-num == null {
+    @if $prev-num == null or unit($num) == "%" {
       // Do nothing
     } @else if not comparable($prev-num, $num) {
       @warn "Potentially invalid value for #{$map-name}: This map must be in ascending order, but key '#{$key}' has value #{$num} whose unit makes it incomparable to #{$prev-num}, the value of the previous key '#{$prev-key}' !";
@@ -35,9 +35,11 @@
 // Used on our SVG icon backgrounds for custom forms.
 @function str-replace($string, $search, $replace: "") {
   $index: str-index($string, $search);
+
   @if $index {
     @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
   }
+
   @return $string;
 }
 
@@ -45,7 +47,7 @@
 // Check the font color according to the background.
 // Determing whether a color is "light" or "dark"
 // by checking the lightness value in the HSL color space.
-@function color-yiq($color) {
+@function color-yiq($color, $dark: $yiq-text-dark, $light: $yiq-text-light) {
   $r: red($color);
   $g: green($color);
   $b: blue($color);
@@ -53,9 +55,9 @@
   $yiq: (($r * 299) + ($g * 587) + ($b * 114)) / 1000;
 
   @if ($yiq >= $yiq-contrasted-threshold) {
-    @return $yiq-text-dark;
+    @return $dark;
   } @else {
-    @return $yiq-text-light;
+    @return $light;
   }
 }
 

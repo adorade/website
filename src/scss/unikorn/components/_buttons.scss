@@ -8,9 +8,9 @@
 .btn {
   display: inline-block;
   border: $btn-border-width solid transparent;
+  background-color: transparent;
   font-weight: $btn-font-weight;
   text-align: center;
-  white-space: nowrap;
   vertical-align: middle;
   user-select: none;
   @include button-size($btn-padding-y, $btn-padding-x, $font-size-base, $btn-line-height, $btn-border-radius);
@@ -41,7 +41,6 @@
 
   &:not(:disabled):not(.disabled):active,
   &:not(:disabled):not(.disabled).active {
-    background-image: none;
     @include box-shadow($btn-active-box-shadow);
 
     &:focus {
@@ -76,20 +75,16 @@ fieldset:disabled a.btn {
 // ----------------------------
 // Make a button look and behave like a link
 .btn-link {
-  background-color: transparent;
   color: $link-color;
   font-weight: $font-weight-normal;
 
   @include hover {
-    border-color: transparent;
-    background-color: transparent;
     color: $link-hover-color;
     text-decoration: $link-hover-decoration;
   }
 
   &:focus,
   &.focus {
-    border-color: transparent;
     text-decoration: $link-hover-decoration;
     box-shadow: none;
   }
@@ -97,6 +92,7 @@ fieldset:disabled a.btn {
   &:disabled,
   &.disabled {
     color: $btn-link-disabled-color;
+    pointer-events: none;
   }
 
   // No need for an active state here
@@ -106,11 +102,11 @@ fieldset:disabled a.btn {
 // Button Sizes
 // ----------------------------
 .btn-lg {
-  @include button-size($btn-padding-y-lg, $btn-padding-x-lg, $font-size-lg, $btn-line-height-lg, $btn-border-radius-lg);
+  @include button-size($btn-padding-y-lg, $btn-padding-x-lg, $btn-font-size-lg, $btn-line-height-lg, $btn-border-radius-lg);
 }
 
 .btn-sm {
-  @include button-size($btn-padding-y-sm, $btn-padding-x-sm, $font-size-sm, $btn-line-height-sm, $btn-border-radius-sm);
+  @include button-size($btn-padding-y-sm, $btn-padding-x-sm, $btn-font-size-sm, $btn-line-height-sm, $btn-border-radius-sm);
 }
 
 
@@ -119,11 +115,11 @@ fieldset:disabled a.btn {
 .btn-block {
   display: block;
   width: 100%;
-}
 
-// Vertically space out multiple block buttons
-+ .btn-block {
-  margin-top: $btn-block-spacing-y;
+  // Vertically space out multiple block buttons
+  + .btn-block {
+    margin-top: $btn-block-spacing-y;
+  }
 }
 
 // Specificity overrides
