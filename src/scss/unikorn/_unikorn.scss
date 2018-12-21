@@ -1,5 +1,5 @@
 //
-// UniKorn - Framework for Dreamers - v1.0.0 - unikorn.scss
+// UniKorn (v4.0.0) - unikorn.scss
 // Copyright (c) 2018 Adorade (https://adorade.ro)
 // @license under MIT (https://github.com/adorade/unikorn/blob/master/LICENSE)
 // ============================================================================
@@ -43,14 +43,12 @@
 @import "components/list-group";
 @import "components/close";
 @import "components/toasts";
-
-// Components w/ JavaScript
-// ---------------------------
 @import "components/drawer";
 @import "components/modal";
 @import "components/tooltip";
 @import "components/popover";
 @import "components/carousel";
+@import "components/spinners";
 
 // Utility classes
 // ---------------------------

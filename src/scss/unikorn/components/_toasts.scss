@@ -13,10 +13,25 @@
   background-color: $toast-background-color;
   font-size: $toast-font-size; // knock it down to 14px
   box-shadow: $toast-box-shadow;
+  opacity: 0;
   backdrop-filter: blur(10px);
 
-  + .toast {
-    margin-top: $toast-padding-x;
+
+  &:not(:last-child) {
+    margin-bottom: $toast-padding-x;
+  }
+
+  &.showing {
+    opacity: 1;
+  }
+
+  &.show {
+    display: block;
+    opacity: 1;
+  }
+
+  &.hide {
+    display: none;
   }
 }
 
