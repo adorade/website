@@ -20,7 +20,7 @@ function banner() {
       '/*!',
       ` * ${pkg.title} (v${pkg.version}): <%= file.relative %>`,
       ` * ${pkg.description}`,
-      ` * Copyright (c) ${year} ${pkg.author.name} (${pkg.homepage})`,
+      ` * Copyright (c) ${year} ${pkg.author} (${pkg.homepage})`,
       ` * License under ${pkg.license} (${pkg.repository}/blob/master/LICENSE)`,
       ' * ============================================================================',
       ' */',
