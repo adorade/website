@@ -1,7 +1,7 @@
-[![shield.io](https://img.shields.io/badge/shields-io-green.svg?longCache=true&style=flat-square)](https://shields.io)
 [![license](https://img.shields.io/github/license/adorade/website.svg?longCache=true&style=flat-square)](https://mit-license.org)
 [![website](https://img.shields.io/website-up-down-green-red/https/adorade.github.io/.svg?label=website&longCache=true&style=flat-square)](https://adorade.github.io/)
-[![Travis (.org) branch](https://img.shields.io/travis/adorade/website/master.svg?logo=travis&style=flat-square)](https://travis-ci.org/adorade/website)
+[![devDependencies Status](https://img.shields.io/david/dev/adorade/website.svg?longCache=true&style=flat-square)](https://david-dm.org/adorade/website?type=dev)
+[![Build Status](https://img.shields.io/travis/adorade/website/master.svg?logo=travis&style=flat-square)](https://travis-ci.org/adorade/website)
 [![Greenkeeper badge](https://badges.greenkeeper.io/adorade/website.svg?style=flat-square)](https://greenkeeper.io/)
 
 # Adorade
