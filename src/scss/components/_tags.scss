@@ -1,0 +1,97 @@
+//
+// Tags
+// -----------------------------------------------------------------------------
+
+.tags {
+  float: left;
+  padding-top: 10px;
+
+  .button {
+    display: inline-block;
+    padding: 8px;
+    margin: 18px 10px 0;
+    border: none;
+    border-radius: 3px;
+    background-color: #303030;
+    color: #fefefe;
+    font-size: 14px;
+    font-weight: 700;
+  }
+
+  .node {
+    background-color: #5b5ea6;
+    color: #fff;
+  }
+
+  .express {
+    background-color: #b565a7;
+  }
+
+  .git {
+    background-color: #dd4132;
+  }
+
+  .network {
+    background-color: #6b5b95;
+    color: #fff;
+  }
+
+  .browser {
+    background-color: #5b5ea6;
+    color: #fff;
+  }
+
+  .pwa {
+    background-color: #6f9fd8;
+  }
+
+  .react {
+    background-color: #282c34;
+    color: #61dafb;
+  }
+
+  .vue {
+    background-color: #00a591;
+  }
+
+  .js {
+    background-color: #ecdb54;
+    color: #000;
+  }
+
+  .cookbook {
+    background-color: #eadedb;
+    color: #333;
+  }
+
+  .css {
+    background-color: #bc70a4;
+  }
+
+  .devtools {
+    background-color: #ce3175;
+  }
+
+  .lab {
+    background-color: #95dee3;
+    color: #000;
+  }
+
+  .services {
+    background-color: #f7786b;
+  }
+
+  .libraries {
+    background-color: #dd4132;
+  }
+
+  .go {
+    background-color: #bfd641;
+    color: #000;
+  }
+
+  .html,
+  .softskills {
+    background-color: #f2552c;
+  }
+}

@@ -15,6 +15,7 @@
   @include gradient-radial-circle(rgba($black, .3), rgba($black, .9));
 }
 
+.footer-tags,
 .footer-cta,
 .footer-news,
 .footer-social,
@@ -53,9 +54,14 @@
     }
 
     a {
+      display: block;
       color: $white;
     }
   }
+}
+
+.footer-tags {
+  margin-bottom: 3rem;
 }
 
 .footer-legal {

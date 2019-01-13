@@ -3,4 +3,19 @@
 section.parallax#parallax
   .parallax-window
     .parallax-mask
-    img.img-parallax#bg-parallax(src="images/hero-unit/grass_field_dawn.jpg" data-speed="1" alt="call-to-action")
+    img.img-parallax#bg-parallax(
+      src="images/hero-unit/grass_field_dawn.jpg"
+      data-speed=".5" alt="good-morning")
+
+    //- Option with lozad
+    //- picture.lozad-picture.img-parallax#bg-parallax(
+    //-   data-iesrc="images/hero-unit/grass_field_dawn.jpg" data-speed=".3" alt="good-morning")
+    //-   source(type="image/webp" srcset="images/hero-unit/grass_field_dawn.webp")
+    //-   source(type="image/jpeg" srcset="images/hero-unit/grass_field_dawn.jpg")
+    //-   noscript: img(src="images/hero-unit/grass_field_dawn.jpg" alt="Good Morning")
+
+    //- Option with picture
+    //- picture.img-parallax#bg-parallax(data-speed=".3" alt="good-morning")
+    //-   source(type="image/webp" srcset="images/hero-unit/grass_field_dawn.webp")
+    //-   source(type="image/jpeg" srcset="images/hero-unit/grass_field_dawn.jpg")
+    //-   img(src="images/hero-unit/grass_field_dawn.jpg" alt="Good Morning")
