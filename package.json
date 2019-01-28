@@ -16,7 +16,7 @@
   "devDependencies": {
     "@babel/cli": "^7.2.3",
     "@babel/core": "^7.2.2",
-    "@babel/preset-env": "^7.2.3",
+    "@babel/preset-env": "^7.3.1",
     "ansi-colors": "^3.2.3",
     "babel-eslint": "^10.0.1",
     "beeper": "^1.1.1",
@@ -48,7 +48,7 @@
     "gulp-sass": "^4.0.2",
     "gulp-stylelint": "^8.0.0",
     "gulp-uglify": "^3.0.1",
-    "gulp-webp": "^4.0.0",
+    "gulp-webp": "^4.0.1",
     "pug-lint": "^2.5.0",
     "stylelint": "^9.10.1",
     "stylelint-config-standard": "^18.2.0",
