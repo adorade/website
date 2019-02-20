@@ -28,3 +28,25 @@
   //   justify-content: center;
   // }
 }
+
+.technologies {
+  // @include gradient-radial-circle-bottom(rgba($black, .3), rgba($black, .9));
+  padding: 3rem 1.5rem;
+  margin-right: 0;
+  margin-left: 0;
+  background-color: #fff;
+
+  h2 {
+    color: #777;
+  }
+
+  img {
+    width: 40px;
+    max-width: 100%;
+    height: auto;
+    margin: 0 30px 35px 0;
+    border: none;
+    border-radius: 0;
+    opacity: .5;
+  }
+}
