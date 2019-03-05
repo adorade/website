@@ -68,7 +68,7 @@ const opts = {
     minifyJS: true,
     removeAttributeQuotes: true,
     removeComments: true,
-    removeEmptyAttributes: true,
+    // removeEmptyAttributes: true,
     removeRedundantAttributes: true,
     removeScriptTypeAttributes: true,
     removeStyleLinkTypeAttributes: true
