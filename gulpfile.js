@@ -122,7 +122,7 @@ task('vendor:scripts', () => {
     .pipe(bs.stream({ match: '**/*.min.js' }));
 });
 task('lint:scripts', () => {
-  const outputDir = 'logs/gulp';
+  const outputDir = paths.logs.gulp;
   fs.mkdirSync(`${outputDir}`, { recursive: true });
   const output = fs.createWriteStream( `${outputDir}/scripts.txt` );
 

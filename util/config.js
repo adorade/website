@@ -9,10 +9,12 @@ const dirs = {
   root: './',
   src: 'src',
   build: 'build',
+  dest: 'dist',
   test: 'test',
-  deploy: './.publish',
-  dest: 'dist'
+  deploy: '.publish',
+  logs: 'logs'
 };
+
 const paths = {
   styles: {
     src: `${dirs.src}/scss/**/*.scss`,
@@ -53,6 +55,9 @@ const paths = {
   },
   test: {
     js: `${dirs.test}/js/`
+  },
+  logs: {
+    gulp: `${dirs.logs}/gulp/`
   }
 };
 
