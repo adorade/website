@@ -7,7 +7,7 @@
 'use strict';
 
 // Require gulp v4
-const { src, dest, task, series, parallel, lastRun, watch } = require('gulp');
+const { src, dest, task, series, parallel, lastRun, watch, tree } = require('gulp');
 
 // Load all plugins in "devDependencies" into the variable $
 const $ = require('gulp-load-plugins')({
@@ -32,21 +32,21 @@ const http2 = require('http2');
  * Dirs and Paths
  * ----------------------------------------------------------------------------
  */
-const { dirs, paths } = require('./util/config');
+const { dirs, paths } = require('./.tools/config');
 
 /**
  * ----------------------------------------------------------------------------
  * Options and Settings
  * ----------------------------------------------------------------------------
  */
-const { opts } = require('./util/options');
+const { opts } = require('./.tools/options');
 
 /**
  * ----------------------------------------------------------------------------
  * Template for banner to add to file headers
  * ----------------------------------------------------------------------------
  */
-const banner = require('./util/banner');
+const banner = require('./.tools/banner');
 
 /**
  * ----------------------------------------------------------------------------
@@ -358,3 +358,17 @@ task('dev', series('build', 'serve'));
  * ----------------------------------------------------------------------------
  */
 task('default', parallel('dev'));
+
+/**
+ * ----------------------------------------------------------------------------
+ * Check dirs, paths, options and settings
+ * ----------------------------------------------------------------------------
+ */
+task('checks', (done) => {
+  const gulpTree = tree();
+  $.fancyLog(`${green('Gulp Tasks:\n')}`, gulpTree.nodes);
+  $.fancyLog(`${magenta('Directories configuration:\n')}`, dirs);
+  $.fancyLog(`${magenta('Paths configuration:\n')}`, paths);
+  $.fancyLog(`${magenta('Options configuration:\n')}`, opts);
+  done();
+});
