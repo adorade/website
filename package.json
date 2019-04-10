@@ -19,7 +19,6 @@
     "@babel/preset-env": "^7.4.3",
     "ansi-colors": "^3.2.4",
     "babel-eslint": "^10.0.1",
-    "beeper": "^1.1.1",
     "browser-sync": "^2.26.3",
     "del": "^4.1.0",
     "eslint": "^5.16.0",
