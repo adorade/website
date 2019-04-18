@@ -51,7 +51,7 @@
     "pug-lint": "^2.5.0",
     "stylelint": "^10.0.1",
     "stylelint-config-standard": "^18.3.0",
-    "stylelint-order": "^2.2.1",
+    "stylelint-order": "^3.0.0",
     "stylelint-scss": "^3.5.4"
   },
   "engines": {
