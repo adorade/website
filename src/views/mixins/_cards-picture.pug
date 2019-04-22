@@ -1,0 +1,16 @@
+//- mixins/_cards-picture.pug
+
+//- Cards Picture
+//------------------------
+//- include ../path/to/mixins/_cards-picture
+//- Usage: +cardsPicture("name", "alt")
+mixin cardsPicture(name, alt)
+  //- For an element to be caught, add a block type that is different from the inline and some min-height for correct caught into view
+  //- picture.lozad(style="display: block; min-height: 1rem" data-iesrc="images/thumbs/04.jpg" data-alt="")
+  picture.lozad-picture.card-img.img-fluid(data-iesrc="images/cards/" + name + ".jpg")
+    source(type="image/webp" srcset="images/cards/" + name + ".webp")
+    source(type="image/jpeg" srcset="images/cards/" + name + ".jpg")
+    //- NO img element
+    //- instead of img element, there will be the last source with the minimum dimensions
+    //- for disabled JS you can set <noscript><img src="images/thumbs/04.jpg" alt=""></noscript>
+    noscript: img(src="images/cards/" + name + ".jpg" alt=alt)
