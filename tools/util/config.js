@@ -1,11 +1,10 @@
 /*!
- * Adorade (v1.0.0): config.js
+ * Adorade (v1.0.0): tools/util/config.js
  * Copyright (c) 2018 Adorade (https://adorade.ro)
  * Licensed under MIT
- * ============================================================================
- */
+ * ========================================================================== */
 
-const dirs = {
+export const dirs = {
   root: './',
   src: 'src',
   build: 'build',
@@ -15,7 +14,7 @@ const dirs = {
   logs: 'logs'
 };
 
-const paths = {
+export const paths = {
   styles: {
     src: `${dirs.src}/scss/**/*.scss`,
     dest: `${dirs.dest}/css/`,
@@ -59,8 +58,4 @@ const paths = {
   logs: {
     gulp: `${dirs.logs}/gulp/`
   }
-};
-
-module.exports = {
-  dirs, paths
 };

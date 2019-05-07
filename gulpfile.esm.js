@@ -1,13 +1,11 @@
 /*!
- * Adorade (v1.0.0): gulpfile.js
+ * Adorade (v1.0.0): gulpfile.esm.js
  * Copyright (c) 2019 Adorade (https://adorade.ro)
  * Licensed under MIT
- * ============================================================================
- */
-'use strict';
+ * ========================================================================== */
 
 // Require gulp v4
-const { src, dest, task, series, parallel, lastRun, watch, tree } = require('gulp');
+import { src, dest, task, series, parallel, lastRun, watch, tree } from 'gulp';
 
 // Load all plugins in "devDependencies" into the variable $
 const $ = require('gulp-load-plugins')({
@@ -20,49 +18,32 @@ const $ = require('gulp-load-plugins')({
   }
 });
 
-const { bgBlue, bgRed, green, magenta, red } = require('ansi-colors');
+import { bgBlue, bgRed, green, magenta, red } from 'ansi-colors';
+import fs from 'fs';
+import http2 from 'http2';
 const bs = require('browser-sync').create();
-const fs = require('fs');
-const http2 = require('http2');
-
-// For debugging usage: .pipe($.debug({ title: 'unicorn:' }))
 
 /**
- * ----------------------------------------------------------------------------
- * Dirs and Paths
- * ----------------------------------------------------------------------------
- */
-const { dirs, paths } = require('./.tools/config');
+ * For debugging usage:
+ * .pipe($.debug({ title: 'unicorn:' }))
+ * -------------------------------------------------------------------------- */
 
 /**
- * ----------------------------------------------------------------------------
- * Options and Settings
- * ----------------------------------------------------------------------------
- */
-const { opts } = require('./.tools/options');
+ * Dirs and Paths | Options and Settings | Template for banner
+ * -------------------------------------------------------------------------- */
+import { dirs, paths, opts, banner } from './tools/util';
 
 /**
- * ----------------------------------------------------------------------------
- * Template for banner to add to file headers
- * ----------------------------------------------------------------------------
- */
-const banner = require('./.tools/banner');
-
-/**
- * ----------------------------------------------------------------------------
  * Clean - clean all files from 'dist' folder
- * ----------------------------------------------------------------------------
- */
+ * -------------------------------------------------------------------------- */
 task('clean', () => {
   $.fancyLog(`${green('Clean all files')} in ${magenta(dirs.dest)} folder`);
   return $.del(dirs.dest);
 });
 
 /**
- * ----------------------------------------------------------------------------
  * Styles - processes style files
- * ----------------------------------------------------------------------------
- */
+ * -------------------------------------------------------------------------- */
 task('clean:styles', () => {
   $.fancyLog(`Clean all styles in ${magenta(paths.styles.dest)} folder`);
   return $.del(paths.styles.dest);
@@ -106,10 +87,8 @@ task('styles', parallel(
 task('build:styles', series('clean:styles', 'styles'));
 
 /**
- * ----------------------------------------------------------------------------
  * Scripts - processes script files
- * ----------------------------------------------------------------------------
- */
+ * -------------------------------------------------------------------------- */
 task('clean:scripts', () => {
   $.fancyLog(`Clean all scripts in ${magenta(paths.scripts.dest)} folder`);
   return $.del(paths.scripts.dest);
@@ -160,10 +139,8 @@ task('scripts', parallel(
 task('build:scripts', series('clean:scripts', 'scripts'));
 
 /**
- * ----------------------------------------------------------------------------
  * Images - processes image files
- * ----------------------------------------------------------------------------
- */
+ * -------------------------------------------------------------------------- */
 task('clean:images', () => {
   $.fancyLog(`Clean all images in ${magenta(paths.images.dest)} folder`);
   return $.del(paths.images.dest);
@@ -193,10 +170,8 @@ task('images', series('imagine', 'convert'));
 task('build:images', series('clean:images', 'images'));
 
 /**
- * ----------------------------------------------------------------------------
  * Statics - processes static files
- * ----------------------------------------------------------------------------
- */
+ * -------------------------------------------------------------------------- */
 task('clean:statics', () => {
   $.fancyLog(`Clean all statics in ${magenta(paths.statics.dest)} folder`);
   return $.del(paths.statics.dest);
@@ -212,10 +187,8 @@ task('statics', parallel('statica'));
 task('build:statics', series('clean:statics', 'statica'));
 
 /**
- * ----------------------------------------------------------------------------
  * Templates - processes templates files
- * ----------------------------------------------------------------------------
- */
+ * -------------------------------------------------------------------------- */
 task('clean:pages', () => {
   $.fancyLog(`Clean all pages in ${magenta(paths.views.dest)} folder`);
   return $.del(paths.views.del);
@@ -246,10 +219,8 @@ task('pages', series('lint:pages', 'pagile'));
 task('build:pages', series('clean:pages', 'pages'));
 
 /**
- * ----------------------------------------------------------------------------
  * Deploy to GitHub Pages
- * ----------------------------------------------------------------------------
- */
+ * -------------------------------------------------------------------------- */
 task('clean:deploy', () => {
   $.fancyLog(`${green('Clean up')} ${magenta(dirs.deploy)} folder`);
   return $.del(dirs.deploy);
@@ -262,12 +233,10 @@ task('deploy', () => {
 task('build:deploy', series('clean:deploy', 'deploy'));
 
 /**
- * ----------------------------------------------------------------------------
  * Watch and Serve - watch files for changes and reload
  * Starts a BrowerSync instance
  * Watch files for changes
- * ----------------------------------------------------------------------------
- */
+ * -------------------------------------------------------------------------- */
 task('serve', () => {
   bs.init({
     server: {
@@ -335,35 +304,26 @@ task('serve', () => {
 });
 
 /**
- * ----------------------------------------------------------------------------
  * Define `build` task - Specify if tasks run in series or parallel
- * Builds the documentation and framework files
- * ----------------------------------------------------------------------------
- */
+ * -------------------------------------------------------------------------- */
 task('build', series(
   'clean', 'styles', 'scripts', 'images', 'statics', 'pages'
 ));
 
 /**
- * ----------------------------------------------------------------------------
  * Define `dev` task - build, edit source, reload
  * Runs all of the above tasks and then waits for files to change
- * ----------------------------------------------------------------------------
- */
+ * -------------------------------------------------------------------------- */
 task('dev', series('build', 'serve'));
 
 /**
- * ----------------------------------------------------------------------------
  * Define default task that can be called by just running `gulp` from cli
- * ----------------------------------------------------------------------------
- */
+ * -------------------------------------------------------------------------- */
 task('default', parallel('dev'));
 
 /**
- * ----------------------------------------------------------------------------
  * Check dirs, paths, options and settings
- * ----------------------------------------------------------------------------
- */
+ * -------------------------------------------------------------------------- */
 task('checks', (done) => {
   const gulpTree = tree();
   $.fancyLog(`${green('Gulp Tasks:\n')}`, gulpTree.nodes);

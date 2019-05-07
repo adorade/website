@@ -33,9 +33,9 @@
     "overrides": [
         {
             "files": [
-                "gulpfile.js",
+                "gulpfile.esm.js",
                 "**/vendor/js/**/*.js",
-                "util/**/*.js"
+                "tools/**/*.js"
             ],
             "rules": {
                 "semi": ["error", "always"]

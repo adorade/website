@@ -1,9 +1,8 @@
 /*!
- * Adorade (v1.0.0): options.js
+ * Adorade (v1.0.0): tools/util/options.js
  * Copyright (c) 2018 Adorade (https://adorade.ro)
  * Licensed under MIT
- * ============================================================================
- */
+ * ========================================================================== */
 
 const { dirs, paths } = require('./config');
 
@@ -11,7 +10,7 @@ const dates = new Date(
   process.env.SOURCE_DATE_EPOCH ? process.env.SOURCE_DATE_EPOCH * 1000 : new Date().getTime()
 ).toDateString();
 
-const opts = {
+export const opts = {
   styles: {
     failAfterError: true,
     reportOutputDir: paths.logs.gulp,
@@ -87,8 +86,4 @@ const opts = {
   watch: {
     delay: 2000
   }
-};
-
-module.exports = {
-  opts
 };
