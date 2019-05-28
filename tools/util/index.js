@@ -1,13 +1,20 @@
 /*!
  * Adorade (v1.0.0): tools/util/index.js
- * Copyright (c) 2018 Adorade (https://adorade.ro)
+ * Copyright (c) 2018 - 2019 Adorade (https://adorade.ro)
  * Licensed under MIT
  * ========================================================================== */
+
+// Load plugins
+export {
+  src, dest, series, parallel, lastRun, watch, tree,
+  bgBlue, bgRed, green, magenta, red,
+  $, bs, fs, http2
+} from './plugins';
 
 // Configuration
 export { dirs, paths } from './config';
 
-// Options and Settings
+// Options
 export { opts } from './options';
 
 // Template for banner to add to file headers

@@ -1,10 +1,10 @@
 /*!
  * Adorade (v1.0.0): tools/util/options.js
- * Copyright (c) 2018 Adorade (https://adorade.ro)
+ * Copyright (c) 2018 - 2019 Adorade (https://adorade.ro)
  * Licensed under MIT
  * ========================================================================== */
 
-const { dirs, paths } = require('./config');
+import { dirs, paths } from './config';
 
 const dates = new Date(
   process.env.SOURCE_DATE_EPOCH ? process.env.SOURCE_DATE_EPOCH * 1000 : new Date().getTime()

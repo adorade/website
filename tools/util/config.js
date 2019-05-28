@@ -1,6 +1,6 @@
 /*!
  * Adorade (v1.0.0): tools/util/config.js
- * Copyright (c) 2018 Adorade (https://adorade.ro)
+ * Copyright (c) 2018 - 2019 Adorade (https://adorade.ro)
  * Licensed under MIT
  * ========================================================================== */
 
