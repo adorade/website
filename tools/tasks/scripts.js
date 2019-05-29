@@ -47,19 +47,23 @@ export function transpile() {
     sourcemaps: true,
     since: lastRun(transpile)
   })
-    // Transpile
     .pipe($.babel(opts.babel))
     .pipe($.header(banner()))
     .pipe(dest(paths.scripts.dest, { sourcemaps: './maps' }))
-    .pipe(bs.stream({ match: '**/*.js' }))
+    .pipe(bs.stream({ match: '**/*.js' }));
+}
+transpile.displayName = 'transpile';
+transpile.description = '';
 
-    // Minify
-    .pipe($.filter(paths.scripts.filter))
+export function minScripts() {
+  return src(paths.scripts.filter, {
+    since: lastRun(minScripts)
+  })
     .pipe($.uglify(opts.uglify))
     .pipe($.rename({ extname: '.min.js' }))
     .pipe($.header(banner()))
     .pipe(dest(paths.scripts.dest))
     .pipe(bs.stream({ match: '**/*.min.js' }));
 }
-transpile.displayName = 'transpile';
-transpile.description = '';
+minScripts.displayName = 'min:scripts';
+minScripts.description = '';

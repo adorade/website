@@ -6,7 +6,8 @@
 
 import { series, watch, $, bs, http2, magenta, green, red, bgBlue, bgRed, paths, opts, dirs } from '../util';
 import {
-  lintStyles, compile, lintScripts, transpile,
+  lintStyles, compile, minStyles,
+  lintScripts, transpile, minScripts,
   imagine, convert, statica, lintPages, pagile
 } from './';
 
@@ -31,12 +32,12 @@ export function serve() {
     {
       name: 'Styles',
       paths: paths.styles.src,
-      tasks: [lintStyles, compile]
+      tasks: [lintStyles, compile, minStyles]
     },
     {
       name: 'Scripts',
       paths: paths.scripts.src,
-      tasks: [lintScripts, transpile]
+      tasks: [lintScripts, transpile, minScripts]
     },
     {
       name: 'Images',

@@ -39,20 +39,24 @@ export function compile() {
   return src(paths.styles.src, {
     sourcemaps: true
   })
-    // Compile
     .pipe($.sass(opts.sass).on('error', $.sass.logError))
     .pipe($.autoprefixer(opts.autoprefixer))
     .pipe($.header(banner()))
     .pipe(dest(paths.styles.dest, { sourcemaps: './maps' }))
-    .pipe(bs.stream({ match: '**/*.css' }))
+    .pipe(bs.stream({ match: '**/*.css' }));
+}
+compile.displayName = 'compile';
+compile.description = '';
 
-    // Minify
-    .pipe($.filter(paths.styles.filter))
+export function minStyles() {
+  return src(paths.styles.filter, {
+    since: lastRun(minStyles)
+  })
     .pipe($.csso(opts.csso))
     .pipe($.rename({ extname: '.min.css' }))
     .pipe($.header(banner()))
     .pipe(dest(paths.styles.dest))
     .pipe(bs.stream({ match: '**/*.min.css' }));
 }
-compile.displayName = 'compile';
-compile.description = '';
+minStyles.displayName = 'min:styles';
+minStyles.description = '';

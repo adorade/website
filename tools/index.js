@@ -5,12 +5,12 @@
  * ========================================================================== */
 
 export {
-  checks, clean,                                          // Checks and Clean
-  cleanStyles, vendorStyles, lintStyles, compile,         // Styles
-  cleanScripts, vendorScripts, lintScripts, transpile,    // Scripts
-  cleanImages, imagine, convert,                          // Images
-  cleanStatics, statica,                                  // Statics
-  cleanPages, lintPages, pagile,                          // Pages
-  cleanDeploy, deploy,                                    // Deploy
-  serve                                                   // Serve and Watch
+  checks, clean,                                                    // Checks and Clean
+  cleanStyles, vendorStyles, lintStyles, compile, minStyles,        // Styles
+  cleanScripts, vendorScripts, lintScripts, transpile, minScripts,  // Scripts
+  cleanImages, imagine, convert,                                    // Images
+  cleanStatics, statica,                                            // Statics
+  cleanPages, lintPages, pagile,                                    // Pages
+  cleanDeploy, deploy,                                              // Deploy
+  serve                                                             // Serve and Watch
 } from './tasks';

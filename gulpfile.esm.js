@@ -6,8 +6,8 @@
 
 import { series, parallel } from './tools/util';
 import {
-  checks, clean, cleanStyles, vendorStyles, lintStyles, compile,
-  cleanScripts, vendorScripts, lintScripts, transpile,
+  checks, clean, cleanStyles, vendorStyles, lintStyles, compile, minStyles,
+  cleanScripts, vendorScripts, lintScripts, transpile, minScripts,
   cleanImages, imagine, convert, cleanStatics, statica,
   cleanPages, lintPages, pagile, cleanDeploy, deploy, serve
 } from './tools';
@@ -20,13 +20,13 @@ export { clean };
 /**
  * Styles - processes style files
  * -------------------------------------------------------------------------- */
-const styles = series(vendorStyles, lintStyles, compile);
+const styles = series(vendorStyles, lintStyles, compile, minStyles);
 export const buildStyles = series(cleanStyles, styles);
 
 /**
  * Scripts - processes script files
  * -------------------------------------------------------------------------- */
-const scripts = series(vendorScripts, lintScripts, transpile);
+const scripts = series(vendorScripts, lintScripts, transpile, minScripts);
 export const buildScripts = series(cleanScripts, scripts);
 
 /**
