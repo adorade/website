@@ -9,31 +9,31 @@ import { src, dest, lastRun, $, bs, magenta, paths, opts, banner } from '../util
 // For debugging usage:
 // .pipe($.debug({ title: 'unicorn:' }))
 
-export function cleanStyles() {
+export function cleanCss() {
   $.fancyLog(`Clean all styles in ${magenta(paths.styles.dest)} folder`);
   return $.del(paths.styles.dest);
 }
-cleanStyles.displayName = 'clean:styles';
-cleanStyles.description = '';
+cleanCss.displayName = 'clean:css';
+cleanCss.description = '';
 
-export function vendorStyles() {
+export function vendorCss() {
   return src(paths.vendor.src.css, {
-    since: lastRun(vendorStyles)
+    since: lastRun(vendorCss)
   })
     .pipe(dest(paths.vendor.dest.css))
     .pipe(bs.stream({ match: '**/*.min.css' }));
 }
-vendorStyles.displayName = 'vendor:styles';
-vendorStyles.description = '';
+vendorCss.displayName = 'vendor:css';
+vendorCss.description = '';
 
-export function lintStyles() {
+export function lintScss() {
   return src(paths.styles.src, {
-    since: lastRun(lintStyles)
+    since: lastRun(lintScss)
   })
     .pipe($.gStylelint(opts.styles));
 }
-lintStyles.displayName = 'lint:styles';
-lintStyles.description = '';
+lintScss.displayName = 'lint:scss';
+lintScss.description = '';
 
 export function compile() {
   return src(paths.styles.src, {
@@ -48,9 +48,9 @@ export function compile() {
 compile.displayName = 'compile';
 compile.description = '';
 
-export function minStyles() {
+export function minify() {
   return src(paths.styles.filter, {
-    since: lastRun(minStyles)
+    since: lastRun(minify)
   })
     .pipe($.csso(opts.csso))
     .pipe($.rename({ extname: '.min.css' }))
@@ -58,5 +58,5 @@ export function minStyles() {
     .pipe(dest(paths.styles.dest))
     .pipe(bs.stream({ match: '**/*.min.css' }));
 }
-minStyles.displayName = 'min:styles';
-minStyles.description = '';
+minify.displayName = 'min:css';
+minify.description = '';
