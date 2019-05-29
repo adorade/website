@@ -13,6 +13,11 @@ import {
 } from './tools';
 
 /**
+ * Check dirs, paths, options and settings
+ * -------------------------------------------------------------------------- */
+export { checks };
+
+/**
  * Clean - clean all files from 'dist' folder
  * -------------------------------------------------------------------------- */
 export { clean };
@@ -83,15 +88,10 @@ build.description = 'Build task for production';
  * Define `dev` task - build, edit source, reload
  * Runs all of the above tasks and then waits for files to change
  * -------------------------------------------------------------------------- */
-export const dev = series(build, serve);
+const dev = series(build, serve);
 dev.description = 'Development task with serve';
 
 /**
  * Define default task that can be called by just running `gulp` from cli
  * -------------------------------------------------------------------------- */
 export default dev;
-
-/**
- * Check dirs, paths, options and settings
- * -------------------------------------------------------------------------- */
-export { checks };
