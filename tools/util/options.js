@@ -75,6 +75,10 @@ export const opts = {
   inline: {
     rootpath: `${dirs.dest}/`
   },
+  size: {
+    gzip: true,
+    showFiles: true
+  },
   deploy: {
     remoteUrl: 'https://github.com/adorade/adorade.github.io.git',
     // branch: 'gh-pages',

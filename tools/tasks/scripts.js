@@ -4,66 +4,74 @@
  * Licensed under MIT
  * ========================================================================== */
 
-import { src, dest, lastRun, $, bs, fs, magenta, paths, opts, banner } from '../util';
+import { src, dest, lastRun, $, bs, fs, magenta, green, paths, opts, banner } from '../util';
 
 // For debugging usage:
 // .pipe($.debug({ title: 'unicorn:' }))
 
-export function cleanScripts() {
-  $.fancyLog(`Clean all scripts in ${magenta(paths.scripts.dest)} folder`);
+export function cleanJs() {
+  $.fancyLog(`-> Clean all scripts in ${magenta(paths.scripts.dest)} folder`);
   return $.del(paths.scripts.dest);
 }
-cleanScripts.displayName = 'clean:scripts';
-cleanScripts.description = '';
+cleanJs.displayName = 'clean:js';
+cleanJs.description = 'Clean up scripts folders';
 
-export function vendorScripts() {
+export function vendorJs() {
+  $.fancyLog(`${green('-> Copying vendor JS files...')}`);
   return src(paths.vendor.src.js, {
-    since: lastRun(vendorScripts)
+    since: lastRun(vendorJs)
   })
+    .pipe($.size(opts.size))
     .pipe(dest(paths.vendor.dest.js))
     .pipe(bs.stream({ match: '**/*.min.js' }));
 }
-vendorScripts.displayName = 'vendor:scripts';
-vendorScripts.description = '';
+vendorJs.displayName = 'vendor:js';
+vendorJs.description = 'Copy vendor JS files';
 
-export function lintScripts() {
+export function lintEs() {
+  $.fancyLog(`${green('-> Linting ES files...')}`);
+
   const outputDir = paths.logs.gulp;
   fs.mkdirSync(`${outputDir}`, { recursive: true });
   const output = fs.createWriteStream( `${outputDir}/scripts.txt` );
 
   return src(paths.scripts.src, {
-    since: lastRun(lintScripts)
+    since: lastRun(lintEs)
   })
     .pipe($.gEslint())
     .pipe($.gEslint.format())
     .pipe($.gEslint.format('stylish', output))
     .pipe($.gEslint.failAfterError());
 }
-lintScripts.displayName = 'lint:scripts';
-lintScripts.description = '';
+lintEs.displayName = 'lint:es';
+lintEs.description = 'Lint ES files';
 
 export function transpile() {
+  $.fancyLog(`${green('-> Transpiling ES via Babel...')}`);
   return src(paths.scripts.src, {
     sourcemaps: true,
     since: lastRun(transpile)
   })
     .pipe($.babel(opts.babel))
     .pipe($.header(banner()))
+    .pipe($.size(opts.size))
     .pipe(dest(paths.scripts.dest, { sourcemaps: './maps' }))
     .pipe(bs.stream({ match: '**/*.js' }));
 }
-transpile.displayName = 'transpile';
-transpile.description = '';
+transpile.displayName = 'transpile:es';
+transpile.description = 'Transpile ES via Babel';
 
-export function minScripts() {
+export function uglify() {
+  $.fancyLog(`${green('-> Minify JS...')}`);
   return src(paths.scripts.filter, {
-    since: lastRun(minScripts)
+    since: lastRun(uglify)
   })
     .pipe($.uglify(opts.uglify))
     .pipe($.rename({ extname: '.min.js' }))
     .pipe($.header(banner()))
+    .pipe($.size(opts.size))
     .pipe(dest(paths.scripts.dest))
     .pipe(bs.stream({ match: '**/*.min.js' }));
 }
-minScripts.displayName = 'min:scripts';
-minScripts.description = '';
+uglify.displayName = 'min:js';
+uglify.description = 'Minify JS files';

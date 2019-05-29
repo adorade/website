@@ -8,7 +8,7 @@
   "repository": "https://github.com/adorade/website",
   "scripts": {
     "verify": "node -v && npm -v && yarn -v && git --version && gulp -v",
-    "dev": "gulp dev",
+    "dev": "gulp",
     "build": "gulp build",
     "deploy": "gulp build:deploy",
     "work": "gulp serve",
@@ -47,6 +47,7 @@
     "gulp-rename": "^1.4.0",
     "gulp-replace": "^1.0.0",
     "gulp-sass": "^4.0.2",
+    "gulp-size": "^3.0.0",
     "gulp-stylelint": "^9.0.0",
     "gulp-uglify": "^3.0.2",
     "gulp-webp": "^4.0.1",

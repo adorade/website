@@ -10,11 +10,11 @@ import { src, $, magenta, green, dirs, opts } from '../util';
 // .pipe($.debug({ title: 'unicorn:' }))
 
 export function cleanDeploy() {
-  $.fancyLog(`${green('Clean up')} ${magenta(dirs.deploy)} folder`);
+  $.fancyLog(`${green('-> Clean up')} ${magenta(dirs.deploy)} folder`);
   return $.del(dirs.deploy);
 }
 cleanDeploy.displayName = 'clean:deploy';
-cleanDeploy.description = '';
+cleanDeploy.description = 'Clean up deploy folder';
 
 export function deploy() {
   $.fancyLog(`${green('-> Deploy to GitHub Pages...')}`);
@@ -22,4 +22,4 @@ export function deploy() {
     .pipe($.ghPages(opts.deploy));
 }
 deploy.displayName = 'deploy';
-deploy.description = '';
+deploy.description = 'Deploy to GitHub Pages';

@@ -6,8 +6,8 @@
 
 import { series, watch, $, bs, http2, magenta, green, red, bgBlue, bgRed, paths, opts, dirs } from '../util';
 import {
-  lintStyles, compile, minStyles,
-  lintScripts, transpile, minScripts,
+  lintScss, compile, minify,
+  lintEs, transpile, uglify,
   imagine, convert, statica, lintPages, pagile
 } from './';
 
@@ -32,12 +32,12 @@ export function serve() {
     {
       name: 'Styles',
       paths: paths.styles.src,
-      tasks: [lintStyles, compile, minStyles]
+      tasks: [lintScss, compile, minify]
     },
     {
       name: 'Scripts',
       paths: paths.scripts.src,
-      tasks: [lintScripts, transpile, minScripts]
+      tasks: [lintEs, transpile, uglify]
     },
     {
       name: 'Images',
@@ -84,4 +84,4 @@ export function serve() {
   }
 }
 serve.displayName = 'serve:watch';
-serve.description = '';
+serve.description = 'Serve and Watch';

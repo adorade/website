@@ -4,59 +4,66 @@
  * Licensed under MIT
  * ========================================================================== */
 
-import { src, dest, lastRun, $, bs, magenta, paths, opts, banner } from '../util';
+import { src, dest, lastRun, $, bs, magenta, green, paths, opts, banner } from '../util';
 
 // For debugging usage:
 // .pipe($.debug({ title: 'unicorn:' }))
 
-export function cleanStyles() {
-  $.fancyLog(`Clean all styles in ${magenta(paths.styles.dest)} folder`);
+export function cleanCss() {
+  $.fancyLog(`-> Clean all styles in ${magenta(paths.styles.dest)} folder`);
   return $.del(paths.styles.dest);
 }
-cleanStyles.displayName = 'clean:styles';
-cleanStyles.description = '';
+cleanCss.displayName = 'clean:css';
+cleanCss.description = 'Clean up styles folders';
 
-export function vendorStyles() {
+export function vendorCss() {
+  $.fancyLog(`${green('-> Copying vendor CSS files...')}`);
   return src(paths.vendor.src.css, {
-    since: lastRun(vendorStyles)
+    since: lastRun(vendorCss)
   })
+    .pipe($.size(opts.size))
     .pipe(dest(paths.vendor.dest.css))
     .pipe(bs.stream({ match: '**/*.min.css' }));
 }
-vendorStyles.displayName = 'vendor:styles';
-vendorStyles.description = '';
+vendorCss.displayName = 'vendor:css';
+vendorCss.description = 'Copy vendor CSS files';
 
-export function lintStyles() {
+export function lintScss() {
+  $.fancyLog(`${green('-> Linting SCSS files...')}`);
   return src(paths.styles.src, {
-    since: lastRun(lintStyles)
+    since: lastRun(lintScss)
   })
     .pipe($.gStylelint(opts.styles));
 }
-lintStyles.displayName = 'lint:styles';
-lintStyles.description = '';
+lintScss.displayName = 'lint:scss';
+lintScss.description = 'Lint SCSS files';
 
 export function compile() {
+  $.fancyLog(`${green('-> Compiling SCSS...')}`);
   return src(paths.styles.src, {
     sourcemaps: true
   })
     .pipe($.sass(opts.sass).on('error', $.sass.logError))
     .pipe($.autoprefixer(opts.autoprefixer))
     .pipe($.header(banner()))
+    .pipe($.size(opts.size))
     .pipe(dest(paths.styles.dest, { sourcemaps: './maps' }))
     .pipe(bs.stream({ match: '**/*.css' }));
 }
-compile.displayName = 'compile';
-compile.description = '';
+compile.displayName = 'compile:scss';
+compile.description = 'Compile SCSS files';
 
-export function minStyles() {
+export function minify() {
+  $.fancyLog(`${green('-> Minify CSS...')}`);
   return src(paths.styles.filter, {
-    since: lastRun(minStyles)
+    since: lastRun(minify)
   })
     .pipe($.csso(opts.csso))
     .pipe($.rename({ extname: '.min.css' }))
     .pipe($.header(banner()))
+    .pipe($.size(opts.size))
     .pipe(dest(paths.styles.dest))
     .pipe(bs.stream({ match: '**/*.min.css' }));
 }
-minStyles.displayName = 'min:styles';
-minStyles.description = '';
+minify.displayName = 'min:css';
+minify.description = 'Minify CSS files';
