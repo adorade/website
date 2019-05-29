@@ -20,6 +20,7 @@ export function vendorJs() {
   return src(paths.vendor.src.js, {
     since: lastRun(vendorJs)
   })
+    .pipe($.size(opts.size))
     .pipe(dest(paths.vendor.dest.js))
     .pipe(bs.stream({ match: '**/*.min.js' }));
 }
@@ -49,6 +50,7 @@ export function transpile() {
   })
     .pipe($.babel(opts.babel))
     .pipe($.header(banner()))
+    .pipe($.size(opts.size))
     .pipe(dest(paths.scripts.dest, { sourcemaps: './maps' }))
     .pipe(bs.stream({ match: '**/*.js' }));
 }
@@ -62,6 +64,7 @@ export function uglify() {
     .pipe($.uglify(opts.uglify))
     .pipe($.rename({ extname: '.min.js' }))
     .pipe($.header(banner()))
+    .pipe($.size(opts.size))
     .pipe(dest(paths.scripts.dest))
     .pipe(bs.stream({ match: '**/*.min.js' }));
 }

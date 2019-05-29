@@ -38,6 +38,7 @@ export function pagile() {
     .pipe($.cached('pug_compile'))
     .pipe($.inlineSource(opts.inline))
     .pipe($.htmlmin(opts.html))
+    .pipe($.size(opts.size))
     .pipe(dest(paths.views.dest))
     .pipe(bs.stream({ match: '**/*.html' }));
 }

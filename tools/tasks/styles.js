@@ -20,6 +20,7 @@ export function vendorCss() {
   return src(paths.vendor.src.css, {
     since: lastRun(vendorCss)
   })
+    .pipe($.size(opts.size))
     .pipe(dest(paths.vendor.dest.css))
     .pipe(bs.stream({ match: '**/*.min.css' }));
 }
@@ -42,6 +43,7 @@ export function compile() {
     .pipe($.sass(opts.sass).on('error', $.sass.logError))
     .pipe($.autoprefixer(opts.autoprefixer))
     .pipe($.header(banner()))
+    .pipe($.size(opts.size))
     .pipe(dest(paths.styles.dest, { sourcemaps: './maps' }))
     .pipe(bs.stream({ match: '**/*.css' }));
 }
@@ -55,6 +57,7 @@ export function minify() {
     .pipe($.csso(opts.csso))
     .pipe($.rename({ extname: '.min.css' }))
     .pipe($.header(banner()))
+    .pipe($.size(opts.size))
     .pipe(dest(paths.styles.dest))
     .pipe(bs.stream({ match: '**/*.min.css' }));
 }

@@ -37,6 +37,7 @@ export function convert() {
     since: lastRun(convert)
   })
     .pipe($.webp(opts.images.webp))
+    .pipe($.size(opts.size))
     .pipe(dest(paths.images.dest))
     .pipe(bs.stream({ match: '**/*.{webp}' }));
 }

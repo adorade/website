@@ -4,7 +4,7 @@
  * Licensed under MIT
  * ========================================================================== */
 
-import { src, dest, lastRun, $, bs, magenta, paths } from '../util';
+import { src, dest, lastRun, $, bs, magenta, paths, opts } from '../util';
 
 // For debugging usage:
 // .pipe($.debug({ title: 'unicorn:' }))
@@ -20,6 +20,7 @@ export function statica() {
   return src(paths.statics.src, {
     since: lastRun(statica)
   })
+    .pipe($.size(opts.size))
     .pipe(dest(paths.statics.dest))
     .pipe(bs.stream({ match: '**/*.{ico,png,svg,xml,json,webmanifest}' }));
 }
