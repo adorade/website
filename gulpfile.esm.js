@@ -22,35 +22,47 @@ export { clean };
  * -------------------------------------------------------------------------- */
 const styles = series(vendorCss, lintScss, compile, minify);
 export const buildStyles = series(cleanCss, styles);
+buildStyles.displayName = 'build:styles';
+buildStyles.description = 'Build only styles files';
 
 /**
  * Scripts - processes script files
  * -------------------------------------------------------------------------- */
 const scripts = series(vendorJs, lintEs, transpile, uglify);
 export const buildScripts = series(cleanJs, scripts);
+buildScripts.displayName = 'build:scripts';
+buildScripts.description = 'Build only scripts files';
 
 /**
  * Images - processes image files
  * -------------------------------------------------------------------------- */
 const images = series(imagine, convert);
 export const buildImages = series(cleanImages, images);
+buildImages.displayName = 'build:images';
+buildImages.description = 'Build only images files';
 
 /**
  * Statics - processes static files
  * -------------------------------------------------------------------------- */
 const statics = parallel(statica);
 export const buildStatics = series(cleanStatics, statics);
+buildStatics.displayName = 'build:statics';
+buildStatics.description = 'Build statics files';
 
 /**
  * Templates - processes templates files
  * -------------------------------------------------------------------------- */
 const pages = series(lintPages, pagile);
 export const buildPages = series(cleanPages, pages);
+buildPages.displayName = 'build:pages';
+buildPages.description = 'Build only html files';
 
 /**
  * Deploy to GitHub Pages
  * -------------------------------------------------------------------------- */
 export const buildDeploy = series(cleanDeploy, deploy);
+buildDeploy.displayName = 'build:deploy';
+buildDeploy.description = 'Deploy to GitHub Pages';
 
 /**
  * Watch and Serve - watch files for changes and reload

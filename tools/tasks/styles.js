@@ -4,19 +4,20 @@
  * Licensed under MIT
  * ========================================================================== */
 
-import { src, dest, lastRun, $, bs, magenta, paths, opts, banner } from '../util';
+import { src, dest, lastRun, $, bs, magenta, green, paths, opts, banner } from '../util';
 
 // For debugging usage:
 // .pipe($.debug({ title: 'unicorn:' }))
 
 export function cleanCss() {
-  $.fancyLog(`Clean all styles in ${magenta(paths.styles.dest)} folder`);
+  $.fancyLog(`-> Clean all styles in ${magenta(paths.styles.dest)} folder`);
   return $.del(paths.styles.dest);
 }
 cleanCss.displayName = 'clean:css';
-cleanCss.description = '';
+cleanCss.description = 'Clean up styles folders';
 
 export function vendorCss() {
+  $.fancyLog(`${green('-> Copying vendor CSS files...')}`);
   return src(paths.vendor.src.css, {
     since: lastRun(vendorCss)
   })
@@ -25,18 +26,20 @@ export function vendorCss() {
     .pipe(bs.stream({ match: '**/*.min.css' }));
 }
 vendorCss.displayName = 'vendor:css';
-vendorCss.description = '';
+vendorCss.description = 'Copy vendor CSS files';
 
 export function lintScss() {
+  $.fancyLog(`${green('-> Linting SCSS files...')}`);
   return src(paths.styles.src, {
     since: lastRun(lintScss)
   })
     .pipe($.gStylelint(opts.styles));
 }
 lintScss.displayName = 'lint:scss';
-lintScss.description = '';
+lintScss.description = 'Lint SCSS files';
 
 export function compile() {
+  $.fancyLog(`${green('-> Compiling SCSS...')}`);
   return src(paths.styles.src, {
     sourcemaps: true
   })
@@ -47,10 +50,11 @@ export function compile() {
     .pipe(dest(paths.styles.dest, { sourcemaps: './maps' }))
     .pipe(bs.stream({ match: '**/*.css' }));
 }
-compile.displayName = 'compile';
-compile.description = '';
+compile.displayName = 'compile:scss';
+compile.description = 'Compile SCSS files';
 
 export function minify() {
+  $.fancyLog(`${green('-> Minify CSS...')}`);
   return src(paths.styles.filter, {
     since: lastRun(minify)
   })
@@ -62,4 +66,4 @@ export function minify() {
     .pipe(bs.stream({ match: '**/*.min.css' }));
 }
 minify.displayName = 'min:css';
-minify.description = '';
+minify.description = 'Minify CSS files';

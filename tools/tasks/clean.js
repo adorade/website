@@ -7,7 +7,7 @@
 import { $, green, magenta, dirs } from '../util';
 
 export function clean() {
-  $.fancyLog(`${green('Clean all files')} in ${magenta(dirs.dest)} folder`);
+  $.fancyLog(`${green('-> Clean all files')} in ${magenta(dirs.dest)} folder`);
   return $.del(dirs.dest);
 }
 clean.displayName = 'clean:all';

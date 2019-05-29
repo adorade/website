@@ -4,19 +4,20 @@
  * Licensed under MIT
  * ========================================================================== */
 
-import { src, dest, lastRun, $, bs, fs, magenta, paths, opts } from '../util';
+import { src, dest, lastRun, $, bs, fs, magenta, green, paths, opts } from '../util';
 
 // For debugging usage:
 // .pipe($.debug({ title: 'unicorn:' }))
 
 export function cleanPages() {
-  $.fancyLog(`Clean all pages in ${magenta(paths.views.dest)} folder`);
+  $.fancyLog(`-> Clean all pages in ${magenta(paths.views.dest)} folder`);
   return $.del(paths.views.del);
 }
 cleanPages.displayName = 'clean:pages';
-cleanPages.description = '';
+cleanPages.description = 'Clean up html files';
 
 export function lintPages() {
+  $.fancyLog(`${green('-> Linting templates...')}`);
   return src(paths.views.all, {
     since: lastRun(lintPages)
   })
@@ -25,10 +26,12 @@ export function lintPages() {
     .pipe($.pugLinter({ failAfterError: true }));
 }
 lintPages.displayName = 'lint:pages';
-lintPages.description = '';
+lintPages.description = 'Lint pug (views) files';
 
 export function pagile() {
-  var dataFile = paths.views.datas + 'menu.json';
+  $.fancyLog(`${green('-> Generating Pages via Pug...')}`);
+
+  const dataFile = paths.views.datas + 'menu.json';
 
   return src(paths.views.src)
     .pipe($.data(() => {
@@ -42,5 +45,5 @@ export function pagile() {
     .pipe(dest(paths.views.dest))
     .pipe(bs.stream({ match: '**/*.html' }));
 }
-pagile.displayName = 'pagile';
-pagile.description = '';
+pagile.displayName = 'gen:pages';
+pagile.description = 'Generate Pages via Pug';

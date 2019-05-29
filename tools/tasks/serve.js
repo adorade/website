@@ -84,4 +84,4 @@ export function serve() {
   }
 }
 serve.displayName = 'serve:watch';
-serve.description = '';
+serve.description = 'Serve and Watch';
