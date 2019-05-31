@@ -11,3 +11,10 @@ block custom-css
   //- link(rel="stylesheet" href="css/style.min.css" media="screen")
   //- link#main-style(rel="stylesheet" href="css/style.css" media="screen" inline)
   link#main-style(rel="stylesheet" href="css/style.css" media="screen")
+
+block ccs-rel-preload
+  //- https://github.com/filamentgroup/loadCSS
+  //- Usage:
+  //- <link rel="preload" href="path/to/mystylesheet.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  //- <noscript><link rel="stylesheet" href="path/to/mystylesheet.css"></noscript>
+  script#css-rel-preload(src="js/vendor/cssrelpreload.min.js" inline)
