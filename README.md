@@ -13,40 +13,6 @@ This is the [website](https://adorade.ro/) of the project.
 
 > Once upon a time, we started a journey, to discover... to learn beautiful things.
 
-## What's included
-
-You'll find the following directories and files, logically grouping common assets. You'll see something like this:
-
-```
-src/
-├── es6/
-│   └── script.es6
-├── images/
-│   ├── cards/**/*.jpg
-│   ├── hero-unit/**/*.jpg
-│   ├── logo/**/*.png
-│   ├── share/**/*.jpg
-│   ├── top/**/*.jpg
-│   └── **/*.{gif,jpg,jpeg,png,svg}
-├── scss/
-│   ├── components/**/*.scss
-│   ├── includes/**/*.scss
-│   ├── unikorn/**/*.scss
-│   └── style.scss
-├── statics/
-├── vendor/
-│   ├── css/**/*.css
-│   └── js/**/*.js
-└── views/
-│   ├── data/**/*.json
-│   ├── includes/**/_*.pug
-│   ├── layout/**/_*.pug
-│   ├── mixins/**/_*.pug
-│   └── **/*.pug
-```
-
----
-
 ## License
 
 See the [LICENSE](LICENSE) file for license rights and limitations (MIT).
