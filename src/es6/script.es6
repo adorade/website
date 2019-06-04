@@ -85,18 +85,10 @@ $('document').ready(function() {
   }
   heroHeight()
 
-  // Set branding line-height
-  // ------------------------
-  function brandingLineHeight() {
-    $('.branding').css('line-height', $('.hero-unit').height() + 'px')
-  }
-  brandingLineHeight()
-
   // Re-Set on orientation change and window resize
   // ------------------------
   $(window).on('orientationchange resize', function() {
     heroHeight()
-    brandingLineHeight()
   })
 
   // Window Scroll

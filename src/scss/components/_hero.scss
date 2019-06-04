@@ -1,5 +1,5 @@
 //
-// Hero Unit and Scroller
+// Hero Unit
 // -----------------------------------------------------------------------------
 
 .hero-unit {
@@ -7,75 +7,85 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   width: 100%;
   height: 100vh;
   text-align: center;
-  box-shadow: 0 20px 30px rgba(0, 0, 0, .6);//
 
-  &::before,
-  &::after {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    content: "";
-  }
-
-  // Background
-  &::before {
-    z-index: -2;
-    background: url(../images/hero-unit/grass_field_dawn.jpg) center center / cover no-repeat;
-  }
-
-  // Black overlay
-  &::after {
-    z-index: -1;
-    @include gradient-radial-circle(rgba($black, .3), rgba($black, .9));
-  }
-
+  // Hero content
   .hero-content {
     display: flex;
     flex-direction: column;
+    align-items: center;
     justify-content: center;
-    width: 100%;
+    width: auto;
     height: 100%;
-
-    .branding {
-      background: url(../images/hero-unit/grass_field_dawn.jpg) center center / cover no-repeat;
-      color: $primary-color;
-      font-size: 10rem;
-      -webkit-background-clip: text; // stylelint-disable-line
-      -webkit-text-fill-color: transparent;
-    }
   }
 
-  @media (max-width: 767px) and (orientation: portrait) {
-    &::before {
-      z-index: -2;
-      background: url(../images/hero-unit/grass_field_dawn-portrait.jpg) center center / cover no-repeat;
+  // Clip text element
+  .clip-text {
+    color: $primary-color;
+    -webkit-background-clip: text; // stylelint-disable-line
+    -webkit-text-fill-color: transparent;
+
+    &::before,
+    &::after {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      content: "";
     }
 
+    // Background
+    &::before {
+      z-index: -2;
+      background-image: inherit;
+      background-position: inherit;
+      background-size: inherit;
+      background-repeat: inherit;
+      background-attachment: inherit;
+    }
+
+    // Overlay
     &::after {
       z-index: -1;
       @include gradient-radial-circle(rgba($black, .3), rgba($black, .9));
     }
+  }
 
-    .hero-content {
-      .branding {
-        background: url(../images/hero-unit/grass_field_dawn-portrait.jpg) center center / cover no-repeat;
-        font-size: 5rem;
-        -webkit-background-clip: text; // stylelint-disable-line
-      }
+  // Clip background element
+  .clip-bg {
+    background-image: url(../images/hero-unit/grass_field_dawn-portrait.jpg);
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    @media (min-width: 768px) {
+      background-image: url(../images/hero-unit/grass_field_dawn.jpg);
     }
   }
 
-  @media (max-width: 479px) and (orientation: portrait) {
-    .hero-content {
-      .branding {
-        font-size: 3rem;
-      }
+  // Main title
+  .branding {
+    width: 100%;
+    font-size: 3rem;
+    line-height: 1.5;
+    letter-spacing: -.025em;
+    animation: letterspace ease-in-out 2s infinite;
+
+    @media (min-width: 576px) {
+      font-size: 5rem;
+    }
+
+    @media (min-width: 768px) {
+      font-size: 7.5rem;
+    }
+
+    @media (min-width: 1200px) {
+      font-size: 10rem;
     }
   }
 }

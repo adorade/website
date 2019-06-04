@@ -10,7 +10,7 @@
 
   .scroll-down-icon {
     color: rgba(255, 255, 255, .7);
-    font-size: 4rem;
+    font-size: 3rem;
     transition: all .2s ease-in;
     cursor: pointer;
 
@@ -18,17 +18,15 @@
       color: rgba(255, 255, 255, 1);
     }
 
-    @media (max-width: 479px) and (orientation: portrait) {
-      font-size: 3rem;
+    @media (min-width: 576px) {
+      font-size: 4rem;
     }
   }
 
   .scroll {
     display: block;
     margin: 0 auto;
-    animation-name: scroll;
-    animation-duration: 2s;
-    animation-iteration-count: infinite;
+    animation: scroll ease-in-out 2s infinite;
 
     &:hover {
       animation: none;
