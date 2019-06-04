@@ -64,9 +64,10 @@ transpile.description = 'Transpile ES via Babel';
 export function uglify() {
   $.fancyLog(`${green('-> Minify JS...')}`);
   return src(paths.scripts.filter, {
-    since: lastRun(uglify)
+    // since: lastRun(uglify)
   })
     .pipe($.uglify(opts.uglify))
+    .pipe($.cached('min_js'))
     .pipe($.rename({ extname: '.min.js' }))
     .pipe($.header(banner()))
     .pipe($.size(opts.size))

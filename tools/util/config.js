@@ -18,12 +18,12 @@ export const paths = {
   styles: {
     src: `${dirs.src}/scss/**/*.scss`,
     dest: `${dirs.dest}/css/`,
-    filter: `${dirs.dest}/css/*.css`
+    filter: [ `${dirs.dest}/css/*.css`, '!**/*.min.css' ]
   },
   scripts: {
     src: `${dirs.src}/es6/**/*.es6`,
     dest: `${dirs.dest}/js/`,
-    filter: `${dirs.dest}/js/*.js`
+    filter: [ `${dirs.dest}/js/*.js`, '!**/*.min.js' ]
   },
   vendor: {
     src: {
@@ -45,7 +45,7 @@ export const paths = {
     dest: `${dirs.dest}/statics/`
   },
   views: {
-    src: [`${dirs.src}/views/**/*.pug`, `!${dirs.src}/views/**/_*.pug`],
+    src: [ `${dirs.src}/views/**/*.pug`, '!**/_*.pug' ],
     all: `${dirs.src}/views/**/*.pug`,
     data: `${dirs.src}/views/data/**/*.json`,
     datas: `${dirs.src}/views/data/`,
