@@ -56,9 +56,10 @@ compile.description = 'Compile SCSS files';
 export function minify() {
   $.fancyLog(`${green('-> Minify CSS...')}`);
   return src(paths.styles.filter, {
-    since: lastRun(minify)
+    // since: lastRun(minify)
   })
     .pipe($.csso(opts.csso))
+    .pipe($.cached('min_css'))
     .pipe($.rename({ extname: '.min.css' }))
     .pipe($.header(banner()))
     .pipe($.size(opts.size))
