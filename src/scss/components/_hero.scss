@@ -45,6 +45,7 @@
       background-position: inherit;
       background-size: inherit;
       background-repeat: inherit;
+      background-attachment: inherit;
     }
 
     // Overlay
@@ -60,6 +61,7 @@
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
+    background-attachment: fixed;
 
     @media (min-width: 768px) {
       background-image: url(../images/hero-unit/grass_field_dawn.jpg);
