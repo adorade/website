@@ -3,38 +3,14 @@
 // -----------------------------------------------------------------------------
 
 .card-deck {
-  margin: 0 0 3rem;//
-  // transform: translateY(-32%) translateX(57%) rotateX(55deg) rotateY(0deg) rotateZ(45deg);
-  // transform-style: preserve-3d;
-  // backface-visibility: hidden;
+  margin: 0 0 3rem;
 
   .card {
     margin: 3rem 0 0;
     border: 0 solid rgba(0, 0, 0, .125);
-    border-radius: .5rem;
-    box-shadow: 0 20px 30px rgba(0, 0, 0, .6);//
-    // box-shadow: 0 0 5px 1px rgba(0, 0, 0, .6);
-    // transform-style: preserve-3d;
-    // backface-visibility: hidden;
+    box-shadow: 0 20px 30px rgba(0, 0, 0, .6);
     opacity: 0;
     transition: opacity 5s;
-
-    // &:hover {
-    //   box-shadow: 0 0 10px 6px rgba(0, 0, 0, .6);
-
-    //   .card-img,
-    //   .card-d-flex {
-    //     transform-origin: center bottom;
-    //   }
-
-    //   .card-img {
-    //     transform: translate3d(0, 0, 30px);
-    //   }
-
-    //   .card-d-flex {
-    //     transform: translate3d(0, 0, 60px);
-    //   }
-    // }
   }
 
   @media (min-width: 768px) {
@@ -44,19 +20,11 @@
       margin: 2rem 1rem;
     }
   }
-
-  .card-img-top {
-    border-top-left-radius: .5rem;
-    border-top-right-radius: .5rem;
-  }
-
-  .card-body {
-    position: relative;
-  }
 }
 
-.card-img {
-  // transform: translate3d(0, 0, 20px);
+.card-img-overlay {
+  min-height: 20rem;
+  @include gradient-radial-circle(rgba(0, 0, 0, .3), rgba(0, 0, 0, .9));
 }
 
 .card-d-flex {
@@ -64,9 +32,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 20rem;
-  @include gradient-radial-circle(rgba(0, 0, 0, .3), rgba(0, 0, 0, .9));//
-  // transform: translate3d(0, 0, 40px);
 }
 
 .card-button {
@@ -86,7 +51,6 @@
   text-align: center;
   outline: 0 !important; // stylelint-disable-line
   box-shadow: 0 3px 10px rgba(0, 0, 0, .23), 0 3px 10px rgba(0, 0, 0, .16);//
-  // transition: background-color 100ms linear;
   transition: all 200ms ease;
   cursor: pointer;
 
@@ -108,7 +72,6 @@
 }
 
 .card-dark {
-  // background-color: $black;
   background-color: rgba($black, .6);
   color: $white;
 }
