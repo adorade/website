@@ -40,7 +40,7 @@
     "gulp-htmlmin": "^5.0.1",
     "gulp-imagemin": "^6.0.0",
     "gulp-inline-source": "^4.0.0",
-    "gulp-load-plugins": "^1.5.0",
+    "gulp-load-plugins": "^1.6.0",
     "gulp-order": "^1.2.0",
     "gulp-pug": "^4.0.1",
     "gulp-pug-linter": "^1.1.0",
@@ -55,7 +55,7 @@
     "stylelint": "^10.0.1",
     "stylelint-config-standard": "^18.3.0",
     "stylelint-order": "^3.0.0",
-    "stylelint-scss": "^3.6.1"
+    "stylelint-scss": "^3.8.0"
   },
   "engines": {
     "node": ">=8"
