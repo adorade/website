@@ -4,11 +4,19 @@
  * Licensed under MIT
  * ========================================================================== */
 
-import { $, green, magenta, dirs } from '../util';
+import { args, $, green, magenta, dirs } from '../util';
+
+let delTarget;
+
+if (args.production) {
+  delTarget = [`${dirs.dev}`, `${dirs.prod}`];
+} else {
+  delTarget = `${dirs.dev}`;
+}
 
 export function clean() {
-  $.fancyLog(`${green('-> Clean all files')} in ${magenta(dirs.dest)} folder`);
-  return $.del(dirs.dest);
+  $.fancyLog(`${green('-> Clean all files')} in ${magenta(delTarget)} folder`);
+  return $.del(delTarget);
 }
 clean.displayName = 'clean:all';
 clean.description = 'Clean up dist folders';

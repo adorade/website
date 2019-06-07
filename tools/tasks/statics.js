@@ -4,14 +4,16 @@
  * Licensed under MIT
  * ========================================================================== */
 
-import { src, dest, lastRun, $, bs, magenta, green, paths, opts } from '../util';
+import { src, dest, lastRun, args, $, bs, magenta, green, paths, opts } from '../util';
+
+const taskTarget = args.production ? paths.statics.prod : paths.statics.dev;
 
 // For debugging usage:
 // .pipe($.debug({ title: 'unicorn:' }))
 
 export function cleanStatics() {
-  $.fancyLog(`-> Clean all statics in ${magenta(paths.statics.dest)} folder`);
-  return $.del(paths.statics.dest);
+  $.fancyLog(`-> Clean all statics in ${magenta(taskTarget)} folder`);
+  return $.del(taskTarget);
 }
 cleanStatics.displayName = 'clean:statics';
 cleanStatics.description = 'Clean up statics folders';
@@ -22,7 +24,7 @@ export function statica() {
     since: lastRun(statica)
   })
     .pipe($.size(opts.size))
-    .pipe(dest(paths.statics.dest))
+    .pipe(dest(taskTarget))
     .pipe(bs.stream({ match: '**/*.{ico,png,svg,xml,json,webmanifest}' }));
 }
 statica.displayName = 'statica';

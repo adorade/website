@@ -3,8 +3,9 @@
 .extra
 dist
 node_modules
-test
 .publish
+test
+tmp
 
 # To do Tasks
 .TODO

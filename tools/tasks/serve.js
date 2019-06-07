@@ -4,17 +4,18 @@
  * Licensed under MIT
  * ========================================================================== */
 
-import { series, watch, $, bs, http2, magenta, green, red, bgBlue, bgRed, paths, opts, dirs } from '../util';
 import {
-  lintScss, compile, minify,
-  lintEs, transpile, uglify,
-  imagine, convert, statica, lintPages, pagile
+  series, watch, args, $, bs, http2, magenta, green, red, bgBlue, bgRed, paths, opts, dirs
+} from '../util';
+import {
+  lintScss, compile, minify, lintEs, transpile, uglify,
+  imagine, convert, statica, lintPages, pagile, pagify
 } from './';
 
 export function serve() {
   bs.init({
     server: {
-      baseDir: dirs.dest
+      baseDir: args.production ? dirs.prod : dirs.dev
     },
     port: 6969,
     logPrefix: 'Adorade',
@@ -53,11 +54,9 @@ export function serve() {
       name: 'Pages',
       paths: [
         paths.views.all,
-        paths.views.data,
-        paths.styles.dest + 'style.min.css',
-        paths.scripts.dest + 'script.min.js'
+        paths.views.data
       ],
-      tasks: [lintPages, pagile]
+      tasks: [lintPages, pagile, pagify]
     }
   ];
 
