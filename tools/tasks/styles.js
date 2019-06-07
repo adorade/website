@@ -4,14 +4,17 @@
  * Licensed under MIT
  * ========================================================================== */
 
-import { src, dest, lastRun, $, bs, magenta, green, paths, opts, banner } from '../util';
+import { src, dest, lastRun, args, $, bs, magenta, green, paths, opts, banner } from '../util';
+
+const taskTarget = args.production ? paths.styles.prod : paths.styles.dev;
+const vendorTarget = args.production ? paths.vendor.prod.css : paths.vendor.dev.css;
 
 // For debugging usage:
 // .pipe($.debug({ title: 'unicorn:' }))
 
 export function cleanCss() {
-  $.fancyLog(`-> Clean all styles in ${magenta(paths.styles.dest)} folder`);
-  return $.del(paths.styles.dest);
+  $.fancyLog(`-> Clean all styles in ${magenta(taskTarget)} folder`);
+  return $.del(taskTarget);
 }
 cleanCss.displayName = 'clean:css';
 cleanCss.description = 'Clean up styles folders';
@@ -22,7 +25,7 @@ export function vendorCss() {
     since: lastRun(vendorCss)
   })
     .pipe($.size(opts.size))
-    .pipe(dest(paths.vendor.dest.css))
+    .pipe(dest(vendorTarget))
     .pipe(bs.stream({ match: '**/*.min.css' }));
 }
 vendorCss.displayName = 'vendor:css';
@@ -47,24 +50,29 @@ export function compile() {
     .pipe($.autoprefixer(opts.autoprefixer))
     .pipe($.header(banner()))
     .pipe($.size(opts.size))
-    .pipe(dest(paths.styles.dest, { sourcemaps: './maps' }))
+    .pipe(dest(paths.styles.dev, { sourcemaps: './maps' }))
     .pipe(bs.stream({ match: '**/*.css' }));
 }
 compile.displayName = 'compile:scss';
 compile.description = 'Compile SCSS files';
 
-export function minify() {
-  $.fancyLog(`${green('-> Minify CSS...')}`);
-  return src(paths.styles.filter, {
-    // since: lastRun(minify)
-  })
-    .pipe($.csso(opts.csso))
-    .pipe($.cached('min_css'))
-    .pipe($.rename({ extname: '.min.css' }))
-    .pipe($.header(banner()))
-    .pipe($.size(opts.size))
-    .pipe(dest(paths.styles.dest))
-    .pipe(bs.stream({ match: '**/*.min.css' }));
+export function minify(done) {
+  if (args.production) {
+    $.fancyLog(`${green('-> Minify CSS...')}`);
+    return src(paths.styles.filter, {
+      // since: lastRun(minify)
+    })
+      .pipe($.csso(opts.csso))
+      // .pipe($.cached('min_css'))
+      .pipe($.rename({ extname: '.min.css' }))
+      .pipe($.size(opts.size))
+      .pipe(dest(paths.styles.prod))
+      .pipe(bs.stream({ match: '**/*.min.css' }));
+  } else {
+    $.fancyLog(`${green('-> No minify CSS...')}`);
+  }
+
+  done();
 }
 minify.displayName = 'min:css';
 minify.description = 'Minify CSS files';

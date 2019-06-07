@@ -4,6 +4,7 @@
  * Licensed under MIT
  * ========================================================================== */
 
+import { args } from './plugins';
 import { dirs, paths } from './config';
 
 const dates = new Date(
@@ -11,6 +12,9 @@ const dates = new Date(
 ).toDateString();
 
 export const opts = {
+  entry: {
+    inline: false
+  },
   styles: {
     failAfterError: true,
     reportOutputDir: paths.logs.gulp,
@@ -73,7 +77,7 @@ export const opts = {
     removeStyleLinkTypeAttributes: true
   },
   inline: {
-    rootpath: `${dirs.dest}/`
+    rootpath: args.production ? `${dirs.prod}/` : `${dirs.dev}/`
   },
   size: {
     gzip: true,

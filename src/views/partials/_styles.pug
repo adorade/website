@@ -7,10 +7,10 @@ block external-css
   //-   crossorigin="anonymous")
 
 block custom-css
-  //- link#inline-style(rel="stylesheet" href="css/style.min.css" media="screen" inline)
-  //- link(rel="stylesheet" href="css/style.min.css" media="screen")
-  //- link#main-style(rel="stylesheet" href="css/style.css" media="screen" inline)
-  link#main-style(rel="stylesheet" href="css/style.css" media="screen")
+  if entry.inline
+    link#inline-style(href="css/style.min.css" inline)
+  else
+    link#main-style(rel="stylesheet" href="css/style.css" media="screen")
 
 block ccs-rel-preload
   //- https://github.com/filamentgroup/loadCSS

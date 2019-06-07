@@ -4,14 +4,16 @@
  * Licensed under MIT
  * ========================================================================== */
 
-import { src, dest, lastRun, $, bs, magenta, green, paths, opts } from '../util';
+import { src, dest, lastRun, args, $, bs, magenta, green, paths, opts } from '../util';
+
+const taskTarget = args.production ? paths.images.prod : paths.images.dev;
 
 // For debugging usage:
 // .pipe($.debug({ title: 'unicorn:' }))
 
 export function cleanImages() {
-  $.fancyLog(`-> Clean all images in ${magenta(paths.images.dest)} folder`);
-  return $.del(paths.images.dest);
+  $.fancyLog(`-> Clean all images in ${magenta(taskTarget)} folder`);
+  return $.del(taskTarget);
 }
 cleanImages.displayName = 'clean:images';
 cleanImages.description = 'Clean up images folder';
@@ -27,7 +29,7 @@ export function imagine() {
       $.imagemin.optipng(opts.images.png),
       $.imagemin.svgo(opts.images.svg)
     ], { verbose: true }))
-    .pipe(dest(paths.images.dest))
+    .pipe(dest(taskTarget))
     .pipe(bs.stream({ match: '**/*.{gif,jpg,jpeg,png,svg}' }));
 }
 imagine.displayName = 'optimize:img';
@@ -40,7 +42,7 @@ export function convert() {
   })
     .pipe($.webp(opts.images.webp))
     .pipe($.size(opts.size))
-    .pipe(dest(paths.images.dest))
+    .pipe(dest(taskTarget))
     .pipe(bs.stream({ match: '**/*.{webp}' }));
 }
 convert.displayName = 'convert:img';

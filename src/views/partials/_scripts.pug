@@ -20,7 +20,7 @@ block external-js
 
 block custom-js
   script#unikorn(src="js/vendor/unikorn.min.js")
-  //- script#inline-script(src="js/script.min.js" inline)
-  //- script#main-script(src="js/script.min.js")
-  //- script#script(src="js/script.js" inline)
-  script#main-script(src="js/script.js")
+  if entry.inline
+    script#inline-script(src="js/script.min.js" inline)
+  else
+    script#main-script(src="js/script.js")

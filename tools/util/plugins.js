@@ -4,7 +4,7 @@
  * Licensed under MIT
  * ========================================================================== */
 
-// Load gulp's API
+// Importing specific gulp API functions lets us write them as series() instead of gulp.series()
 export { src, dest, task, series, parallel, lastRun, watch, tree } from 'gulp';
 
 // Load all plugins in "devDependencies" into the variable $
@@ -18,7 +18,12 @@ export const $ = require('gulp-load-plugins')({
   }
 });
 
+// Colors for fancy log
 export { bgBlue, bgRed, green, magenta, red } from 'ansi-colors';
+
+// Fetch command line arguments for development or production environment
+import minimist from 'minimist';
+export const args = minimist(process.argv.slice(2));
 
 // Load others modules
 export const bs = require('browser-sync').create();

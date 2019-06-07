@@ -10,7 +10,7 @@ export {
   cleanJs, vendorJs, lintEs, transpile, uglify,         // Scripts
   cleanImages, imagine, convert,                        // Images
   cleanStatics, statica,                                // Statics
-  cleanPages, lintPages, pagile,                        // Pages
+  cleanPages, lintPages, pagile, pagify,                // Pages
   cleanDeploy, deploy,                                  // Deploy
   serve                                                 // Serve and Watch
 } from './tasks';

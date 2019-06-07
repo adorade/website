@@ -4,14 +4,17 @@
  * Licensed under MIT
  * ========================================================================== */
 
-import { src, dest, lastRun, $, bs, fs, magenta, green, paths, opts, banner } from '../util';
+import { src, dest, lastRun, args, $, bs, fs, magenta, green, paths, opts, banner } from '../util';
+
+const taskTarget = args.production ? paths.scripts.prod : paths.scripts.dev;
+const vendorTarget = args.production ? paths.vendor.prod.js : paths.vendor.dev.js;
 
 // For debugging usage:
 // .pipe($.debug({ title: 'unicorn:' }))
 
 export function cleanJs() {
-  $.fancyLog(`-> Clean all scripts in ${magenta(paths.scripts.dest)} folder`);
-  return $.del(paths.scripts.dest);
+  $.fancyLog(`-> Clean all scripts in ${magenta(taskTarget)} folder`);
+  return $.del(taskTarget);
 }
 cleanJs.displayName = 'clean:js';
 cleanJs.description = 'Clean up scripts folders';
@@ -22,7 +25,7 @@ export function vendorJs() {
     since: lastRun(vendorJs)
   })
     .pipe($.size(opts.size))
-    .pipe(dest(paths.vendor.dest.js))
+    .pipe(dest(vendorTarget))
     .pipe(bs.stream({ match: '**/*.min.js' }));
 }
 vendorJs.displayName = 'vendor:js';
@@ -55,24 +58,29 @@ export function transpile() {
     .pipe($.babel(opts.babel))
     .pipe($.header(banner()))
     .pipe($.size(opts.size))
-    .pipe(dest(paths.scripts.dest, { sourcemaps: './maps' }))
+    .pipe(dest(paths.scripts.dev, { sourcemaps: './maps' }))
     .pipe(bs.stream({ match: '**/*.js' }));
 }
 transpile.displayName = 'transpile:es';
 transpile.description = 'Transpile ES via Babel';
 
-export function uglify() {
-  $.fancyLog(`${green('-> Minify JS...')}`);
-  return src(paths.scripts.filter, {
-    // since: lastRun(uglify)
-  })
-    .pipe($.uglify(opts.uglify))
-    .pipe($.cached('min_js'))
-    .pipe($.rename({ extname: '.min.js' }))
-    .pipe($.header(banner()))
-    .pipe($.size(opts.size))
-    .pipe(dest(paths.scripts.dest))
-    .pipe(bs.stream({ match: '**/*.min.js' }));
+export function uglify(done) {
+  if (args.production) {
+    $.fancyLog(`${green('-> Minify JS...')}`);
+    return src(paths.scripts.filter, {
+      // since: lastRun(uglify)
+    })
+      .pipe($.uglify(opts.uglify))
+      // .pipe($.cached('min_js'))
+      .pipe($.rename({ extname: '.min.js' }))
+      .pipe($.size(opts.size))
+      .pipe(dest(paths.scripts.prod))
+      .pipe(bs.stream({ match: '**/*.min.js' }));
+  } else {
+    $.fancyLog(`${green('-> No minify JS...')}`);
+  }
+
+  done();
 }
 uglify.displayName = 'min:js';
 uglify.description = 'Minify JS files';

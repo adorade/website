@@ -18,7 +18,7 @@ cleanDeploy.description = 'Clean up deploy folder';
 
 export function deploy() {
   $.fancyLog(`${green('-> Deploy to GitHub Pages...')}`);
-  return src(`${dirs.dest}/**/*`)
+  return src(`${dirs.prod}/**/*`)
     .pipe($.ghPages(opts.deploy));
 }
 deploy.displayName = 'deploy';

@@ -7,8 +7,8 @@
 export const dirs = {
   root: './',
   src: 'src',
-  build: 'build',
-  dest: 'dist',
+  dev: 'tmp',
+  prod: 'dist',
   test: 'test',
   deploy: '.publish',
   logs: 'logs'
@@ -17,40 +17,52 @@ export const dirs = {
 export const paths = {
   styles: {
     src: `${dirs.src}/scss/**/*.scss`,
-    dest: `${dirs.dest}/css/`,
-    filter: [ `${dirs.dest}/css/*.css`, '!**/*.min.css' ]
+    dev: `${dirs.dev}/css/`,
+    prod: `${dirs.prod}/css/`,
+    filter: [ `${dirs.dev}/css/*.css`, '!**/*.min.css' ]
   },
   scripts: {
     src: `${dirs.src}/es6/**/*.es6`,
-    dest: `${dirs.dest}/js/`,
-    filter: [ `${dirs.dest}/js/*.js`, '!**/*.min.js' ]
+    dev: `${dirs.dev}/js/`,
+    prod: `${dirs.prod}/js/`,
+    filter: [ `${dirs.dev}/js/*.js`, '!**/*.min.js' ]
   },
   vendor: {
     src: {
       css: `${dirs.src}/vendor/css/**/*.css`,
       js: `${dirs.src}/vendor/js/**/*.js`
     },
-    dest: {
-      css: `${dirs.dest}/css/vendor/`,
-      js: `${dirs.dest}/js/vendor/`
+    dev: {
+      css: `${dirs.dev}/css/vendor/`,
+      js: `${dirs.dev}/js/vendor/`
+    },
+    prod: {
+      css: `${dirs.prod}/css/vendor/`,
+      js: `${dirs.prod}/js/vendor/`
     }
   },
   images: {
     src: `${dirs.src}/images/**/*.{gif,jpg,jpeg,png,svg}`,
     webp: `${dirs.src}/images/**/*.{jpg,jpeg,png}`,
-    dest: `${dirs.dest}/images/`
+    dev: `${dirs.dev}/images/`,
+    prod: `${dirs.prod}/images/`
   },
   statics: {
     src: `${dirs.src}/statics/**/*.{ico,png,xml,json,svg,webmanifest}`,
-    dest: `${dirs.dest}/statics/`
+    dev: `${dirs.dev}/statics/`,
+    prod: `${dirs.prod}/statics/`
   },
   views: {
     src: [ `${dirs.src}/views/**/*.pug`, '!**/_*.pug' ],
     all: `${dirs.src}/views/**/*.pug`,
     data: `${dirs.src}/views/data/**/*.json`,
     datas: `${dirs.src}/views/data/`,
-    dest: `${dirs.dest}/`,
-    del: `${dirs.dest}/*.html`
+    dev: `${dirs.dev}/`,
+    prod: `${dirs.prod}/`,
+    files: {
+      dev: `${dirs.dev}/*.html`,
+      prod: `${dirs.prod}/*.html`
+    }
   },
   test: {
     js: `${dirs.test}/js/`

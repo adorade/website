@@ -4,13 +4,20 @@
  * Licensed under MIT
  * ========================================================================== */
 
-import { series, parallel } from './tools/util';
+import { series, parallel, args, $, green } from './tools/util';
 import {
   checks, clean, cleanCss, vendorCss, lintScss, compile, minify,
   cleanJs, vendorJs, lintEs, transpile, uglify,
   cleanImages, imagine, convert, cleanStatics, statica,
-  cleanPages, lintPages, pagile, cleanDeploy, deploy, serve
+  cleanPages, lintPages, pagile, pagify,
+  cleanDeploy, deploy, serve
 } from './tools';
+
+if (args.production) {
+  $.fancyLog(`${green('Looks like we are in production mode!')}`);
+} else {
+  $.fancyLog(`${green('Looks like we are in development mode!')}`);
+}
 
 /**
  * Check dirs, paths, options and settings
@@ -57,7 +64,7 @@ buildStatics.description = 'Build statics files';
 /**
  * Templates - processes templates files
  * -------------------------------------------------------------------------- */
-const pages = series(lintPages, pagile);
+const pages = series(lintPages, pagile, pagify);
 export const buildPages = series(cleanPages, pages);
 buildPages.displayName = 'build:pages';
 buildPages.description = 'Build only html files';
