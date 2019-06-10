@@ -20,7 +20,7 @@
     "@babel/preset-env": "^7.4.5",
     "ansi-colors": "^3.2.4",
     "babel-eslint": "^10.0.1",
-    "browser-sync": "^2.26.5",
+    "browser-sync": "^2.26.7",
     "del": "^4.1.1",
     "eslint": "^5.16.0",
     "esm": "^3.2.25",
@@ -52,7 +52,7 @@
     "gulp-webp": "^4.0.1",
     "minimist": "^1.2.0",
     "pug-lint": "^2.5.0",
-    "stylelint": "^10.0.1",
+    "stylelint": "^10.1.0",
     "stylelint-config-standard": "^18.3.0",
     "stylelint-order": "^3.0.0",
     "stylelint-scss": "^3.8.0"
