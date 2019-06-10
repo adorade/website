@@ -2,6 +2,8 @@
 section.newsletter.text-center#newsletter
   h2.mb-4 Check our newsletter
   form.form-inline(action="#!")
-    label.sr-only(for="inputEmail") your@email.here
-    input.form-control.mb-2.mb-sm-0.mr-sm-2#inputEmail(type="email" placeholder="your@email.here")
-    button.btn.btn-outline-orange(type="submit") Submit
+    .input-group
+      label.sr-only(for="inputEmail") your@email.here
+      input.form-control#inputEmail(type="email" placeholder="your@email.here")
+      .input-group-append
+        button.btn.btn-outline-orange(type="submit") Submit
