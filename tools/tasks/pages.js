@@ -16,14 +16,14 @@ if (args.production) {
 // For debugging usage:
 // .pipe($.debug({ title: 'unicorn:' }))
 
-export function cleanPages() {
+export function cleanPages () {
   $.fancyLog(`-> Clean all pages in ${magenta(taskTarget)} folder`);
   return $.del(taskTarget);
 }
 cleanPages.displayName = 'clean:pages';
 cleanPages.description = 'Clean up html files';
 
-export function lintPages() {
+export function lintPages () {
   $.fancyLog(`${green('-> Linting templates...')}`);
   return src(paths.views.all, {
     since: lastRun(lintPages)
@@ -35,7 +35,7 @@ export function lintPages() {
 lintPages.displayName = 'lint:pages';
 lintPages.description = 'Lint pug (views) files';
 
-export function pagile() {
+export function pagile () {
   $.fancyLog(`${green('-> Generating Pages via Pug...')}`);
 
   const dataFile = paths.views.datas + 'menu.json';
@@ -61,7 +61,7 @@ export function pagile() {
 pagile.displayName = 'gen:pages';
 pagile.description = 'Generate Pages via Pug';
 
-export function pagify(done) {
+export function pagify (done) {
   if (args.production) {
     $.fancyLog(`${green('-> Minify HTML...')}`);
     return src(paths.views.files.dev, {

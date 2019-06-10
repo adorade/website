@@ -11,14 +11,14 @@ const taskTarget = args.production ? paths.statics.prod : paths.statics.dev;
 // For debugging usage:
 // .pipe($.debug({ title: 'unicorn:' }))
 
-export function cleanStatics() {
+export function cleanStatics () {
   $.fancyLog(`-> Clean all statics in ${magenta(taskTarget)} folder`);
   return $.del(taskTarget);
 }
 cleanStatics.displayName = 'clean:statics';
 cleanStatics.description = 'Clean up statics folders';
 
-export function statica() {
+export function statica () {
   $.fancyLog(`${green('-> Copying statics files...')}`);
   return src(paths.statics.src, {
     since: lastRun(statica)

@@ -9,14 +9,14 @@ import { src, $, magenta, green, dirs, opts } from '../util';
 // For debugging usage:
 // .pipe($.debug({ title: 'unicorn:' }))
 
-export function cleanDeploy() {
+export function cleanDeploy () {
   $.fancyLog(`${green('-> Clean up')} ${magenta(dirs.deploy)} folder`);
   return $.del(dirs.deploy);
 }
 cleanDeploy.displayName = 'clean:deploy';
 cleanDeploy.description = 'Clean up deploy folder';
 
-export function deploy() {
+export function deploy () {
   $.fancyLog(`${green('-> Deploy to GitHub Pages...')}`);
   return src(`${dirs.prod}/**/*`)
     .pipe($.ghPages(opts.deploy));
