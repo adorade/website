@@ -12,7 +12,7 @@ import {
   imagine, convert, statica, lintPages, pagile, pagify
 } from './';
 
-export function serve() {
+export function serve () {
   bs.init({
     server: {
       baseDir: args.production ? dirs.prod : dirs.dev
@@ -23,7 +23,7 @@ export function serve() {
     httpModule: http2
   });
 
-  function watchEvent(path, event, task) {
+  function watchEvent (path, event, task) {
     $.fancyLog(
       `File ${magenta(path)} was ${green(event)} running ${red(task)}`
     );

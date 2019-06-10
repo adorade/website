@@ -5,8 +5,8 @@
 
 // Parallax plugin
 // ------------------------
-(function($) {
-  $.fn.parallax = function(options) {
+(function ($) {
+  $.fn.parallax = function (options) {
     const $img = $(this),
           $imgParent = $img.parent(),
           $parentY = $imgParent.offset().top,
@@ -20,14 +20,14 @@
       speed: $img.data('speed') // + up, - down
     }, options )
 
-    return this.each(function() {
+    return this.each(function () {
       // Populate images from data attributes.
       // var imageSrc = $img.data('src');
       // var imageHeight = $img.data('height');
       // $(this).css('background-image','url(' + imageSrc + ')');
       // $(this).css('height', imageHeight);
 
-      function parallaxImg() {
+      function parallaxImg () {
         const $windowY = $(window).scrollTop(),
               $windowH = $(window).height()
 
@@ -59,13 +59,13 @@
 // Picture observer with default `load` method
 const drawerObserver = lozad('.lozad-drawer', {
   threshold: 0.1,
-  loaded: function(el) {
+  loaded: function (el) {
     el.classList.add('loaded')
   }
 })
 const pictureObserver = lozad('.lozad-picture', {
   threshold: 0.1,
-  loaded: function(el) {
+  loaded: function (el) {
     el.classList.add('loaded')
 
     // Show cards when picture is loaded
@@ -76,10 +76,10 @@ const pictureObserver = lozad('.lozad-picture', {
 drawerObserver.observe()
 pictureObserver.observe()
 
-$('document').ready(function() {
+$('document').ready(function () {
   // Prepare hero height
   // ------------------------
-  function heroHeight() {
+  function heroHeight () {
     // $('.hero-unit').height($(window).height());
     $('.hero-unit').innerHeight( $(this).innerHeight() )
   }
@@ -87,13 +87,13 @@ $('document').ready(function() {
 
   // Re-Set on orientation change and window resize
   // ------------------------
-  $(window).on('orientationchange resize', function() {
+  $(window).on('orientationchange resize', function () {
     heroHeight()
   })
 
   // Window Scroll
   // ------------------------
-  $(window).scroll(function() {
+  $(window).scroll(function () {
     // prettier-ignore
     const $windowPos = $(this).scrollTop(),
           $windowH = $(this).height(),
@@ -122,7 +122,7 @@ $('document').ready(function() {
 
   // Scroll to Cards section
   // ------------------------
-  $('.scroll-down').on('click', function() {
+  $('.scroll-down').on('click', function () {
     $('html, body').animate({
       // scrollTop: $('#cards').offset().top - 56 // value for .fixed-top
       scrollTop: $('#cards').offset().top
@@ -135,7 +135,7 @@ $('document').ready(function() {
 
   // Back to Top
   // ------------------------
-  $('.back-to-top-icon').on('click', function() {
+  $('.back-to-top-icon').on('click', function () {
     $('html, body').animate({
       scrollTop: 0
     }, 1000)

@@ -6,7 +6,7 @@
 
 import { tree, $, green, magenta, dirs, paths, opts, banner } from '../util';
 
-export function checks(done) {
+export function checks (done) {
   const gulpTree = tree();
   $.fancyLog(`${green('Gulp Tasks:\n')}`, gulpTree.nodes);
   $.fancyLog(`${magenta('Directories configuration:\n')}`, dirs);

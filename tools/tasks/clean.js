@@ -14,7 +14,7 @@ if (args.production) {
   delTarget = `${dirs.dev}`;
 }
 
-export function clean() {
+export function clean () {
   $.fancyLog(`${green('-> Clean all files')} in ${magenta(delTarget)} folder`);
   return $.del(delTarget);
 }

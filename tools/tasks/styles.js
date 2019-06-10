@@ -12,14 +12,14 @@ const vendorTarget = args.production ? paths.vendor.prod.css : paths.vendor.dev.
 // For debugging usage:
 // .pipe($.debug({ title: 'unicorn:' }))
 
-export function cleanCss() {
+export function cleanCss () {
   $.fancyLog(`-> Clean all styles in ${magenta(taskTarget)} folder`);
   return $.del(taskTarget);
 }
 cleanCss.displayName = 'clean:css';
 cleanCss.description = 'Clean up styles folders';
 
-export function vendorCss() {
+export function vendorCss () {
   $.fancyLog(`${green('-> Copying vendor CSS files...')}`);
   return src(paths.vendor.src.css, {
     since: lastRun(vendorCss)
@@ -31,7 +31,7 @@ export function vendorCss() {
 vendorCss.displayName = 'vendor:css';
 vendorCss.description = 'Copy vendor CSS files';
 
-export function lintScss() {
+export function lintScss () {
   $.fancyLog(`${green('-> Linting SCSS files...')}`);
   return src(paths.styles.src, {
     since: lastRun(lintScss)
@@ -41,7 +41,7 @@ export function lintScss() {
 lintScss.displayName = 'lint:scss';
 lintScss.description = 'Lint SCSS files';
 
-export function compile() {
+export function compile () {
   $.fancyLog(`${green('-> Compiling SCSS...')}`);
   return src(paths.styles.src, {
     sourcemaps: true
@@ -56,7 +56,7 @@ export function compile() {
 compile.displayName = 'compile:scss';
 compile.description = 'Compile SCSS files';
 
-export function minify(done) {
+export function minify (done) {
   if (args.production) {
     $.fancyLog(`${green('-> Minify CSS...')}`);
     return src(paths.styles.filter, {

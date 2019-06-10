@@ -11,7 +11,7 @@ const year = new Date(
   process.env.SOURCE_DATE_EPOCH ? process.env.SOURCE_DATE_EPOCH * 1000 : new Date().getTime()
 ).getFullYear();
 
-export function banner() {
+export function banner () {
   let result = '';
 
   try {

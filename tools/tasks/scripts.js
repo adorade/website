@@ -12,14 +12,14 @@ const vendorTarget = args.production ? paths.vendor.prod.js : paths.vendor.dev.j
 // For debugging usage:
 // .pipe($.debug({ title: 'unicorn:' }))
 
-export function cleanJs() {
+export function cleanJs () {
   $.fancyLog(`-> Clean all scripts in ${magenta(taskTarget)} folder`);
   return $.del(taskTarget);
 }
 cleanJs.displayName = 'clean:js';
 cleanJs.description = 'Clean up scripts folders';
 
-export function vendorJs() {
+export function vendorJs () {
   $.fancyLog(`${green('-> Copying vendor JS files...')}`);
   return src(paths.vendor.src.js, {
     since: lastRun(vendorJs)
@@ -31,7 +31,7 @@ export function vendorJs() {
 vendorJs.displayName = 'vendor:js';
 vendorJs.description = 'Copy vendor JS files';
 
-export function lintEs() {
+export function lintEs () {
   $.fancyLog(`${green('-> Linting ES files...')}`);
 
   const outputDir = paths.logs.gulp;
@@ -49,7 +49,7 @@ export function lintEs() {
 lintEs.displayName = 'lint:es';
 lintEs.description = 'Lint ES files';
 
-export function transpile() {
+export function transpile () {
   $.fancyLog(`${green('-> Transpiling ES via Babel...')}`);
   return src(paths.scripts.src, {
     sourcemaps: true,
@@ -64,7 +64,7 @@ export function transpile() {
 transpile.displayName = 'transpile:es';
 transpile.description = 'Transpile ES via Babel';
 
-export function uglify(done) {
+export function uglify (done) {
   if (args.production) {
     $.fancyLog(`${green('-> Minify JS...')}`);
     return src(paths.scripts.filter, {

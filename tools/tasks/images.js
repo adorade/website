@@ -11,14 +11,14 @@ const taskTarget = args.production ? paths.images.prod : paths.images.dev;
 // For debugging usage:
 // .pipe($.debug({ title: 'unicorn:' }))
 
-export function cleanImages() {
+export function cleanImages () {
   $.fancyLog(`-> Clean all images in ${magenta(taskTarget)} folder`);
   return $.del(taskTarget);
 }
 cleanImages.displayName = 'clean:images';
 cleanImages.description = 'Clean up images folder';
 
-export function imagine() {
+export function imagine () {
   $.fancyLog(`${green('-> Optimizing images...')}`);
   return src(paths.images.src, {
     since: lastRun(imagine)
@@ -35,7 +35,7 @@ export function imagine() {
 imagine.displayName = 'optimize:img';
 imagine.description = 'Optimize images for production';
 
-export function convert() {
+export function convert () {
   $.fancyLog(`${green('-> Generating .webp formats...')}`);
   return src(paths.images.webp, {
     since: lastRun(convert)
