@@ -4,8 +4,8 @@
 /* global lozad */
 
 // Parallax plugin
-// ------------------------
-(function ($) {
+// -----------------------------------------------------------------------------
+(($) => {
   $.fn.parallax = function (options) {
     const $img = $(this),
           $imgParent = $img.parent(),
@@ -13,19 +13,20 @@
           $parentH = $imgParent.innerHeight()
 
     // Default settings
-    const settings = $.extend ({
+    const settings = $.extend({
       start: $parentY,
       height: $parentH,
       stop: $parentY + $parentH,
       speed: $img.data('speed') // + up, - down
     }, options )
 
-    return this.each(function () {
+    return this.each(() => {
       // Populate images from data attributes.
       // var imageSrc = $img.data('src');
       // var imageHeight = $img.data('height');
       // $(this).css('background-image','url(' + imageSrc + ')');
       // $(this).css('height', imageHeight);
+      const o = settings
 
       function parallaxImg () {
         const $windowY = $(window).scrollTop(),
@@ -36,13 +37,13 @@
         let imgPercent = ''
 
         // If block is shown on screen
-        if (winBottom >= settings.start && $windowY <= settings.stop) {
+        if (winBottom >= o.start && $windowY <= o.stop) {
           // Number of pixels shown after block appear
-          let imgBottom = ((winBottom - settings.start) * settings.speed)
+          let imgBottom = ((winBottom - o.start) * o.speed)
           // Max number of pixels until block disappear
-          let imgTop = $windowH + settings.height
+          let imgTop = $windowH + o.height
           // Precentage between start showing until disappearing
-          imgPercent = Math.round((imgBottom / imgTop) * 100) + (50 - (settings.speed * 50))
+          imgPercent = Math.round((imgBottom / imgTop) * 100) + (50 - (o.speed * 50))
         }
 
         $img.css({
@@ -54,9 +55,52 @@
       $(window).on('scroll', parallaxImg)
     })
   }
-}(jQuery))
+})(jQuery);
+
+// Text Rotator
+// -----------------------------------------------------------------------------
+(($) => {
+  $.fn.rotaterator = function (options) {
+    const obj = $(this)
+    const items = $(obj.children(), obj)
+
+    // Default settings
+    const settings = $.extend({
+      fadeSpeed: 500,
+      pauseSpeed: 3500,
+      child: null
+    }, options)
+
+    return this.each(() => {
+      const o = settings
+
+      items.each(function () { $(this).hide() })
+      let next
+      if (!o.child) {
+        next = $(obj).children(':first')
+      } else {
+        next = o.child
+      }
+
+      $(next).fadeIn(o.fadeSpeed, () => {
+        $(next).delay(o.pauseSpeed).fadeOut(o.fadeSpeed, function () {
+          let next = $(this).next()
+          if (next.length == 0) {
+            next = $(obj).children(':first')
+          }
+          $(obj).rotaterator({
+            child: next,
+            fadeSpeed: o.fadeSpeed,
+            pauseSpeed: o.pauseSpeed
+          })
+        })
+      })
+    })
+  }
+})(jQuery)
 
 // Picture observer with default `load` method
+// -----------------------------------------------------------------------------
 const drawerObserver = lozad('.lozad-drawer', {
   threshold: 0.1,
   loaded: function (el) {
@@ -84,6 +128,10 @@ $('document').ready(function () {
     $('.hero-unit').innerHeight( $(this).innerHeight() )
   }
   heroHeight()
+
+  // Text Rotate
+  // ------------------------
+  $('#rotate').rotaterator()
 
   // Re-Set on orientation change and window resize
   // ------------------------
