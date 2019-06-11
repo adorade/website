@@ -10,23 +10,11 @@
 
   .form-inline {
     justify-content: center;
-
-    // @media (min-width: 576px) {
-    //   .form-group {
-    //     flex: 0 0 33%;
-    //   }
-
-    //   .form-control {
-    //     width: 100%;
-    //   }
-    // }
   }
 
-  // .form-group {
-  //   display: flex;
-  //   align-items: center;
-  //   justify-content: center;
-  // }
+  .form-control {
+    border-width: 0;
+  }
 }
 
 .technologies {
