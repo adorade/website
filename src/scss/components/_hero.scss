@@ -71,7 +71,7 @@
   // Main title
   .branding {
     width: 100%;
-    font-size: 3rem;
+    font-size: 4rem;
     line-height: 1.5;
     letter-spacing: -.025em;
     animation: letterspace ease-in-out 2s infinite;
@@ -91,5 +91,9 @@
 
   .rotate-text {
     display: none;
+
+    @media (max-width: 575.98px) {
+      font-size: 1.5rem;
+    }
   }
 }
