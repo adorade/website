@@ -7,7 +7,7 @@
 
 # Adorade
 
-![Adorade Logo](src/images/logo/logo-adorade.png)
+![Adorade](src/images/share/adorade_og_share.png)
 
 This is the [website](https://adorade.ro/) of the project.
 
