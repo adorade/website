@@ -7,36 +7,29 @@
 // Kill the scroll on the body
 .drawer-open {
   overflow: hidden;
+
+  .drawer {
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
 }
 
 // Drawer Container
+// ----------------------------
 .drawer {
   position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
+  top: 0;//
+  // right: 0;
+  // bottom: 0;
   left: 0;
   z-index: $zindex-drawer;
   display: none;
+  width: 100%;
+  height: 100%;
   overflow: hidden;
 
   // Prevent Chrome on Windows from adding a focus outline.
   outline: 0;
-
-  // When fading in the drawer, animate it to slide right
-  &.fade .drawer-dialog {
-    transform: translate(-50%, 0);
-    @include transition($drawer-transition);
-  }
-
-  &.show .drawer-dialog {
-    transform: translate(0, 0);
-  }
-}
-
-.drawer-open .drawer {
-  overflow-x: hidden;
-  overflow-y: auto;
 }
 
 .drawer-dialog {
@@ -48,6 +41,63 @@
 
   // When fading in the drawer, animate it to slide right
   transition: $drawer-transition;
+
+  // When fading in the drawer, animate it to slide right
+  .drawer.fade & {
+    transform: translate(-50%, 0);
+    @include transition($drawer-transition);
+  }
+
+  .drawer.show & {
+    transform: translate(0, 0);
+  }
+}
+
+.drawer-dialog-scrollable {
+  display: flex; // IE10/11
+  max-height: calc(100% - (#{$drawer-dialog-margin * 2}));
+
+  .drawer-content {
+    max-height: calc(100vh - (#{$drawer-dialog-margin * 2})); // IE10/11
+    overflow: hidden;
+  }
+
+  .drawer-header,
+  .drawer-footer {
+    flex-shrink: 0;
+  }
+
+  .drawer-body {
+    overflow-y: auto;
+  }
+}
+
+.modal-dialog-centered {
+  display: flex;
+  align-items: center;
+  min-height: calc(100% - (#{$drawer-dialog-margin} * 2));
+
+  // Ensure `modal-dialog-centered` extends the full height of the view (IE10/11)
+  &::before {
+    display: block; // IE10
+    height: calc(100vh - (#{$drawer-dialog-margin} * 2));
+    content: "";
+  }
+
+  // Ensure `.modal-body` shows scrollbar (IE10/11)
+  &.modal-dialog-scrollable {
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+
+    .modal-content {
+      max-height: none;
+    }
+
+    &::before {
+      content: none;
+    }
+  }
 }
 
 // Drawer Content
@@ -58,6 +108,7 @@
   min-height: 100%;
   background-clip: padding-box;
   background-color: $drawer-content-bg;
+  color: $drawer-content-color;
 
   // Remove focus outline from opened drawer
   outline: 0;
@@ -71,8 +122,9 @@
   bottom: 0;
   left: 0;
   z-index: ($zindex-drawer - 5);
+  width: 100vw;
+  height: 100vh;
   background-color: $drawer-backdrop-bg;
-  opacity: 0;
   transition: $drawer-transition-opacity;
 
   // Fade for backdrop

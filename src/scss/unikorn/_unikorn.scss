@@ -4,32 +4,38 @@
 // @license under MIT (https://github.com/adorade/unikorn/blob/master/LICENSE)
 // ============================================================================
 
-// Core functions, variables and mixins
+// Configuration
 // ---------------------------
 @import "globals/custom";
 @import "globals/functions";
 @import "globals/variables";
 @import "globals/mixins";
-@import "globals/root";
 
-// Core CSS
+// Content
 // ---------------------------
-@import "core/reset";
-@import "core/type";
-@import "core/images";
-@import "core/code";
-@import "core/grid";
-@import "core/tables";
+@import "content/root";
+@import "content/reset";
+@import "content/type";
+@import "content/images";
+@import "content/code";
+@import "content/tables";
 
-// Components CSS
+// Layout
 // ---------------------------
-@import "components/forms";
+@import "layout/grid";
+
+// Forms
+// ---------------------------
+@import "forms/forms";
+@import "forms/input-group";
+@import "forms/custom-forms";
+
+// Components
+// ---------------------------
 @import "components/buttons";
 @import "components/transitions";
 @import "components/dropdown";
 @import "components/button-group";
-@import "components/input-group";
-@import "components/custom-forms";
 @import "components/nav";
 @import "components/navbar";
 @import "components/card";
@@ -50,7 +56,7 @@
 @import "components/carousel";
 @import "components/spinners";
 
-// Utility classes
+// Utilities
 // ---------------------------
 @import "globals/utilities";
 

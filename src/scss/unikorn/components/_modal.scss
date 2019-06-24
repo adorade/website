@@ -53,6 +53,25 @@
   }
 }
 
+.modal-dialog-scrollable {
+  display: flex; // IE10/11
+  max-height: calc(100% - (#{$modal-dialog-margin * 2}));
+
+  .modal-content {
+    max-height: calc(100vh - (#{$modal-dialog-margin * 2})); // IE10/11
+    overflow: hidden;
+  }
+
+  .modal-header,
+  .modal-footer {
+    flex-shrink: 0;
+  }
+
+  .modal-body {
+    overflow-y: auto;
+  }
+}
+
 .modal-dialog-centered {
   display: flex;
   align-items: center;
@@ -63,6 +82,21 @@
     display: block; // IE10
     height: calc(100vh - (#{$modal-dialog-margin} * 2));
     content: "";
+  }
+
+  // Ensure `.modal-body` shows scrollbar (IE10/11)
+  &.modal-dialog-scrollable {
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+
+    .modal-content {
+      max-height: none;
+    }
+
+    &::before {
+      content: none;
+    }
   }
 }
 
@@ -75,6 +109,7 @@
   border: $modal-content-border-width solid $modal-content-border-color;
   background-clip: padding-box;
   background-color: $modal-content-bg;
+  color: $modal-content-color;
   outline: 0; // Remove focus outline from opened modal
   // counteract the pointer-events: none; in the .modal-dialog
   pointer-events: auto;
@@ -168,6 +203,14 @@
   .modal-dialog {
     max-width: $modal-md;
     margin: $modal-dialog-margin-y-sm-up auto;
+  }
+
+  .modal-dialog-scrollable {
+    max-height: calc(100% - #{$modal-dialog-margin-y-sm-up * 2});
+
+    .modal-content {
+      max-height: calc(100vh - #{$modal-dialog-margin-y-sm-up * 2});
+    }
   }
 
   .modal-dialog-centered {

@@ -30,7 +30,7 @@
 
 // Form validation states.
 // Generate the form validation CSS for warnings, errors, and successes.
-@mixin form-validation-state($state, $color) {
+@mixin form-validation-state($state, $color, $icon) {
   .#{$state}-feedback {
     display: none;
     width: 100%;
@@ -61,14 +61,10 @@
 
       @if $enable-validation-icons {
         padding-right: $input-height-inner;
-        background-position: center right calc(#{$input-height-inner} / 4);
-        background-size: calc(#{$input-height-inner} / 2) calc(#{$input-height-inner} / 2);
+        background-image: $icon;
+        background-position: center right $input-height-inner-quarter;
+        background-size: $input-height-inner-half $input-height-inner-half;
         background-repeat: no-repeat;
-        @if $state == "valid" {
-          background-image: $form-feedback-icon-valid;
-        } @else {
-          background-image: $form-feedback-icon-invalid;
-        }
       }
 
       &:focus {
@@ -89,7 +85,7 @@
     &.is-#{$state} {
       @if $enable-validation-icons {
         padding-right: $input-height-inner;
-        background-position: top calc(#{$input-height-inner} / 4) right calc(#{$input-height-inner} / 4);
+        background-position: top $input-height-inner-quarter right $input-height-inner-quarter;
       }
     }
   }
@@ -100,9 +96,8 @@
       border-color: $color;
 
       @if $enable-validation-icons {
-        $form-feedback-icon: if($state == "valid", $form-feedback-icon-valid, $form-feedback-icon-invalid);
         padding-right: $custom-select-feedback-icon-padding-right;
-        background: $custom-select-background, $form-feedback-icon no-repeat $custom-select-feedback-icon-position / $custom-select-feedback-icon-size;
+        background: $custom-select-background, $icon $custom-select-bg no-repeat $custom-select-feedback-icon-position / $custom-select-feedback-icon-size;
       }
 
       &:focus {
