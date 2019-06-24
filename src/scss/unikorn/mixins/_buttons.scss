@@ -66,8 +66,6 @@
 // ----------------------------
 @mixin button-outline-variant($color, $color-hover: color-yiq($color), $active-background: $color, $active-border: $color) {
   border-color: $color;
-  background-image: none;
-  background-color: transparent;
   color: $color;
 
   &:hover {
@@ -113,9 +111,5 @@
   line-height: $line-height;
 
   // Manually declare to provide an override to the browser default
-  @if $enable-rounded {
-    border-radius: $border-radius;
-  } @else {
-    border-radius: 0;
-  }
+  @include border-radius($border-radius, 0);
 }

@@ -70,6 +70,7 @@
 .custom-control-label {
   position: relative;
   margin-bottom: 0;
+  vertical-align: top;
 
   // Background-color and (when enabled) gradient
   &::before {
@@ -213,14 +214,12 @@
   background: $custom-select-background;
   background-color: $custom-select-bg;
   color: $custom-select-color;
+  font-family: $custom-select-font-family;
+  font-size: $custom-select-font-size;
   line-height: $custom-select-line-height;
   font-weight: $custom-select-font-weight;
   vertical-align: middle;
-  @if $enable-rounded {
-    border-radius: $custom-select-border-radius;
-  } @else {
-    border-radius: 0;
-  }
+  @include border-radius($custom-select-border-radius, 0);
   @include box-shadow($custom-select-box-shadow);
   appearance: none;
 
@@ -329,6 +328,7 @@
   border: $custom-file-border-width solid $custom-file-border-color;
   background-color: $custom-file-bg;
   color: $custom-file-color;
+  font-family: $custom-file-font-family;
   line-height: $custom-file-line-height;
   font-weight: $custom-file-font-weight;
   @include border-radius($custom-file-border-radius);
@@ -343,7 +343,7 @@
     display: block;
     height: $custom-file-height-inner;
     padding: $custom-file-padding-y $custom-file-padding-x;
-    border-left: $custom-file-border-width solid $custom-file-border-color;
+    border-left: inherit;
     @include gradient-bg($custom-file-button-bg);
     color: $custom-file-button-color;
     line-height: $custom-file-line-height;
@@ -359,6 +359,7 @@
 // active states on prefixed selectors.
 .custom-range {
   width: 100%;
+  height: calc(#{$custom-range-thumb-height} + #{$custom-range-thumb-focus-box-shadow-width * 2});
   padding-left: 0; // Firefox specific
   background-color: transparent;
   appearance: none;
@@ -433,6 +434,9 @@
   &::-ms-thumb {
     width: $custom-range-thumb-width;
     height: $custom-range-thumb-height;
+    margin-top: 0; // Edge specific
+    margin-right: $custom-range-thumb-focus-box-shadow-width; // Workaround that overflowed box-shadow is hidden.
+    margin-left: $custom-range-thumb-focus-box-shadow-width;  // Workaround that overflowed box-shadow is hidden.
     @include gradient-bg($custom-range-thumb-bg);
     border: $custom-range-thumb-border;
     @include border-radius($custom-range-thumb-border-radius);

@@ -15,7 +15,7 @@
   padding: $navbar-padding-y $navbar-padding-x;
 
   // Because flex properties aren't inherited, we need to redeclare these first
-  // few properities so that content nested within behave properly.
+  // few properties so that content nested within behave properly.
   > .container,
   > .container-fluid {
     display: flex;

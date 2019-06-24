@@ -1,11 +1,11 @@
+// stylelint-disable declaration-no-important, selector-no-qualifying-type
+// Source: https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css
 //
 // Print styles.
 // ============================================================================
 // Inlined to avoid the additional HTTP request:
 // https://www.phpied.com/delay-loading-your-print-css/
 //
-// Source: https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css
-// stylelint-disable declaration-no-important, selector-no-qualifying-type
 
 @if $enable-print-styles {
   @media print {
@@ -50,7 +50,7 @@
     }
     pre,
     blockquote {
-      border: $border-width solid #999;   // UniKorn custom code; using `$border-width` instead of 1px
+      border: $border-width solid #999; // UniKorn custom code; using `$border-width` instead of 1px
       page-break-inside: avoid;
     }
 
