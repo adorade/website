@@ -1,17 +1,19 @@
 /*!
- * UniKorn (v1.0.0): unikorn.js
+ * UniKorn (v1.0.0): unikorn.umd.js
  * Front-end framework for designing websites and web applications
  * Copyright (c) 2019 Adorade (https://adorade.ro)
  * License under MIT (https://github.com/adorade/unikorn/blob/master/LICENSE)
- * ============================================================================
- */
-var unikorn = (function (exports, $, Popper) {
-  'use strict';
+ * ========================================================================== */
+(function (global, factory) {
+  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('jquery'), require('popper.js')) :
+  typeof define === 'function' && define.amd ? define(['exports', 'jquery', 'popper.js'], factory) :
+  (global = global || self, factory(global.unikorn = {}, global.jQuery, global.Popper));
+}(this, function (exports, $, Popper) { 'use strict';
 
   $ = $ && $.hasOwnProperty('default') ? $['default'] : $;
   Popper = Popper && Popper.hasOwnProperty('default') ? Popper['default'] : Popper;
 
-  (function checkDep() {
+  (function jQueryDetection() {
     if (typeof $ === 'undefined') {
       throw new TypeError("UniKorn's JavaScript requires jQuery. jQuery must be included before UniKorn's JavaScript.");
     } else {
@@ -25,15 +27,61 @@ var unikorn = (function (exports, $, Popper) {
     }
   })();
 
-  function _inheritsLoose(subClass, superClass) { subClass.prototype = Object.create(superClass.prototype); subClass.prototype.constructor = subClass; subClass.__proto__ = superClass; }
+  function _defineProperties(target, props) {
+    for (var i = 0; i < props.length; i++) {
+      var descriptor = props[i];
+      descriptor.enumerable = descriptor.enumerable || false;
+      descriptor.configurable = true;
+      if ("value" in descriptor) descriptor.writable = true;
+      Object.defineProperty(target, descriptor.key, descriptor);
+    }
+  }
 
-  function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+  function _createClass(Constructor, protoProps, staticProps) {
+    if (protoProps) _defineProperties(Constructor.prototype, protoProps);
+    if (staticProps) _defineProperties(Constructor, staticProps);
+    return Constructor;
+  }
 
-  function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+  function _defineProperty(obj, key, value) {
+    if (key in obj) {
+      Object.defineProperty(obj, key, {
+        value: value,
+        enumerable: true,
+        configurable: true,
+        writable: true
+      });
+    } else {
+      obj[key] = value;
+    }
 
-  function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+    return obj;
+  }
 
-  function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+  function _objectSpread(target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i] != null ? arguments[i] : {};
+      var ownKeys = Object.keys(source);
+
+      if (typeof Object.getOwnPropertySymbols === 'function') {
+        ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {
+          return Object.getOwnPropertyDescriptor(source, sym).enumerable;
+        }));
+      }
+
+      ownKeys.forEach(function (key) {
+        _defineProperty(target, key, source[key]);
+      });
+    }
+
+    return target;
+  }
+
+  function _inheritsLoose(subClass, superClass) {
+    subClass.prototype = Object.create(superClass.prototype);
+    subClass.prototype.constructor = subClass;
+    subClass.__proto__ = superClass;
+  }
 
   var Util = function ($) {
     var TRANSITION_END = 'transitionend';
@@ -236,7 +284,7 @@ var unikorn = (function (exports, $, Popper) {
       };
 
       _proto._removeElement = function _removeElement(element) {
-        var _this2 = this;
+        var _this = this;
 
         $(element).removeClass(ClassName.SHOW);
 
@@ -248,7 +296,7 @@ var unikorn = (function (exports, $, Popper) {
 
         var transitionDuration = Util.getTransitionDurationFromElement(element);
         $(element).one(Util.TRANSITION_END, function (event) {
-          return _this2._destroyElement(element, event);
+          return _this._destroyElement(element, event);
         }).emulateTransitionEnd(transitionDuration);
       };
 
@@ -258,11 +306,12 @@ var unikorn = (function (exports, $, Popper) {
 
       Alert._jQueryInterface = function _jQueryInterface(config) {
         return this.each(function () {
-          var data = $(this).data(DATA_KEY);
+          var $element = $(this);
+          var data = $element.data(DATA_KEY);
 
           if (!data) {
             data = new Alert(this);
-            $(this).data(DATA_KEY, data);
+            $element.data(DATA_KEY, data);
           }
 
           if (config === 'close') {
@@ -332,9 +381,9 @@ var unikorn = (function (exports, $, Popper) {
         this._element = element;
       }
 
-      var _proto2 = Button.prototype;
+      var _proto = Button.prototype;
 
-      _proto2.toggle = function toggle() {
+      _proto.toggle = function toggle() {
         var triggerChangeEvent = true;
         var addAriaPressed = true;
         var rootElement = $(this._element).closest(Selector.DATA_TOGGLE)[0];
@@ -378,7 +427,7 @@ var unikorn = (function (exports, $, Popper) {
         }
       };
 
-      _proto2.dispose = function dispose() {
+      _proto.dispose = function dispose() {
         $.removeData(this._element, DATA_KEY);
         this._element = null;
       };
@@ -525,27 +574,27 @@ var unikorn = (function (exports, $, Popper) {
         this._addEventListeners();
       }
 
-      var _proto3 = Carousel.prototype;
+      var _proto = Carousel.prototype;
 
-      _proto3.next = function next() {
+      _proto.next = function next() {
         if (!this._isSliding) {
           this._slide(Direction.NEXT);
         }
       };
 
-      _proto3.nextWhenVisible = function nextWhenVisible() {
+      _proto.nextWhenVisible = function nextWhenVisible() {
         if (!document.hidden && $(this._element).is(':visible') && $(this._element).css('visibility') !== 'hidden') {
           this.next();
         }
       };
 
-      _proto3.prev = function prev() {
+      _proto.prev = function prev() {
         if (!this._isSliding) {
           this._slide(Direction.PREV);
         }
       };
 
-      _proto3.pause = function pause(event) {
+      _proto.pause = function pause(event) {
         if (!event) {
           this._isPaused = true;
         }
@@ -559,7 +608,7 @@ var unikorn = (function (exports, $, Popper) {
         this._interval = null;
       };
 
-      _proto3.cycle = function cycle(event) {
+      _proto.cycle = function cycle(event) {
         if (!event) {
           this._isPaused = false;
         }
@@ -574,8 +623,8 @@ var unikorn = (function (exports, $, Popper) {
         }
       };
 
-      _proto3.to = function to(index) {
-        var _this3 = this;
+      _proto.to = function to(index) {
+        var _this = this;
 
         this._activeElement = this._element.querySelector(Selector.ACTIVE_ITEM);
 
@@ -587,7 +636,7 @@ var unikorn = (function (exports, $, Popper) {
 
         if (this._isSliding) {
           $(this._element).one(Event.SLID, function () {
-            return _this3.to(index);
+            return _this.to(index);
           });
           return;
         }
@@ -603,7 +652,7 @@ var unikorn = (function (exports, $, Popper) {
         this._slide(direction, this._items[index]);
       };
 
-      _proto3.dispose = function dispose() {
+      _proto.dispose = function dispose() {
         $(this._element).off(EVENT_KEY);
         $.removeData(this._element, DATA_KEY);
         this._items = null;
@@ -616,13 +665,13 @@ var unikorn = (function (exports, $, Popper) {
         this._indicatorsElement = null;
       };
 
-      _proto3._getConfig = function _getConfig(config) {
+      _proto._getConfig = function _getConfig(config) {
         config = _objectSpread({}, Default, config);
         Util.typeCheckConfig(NAME, config, DefaultType);
         return config;
       };
 
-      _proto3._handleSwipe = function _handleSwipe() {
+      _proto._handleSwipe = function _handleSwipe() {
         var absDeltax = Math.abs(this.touchDeltaX);
 
         if (absDeltax <= SWIPE_THRESHOLD) {
@@ -640,66 +689,68 @@ var unikorn = (function (exports, $, Popper) {
         }
       };
 
-      _proto3._addEventListeners = function _addEventListeners() {
-        var _this4 = this;
+      _proto._addEventListeners = function _addEventListeners() {
+        var _this2 = this;
 
         if (this._config.keyboard) {
           $(this._element).on(Event.KEYDOWN, function (event) {
-            return _this4._keydown(event);
+            return _this2._keydown(event);
           });
         }
 
         if (this._config.pause === 'hover') {
           $(this._element).on(Event.MOUSEENTER, function (event) {
-            return _this4.pause(event);
+            return _this2.pause(event);
           }).on(Event.MOUSELEAVE, function (event) {
-            return _this4.cycle(event);
+            return _this2.cycle(event);
           });
         }
 
-        this._addTouchEventListeners();
+        if (this._config.touch) {
+          this._addTouchEventListeners();
+        }
       };
 
-      _proto3._addTouchEventListeners = function _addTouchEventListeners() {
-        var _this5 = this;
+      _proto._addTouchEventListeners = function _addTouchEventListeners() {
+        var _this3 = this;
 
         if (!this._touchSupported) {
           return;
         }
 
         var start = function start(event) {
-          if (_this5._pointerEvent && PointerType[event.originalEvent.pointerType.toUpperCase()]) {
-            _this5.touchStartX = event.originalEvent.clientX;
-          } else if (!_this5._pointerEvent) {
-            _this5.touchStartX = event.originalEvent.touches[0].clientX;
+          if (_this3._pointerEvent && PointerType[event.originalEvent.pointerType.toUpperCase()]) {
+            _this3.touchStartX = event.originalEvent.clientX;
+          } else if (!_this3._pointerEvent) {
+            _this3.touchStartX = event.originalEvent.touches[0].clientX;
           }
         };
 
         var move = function move(event) {
           if (event.originalEvent.touches && event.originalEvent.touches.length > 1) {
-            _this5.touchDeltaX = 0;
+            _this3.touchDeltaX = 0;
           } else {
-            _this5.touchDeltaX = event.originalEvent.touches[0].clientX - _this5.touchStartX;
+            _this3.touchDeltaX = event.originalEvent.touches[0].clientX - _this3.touchStartX;
           }
         };
 
         var end = function end(event) {
-          if (_this5._pointerEvent && PointerType[event.originalEvent.pointerType.toUpperCase()]) {
-            _this5.touchDeltaX = event.originalEvent.clientX - _this5.touchStartX;
+          if (_this3._pointerEvent && PointerType[event.originalEvent.pointerType.toUpperCase()]) {
+            _this3.touchDeltaX = event.originalEvent.clientX - _this3.touchStartX;
           }
 
-          _this5._handleSwipe();
+          _this3._handleSwipe();
 
-          if (_this5._config.pause === 'hover') {
-            _this5.pause();
+          if (_this3._config.pause === 'hover') {
+            _this3.pause();
 
-            if (_this5.touchTimeout) {
-              clearTimeout(_this5.touchTimeout);
+            if (_this3.touchTimeout) {
+              clearTimeout(_this3.touchTimeout);
             }
 
-            _this5.touchTimeout = setTimeout(function (event) {
-              return _this5.cycle(event);
-            }, TOUCHEVENT_COMPAT_WAIT + _this5._config.interval);
+            _this3.touchTimeout = setTimeout(function (event) {
+              return _this3.cycle(event);
+            }, TOUCHEVENT_COMPAT_WAIT + _this3._config.interval);
           }
         };
 
@@ -729,7 +780,7 @@ var unikorn = (function (exports, $, Popper) {
         }
       };
 
-      _proto3._keydown = function _keydown(event) {
+      _proto._keydown = function _keydown(event) {
         if (/input|textarea/i.test(event.target.tagName)) {
           return;
         }
@@ -749,12 +800,12 @@ var unikorn = (function (exports, $, Popper) {
         }
       };
 
-      _proto3._getItemIndex = function _getItemIndex(element) {
+      _proto._getItemIndex = function _getItemIndex(element) {
         this._items = element && element.parentNode ? [].slice.call(element.parentNode.querySelectorAll(Selector.ITEM)) : [];
         return this._items.indexOf(element);
       };
 
-      _proto3._getItemByDirection = function _getItemByDirection(direction, activeElement) {
+      _proto._getItemByDirection = function _getItemByDirection(direction, activeElement) {
         var isNextDirection = direction === Direction.NEXT;
         var isPrevDirection = direction === Direction.PREV;
 
@@ -772,7 +823,7 @@ var unikorn = (function (exports, $, Popper) {
         return itemIndex === -1 ? this._items[this._items.length - 1] : this._items[itemIndex];
       };
 
-      _proto3._triggerSlideEvent = function _triggerSlideEvent(relatedTarget, eventDirectionName) {
+      _proto._triggerSlideEvent = function _triggerSlideEvent(relatedTarget, eventDirectionName) {
         var targetIndex = this._getItemIndex(relatedTarget);
 
         var fromIndex = this._getItemIndex(this._element.querySelector(Selector.ACTIVE_ITEM));
@@ -787,7 +838,7 @@ var unikorn = (function (exports, $, Popper) {
         return slideEvent;
       };
 
-      _proto3._setActiveIndicatorElement = function _setActiveIndicatorElement(element) {
+      _proto._setActiveIndicatorElement = function _setActiveIndicatorElement(element) {
         if (this._indicatorsElement) {
           var indicators = [].slice.call(this._indicatorsElement.querySelectorAll(Selector.ACTIVE));
           $(indicators).removeClass(ClassName.ACTIVE);
@@ -800,8 +851,8 @@ var unikorn = (function (exports, $, Popper) {
         }
       };
 
-      _proto3._slide = function _slide(direction, element) {
-        var _this6 = this;
+      _proto._slide = function _slide(direction, element) {
+        var _this4 = this;
 
         var activeElement = this._element.querySelector(Selector.ACTIVE_ITEM);
 
@@ -874,9 +925,9 @@ var unikorn = (function (exports, $, Popper) {
           $(activeElement).one(Util.TRANSITION_END, function () {
             $(nextElement).removeClass(directionalClassName + " " + orderClassName).addClass(ClassName.ACTIVE);
             $(activeElement).removeClass(ClassName.ACTIVE + " " + orderClassName + " " + directionalClassName);
-            _this6._isSliding = false;
+            _this4._isSliding = false;
             setTimeout(function () {
-              return $(_this6._element).trigger(slidEvent);
+              return $(_this4._element).trigger(slidEvent);
             }, 0);
           }).emulateTransitionEnd(transitionDuration);
         } else {
@@ -916,7 +967,7 @@ var unikorn = (function (exports, $, Popper) {
             }
 
             data[action]();
-          } else if (_config.interval) {
+          } else if (_config.interval && _config.ride) {
             data.pause();
             data.cycle();
           }
@@ -1059,9 +1110,9 @@ var unikorn = (function (exports, $, Popper) {
         }
       }
 
-      var _proto4 = Collapse.prototype;
+      var _proto = Collapse.prototype;
 
-      _proto4.toggle = function toggle() {
+      _proto.toggle = function toggle() {
         if ($(this._element).hasClass(ClassName.SHOW)) {
           this.hide();
         } else {
@@ -1069,8 +1120,8 @@ var unikorn = (function (exports, $, Popper) {
         }
       };
 
-      _proto4.show = function show() {
-        var _this7 = this;
+      _proto.show = function show() {
+        var _this = this;
 
         if (this._isTransitioning || $(this._element).hasClass(ClassName.SHOW)) {
           return;
@@ -1081,8 +1132,8 @@ var unikorn = (function (exports, $, Popper) {
 
         if (this._parent) {
           actives = [].slice.call(this._parent.querySelectorAll(Selector.ACTIVES)).filter(function (elem) {
-            if (typeof _this7._config.parent === 'string') {
-              return elem.getAttribute('data-parent') === _this7._config.parent;
+            if (typeof _this._config.parent === 'string') {
+              return elem.getAttribute('data-parent') === _this._config.parent;
             }
 
             return elem.classList.contains(ClassName.COLLAPSE);
@@ -1128,12 +1179,12 @@ var unikorn = (function (exports, $, Popper) {
         this.setTransitioning(true);
 
         var complete = function complete() {
-          $(_this7._element).removeClass(ClassName.COLLAPSING).addClass(ClassName.COLLAPSE).addClass(ClassName.SHOW);
-          _this7._element.style[dimension] = '';
+          $(_this._element).removeClass(ClassName.COLLAPSING).addClass(ClassName.COLLAPSE).addClass(ClassName.SHOW);
+          _this._element.style[dimension] = '';
 
-          _this7.setTransitioning(false);
+          _this.setTransitioning(false);
 
-          $(_this7._element).trigger(Event.SHOWN);
+          $(_this._element).trigger(Event.SHOWN);
         };
 
         var capitalizedDimension = dimension[0].toUpperCase() + dimension.slice(1);
@@ -1143,8 +1194,8 @@ var unikorn = (function (exports, $, Popper) {
         this._element.style[dimension] = this._element[scrollSize] + "px";
       };
 
-      _proto4.hide = function hide() {
-        var _this8 = this;
+      _proto.hide = function hide() {
+        var _this2 = this;
 
         if (this._isTransitioning || !$(this._element).hasClass(ClassName.SHOW)) {
           return;
@@ -1182,9 +1233,9 @@ var unikorn = (function (exports, $, Popper) {
         this.setTransitioning(true);
 
         var complete = function complete() {
-          _this8.setTransitioning(false);
+          _this2.setTransitioning(false);
 
-          $(_this8._element).removeClass(ClassName.COLLAPSING).addClass(ClassName.COLLAPSE).trigger(Event.HIDDEN);
+          $(_this2._element).removeClass(ClassName.COLLAPSING).addClass(ClassName.COLLAPSE).trigger(Event.HIDDEN);
         };
 
         this._element.style[dimension] = '';
@@ -1192,11 +1243,11 @@ var unikorn = (function (exports, $, Popper) {
         $(this._element).one(Util.TRANSITION_END, complete).emulateTransitionEnd(transitionDuration);
       };
 
-      _proto4.setTransitioning = function setTransitioning(isTransitioning) {
+      _proto.setTransitioning = function setTransitioning(isTransitioning) {
         this._isTransitioning = isTransitioning;
       };
 
-      _proto4.dispose = function dispose() {
+      _proto.dispose = function dispose() {
         $.removeData(this._element, DATA_KEY);
         this._config = null;
         this._parent = null;
@@ -1205,20 +1256,20 @@ var unikorn = (function (exports, $, Popper) {
         this._isTransitioning = null;
       };
 
-      _proto4._getConfig = function _getConfig(config) {
+      _proto._getConfig = function _getConfig(config) {
         config = _objectSpread({}, Default, config);
         config.toggle = Boolean(config.toggle);
         Util.typeCheckConfig(NAME, config, DefaultType);
         return config;
       };
 
-      _proto4._getDimension = function _getDimension() {
+      _proto._getDimension = function _getDimension() {
         var hasWidth = $(this._element).hasClass(Dimension.WIDTH);
         return hasWidth ? Dimension.WIDTH : Dimension.HEIGHT;
       };
 
-      _proto4._getParent = function _getParent() {
-        var _this9 = this;
+      _proto._getParent = function _getParent() {
+        var _this3 = this;
 
         var parent;
 
@@ -1235,12 +1286,12 @@ var unikorn = (function (exports, $, Popper) {
         var selector = "[data-toggle=\"collapse\"][data-parent=\"" + this._config.parent + "\"]";
         var children = [].slice.call(parent.querySelectorAll(selector));
         $(children).each(function (i, element) {
-          _this9._addAriaAndCollapsedClass(Collapse._getTargetFromElement(element), [element]);
+          _this3._addAriaAndCollapsedClass(Collapse._getTargetFromElement(element), [element]);
         });
         return parent;
       };
 
-      _proto4._addAriaAndCollapsedClass = function _addAriaAndCollapsedClass(element, triggerArray) {
+      _proto._addAriaAndCollapsedClass = function _addAriaAndCollapsedClass(element, triggerArray) {
         var isOpen = $(element).hasClass(ClassName.SHOW);
 
         if (triggerArray.length) {
@@ -1255,9 +1306,10 @@ var unikorn = (function (exports, $, Popper) {
 
       Collapse._jQueryInterface = function _jQueryInterface(config) {
         return this.each(function () {
-          var data = $(this).data(DATA_KEY);
+          var $this = $(this);
+          var data = $this.data(DATA_KEY);
 
-          var _config = _objectSpread({}, Default, $(this).data(), typeof config === 'object' && config ? config : {});
+          var _config = _objectSpread({}, Default, $this.data(), typeof config === 'object' && config ? config : {});
 
           if (!data && _config.toggle && /show|hide/.test(config)) {
             _config.toggle = false;
@@ -1265,7 +1317,7 @@ var unikorn = (function (exports, $, Popper) {
 
           if (!data) {
             data = new Collapse(this, _config);
-            $(this).data(DATA_KEY, data);
+            $this.data(DATA_KEY, data);
           }
 
           if (typeof config === 'string') {
@@ -1354,6 +1406,7 @@ var unikorn = (function (exports, $, Popper) {
       CLICK_DATA_API: "click" + EVENT_KEY + DATA_API_KEY
     };
     var ClassName = {
+      SCROLLABLE: 'drawer-dialog-scrollable',
       SCROLLBAR_MEASURER: 'drawer-scrollbar-measure',
       BACKDROP: 'drawer-backdrop',
       OPEN: 'drawer-open',
@@ -1362,6 +1415,7 @@ var unikorn = (function (exports, $, Popper) {
     };
     var Selector = {
       DIALOG: '.drawer-dialog',
+      DRAWER_BODY: '.drawer-body',
       DATA_TOGGLE: '[data-toggle="drawer"]',
       DATA_DISMISS: '[data-dismiss="drawer"]',
       FIXED_CONTENT: '.fixed-top, .fixed-bottom, .is-fixed, .sticky-top',
@@ -1381,14 +1435,14 @@ var unikorn = (function (exports, $, Popper) {
         this._scrollbarWidth = 0;
       }
 
-      var _proto5 = Drawer.prototype;
+      var _proto = Drawer.prototype;
 
-      _proto5.toggle = function toggle(relatedTarget) {
+      _proto.toggle = function toggle(relatedTarget) {
         return this._isShown ? this.hide() : this.show(relatedTarget);
       };
 
-      _proto5.show = function show(relatedTarget) {
-        var _this10 = this;
+      _proto.show = function show(relatedTarget) {
+        var _this = this;
 
         if (this._isShown || this._isTransitioning) {
           return;
@@ -1420,23 +1474,23 @@ var unikorn = (function (exports, $, Popper) {
         this._setResizeEvent();
 
         $(this._element).on(Event.CLICK_DISMISS, Selector.DATA_DISMISS, function (event) {
-          return _this10.hide(event);
+          return _this.hide(event);
         });
         $(this._dialog).on(Event.MOUSEDOWN_DISMISS, function () {
-          $(_this10._element).one(Event.MOUSEUP_DISMISS, function (event) {
-            if ($(event.target).is(_this10._element)) {
-              _this10._ignoreBackdropClick = true;
+          $(_this._element).one(Event.MOUSEUP_DISMISS, function (event) {
+            if ($(event.target).is(_this._element)) {
+              _this._ignoreBackdropClick = true;
             }
           });
         });
 
         this._showBackdrop(function () {
-          return _this10._showElement(relatedTarget);
+          return _this._showElement(relatedTarget);
         });
       };
 
-      _proto5.hide = function hide(event) {
-        var _this11 = this;
+      _proto.hide = function hide(event) {
+        var _this2 = this;
 
         if (event) {
           event.preventDefault();
@@ -1472,14 +1526,14 @@ var unikorn = (function (exports, $, Popper) {
         if (transition) {
           var transitionDuration = Util.getTransitionDurationFromElement(this._element);
           $(this._element).one(Util.TRANSITION_END, function (event) {
-            return _this11._hideDrawer(event);
+            return _this2._hideDrawer(event);
           }).emulateTransitionEnd(transitionDuration);
         } else {
           this._hideDrawer();
         }
       };
 
-      _proto5.dispose = function dispose() {
+      _proto.dispose = function dispose() {
         [window, this._element, this._dialog].forEach(function (htmlElement) {
           return $(htmlElement).off(EVENT_KEY);
         });
@@ -1496,18 +1550,18 @@ var unikorn = (function (exports, $, Popper) {
         this._scrollbarWidth = null;
       };
 
-      _proto5.handleUpdate = function handleUpdate() {
+      _proto.handleUpdate = function handleUpdate() {
         this._adjustDialog();
       };
 
-      _proto5._getConfig = function _getConfig(config) {
+      _proto._getConfig = function _getConfig(config) {
         config = _objectSpread({}, Default, config);
         Util.typeCheckConfig(NAME, config, DefaultType);
         return config;
       };
 
-      _proto5._showElement = function _showElement(relatedTarget) {
-        var _this12 = this;
+      _proto._showElement = function _showElement(relatedTarget) {
+        var _this3 = this;
 
         var transition = $(this._element).hasClass(ClassName.FADE);
 
@@ -1521,7 +1575,11 @@ var unikorn = (function (exports, $, Popper) {
 
         this._element.setAttribute('aria-drawer', true);
 
-        this._element.scrollTop = 0;
+        if ($(this._dialog).hasClass(ClassName.SCROLLABLE)) {
+          this._dialog.querySelector(Selector.DRAWER_BODY).scrollTop = 0;
+        } else {
+          this._element.scrollTop = 0;
+        }
 
         if (transition) {
           Util.reflow(this._element);
@@ -1538,12 +1596,12 @@ var unikorn = (function (exports, $, Popper) {
         });
 
         var transitionComplete = function transitionComplete() {
-          if (_this12._config.focus) {
-            _this12._element.focus();
+          if (_this3._config.focus) {
+            _this3._element.focus();
           }
 
-          _this12._isTransitioning = false;
-          $(_this12._element).trigger(shownEvent);
+          _this3._isTransitioning = false;
+          $(_this3._element).trigger(shownEvent);
         };
 
         if (transition) {
@@ -1554,25 +1612,25 @@ var unikorn = (function (exports, $, Popper) {
         }
       };
 
-      _proto5._enforceFocus = function _enforceFocus() {
-        var _this13 = this;
+      _proto._enforceFocus = function _enforceFocus() {
+        var _this4 = this;
 
         $(document).off(Event.FOCUSIN).on(Event.FOCUSIN, function (event) {
-          if (document !== event.target && _this13._element !== event.target && $(_this13._element).has(event.target).length === 0) {
-            _this13._element.focus();
+          if (document !== event.target && _this4._element !== event.target && $(_this4._element).has(event.target).length === 0) {
+            _this4._element.focus();
           }
         });
       };
 
-      _proto5._setEscapeEvent = function _setEscapeEvent() {
-        var _this14 = this;
+      _proto._setEscapeEvent = function _setEscapeEvent() {
+        var _this5 = this;
 
         if (this._isShown && this._config.keyboard) {
           $(this._element).on(Event.KEYDOWN_DISMISS, function (event) {
             if (event.which === ESCAPE_KEYCODE) {
               event.preventDefault();
 
-              _this14.hide();
+              _this5.hide();
             }
           });
         } else if (!this._isShown) {
@@ -1580,20 +1638,20 @@ var unikorn = (function (exports, $, Popper) {
         }
       };
 
-      _proto5._setResizeEvent = function _setResizeEvent() {
-        var _this15 = this;
+      _proto._setResizeEvent = function _setResizeEvent() {
+        var _this6 = this;
 
         if (this._isShown) {
           $(window).on(Event.RESIZE, function (event) {
-            return _this15.handleUpdate(event);
+            return _this6.handleUpdate(event);
           });
         } else {
           $(window).off(Event.RESIZE);
         }
       };
 
-      _proto5._hideDrawer = function _hideDrawer() {
-        var _this16 = this;
+      _proto._hideDrawer = function _hideDrawer() {
+        var _this7 = this;
 
         this._element.style.display = 'none';
 
@@ -1606,23 +1664,23 @@ var unikorn = (function (exports, $, Popper) {
         this._showBackdrop(function () {
           $(document.body).removeClass(ClassName.OPEN);
 
-          _this16._resetAdjustments();
+          _this7._resetAdjustments();
 
-          _this16._resetScrollbar();
+          _this7._resetScrollbar();
 
-          $(_this16._element).trigger(Event.HIDDEN);
+          $(_this7._element).trigger(Event.HIDDEN);
         });
       };
 
-      _proto5._removeBackdrop = function _removeBackdrop() {
+      _proto._removeBackdrop = function _removeBackdrop() {
         if (this._backdrop) {
           $(this._backdrop).remove();
           this._backdrop = null;
         }
       };
 
-      _proto5._showBackdrop = function _showBackdrop(callback) {
-        var _this17 = this;
+      _proto._showBackdrop = function _showBackdrop(callback) {
+        var _this8 = this;
 
         var animate = $(this._element).hasClass(ClassName.FADE) ? ClassName.FADE : '';
 
@@ -1636,8 +1694,8 @@ var unikorn = (function (exports, $, Popper) {
 
           $(this._backdrop).appendTo(document.body);
           $(this._element).on(Event.CLICK_DISMISS, function (event) {
-            if (_this17._ignoreBackdropClick) {
-              _this17._ignoreBackdropClick = false;
+            if (_this8._ignoreBackdropClick) {
+              _this8._ignoreBackdropClick = false;
               return;
             }
 
@@ -1645,10 +1703,10 @@ var unikorn = (function (exports, $, Popper) {
               return;
             }
 
-            if (_this17._config.backdrop === 'static') {
-              _this17._element.focus();
+            if (_this8._config.backdrop === 'static') {
+              _this8._element.focus();
             } else {
-              _this17.hide();
+              _this8.hide();
             }
           });
 
@@ -1673,7 +1731,7 @@ var unikorn = (function (exports, $, Popper) {
           $(this._backdrop).removeClass(ClassName.SHOW);
 
           var callbackRemove = function callbackRemove() {
-            _this17._removeBackdrop();
+            _this8._removeBackdrop();
 
             if (callback) {
               callback();
@@ -1692,7 +1750,7 @@ var unikorn = (function (exports, $, Popper) {
         }
       };
 
-      _proto5._adjustDialog = function _adjustDialog() {
+      _proto._adjustDialog = function _adjustDialog() {
         var isDrawerOverflowing = this._element.scrollHeight > document.documentElement.clientHeight;
 
         if (!this._isBodyOverflowing && isDrawerOverflowing) {
@@ -1704,19 +1762,19 @@ var unikorn = (function (exports, $, Popper) {
         }
       };
 
-      _proto5._resetAdjustments = function _resetAdjustments() {
+      _proto._resetAdjustments = function _resetAdjustments() {
         this._element.style.paddingLeft = '';
         this._element.style.paddingRight = '';
       };
 
-      _proto5._checkScrollbar = function _checkScrollbar() {
+      _proto._checkScrollbar = function _checkScrollbar() {
         var rect = document.body.getBoundingClientRect();
         this._isBodyOverflowing = rect.left + rect.right < window.innerWidth;
         this._scrollbarWidth = this._getScrollbarWidth();
       };
 
-      _proto5._setScrollbar = function _setScrollbar() {
-        var _this18 = this;
+      _proto._setScrollbar = function _setScrollbar() {
+        var _this9 = this;
 
         if (this._isBodyOverflowing) {
           var fixedContent = [].slice.call(document.querySelectorAll(Selector.FIXED_CONTENT));
@@ -1724,12 +1782,12 @@ var unikorn = (function (exports, $, Popper) {
           $(fixedContent).each(function (index, element) {
             var actualPadding = element.style.paddingRight;
             var calculatedPadding = $(element).css('padding-right');
-            $(element).data('padding-right', actualPadding).css('padding-right', parseFloat(calculatedPadding) + _this18._scrollbarWidth + "px");
+            $(element).data('padding-right', actualPadding).css('padding-right', parseFloat(calculatedPadding) + _this9._scrollbarWidth + "px");
           });
           $(stickyContent).each(function (index, element) {
             var actualMargin = element.style.marginRight;
             var calculatedMargin = $(element).css('margin-right');
-            $(element).data('margin-right', actualMargin).css('margin-right', parseFloat(calculatedMargin) - _this18._scrollbarWidth + "px");
+            $(element).data('margin-right', actualMargin).css('margin-right', parseFloat(calculatedMargin) - _this9._scrollbarWidth + "px");
           });
           var actualPadding = document.body.style.paddingRight;
           var calculatedPadding = $(document.body).css('padding-right');
@@ -1739,7 +1797,7 @@ var unikorn = (function (exports, $, Popper) {
         $(document.body).addClass(ClassName.OPEN);
       };
 
-      _proto5._resetScrollbar = function _resetScrollbar() {
+      _proto._resetScrollbar = function _resetScrollbar() {
         var fixedContent = [].slice.call(document.querySelectorAll(Selector.FIXED_CONTENT));
         $(fixedContent).each(function (index, element) {
           var padding = $(element).data('padding-right');
@@ -1759,7 +1817,7 @@ var unikorn = (function (exports, $, Popper) {
         document.body.style.paddingRight = padding ? padding : '';
       };
 
-      _proto5._getScrollbarWidth = function _getScrollbarWidth() {
+      _proto._getScrollbarWidth = function _getScrollbarWidth() {
         var scrollDiv = document.createElement('div');
         scrollDiv.className = ClassName.SCROLLBAR_MEASURER;
         document.body.appendChild(scrollDiv);
@@ -1807,7 +1865,7 @@ var unikorn = (function (exports, $, Popper) {
     }();
 
     $(document).on(Event.CLICK_DATA_API, Selector.DATA_TOGGLE, function (event) {
-      var _this19 = this;
+      var _this10 = this;
 
       var target;
       var selector = Util.getSelectorFromElement(this);
@@ -1828,8 +1886,8 @@ var unikorn = (function (exports, $, Popper) {
         }
 
         $target.one(Event.HIDDEN, function () {
-          if ($(_this19).is(':visible')) {
-            _this19.focus();
+          if ($(_this10).is(':visible')) {
+            _this10.focus();
           }
         });
       });
@@ -1926,9 +1984,9 @@ var unikorn = (function (exports, $, Popper) {
         this._addEventListeners();
       }
 
-      var _proto6 = Dropdown.prototype;
+      var _proto = Dropdown.prototype;
 
-      _proto6.toggle = function toggle() {
+      _proto.toggle = function toggle() {
         if (this._element.disabled || $(this._element).hasClass(ClassName.DISABLED)) {
           return;
         }
@@ -1977,7 +2035,7 @@ var unikorn = (function (exports, $, Popper) {
           this._popper = new Popper(referenceElement, this._menu, this._getPopperConfig());
         }
 
-        if ('ontouchstart' in document.documentElement && !$(parent).closest(Selector.NAVBAR_NAV).length === 0 && !$(parent).closest(Selector.DRAWER_NAV).length === 0) {
+        if ('ontouchstart' in document.documentElement && $(parent).closest(Selector.NAVBAR_NAV).length === 0 && $(parent).closest(Selector.DRAWER_NAV).length === 0) {
           $(document.body).children().on('mouseover', null, $.noop);
         }
 
@@ -1989,7 +2047,7 @@ var unikorn = (function (exports, $, Popper) {
         $(parent).toggleClass(ClassName.SHOW).trigger($.Event(Event.SHOWN, relatedTarget));
       };
 
-      _proto6.show = function show() {
+      _proto.show = function show() {
         if (this._element.disabled || $(this._element).hasClass(ClassName.DISABLED) || $(this._menu).hasClass(ClassName.SHOW)) {
           return;
         }
@@ -2011,7 +2069,7 @@ var unikorn = (function (exports, $, Popper) {
         $(parent).toggleClass(ClassName.SHOW).trigger($.Event(Event.SHOWN, relatedTarget));
       };
 
-      _proto6.hide = function hide() {
+      _proto.hide = function hide() {
         if (this._element.disabled || $(this._element).hasClass(ClassName.DISABLED) || !$(this._menu).hasClass(ClassName.SHOW)) {
           return;
         }
@@ -2033,7 +2091,7 @@ var unikorn = (function (exports, $, Popper) {
         $(parent).toggleClass(ClassName.SHOW).trigger($.Event(Event.HIDDEN, relatedTarget));
       };
 
-      _proto6.dispose = function dispose() {
+      _proto.dispose = function dispose() {
         $.removeData(this._element, DATA_KEY);
         $(this._element).off(EVENT_KEY);
         this._element = null;
@@ -2046,7 +2104,7 @@ var unikorn = (function (exports, $, Popper) {
         }
       };
 
-      _proto6.update = function update() {
+      _proto.update = function update() {
         this._inNavbar = this._detectNavbar();
         this._inDrawer = this._detectDrawer();
 
@@ -2055,24 +2113,24 @@ var unikorn = (function (exports, $, Popper) {
         }
       };
 
-      _proto6._addEventListeners = function _addEventListeners() {
-        var _this20 = this;
+      _proto._addEventListeners = function _addEventListeners() {
+        var _this = this;
 
         $(this._element).on(Event.CLICK, function (event) {
           event.preventDefault();
           event.stopPropagation();
 
-          _this20.toggle();
+          _this.toggle();
         });
       };
 
-      _proto6._getConfig = function _getConfig(config) {
+      _proto._getConfig = function _getConfig(config) {
         config = _objectSpread({}, this.constructor.Default, $(this._element).data(), config);
         Util.typeCheckConfig(NAME, config, this.constructor.DefaultType);
         return config;
       };
 
-      _proto6._getMenuElement = function _getMenuElement() {
+      _proto._getMenuElement = function _getMenuElement() {
         if (!this._menu) {
           var parent = Dropdown._getParentFromElement(this._element);
 
@@ -2084,7 +2142,7 @@ var unikorn = (function (exports, $, Popper) {
         return this._menu;
       };
 
-      _proto6._getPlacement = function _getPlacement() {
+      _proto._getPlacement = function _getPlacement() {
         var $parentDropdown = $(this._element.parentNode);
         var placement = AttachmentMap.BOTTOM;
 
@@ -2105,32 +2163,36 @@ var unikorn = (function (exports, $, Popper) {
         return placement;
       };
 
-      _proto6._detectNavbar = function _detectNavbar() {
+      _proto._detectNavbar = function _detectNavbar() {
         return $(this._element).closest('.navbar').length > 0;
       };
 
-      _proto6._detectDrawer = function _detectDrawer() {
+      _proto._detectDrawer = function _detectDrawer() {
         return $(this._element).closest('.drawer').length > 0;
       };
 
-      _proto6._getPopperConfig = function _getPopperConfig() {
-        var _this21 = this;
+      _proto._getOffset = function _getOffset() {
+        var _this2 = this;
 
-        var offsetConf = {};
+        var offset = {};
 
         if (typeof this._config.offset === 'function') {
-          offsetConf.fn = function (data) {
-            data.offsets = _objectSpread({}, data.offsets, _this21._config.offset(data.offsets) || {});
+          offset.fn = function (data) {
+            data.offsets = _objectSpread({}, data.offsets, _this2._config.offset(data.offsets, _this2._element) || {});
             return data;
           };
         } else {
-          offsetConf.offset = this._config.offset;
+          offset.offset = this._config.offset;
         }
 
+        return offset;
+      };
+
+      _proto._getPopperConfig = function _getPopperConfig() {
         var popperConfig = {
           placement: this._getPlacement(),
           modifiers: {
-            offset: offsetConf,
+            offset: this._getOffset(),
             flip: {
               enabled: this._config.flip
             },
@@ -2317,7 +2379,7 @@ var unikorn = (function (exports, $, Popper) {
     };
 
     return Dropdown;
-  }($, Popper);
+  }($);
 
   var Modal = function ($) {
     var NAME = 'modal';
@@ -2353,6 +2415,7 @@ var unikorn = (function (exports, $, Popper) {
       CLICK_DATA_API: "click" + EVENT_KEY + DATA_API_KEY
     };
     var ClassName = {
+      SCROLLABLE: 'modal-dialog-scrollable',
       SCROLLBAR_MEASURER: 'modal-scrollbar-measure',
       BACKDROP: 'modal-backdrop',
       OPEN: 'modal-open',
@@ -2361,6 +2424,7 @@ var unikorn = (function (exports, $, Popper) {
     };
     var Selector = {
       DIALOG: '.modal-dialog',
+      MODAL_BODY: '.modal-body',
       DATA_TOGGLE: '[data-toggle="modal"]',
       DATA_DISMISS: '[data-dismiss="modal"]',
       FIXED_CONTENT: '.fixed-top, .fixed-bottom, .is-fixed, .sticky-top',
@@ -2380,14 +2444,14 @@ var unikorn = (function (exports, $, Popper) {
         this._scrollbarWidth = 0;
       }
 
-      var _proto7 = Modal.prototype;
+      var _proto = Modal.prototype;
 
-      _proto7.toggle = function toggle(relatedTarget) {
+      _proto.toggle = function toggle(relatedTarget) {
         return this._isShown ? this.hide() : this.show(relatedTarget);
       };
 
-      _proto7.show = function show(relatedTarget) {
-        var _this22 = this;
+      _proto.show = function show(relatedTarget) {
+        var _this = this;
 
         if (this._isShown || this._isTransitioning) {
           return;
@@ -2419,23 +2483,23 @@ var unikorn = (function (exports, $, Popper) {
         this._setResizeEvent();
 
         $(this._element).on(Event.CLICK_DISMISS, Selector.DATA_DISMISS, function (event) {
-          return _this22.hide(event);
+          return _this.hide(event);
         });
         $(this._dialog).on(Event.MOUSEDOWN_DISMISS, function () {
-          $(_this22._element).one(Event.MOUSEUP_DISMISS, function (event) {
-            if ($(event.target).is(_this22._element)) {
-              _this22._ignoreBackdropClick = true;
+          $(_this._element).one(Event.MOUSEUP_DISMISS, function (event) {
+            if ($(event.target).is(_this._element)) {
+              _this._ignoreBackdropClick = true;
             }
           });
         });
 
         this._showBackdrop(function () {
-          return _this22._showElement(relatedTarget);
+          return _this._showElement(relatedTarget);
         });
       };
 
-      _proto7.hide = function hide(event) {
-        var _this23 = this;
+      _proto.hide = function hide(event) {
+        var _this2 = this;
 
         if (event) {
           event.preventDefault();
@@ -2471,14 +2535,14 @@ var unikorn = (function (exports, $, Popper) {
         if (transition) {
           var transitionDuration = Util.getTransitionDurationFromElement(this._element);
           $(this._element).one(Util.TRANSITION_END, function (event) {
-            return _this23._hideModal(event);
+            return _this2._hideModal(event);
           }).emulateTransitionEnd(transitionDuration);
         } else {
           this._hideModal();
         }
       };
 
-      _proto7.dispose = function dispose() {
+      _proto.dispose = function dispose() {
         [window, this._element, this._dialog].forEach(function (htmlElement) {
           return $(htmlElement).off(EVENT_KEY);
         });
@@ -2495,18 +2559,18 @@ var unikorn = (function (exports, $, Popper) {
         this._scrollbarWidth = null;
       };
 
-      _proto7.handleUpdate = function handleUpdate() {
+      _proto.handleUpdate = function handleUpdate() {
         this._adjustDialog();
       };
 
-      _proto7._getConfig = function _getConfig(config) {
+      _proto._getConfig = function _getConfig(config) {
         config = _objectSpread({}, Default, config);
         Util.typeCheckConfig(NAME, config, DefaultType);
         return config;
       };
 
-      _proto7._showElement = function _showElement(relatedTarget) {
-        var _this24 = this;
+      _proto._showElement = function _showElement(relatedTarget) {
+        var _this3 = this;
 
         var transition = $(this._element).hasClass(ClassName.FADE);
 
@@ -2520,7 +2584,11 @@ var unikorn = (function (exports, $, Popper) {
 
         this._element.setAttribute('aria-modal', true);
 
-        this._element.scrollTop = 0;
+        if ($(this._dialog).hasClass(ClassName.SCROLLABLE)) {
+          this._dialog.querySelector(Selector.MODAL_BODY).scrollTop = 0;
+        } else {
+          this._element.scrollTop = 0;
+        }
 
         if (transition) {
           Util.reflow(this._element);
@@ -2537,12 +2605,12 @@ var unikorn = (function (exports, $, Popper) {
         });
 
         var transitionComplete = function transitionComplete() {
-          if (_this24._config.focus) {
-            _this24._element.focus();
+          if (_this3._config.focus) {
+            _this3._element.focus();
           }
 
-          _this24._isTransitioning = false;
-          $(_this24._element).trigger(shownEvent);
+          _this3._isTransitioning = false;
+          $(_this3._element).trigger(shownEvent);
         };
 
         if (transition) {
@@ -2553,25 +2621,25 @@ var unikorn = (function (exports, $, Popper) {
         }
       };
 
-      _proto7._enforceFocus = function _enforceFocus() {
-        var _this25 = this;
+      _proto._enforceFocus = function _enforceFocus() {
+        var _this4 = this;
 
         $(document).off(Event.FOCUSIN).on(Event.FOCUSIN, function (event) {
-          if (document !== event.target && _this25._element !== event.target && $(_this25._element).has(event.target).length === 0) {
-            _this25._element.focus();
+          if (document !== event.target && _this4._element !== event.target && $(_this4._element).has(event.target).length === 0) {
+            _this4._element.focus();
           }
         });
       };
 
-      _proto7._setEscapeEvent = function _setEscapeEvent() {
-        var _this26 = this;
+      _proto._setEscapeEvent = function _setEscapeEvent() {
+        var _this5 = this;
 
         if (this._isShown && this._config.keyboard) {
           $(this._element).on(Event.KEYDOWN_DISMISS, function (event) {
             if (event.which === ESCAPE_KEYCODE) {
               event.preventDefault();
 
-              _this26.hide();
+              _this5.hide();
             }
           });
         } else if (!this._isShown) {
@@ -2579,20 +2647,20 @@ var unikorn = (function (exports, $, Popper) {
         }
       };
 
-      _proto7._setResizeEvent = function _setResizeEvent() {
-        var _this27 = this;
+      _proto._setResizeEvent = function _setResizeEvent() {
+        var _this6 = this;
 
         if (this._isShown) {
           $(window).on(Event.RESIZE, function (event) {
-            return _this27.handleUpdate(event);
+            return _this6.handleUpdate(event);
           });
         } else {
           $(window).off(Event.RESIZE);
         }
       };
 
-      _proto7._hideModal = function _hideModal() {
-        var _this28 = this;
+      _proto._hideModal = function _hideModal() {
+        var _this7 = this;
 
         this._element.style.display = 'none';
 
@@ -2605,23 +2673,23 @@ var unikorn = (function (exports, $, Popper) {
         this._showBackdrop(function () {
           $(document.body).removeClass(ClassName.OPEN);
 
-          _this28._resetAdjustments();
+          _this7._resetAdjustments();
 
-          _this28._resetScrollbar();
+          _this7._resetScrollbar();
 
-          $(_this28._element).trigger(Event.HIDDEN);
+          $(_this7._element).trigger(Event.HIDDEN);
         });
       };
 
-      _proto7._removeBackdrop = function _removeBackdrop() {
+      _proto._removeBackdrop = function _removeBackdrop() {
         if (this._backdrop) {
           $(this._backdrop).remove();
           this._backdrop = null;
         }
       };
 
-      _proto7._showBackdrop = function _showBackdrop(callback) {
-        var _this29 = this;
+      _proto._showBackdrop = function _showBackdrop(callback) {
+        var _this8 = this;
 
         var animate = $(this._element).hasClass(ClassName.FADE) ? ClassName.FADE : '';
 
@@ -2635,8 +2703,8 @@ var unikorn = (function (exports, $, Popper) {
 
           $(this._backdrop).appendTo(document.body);
           $(this._element).on(Event.CLICK_DISMISS, function (event) {
-            if (_this29._ignoreBackdropClick) {
-              _this29._ignoreBackdropClick = false;
+            if (_this8._ignoreBackdropClick) {
+              _this8._ignoreBackdropClick = false;
               return;
             }
 
@@ -2644,10 +2712,10 @@ var unikorn = (function (exports, $, Popper) {
               return;
             }
 
-            if (_this29._config.backdrop === 'static') {
-              _this29._element.focus();
+            if (_this8._config.backdrop === 'static') {
+              _this8._element.focus();
             } else {
-              _this29.hide();
+              _this8.hide();
             }
           });
 
@@ -2672,7 +2740,7 @@ var unikorn = (function (exports, $, Popper) {
           $(this._backdrop).removeClass(ClassName.SHOW);
 
           var callbackRemove = function callbackRemove() {
-            _this29._removeBackdrop();
+            _this8._removeBackdrop();
 
             if (callback) {
               callback();
@@ -2680,9 +2748,9 @@ var unikorn = (function (exports, $, Popper) {
           };
 
           if ($(this._element).hasClass(ClassName.FADE)) {
-            var _backdropTransitionDuration2 = Util.getTransitionDurationFromElement(this._backdrop);
+            var _backdropTransitionDuration = Util.getTransitionDurationFromElement(this._backdrop);
 
-            $(this._backdrop).one(Util.TRANSITION_END, callbackRemove).emulateTransitionEnd(_backdropTransitionDuration2);
+            $(this._backdrop).one(Util.TRANSITION_END, callbackRemove).emulateTransitionEnd(_backdropTransitionDuration);
           } else {
             callbackRemove();
           }
@@ -2691,7 +2759,7 @@ var unikorn = (function (exports, $, Popper) {
         }
       };
 
-      _proto7._adjustDialog = function _adjustDialog() {
+      _proto._adjustDialog = function _adjustDialog() {
         var isModalOverflowing = this._element.scrollHeight > document.documentElement.clientHeight;
 
         if (!this._isBodyOverflowing && isModalOverflowing) {
@@ -2703,19 +2771,19 @@ var unikorn = (function (exports, $, Popper) {
         }
       };
 
-      _proto7._resetAdjustments = function _resetAdjustments() {
+      _proto._resetAdjustments = function _resetAdjustments() {
         this._element.style.paddingLeft = '';
         this._element.style.paddingRight = '';
       };
 
-      _proto7._checkScrollbar = function _checkScrollbar() {
+      _proto._checkScrollbar = function _checkScrollbar() {
         var rect = document.body.getBoundingClientRect();
         this._isBodyOverflowing = rect.left + rect.right < window.innerWidth;
         this._scrollbarWidth = this._getScrollbarWidth();
       };
 
-      _proto7._setScrollbar = function _setScrollbar() {
-        var _this30 = this;
+      _proto._setScrollbar = function _setScrollbar() {
+        var _this9 = this;
 
         if (this._isBodyOverflowing) {
           var fixedContent = [].slice.call(document.querySelectorAll(Selector.FIXED_CONTENT));
@@ -2723,12 +2791,12 @@ var unikorn = (function (exports, $, Popper) {
           $(fixedContent).each(function (index, element) {
             var actualPadding = element.style.paddingRight;
             var calculatedPadding = $(element).css('padding-right');
-            $(element).data('padding-right', actualPadding).css('padding-right', parseFloat(calculatedPadding) + _this30._scrollbarWidth + "px");
+            $(element).data('padding-right', actualPadding).css('padding-right', parseFloat(calculatedPadding) + _this9._scrollbarWidth + "px");
           });
           $(stickyContent).each(function (index, element) {
             var actualMargin = element.style.marginRight;
             var calculatedMargin = $(element).css('margin-right');
-            $(element).data('margin-right', actualMargin).css('margin-right', parseFloat(calculatedMargin) - _this30._scrollbarWidth + "px");
+            $(element).data('margin-right', actualMargin).css('margin-right', parseFloat(calculatedMargin) - _this9._scrollbarWidth + "px");
           });
           var actualPadding = document.body.style.paddingRight;
           var calculatedPadding = $(document.body).css('padding-right');
@@ -2738,7 +2806,7 @@ var unikorn = (function (exports, $, Popper) {
         $(document.body).addClass(ClassName.OPEN);
       };
 
-      _proto7._resetScrollbar = function _resetScrollbar() {
+      _proto._resetScrollbar = function _resetScrollbar() {
         var fixedContent = [].slice.call(document.querySelectorAll(Selector.FIXED_CONTENT));
         $(fixedContent).each(function (index, element) {
           var padding = $(element).data('padding-right');
@@ -2758,7 +2826,7 @@ var unikorn = (function (exports, $, Popper) {
         document.body.style.paddingRight = padding ? padding : '';
       };
 
-      _proto7._getScrollbarWidth = function _getScrollbarWidth() {
+      _proto._getScrollbarWidth = function _getScrollbarWidth() {
         var scrollDiv = document.createElement('div');
         scrollDiv.className = ClassName.SCROLLBAR_MEASURER;
         document.body.appendChild(scrollDiv);
@@ -2806,7 +2874,7 @@ var unikorn = (function (exports, $, Popper) {
     }();
 
     $(document).on(Event.CLICK_DATA_API, Selector.DATA_TOGGLE, function (event) {
-      var _this31 = this;
+      var _this10 = this;
 
       var target;
       var selector = Util.getSelectorFromElement(this);
@@ -2827,8 +2895,8 @@ var unikorn = (function (exports, $, Popper) {
         }
 
         $target.one(Event.HIDDEN, function () {
-          if ($(_this31).is(':visible')) {
-            _this31.focus();
+          if ($(_this10).is(':visible')) {
+            _this10.focus();
           }
         });
       });
@@ -2863,7 +2931,7 @@ var unikorn = (function (exports, $, Popper) {
       html: 'boolean',
       selector: '(string|boolean)',
       placement: '(string|function)',
-      offset: '(number|string)',
+      offset: '(number|string|function)',
       container: '(string|element|boolean)',
       fallbackPlacement: '(string|array)',
       boundary: '(string|element)'
@@ -2939,21 +3007,21 @@ var unikorn = (function (exports, $, Popper) {
         this._setListeners();
       }
 
-      var _proto8 = Tooltip.prototype;
+      var _proto = Tooltip.prototype;
 
-      _proto8.enable = function enable() {
+      _proto.enable = function enable() {
         this._isEnabled = true;
       };
 
-      _proto8.disable = function disable() {
+      _proto.disable = function disable() {
         this._isEnabled = false;
       };
 
-      _proto8.toggleEnabled = function toggleEnabled() {
+      _proto.toggleEnabled = function toggleEnabled() {
         this._isEnabled = !this._isEnabled;
       };
 
-      _proto8.toggle = function toggle(event) {
+      _proto.toggle = function toggle(event) {
         if (!this._isEnabled) {
           return;
         }
@@ -2985,7 +3053,7 @@ var unikorn = (function (exports, $, Popper) {
         }
       };
 
-      _proto8.dispose = function dispose() {
+      _proto.dispose = function dispose() {
         clearTimeout(this._timeout);
         $.removeData(this.element, this.constructor.DATA_KEY);
         $(this.element).off(this.constructor.EVENT_KEY);
@@ -3010,8 +3078,8 @@ var unikorn = (function (exports, $, Popper) {
         this.tip = null;
       };
 
-      _proto8.show = function show() {
-        var _this32 = this;
+      _proto.show = function show() {
+        var _this = this;
 
         if ($(this.element).css('display') === 'none') {
           throw new Error('Please use show on visible elements');
@@ -3056,9 +3124,7 @@ var unikorn = (function (exports, $, Popper) {
           this._popper = new Popper(this.element, tip, {
             placement: attachment,
             modifiers: {
-              offset: {
-                offset: this.config.offset
-              },
+              offset: this._getOffset(),
               flip: {
                 behavior: this.config.fallbackPlacement
               },
@@ -3071,11 +3137,11 @@ var unikorn = (function (exports, $, Popper) {
             },
             onCreate: function onCreate(data) {
               if (data.originalPlacement !== data.placement) {
-                _this32._handlePopperPlacementChange(data);
+                _this._handlePopperPlacementChange(data);
               }
             },
             onUpdate: function onUpdate(data) {
-              _this32._handlePopperPlacementChange(data);
+              _this._handlePopperPlacementChange(data);
             }
           });
           $(tip).addClass(ClassName.SHOW);
@@ -3085,16 +3151,16 @@ var unikorn = (function (exports, $, Popper) {
           }
 
           var complete = function complete() {
-            if (_this32.config.animation) {
-              _this32._fixTransition();
+            if (_this.config.animation) {
+              _this._fixTransition();
             }
 
-            var prevHoverState = _this32._hoverState;
-            _this32._hoverState = null;
-            $(_this32.element).trigger(_this32.constructor.Event.SHOWN);
+            var prevHoverState = _this._hoverState;
+            _this._hoverState = null;
+            $(_this.element).trigger(_this.constructor.Event.SHOWN);
 
             if (prevHoverState === HoverState.OUT) {
-              _this32._leave(null, _this32);
+              _this._leave(null, _this);
             }
           };
 
@@ -3107,25 +3173,25 @@ var unikorn = (function (exports, $, Popper) {
         }
       };
 
-      _proto8.hide = function hide(callback) {
-        var _this33 = this;
+      _proto.hide = function hide(callback) {
+        var _this2 = this;
 
         var tip = this.getTipElement();
         var hideEvent = $.Event(this.constructor.Event.HIDE);
 
         var complete = function complete() {
-          if (_this33._hoverState !== HoverState.SHOW && tip.parentNode) {
+          if (_this2._hoverState !== HoverState.SHOW && tip.parentNode) {
             tip.parentNode.removeChild(tip);
           }
 
-          _this33._cleanTipClass();
+          _this2._cleanTipClass();
 
-          _this33.element.removeAttribute('aria-describedby');
+          _this2.element.removeAttribute('aria-describedby');
 
-          $(_this33.element).trigger(_this33.constructor.Event.HIDDEN);
+          $(_this2.element).trigger(_this2.constructor.Event.HIDDEN);
 
-          if (_this33._popper !== null) {
-            _this33._popper.destroy();
+          if (_this2._popper !== null) {
+            _this2._popper.destroy();
           }
 
           if (callback) {
@@ -3159,32 +3225,32 @@ var unikorn = (function (exports, $, Popper) {
         this._hoverState = '';
       };
 
-      _proto8.update = function update() {
+      _proto.update = function update() {
         if (this._popper !== null) {
           this._popper.scheduleUpdate();
         }
       };
 
-      _proto8.isWithContent = function isWithContent() {
+      _proto.isWithContent = function isWithContent() {
         return Boolean(this.getTitle());
       };
 
-      _proto8.addAttachmentClass = function addAttachmentClass(attachment) {
+      _proto.addAttachmentClass = function addAttachmentClass(attachment) {
         $(this.getTipElement()).addClass(CLASS_PREFIX + "-" + attachment);
       };
 
-      _proto8.getTipElement = function getTipElement() {
+      _proto.getTipElement = function getTipElement() {
         this.tip = this.tip || $(this.config.template)[0];
         return this.tip;
       };
 
-      _proto8.setContent = function setContent() {
+      _proto.setContent = function setContent() {
         var tip = this.getTipElement();
         this.setElementContent($(tip.querySelectorAll(Selector.TOOLTIP_INNER)), this.getTitle());
         $(tip).removeClass(ClassName.FADE + " " + ClassName.SHOW);
       };
 
-      _proto8.setElementContent = function setElementContent($element, content) {
+      _proto.setElementContent = function setElementContent($element, content) {
         var html = this.config.html;
 
         if (typeof content === 'object' && (content.nodeType || content.jquery)) {
@@ -3200,7 +3266,7 @@ var unikorn = (function (exports, $, Popper) {
         }
       };
 
-      _proto8.getTitle = function getTitle() {
+      _proto.getTitle = function getTitle() {
         var title = this.element.getAttribute('data-original-title');
 
         if (!title) {
@@ -3210,7 +3276,24 @@ var unikorn = (function (exports, $, Popper) {
         return title;
       };
 
-      _proto8._getContainer = function _getContainer() {
+      _proto._getOffset = function _getOffset() {
+        var _this3 = this;
+
+        var offset = {};
+
+        if (typeof this.config.offset === 'function') {
+          offset.fn = function (data) {
+            data.offsets = _objectSpread({}, data.offsets, _this3.config.offset(data.offsets, _this3.element) || {});
+            return data;
+          };
+        } else {
+          offset.offset = this.config.offset;
+        }
+
+        return offset;
+      };
+
+      _proto._getContainer = function _getContainer() {
         if (this.config.container === false) {
           return document.body;
         }
@@ -3222,32 +3305,32 @@ var unikorn = (function (exports, $, Popper) {
         return $(document).find(this.config.container);
       };
 
-      _proto8._getAttachment = function _getAttachment(placement) {
+      _proto._getAttachment = function _getAttachment(placement) {
         return AttachmentMap[placement.toUpperCase()];
       };
 
-      _proto8._setListeners = function _setListeners() {
-        var _this34 = this;
+      _proto._setListeners = function _setListeners() {
+        var _this4 = this;
 
         var triggers = this.config.trigger.split(' ');
         triggers.forEach(function (trigger) {
           if (trigger === 'click') {
-            $(_this34.element).on(_this34.constructor.Event.CLICK, _this34.config.selector, function (event) {
-              return _this34.toggle(event);
+            $(_this4.element).on(_this4.constructor.Event.CLICK, _this4.config.selector, function (event) {
+              return _this4.toggle(event);
             });
           } else if (trigger !== Trigger.MANUAL) {
-            var eventIn = trigger === Trigger.HOVER ? _this34.constructor.Event.MOUSEENTER : _this34.constructor.Event.FOCUSIN;
-            var eventOut = trigger === Trigger.HOVER ? _this34.constructor.Event.MOUSELEAVE : _this34.constructor.Event.FOCUSOUT;
-            $(_this34.element).on(eventIn, _this34.config.selector, function (event) {
-              return _this34._enter(event);
-            }).on(eventOut, _this34.config.selector, function (event) {
-              return _this34._leave(event);
+            var eventIn = trigger === Trigger.HOVER ? _this4.constructor.Event.MOUSEENTER : _this4.constructor.Event.FOCUSIN;
+            var eventOut = trigger === Trigger.HOVER ? _this4.constructor.Event.MOUSELEAVE : _this4.constructor.Event.FOCUSOUT;
+            $(_this4.element).on(eventIn, _this4.config.selector, function (event) {
+              return _this4._enter(event);
+            }).on(eventOut, _this4.config.selector, function (event) {
+              return _this4._leave(event);
             });
           }
         });
         $(this.element).closest('.modal').on('hide.uni.modal', function () {
-          if (_this34.element) {
-            _this34.hide();
+          if (_this4.element) {
+            _this4.hide();
           }
         });
 
@@ -3261,7 +3344,7 @@ var unikorn = (function (exports, $, Popper) {
         }
       };
 
-      _proto8._fixTitle = function _fixTitle() {
+      _proto._fixTitle = function _fixTitle() {
         var titleType = typeof this.element.getAttribute('data-original-title');
 
         if (this.element.getAttribute('title') || titleType !== 'string') {
@@ -3270,7 +3353,7 @@ var unikorn = (function (exports, $, Popper) {
         }
       };
 
-      _proto8._enter = function _enter(event, context) {
+      _proto._enter = function _enter(event, context) {
         var dataKey = this.constructor.DATA_KEY;
         context = context || $(event.currentTarget).data(dataKey);
 
@@ -3303,7 +3386,7 @@ var unikorn = (function (exports, $, Popper) {
         }, context.config.delay.show);
       };
 
-      _proto8._leave = function _leave(event, context) {
+      _proto._leave = function _leave(event, context) {
         var dataKey = this.constructor.DATA_KEY;
         context = context || $(event.currentTarget).data(dataKey);
 
@@ -3335,7 +3418,7 @@ var unikorn = (function (exports, $, Popper) {
         }, context.config.delay.hide);
       };
 
-      _proto8._isWithActiveTrigger = function _isWithActiveTrigger() {
+      _proto._isWithActiveTrigger = function _isWithActiveTrigger() {
         for (var trigger in this._activeTrigger) {
           if (this._activeTrigger[trigger]) {
             return true;
@@ -3345,7 +3428,7 @@ var unikorn = (function (exports, $, Popper) {
         return false;
       };
 
-      _proto8._getConfig = function _getConfig(config) {
+      _proto._getConfig = function _getConfig(config) {
         config = _objectSpread({}, this.constructor.Default, $(this.element).data(), typeof config === 'object' && config ? config : {});
 
         if (typeof config.delay === 'number') {
@@ -3367,7 +3450,7 @@ var unikorn = (function (exports, $, Popper) {
         return config;
       };
 
-      _proto8._getDelegateConfig = function _getDelegateConfig() {
+      _proto._getDelegateConfig = function _getDelegateConfig() {
         var config = {};
 
         if (this.config) {
@@ -3381,7 +3464,7 @@ var unikorn = (function (exports, $, Popper) {
         return config;
       };
 
-      _proto8._cleanTipClass = function _cleanTipClass() {
+      _proto._cleanTipClass = function _cleanTipClass() {
         var $tip = $(this.getTipElement());
         var tabClass = $tip.attr('class').match(UNICLS_PREFIX_REGEX);
 
@@ -3390,7 +3473,7 @@ var unikorn = (function (exports, $, Popper) {
         }
       };
 
-      _proto8._handlePopperPlacementChange = function _handlePopperPlacementChange(popperData) {
+      _proto._handlePopperPlacementChange = function _handlePopperPlacementChange(popperData) {
         var popperInstance = popperData.instance;
         this.tip = popperInstance.popper;
 
@@ -3399,7 +3482,7 @@ var unikorn = (function (exports, $, Popper) {
         this.addAttachmentClass(this._getAttachment(popperData.placement));
       };
 
-      _proto8._fixTransition = function _fixTransition() {
+      _proto._fixTransition = function _fixTransition() {
         var tip = this.getTipElement();
         var initConfigAnimation = this.config.animation;
 
@@ -3488,7 +3571,7 @@ var unikorn = (function (exports, $, Popper) {
     };
 
     return Tooltip;
-  }($, Popper);
+  }($);
 
   var Popover = function ($) {
     var NAME = 'popover';
@@ -3538,22 +3621,22 @@ var unikorn = (function (exports, $, Popper) {
         return _Tooltip.apply(this, arguments) || this;
       }
 
-      var _proto9 = Popover.prototype;
+      var _proto = Popover.prototype;
 
-      _proto9.isWithContent = function isWithContent() {
+      _proto.isWithContent = function isWithContent() {
         return this.getTitle() || this._getContent();
       };
 
-      _proto9.addAttachmentClass = function addAttachmentClass(attachment) {
+      _proto.addAttachmentClass = function addAttachmentClass(attachment) {
         $(this.getTipElement()).addClass(CLASS_PREFIX + "-" + attachment);
       };
 
-      _proto9.getTipElement = function getTipElement() {
+      _proto.getTipElement = function getTipElement() {
         this.tip = this.tip || $(this.config.template)[0];
         return this.tip;
       };
 
-      _proto9.setContent = function setContent() {
+      _proto.setContent = function setContent() {
         var $tip = $(this.getTipElement());
         this.setElementContent($tip.find(Selector.TITLE), this.getTitle());
 
@@ -3567,11 +3650,11 @@ var unikorn = (function (exports, $, Popper) {
         $tip.removeClass(ClassName.FADE + " " + ClassName.SHOW);
       };
 
-      _proto9._getContent = function _getContent() {
+      _proto._getContent = function _getContent() {
         return this.element.getAttribute('data-content') || this.config.content;
       };
 
-      _proto9._cleanTipClass = function _cleanTipClass() {
+      _proto._cleanTipClass = function _cleanTipClass() {
         var $tip = $(this.getTipElement());
         var tabClass = $tip.attr('class').match(UNICLS_PREFIX_REGEX);
 
@@ -3701,7 +3784,7 @@ var unikorn = (function (exports, $, Popper) {
 
     var ScrollSpy = function () {
       function ScrollSpy(element, config) {
-        var _this35 = this;
+        var _this = this;
 
         this._element = element;
         this._scrollElement = element.tagName === 'BODY' ? window : element;
@@ -3712,17 +3795,17 @@ var unikorn = (function (exports, $, Popper) {
         this._activeTarget = null;
         this._scrollHeight = 0;
         $(this._scrollElement).on(Event.SCROLL, function (event) {
-          return _this35._process(event);
+          return _this._process(event);
         });
         this.refresh();
 
         this._process();
       }
 
-      var _proto10 = ScrollSpy.prototype;
+      var _proto = ScrollSpy.prototype;
 
-      _proto10.refresh = function refresh() {
-        var _this36 = this;
+      _proto.refresh = function refresh() {
+        var _this2 = this;
 
         var autoMethod = this._scrollElement === this._scrollElement.window ? OffsetMethod.OFFSET : OffsetMethod.POSITION;
         var offsetMethod = this._config.method === 'auto' ? autoMethod : this._config.method;
@@ -3753,13 +3836,13 @@ var unikorn = (function (exports, $, Popper) {
         }).sort(function (a, b) {
           return a[0] - b[0];
         }).forEach(function (item) {
-          _this36._offsets.push(item[0]);
+          _this2._offsets.push(item[0]);
 
-          _this36._targets.push(item[1]);
+          _this2._targets.push(item[1]);
         });
       };
 
-      _proto10.dispose = function dispose() {
+      _proto.dispose = function dispose() {
         $.removeData(this._element, DATA_KEY);
         $(this._scrollElement).off(EVENT_KEY);
         this._element = null;
@@ -3772,7 +3855,7 @@ var unikorn = (function (exports, $, Popper) {
         this._scrollHeight = null;
       };
 
-      _proto10._getConfig = function _getConfig(config) {
+      _proto._getConfig = function _getConfig(config) {
         config = _objectSpread({}, Default, typeof config === 'object' && config ? config : {});
 
         if (typeof config.target !== 'string') {
@@ -3790,19 +3873,19 @@ var unikorn = (function (exports, $, Popper) {
         return config;
       };
 
-      _proto10._getScrollTop = function _getScrollTop() {
+      _proto._getScrollTop = function _getScrollTop() {
         return this._scrollElement === window ? this._scrollElement.pageYOffset : this._scrollElement.scrollTop;
       };
 
-      _proto10._getScrollHeight = function _getScrollHeight() {
+      _proto._getScrollHeight = function _getScrollHeight() {
         return this._scrollElement.scrollHeight || Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
       };
 
-      _proto10._getOffsetHeight = function _getOffsetHeight() {
+      _proto._getOffsetHeight = function _getOffsetHeight() {
         return this._scrollElement === window ? window.innerHeight : this._scrollElement.getBoundingClientRect().height;
       };
 
-      _proto10._process = function _process() {
+      _proto._process = function _process() {
         var scrollTop = this._getScrollTop() + this._config.offset;
 
         var scrollHeight = this._getScrollHeight();
@@ -3842,7 +3925,7 @@ var unikorn = (function (exports, $, Popper) {
         }
       };
 
-      _proto10._activate = function _activate(target) {
+      _proto._activate = function _activate(target) {
         this._activeTarget = target;
 
         this._clear();
@@ -3867,7 +3950,7 @@ var unikorn = (function (exports, $, Popper) {
         });
       };
 
-      _proto10._clear = function _clear() {
+      _proto._clear = function _clear() {
         [].slice.call(document.querySelectorAll(this._selector)).filter(function (node) {
           return node.classList.contains(ClassName.ACTIVE);
         }).forEach(function (node) {
@@ -3968,10 +4051,10 @@ var unikorn = (function (exports, $, Popper) {
         this._element = element;
       }
 
-      var _proto11 = Tab.prototype;
+      var _proto = Tab.prototype;
 
-      _proto11.show = function show() {
-        var _this37 = this;
+      _proto.show = function show() {
+        var _this = this;
 
         if (this._element.parentNode && this._element.parentNode.nodeType === Node.ELEMENT_NODE && $(this._element).hasClass(ClassName.ACTIVE) || $(this._element).hasClass(ClassName.DISABLED)) {
           return;
@@ -4013,13 +4096,13 @@ var unikorn = (function (exports, $, Popper) {
 
         var complete = function complete() {
           var hiddenEvent = $.Event(Event.HIDDEN, {
-            relatedTarget: _this37._element
+            relatedTarget: _this._element
           });
           var shownEvent = $.Event(Event.SHOWN, {
             relatedTarget: previous
           });
           $(previous).trigger(hiddenEvent);
-          $(_this37._element).trigger(shownEvent);
+          $(_this._element).trigger(shownEvent);
         };
 
         if (target) {
@@ -4029,20 +4112,20 @@ var unikorn = (function (exports, $, Popper) {
         }
       };
 
-      _proto11.dispose = function dispose() {
+      _proto.dispose = function dispose() {
         $.removeData(this._element, DATA_KEY);
         this._element = null;
       };
 
-      _proto11._activate = function _activate(element, container, callback) {
-        var _this38 = this;
+      _proto._activate = function _activate(element, container, callback) {
+        var _this2 = this;
 
         var activeElements = container && (container.nodeName === 'UL' || container.nodeName === 'OL') ? $(container).find(Selector.ACTIVE_UL) : $(container).children(Selector.ACTIVE);
         var active = activeElements[0];
         var isTransitioning = callback && active && $(active).hasClass(ClassName.FADE);
 
         var complete = function complete() {
-          return _this38._transitionComplete(element, active, callback);
+          return _this2._transitionComplete(element, active, callback);
         };
 
         if (active && isTransitioning) {
@@ -4053,7 +4136,7 @@ var unikorn = (function (exports, $, Popper) {
         }
       };
 
-      _proto11._transitionComplete = function _transitionComplete(element, active, callback) {
+      _proto._transitionComplete = function _transitionComplete(element, active, callback) {
         if (active) {
           $(active).removeClass(ClassName.ACTIVE);
           var dropdownChild = $(active.parentNode).find(Selector.DROPDOWN_ACTIVE_CHILD)[0];
@@ -4074,7 +4157,10 @@ var unikorn = (function (exports, $, Popper) {
         }
 
         Util.reflow(element);
-        $(element).addClass(ClassName.SHOW);
+
+        if (element.classList.contains(ClassName.FADE)) {
+          element.classList.add(ClassName.SHOW);
+        }
 
         if (element.parentNode && $(element.parentNode).hasClass(ClassName.DROPDOWN_MENU)) {
           var dropdownElement = $(element).closest(Selector.DROPDOWN)[0];
@@ -4094,11 +4180,12 @@ var unikorn = (function (exports, $, Popper) {
 
       Tab._jQueryInterface = function _jQueryInterface(config) {
         return this.each(function () {
-          var data = $(this).data(DATA_KEY);
+          var $this = $(this);
+          var data = $this.data(DATA_KEY);
 
           if (!data) {
             data = new Tab(this);
-            $(this).data(DATA_KEY, data);
+            $this.data(DATA_KEY, data);
           }
 
           if (typeof config === 'string') {
@@ -4179,10 +4266,10 @@ var unikorn = (function (exports, $, Popper) {
         this._setListeners();
       }
 
-      var _proto12 = Toast.prototype;
+      var _proto = Toast.prototype;
 
-      _proto12.show = function show() {
-        var _this39 = this;
+      _proto.show = function show() {
+        var _this = this;
 
         $(this._element).trigger(Event.SHOW);
 
@@ -4191,14 +4278,14 @@ var unikorn = (function (exports, $, Popper) {
         }
 
         var complete = function complete() {
-          _this39._element.classList.remove(ClassName.SHOWING);
+          _this._element.classList.remove(ClassName.SHOWING);
 
-          _this39._element.classList.add(ClassName.SHOW);
+          _this._element.classList.add(ClassName.SHOW);
 
-          $(_this39._element).trigger(Event.SHOWN);
+          $(_this._element).trigger(Event.SHOWN);
 
-          if (_this39._config.autohide) {
-            _this39.hide();
+          if (_this._config.autohide) {
+            _this.hide();
           }
         };
 
@@ -4214,8 +4301,8 @@ var unikorn = (function (exports, $, Popper) {
         }
       };
 
-      _proto12.hide = function hide(withoutTimeout) {
-        var _this40 = this;
+      _proto.hide = function hide(withoutTimeout) {
+        var _this2 = this;
 
         if (!this._element.classList.contains(ClassName.SHOW)) {
           return;
@@ -4227,12 +4314,12 @@ var unikorn = (function (exports, $, Popper) {
           this._close();
         } else {
           this._timeout = setTimeout(function () {
-            _this40._close();
+            _this2._close();
           }, this._config.delay);
         }
       };
 
-      _proto12.dispose = function dispose() {
+      _proto.dispose = function dispose() {
         clearTimeout(this._timeout);
         this._timeout = null;
 
@@ -4246,27 +4333,27 @@ var unikorn = (function (exports, $, Popper) {
         this._config = null;
       };
 
-      _proto12._getConfig = function _getConfig(config) {
+      _proto._getConfig = function _getConfig(config) {
         config = _objectSpread({}, Default, $(this._element).data(), typeof config === 'object' && config ? config : {});
         Util.typeCheckConfig(NAME, config, this.constructor.DefaultType);
         return config;
       };
 
-      _proto12._setListeners = function _setListeners() {
-        var _this41 = this;
+      _proto._setListeners = function _setListeners() {
+        var _this3 = this;
 
         $(this._element).on(Event.CLICK_DISMISS, Selector.DATA_DISMISS, function () {
-          return _this41.hide(true);
+          return _this3.hide(true);
         });
       };
 
-      _proto12._close = function _close() {
-        var _this42 = this;
+      _proto._close = function _close() {
+        var _this4 = this;
 
         var complete = function complete() {
-          _this42._element.classList.add(ClassName.HIDE);
+          _this4._element.classList.add(ClassName.HIDE);
 
-          $(_this42._element).trigger(Event.HIDDEN);
+          $(_this4._element).trigger(Event.HIDDEN);
         };
 
         this._element.classList.remove(ClassName.SHOW);
@@ -4327,21 +4414,21 @@ var unikorn = (function (exports, $, Popper) {
     return Toast;
   }($);
 
-  exports.Util = Util;
   exports.Alert = Alert;
   exports.Button = Button;
   exports.Carousel = Carousel;
   exports.Collapse = Collapse;
-  exports.Dropdown = Dropdown;
   exports.Drawer = Drawer;
+  exports.Dropdown = Dropdown;
   exports.Modal = Modal;
   exports.Popover = Popover;
   exports.ScrollSpy = ScrollSpy;
   exports.Tab = Tab;
   exports.Toast = Toast;
   exports.Tooltip = Tooltip;
+  exports.Util = Util;
 
-  return exports;
+  Object.defineProperty(exports, '__esModule', { value: true });
 
-}({}, jQuery, Popper));
-//# sourceMappingURL=unikorn.js.map
+}));
+//# sourceMappingURL=unikorn.umd.js.map
