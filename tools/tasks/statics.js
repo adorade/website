@@ -12,7 +12,7 @@ const taskTarget = args.production ? paths.statics.prod : paths.statics.dev;
 // .pipe($.debug({ title: 'unicorn:' }))
 
 export function cleanStatics () {
-  $.fancyLog(`-> Clean all statics in ${magenta(taskTarget)} folder`);
+  $.fancyLog(`${green('-> Clean all statics')} in ${magenta(taskTarget)} folder`);
   return $.del(taskTarget);
 }
 cleanStatics.displayName = 'clean:statics';

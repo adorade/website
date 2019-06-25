@@ -13,7 +13,7 @@ const vendorTarget = args.production ? paths.vendor.prod.js : paths.vendor.dev.j
 // .pipe($.debug({ title: 'unicorn:' }))
 
 export function cleanJs () {
-  $.fancyLog(`-> Clean all scripts in ${magenta(taskTarget)} folder`);
+  $.fancyLog(`${green('-> Clean all scripts')} in ${magenta(taskTarget)} folder`);
   return $.del(taskTarget);
 }
 cleanJs.displayName = 'clean:js';
