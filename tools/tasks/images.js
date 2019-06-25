@@ -12,7 +12,7 @@ const taskTarget = args.production ? paths.images.prod : paths.images.dev;
 // .pipe($.debug({ title: 'unicorn:' }))
 
 export function cleanImages () {
-  $.fancyLog(`-> Clean all images in ${magenta(taskTarget)} folder`);
+  $.fancyLog(`${green('-> Clean all images')} in ${magenta(taskTarget)} folder`);
   return $.del(taskTarget);
 }
 cleanImages.displayName = 'clean:images';

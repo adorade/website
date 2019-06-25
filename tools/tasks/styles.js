@@ -13,7 +13,7 @@ const vendorTarget = args.production ? paths.vendor.prod.css : paths.vendor.dev.
 // .pipe($.debug({ title: 'unicorn:' }))
 
 export function cleanCss () {
-  $.fancyLog(`-> Clean all styles in ${magenta(taskTarget)} folder`);
+  $.fancyLog(`${green('-> Clean all styles')} in ${magenta(taskTarget)} folder`);
   return $.del(taskTarget);
 }
 cleanCss.displayName = 'clean:css';

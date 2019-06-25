@@ -17,7 +17,7 @@ if (args.production) {
 // .pipe($.debug({ title: 'unicorn:' }))
 
 export function cleanPages () {
-  $.fancyLog(`-> Clean all pages in ${magenta(taskTarget)} folder`);
+  $.fancyLog(`${green('-> Clean all pages')} in ${magenta(taskTarget)} folder`);
   return $.del(taskTarget);
 }
 cleanPages.displayName = 'clean:pages';
