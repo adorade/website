@@ -1,26 +1,26 @@
 //- partials/_scripts.pug
 block external-js
   // jQuery first, then ...
-  script(
+  script(defer
     src="https://code.jquery.com/jquery-3.4.1.min.js"
     integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
     crossorigin="anonymous")
-  script(
+  script(defer
     src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js"
     integrity="sha256-fTuUgtT7O2rqoImwjrhDgbXTKUwyxxujIMRIK7TbuNU="
     crossorigin="anonymous")
-  //- script(
+  //- script(defer
   //-   src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
   //-   integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
   //-   crossorigin="anonymous")
-  script(
+  script(defer
     src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.9.0/lozad.min.js"
     integrity="sha256-50cmb3K6Zka/WMfXLFzqyo5+P+ue2JdsyEmSEsU58s4="
     crossorigin="anonymous")
 
 block custom-js
-  script#unikorn(src="js/vendor/unikorn.umd.min.js")
+  script#unikorn(defer src="js/vendor/unikorn.umd.min.js")
   if entry.inline
-    script#inline-script(src="js/script.min.js" inline)
+    script#inline-script(defer src="js/script.min.js")
   else
-    script#main-script(src="js/script.js")
+    script#main-script(defer src="js/script.js")
