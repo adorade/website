@@ -1,0 +1,34 @@
+//- partials/_meta.pug
+// Required meta tags
+meta(charset="utf-8")
+meta(http-equiv="X-UA-Compatible" content="IE=edge")
+meta(name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no")
+
+// Primary Meta Tags
+if title
+  title= title
+else
+  title Adorade - Web Design Company
+
+if description
+  meta(name="description" content= description)
+else
+  meta(name="description" content="Once upon a time, we started a journey, to discover, to learn... beautiful things.")
+
+// Schema.org markup for Google
+script(type="application/ld+json").
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "url": "https://adorade.ro",
+    "name": "Adorade - Web Design",
+    "image": "https://adorade.ro/images/share/adorade_og_share.jpg"
+  }
+
+// Open Graph / Facebook
+meta(property="og:title" content="Adorade - Web Design Company")
+meta(property="og:type" content="website")
+meta(property="og:url" content="https://adorade.ro/")
+meta(property="og:image" content="https://adorade.ro/images/share/adorade_og_share.jpg")
+meta(property="og:description" content="Once upon a time, we started a journey, to discover, to learn... beautiful things!")
+meta(property="fb:app_id" content="161881187806327")
