@@ -1,5 +1,9 @@
 //- partials/_fonts.pug
 // Load Fonts
+//- Use Google Fonts CSS
+//- link(href="https://fonts.googleapis.com/css?family=Aclonica|Roboto&display=swap" rel="stylesheet")
+
+//- Use WebFont Loader
 script.
   WebFontConfig = {
     google: { families: [ 'Aclonica%7CRoboto&display=swap' ] }
@@ -12,6 +16,12 @@ script.
     var s = document.getElementsByTagName('script')[0];
     s.parentNode.insertBefore(wf, s);
   })();
+
+//- Use your own Fonts CDN
+//- if entry.inline
+//-   link#fonts-style(href="css/vendor/fonts.css" inline)
+//- else
+//-   link#fonts-style(rel="stylesheet" href="css/vendor/fonts.css" media="all")
 
 script(defer
   src="https://use.fontawesome.com/releases/v5.8.2/js/all.js"
