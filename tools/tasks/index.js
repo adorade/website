@@ -13,3 +13,4 @@ export { cleanImages, imagine, convert } from './images';                       
 export { cleanPages, lintPages, pagile, pagify } from './pages';                // Pages
 export { cleanDeploy, deploy } from './deploy';                                 // Deploy
 export { serve } from './serve';                                                // Serve and Watch
+export { serviceWorker } from './workbox';                                      // Workbox build

@@ -10,7 +10,7 @@ import {
   cleanJs, vendorJs, lintEs, transpile, uglify,
   cleanImages, imagine, convert, cleanStatics, statica,
   cleanPages, lintPages, pagile, pagify,
-  cleanDeploy, deploy, serve
+  cleanDeploy, deploy, serve, serviceWorker
 } from './tools';
 
 if (args.production) {
@@ -84,10 +84,15 @@ buildDeploy.description = 'Deploy to GitHub Pages';
 export { serve };
 
 /**
+ * Precache files with workbox
+ * -------------------------------------------------------------------------- */
+export const sw = serviceWorker;
+
+/**
  * Define `build` task - Specify if tasks run in series or parallel
  * -------------------------------------------------------------------------- */
 export const build = series(
-  clean, styles, scripts, images, statics, pages
+  clean, styles, scripts, images, statics, pages, sw
 );
 build.description = 'Build task for production';
 
