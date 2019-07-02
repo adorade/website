@@ -7,7 +7,7 @@
 // Load plugins
 export {
   src, dest, series, parallel, lastRun, watch, tree,
-  bgBlue, bgRed, green, magenta, red,
+  bgBlue, bgRed, cyan, green, magenta, red,
   args, $, bs, fs, http2
 } from './plugins';
 

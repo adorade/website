@@ -14,12 +14,13 @@ export const $ = require('gulp-load-plugins')({
     'gulp-stylelint': 'gStylelint',
     'gulp-eslint': 'gEslint',
     'gulp-pug-linter': 'pugLinter',
-    'gulp-gh-pages': 'ghPages'
+    'gulp-gh-pages': 'ghPages',
+    'workbox-build': 'workboxBuild'
   }
 });
 
 // Colors for fancy log
-export { bgBlue, bgRed, green, magenta, red } from 'ansi-colors';
+export { bgBlue, bgRed, cyan, green, magenta, red } from 'ansi-colors';
 
 // Fetch command line arguments for development or production environment
 import minimist from 'minimist';

@@ -12,5 +12,6 @@ export {
   cleanStatics, statica,                                // Statics
   cleanPages, lintPages, pagile, pagify,                // Pages
   cleanDeploy, deploy,                                  // Deploy
-  serve                                                 // Serve and Watch
+  serve,                                                // Serve and Watch
+  serviceWorker                                             // Workbox build
 } from './tasks';
