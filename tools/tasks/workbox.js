@@ -9,9 +9,9 @@ import { args, $, cyan, green, dirs } from '../util';
 const taskTarget = args.production ? dirs.prod : dirs.dev;
 
 // NOTE: This should be run *AFTER* all your assets are built
-export function serviceWorker (done) {
+export async function serviceWorker (done) {
   $.fancyLog(`${green('-> Precache files with workbox...')}`);
-  $.workboxBuild.injectManifest({
+  await $.workboxBuild.injectManifest({
     swSrc: `${dirs.src}/workbox/service-worker.js`,
     swDest: `${taskTarget}/sw.js`,
     globDirectory: taskTarget,
