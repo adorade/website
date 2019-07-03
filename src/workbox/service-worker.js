@@ -46,20 +46,47 @@ if (workbox) {
     })
   )
 
-  // Caching Images
+  // Caching Images for 7 days
   workbox.routing.registerRoute(
-    // Cache image files.
     /\.(?:png|gif|jpg|jpeg|webp|svg)$/,
-    // Use the cache if it's available.
     new workbox.strategies.CacheFirst({
-      // Use a custom cache name.
       cacheName: 'image-cache',
       plugins: [
         new workbox.expiration.Plugin({
-          // Cache only 20 images.
           maxEntries: 20,
-          // Cache for a maximum of a week.
           maxAgeSeconds: 7 * 24 * 60 * 60 // 7 days
+        })
+      ]
+    })
+  )
+
+  // Handle jQuery cdn requests
+  workbox.routing.registerRoute(
+    /^https:\/\/code\.jquery\.com/,
+    new workbox.strategies.CacheFirst({
+      cacheName: 'jquery-cdn',
+      plugins: [
+        new workbox.cacheableResponse.Plugin({
+          statuses: [0, 200]
+        }),
+        new workbox.expiration.Plugin({
+          maxAgeSeconds: 1 * 24 * 60 * 60 // 1 day
+        })
+      ]
+    })
+  )
+
+  // Handle cdnjs requests
+  workbox.routing.registerRoute(
+    /^https:\/\/cdnjs\.cloudflare\.com/,
+    new workbox.strategies.CacheFirst({
+      cacheName: 'cdnjs-cloudflare',
+      plugins: [
+        new workbox.cacheableResponse.Plugin({
+          statuses: [0, 200]
+        }),
+        new workbox.expiration.Plugin({
+          maxAgeSeconds: 1 * 24 * 60 * 60 // 1 day
         })
       ]
     })
