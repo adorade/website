@@ -9,7 +9,7 @@ import {
 } from '../util';
 import {
   lintScss, compile, minify, lintEs, transpile, uglify,
-  imagine, convert, statica, lintPages, pagile, pagify
+  imagine, convert, favicons, statica, lintPages, pagile, pagify
 } from './';
 
 export function serve () {
@@ -18,7 +18,7 @@ export function serve () {
       baseDir: args.production ? dirs.prod : dirs.dev
     },
     port: 6969,
-    logPrefix: 'Adorade',
+    logPrefix: args.production ? 'Adorade Prod' : 'Adorade Dev',
     ui: false,
     httpModule: http2
   });
@@ -46,8 +46,13 @@ export function serve () {
       tasks: [imagine, convert]
     },
     {
+      name: 'Favicons',
+      paths: paths.statics.src.icons,
+      tasks: [favicons]
+    },
+    {
       name: 'Statics',
-      paths: paths.statics.src,
+      paths: paths.statics.src.conf,
       tasks: [statica]
     },
     {

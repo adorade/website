@@ -3,19 +3,19 @@
     "short_name": "Adorade",
     "icons": [
         {
-            "src": "icons/android-chrome-192x192.png",
+            "src": "statics/icons/android-chrome-192x192.png",
             "sizes": "192x192",
             "type": "image/png"
         },
         {
-            "src": "icons/android-chrome-512x512.png",
+            "src": "statics/icons/android-chrome-512x512.png",
             "sizes": "512x512",
             "type": "image/png"
         }
     ],
     "theme_color": "#ff5722",
     "background_color": "#ff5722",
-    "start_url": "/?utm_source=app&utm_medium=mobile&utm_campaign=test",
+    "start_url": "/?utm_source=app",
     "display": "standalone",
     "orientation": "portrait",
     "description": "Once upon a time we started a journey."
