@@ -4,11 +4,11 @@
  * Licensed under MIT
  * ========================================================================== */
 
-import { series, parallel, args, $, green } from './tools/util';
+import { series, args, $, green } from './tools/util';
 import {
   checks, clean, cleanCss, vendorCss, lintScss, compile, minify,
   cleanJs, vendorJs, lintEs, transpile, uglify,
-  cleanImages, imagine, convert, cleanStatics, statica,
+  cleanImages, imagine, convert, cleanStatics, favicons, statica,
   cleanPages, lintPages, pagile, pagify,
   cleanDeploy, deploy, serve, serviceWorker
 } from './tools';
@@ -56,7 +56,7 @@ buildImages.description = 'Build only images files';
 /**
  * Statics - processes static files
  * -------------------------------------------------------------------------- */
-const statics = parallel(statica);
+const statics = series(favicons, statica);
 export const buildStatics = series(cleanStatics, statics);
 buildStatics.displayName = 'build:statics';
 buildStatics.description = 'Build statics files';

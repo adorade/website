@@ -48,9 +48,13 @@ export const paths = {
     prod: `${dirs.prod}/images/`
   },
   statics: {
-    src: `${dirs.src}/statics/**/*.{ico,png,xml,json,svg,webmanifest}`,
+    src: {
+      icons: `${dirs.src}/statics/**/*.{ico,png,svg}`,
+      conf: `${dirs.src}/statics/**/*.{json,txt,webmanifest,xml}`
+    },
     dev: `${dirs.dev}/statics/`,
-    prod: `${dirs.prod}/statics/`
+    prod: `${dirs.prod}/statics/`,
+    ext: '**/*.{json,txt,webmanifest,xml}'
   },
   views: {
     src: [ `${dirs.src}/views/**/*.pug`, '!**/_*.pug' ],

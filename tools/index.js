@@ -9,9 +9,9 @@ export {
   cleanCss, vendorCss, lintScss, compile, minify,       // Styles
   cleanJs, vendorJs, lintEs, transpile, uglify,         // Scripts
   cleanImages, imagine, convert,                        // Images
-  cleanStatics, statica,                                // Statics
+  cleanStatics, favicons, statica,                      // Statics
   cleanPages, lintPages, pagile, pagify,                // Pages
   cleanDeploy, deploy,                                  // Deploy
   serve,                                                // Serve and Watch
-  serviceWorker                                             // Workbox build
+  serviceWorker                                         // Workbox build
 } from './tasks';
