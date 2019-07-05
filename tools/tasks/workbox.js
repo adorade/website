@@ -12,7 +12,7 @@ const taskTarget = args.production ? dirs.prod : dirs.dev;
 export async function serviceWorker (done) {
   $.fancyLog(`${green('-> Precache files with workbox...')}`);
   await $.workboxBuild.injectManifest({
-    swSrc: `${dirs.src}/workbox/service-worker.js`,
+    swSrc: 'tools/workbox/service-worker.js',
     swDest: `${taskTarget}/sw.js`,
     globDirectory: taskTarget,
     globPatterns: [
