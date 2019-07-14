@@ -13,7 +13,8 @@ const presets = [
 const plugins = [
   // your plugins here
 ];
+const comments = false;
 
 module.exports = {
-  presets, plugins
+  presets, plugins, comments
 };
