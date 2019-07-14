@@ -10,25 +10,26 @@
  * and re-run your build process.
  * See https://goo.gl/2aRDsh
  */
+/* globals importScripts, workbox */
 
 // Import workbox-sw, which defines the global `workbox` object.
-importScripts('https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js')
+importScripts('https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js');
 
 if (workbox) {
-  console.log('Yay! Workbox is loaded')
+  console.log('Yay! Workbox is loaded');
 
   // Force production builds, set to false
-  workbox.setConfig({ debug: false })
+  workbox.setConfig({ debug: false });
 
   /**
    * The workboxSW.precacheAndRoute() method efficiently caches and responds to
    * requests for URLs in the manifest.
    * See https://goo.gl/S9QRab
    */
-  workbox.precaching.precacheAndRoute([])
+  workbox.precaching.precacheAndRoute([]);
 
   // Enable Offline Google Analytics
-  workbox.googleAnalytics.initialize()
+  workbox.googleAnalytics.initialize();
 
   // Cache the Google Fonts webfont files with a CacheFirst strategy for 1 year.
   workbox.routing.registerRoute(
@@ -44,7 +45,7 @@ if (workbox) {
         })
       ]
     })
-  )
+  );
 
   // Caching Images for 7 days
   workbox.routing.registerRoute(
@@ -58,7 +59,7 @@ if (workbox) {
         })
       ]
     })
-  )
+  );
 
   // Handle jQuery cdn requests
   workbox.routing.registerRoute(
@@ -74,7 +75,7 @@ if (workbox) {
         })
       ]
     })
-  )
+  );
 
   // Handle cdnjs requests
   workbox.routing.registerRoute(
@@ -90,7 +91,7 @@ if (workbox) {
         })
       ]
     })
-  )
+  );
 } else {
-  console.log("Boo! Workbox didn't load")
+  console.log("Boo! Workbox didn't load");
 }
