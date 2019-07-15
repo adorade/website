@@ -1,0 +1,60 @@
+//
+// Technologies
+// -----------------------------------------------------------------------------
+
+.technologies {
+  // @include gradient-radial-circle-bottom(rgba($black, .3), rgba($black, .9));
+  padding: 3rem 1.5rem;
+  margin-right: 0;
+  margin-left: 0;
+  background-color: #fff;
+
+  h2 {
+    color: #777;
+  }
+
+  .tech-logos {
+    width: 40px;
+    max-width: 100%;
+    height: auto;
+    margin: 1rem;
+    border: none;
+    border-radius: 0;
+    opacity: .5;
+  }
+
+  .angularjs {
+    opacity: .25;
+  }
+
+  .aws {
+    width: 100px;
+  }
+
+  .electronjs {
+    opacity: .5;
+  }
+
+  .html5 {
+    width: 30px;
+    opacity: .3;
+  }
+
+  .mongodb {
+    width: 120px;
+    opacity: .5;
+  }
+
+  .mysql {
+    width: 70px;
+    margin-top: -.25rem;
+  }
+
+  .nodejs {
+    opacity: .7;
+  }
+
+  .vuejs {
+    width: 35px;
+  }
+}
