@@ -34,7 +34,7 @@
     "gulp-debug": "^4.0.0",
     "gulp-eslint": "^6.0.0",
     "gulp-gh-pages": "^0.6.0-6",
-    "gulp-header": "^2.0.7",
+    "gulp-header": "^2.0.9",
     "gulp-htmlmin": "^5.0.1",
     "gulp-imagemin": "^6.0.0",
     "gulp-inline-source": "^4.0.0",
@@ -54,7 +54,7 @@
     "rollup-plugin-babel": "^4.3.3",
     "stylelint": "^10.1.0",
     "stylelint-config-standard": "^18.3.0",
-    "stylelint-order": "^3.0.0",
+    "stylelint-order": "^3.0.1",
     "stylelint-scss": "^3.9.1",
     "workbox-build": "^4.3.1"
   },
