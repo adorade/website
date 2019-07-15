@@ -4,7 +4,12 @@
  * Licensed under MIT
  * ========================================================================== */
 
-import { src, dest, lastRun, args, $, bs, fs, magenta, green, paths, opts, banner } from '../util';
+import {
+  src, dest, lastRun, args, $, bs, fs, magenta, green,
+  paths, opts, banner, inputOpts, outputOpts
+} from '../util';
+
+import gulpRollup from '../rollup';
 
 const taskTarget = args.production ? paths.scripts.prod : paths.scripts.dev;
 const vendorTarget = args.production ? paths.vendor.prod.js : paths.vendor.dev.js;
@@ -51,14 +56,14 @@ lintEs.description = 'Lint ES files';
 
 export function transpile () {
   $.fancyLog(`${green('-> Transpiling ES via Babel...')}`);
-  return src(paths.scripts.src, {
+  return src(paths.scripts.input, {
     sourcemaps: true,
     since: lastRun(transpile)
   })
-    .pipe($.babel(opts.babel))
+    .pipe(gulpRollup(inputOpts, outputOpts))
     .pipe($.header(banner()))
     .pipe($.size(opts.size))
-    .pipe(dest(paths.scripts.dev, { sourcemaps: './maps' }))
+    .pipe(dest(paths.scripts.dev, { sourcemaps: './' }))
     .pipe(bs.stream({ match: '**/*.js' }));
 }
 transpile.displayName = 'transpile:es';

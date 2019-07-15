@@ -23,6 +23,7 @@ export const paths = {
   },
   scripts: {
     src: `${dirs.src}/es6/**/*.es6`,
+    input: `${dirs.src}/es6/script.es6`,
     dev: `${dirs.dev}/js/`,
     prod: `${dirs.prod}/js/`,
     filter: [ `${dirs.dev}/js/*.js`, '!**/*.min.js' ]

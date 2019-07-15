@@ -37,10 +37,6 @@ export const opts = {
   eslint: {
     // for more options see .eslintrc.json
   },
-  babel: {
-    // for more options see .babelrc.js
-    comments: false
-  },
   uglify: {
     compress: {
       evaluate: false
