@@ -17,7 +17,7 @@ export function serve () {
     server: {
       baseDir: args.production ? dirs.prod : dirs.dev
     },
-    port: 6969,
+    port: args.production ? 6969 : 6970,
     logPrefix: args.production ? 'Adorade Prod' : 'Adorade Dev',
     ui: false,
     httpModule: http2

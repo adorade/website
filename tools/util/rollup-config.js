@@ -5,6 +5,9 @@
  * ========================================================================== */
 
 import babel from 'rollup-plugin-babel';
+import { args } from './plugins';
+
+const filename = args.production ? 'script' : 'script-dev' ;
 
 // Input Options
 const plugins = [
@@ -22,8 +25,8 @@ const plugins = [
 ];
 
 // Output Options
-const file = 'script.js';
-const name = 'script';
+const file = `${filename}.js`;
+const name = `${filename}`;
 const format = 'cjs';
 
 export const inputOpts = {
