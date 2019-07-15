@@ -4,6 +4,8 @@
  * Licensed under MIT
  * ========================================================================== */
 
+import { args } from './plugins';
+
 export const dirs = {
   root: './',
   src: 'src',
@@ -23,7 +25,7 @@ export const paths = {
   },
   scripts: {
     src: `${dirs.src}/es6/**/*.es6`,
-    input: `${dirs.src}/es6/script.es6`,
+    input: args.production ? `${dirs.src}/es6/script.es6` : `${dirs.src}/es6/script-dev.es6`,
     dev: `${dirs.dev}/js/`,
     prod: `${dirs.prod}/js/`,
     filter: [ `${dirs.dev}/js/*.js`, '!**/*.min.js' ]
