@@ -6,10 +6,10 @@ include ../../mixins/_drawer
     .drawer-content
       .drawer-header
         a.drawer-logo(href="./")
-          picture.lozad-drawer.img-fluid(data-iesrc="images/logo/logo-adorade-drawer.png")
-            source(type="image/webp" srcset="images/logo/logo-adorade-drawer.webp" media="all")
-            source(type="image/png" srcset="images/logo/logo-adorade-drawer.png" media="all")
-            noscript: img(src="images/logo/logo-adorade-drawer.png" alt="Adorade")
+          picture
+            source(data-srcset="images/logo/logo-adorade-drawer.webp" type="image/webp")
+            source(data-srcset="images/logo/logo-adorade-drawer.png" type="image/png")
+            img.lazy-drawer.img-fluid(data-src="images/logo/logo-adorade-drawer.png" alt="Adorade")
         button.close(type="button" role="button" data-dismiss="drawer" aria-label="Close")
           i.fas.fa-times
       .drawer-body

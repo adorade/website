@@ -10,11 +10,9 @@ import './parallax'
 // -----------------------------------------------------------------------------
 import './rotator'
 
-// Picture observer with default `load` method
+// Lazy-load images
 // -----------------------------------------------------------------------------
-import { drawerObserver, cardsObserver } from './lazy-images'
-drawerObserver.observe()
-cardsObserver.observe()
+import './lazy-images'
 
 // Document ready
 // -----------------------------------------------------------------------------

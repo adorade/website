@@ -5,30 +5,34 @@
 .cards {
   display: flex;
   justify-content: center;
-}
-
-.card-deck {
-  margin: 3.5rem 0 1rem;
+  min-height: 1128px;
+  padding: 3.5rem 0 1rem;
 
   .card {
     margin: 0 0 2rem;
     border: 0 solid rgba(0, 0, 0, .125);
     box-shadow: 0 20px 30px rgba(0, 0, 0, .6);
     opacity: 0;
-    transition: opacity 5s;
+    transition: opacity 2s ease-out;
   }
 
   @media (min-width: 768px) {
-    margin-bottom: .5rem;
+    min-height: 1400px;
+    padding-bottom: .5rem;
 
     .card {
       margin: 0 1rem 3rem;
     }
   }
+
+  @media (min-width: 768px) {
+    min-height: 848px;
+  }
 }
 
 .card-img-overlay {
   min-height: 20rem;
+  opacity: inherit;
   @include gradient-radial-circle(rgba(0, 0, 0, .3), rgba(0, 0, 0, .9));
 }
 
