@@ -57,8 +57,7 @@ lintMjs.description = 'Lint MJS files';
 export function transpile () {
   $.fancyLog(`${green('-> Transpiling MJS via Babel...')}`);
   return src(paths.scripts.input, {
-    sourcemaps: true,
-    since: lastRun(transpile)
+    sourcemaps: true
   })
     .pipe(gulpRollup(inputOpts, outputOpts))
     .pipe($.header(banner()))

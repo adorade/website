@@ -4,22 +4,15 @@
  * Licensed under MIT
  * ========================================================================== */
 
-const Transform = require('stream').Transform;
-const File = require('vinyl');
-const PluginError = require('plugin-error');
-const path = require('path');
+import { Transform } from 'stream';
+import path from 'path';
+
+import { rollup } from 'rollup';
+import File from 'vinyl';
+import PluginError from 'plugin-error';
 const applySourceMap = require('vinyl-sourcemaps-apply');
 
-const PLUGIN_NAME = 'gulp-rollup';
-
-try {
-  var rollup = require('rollup');
-} catch (err) {
-  console.error('ROLLUP NOT FOUND');
-  console.warn(
-    `${PLUGIN_NAME} require rollup. You need to install rollup.`
-  );
-}
+const PLUGIN_NAME = 'gulp-uni-rollup';
 
 // Map object storing rollup cache objects for each input file
 let rollupCache = {};
@@ -33,7 +26,7 @@ function parseBundles (arg) {
 }
 
 function assignCertainProperties (toObject, fromObject, properties = []) {
-  for (var key of properties) {
+  for (let key of properties) {
     if (toObject[key] === undefined && fromObject[key] !== undefined) toObject[key] = fromObject[key];
   }
 }
@@ -41,12 +34,22 @@ function assignCertainProperties (toObject, fromObject, properties = []) {
 // transformer class
 class GulpRollup extends Transform {
   _transform (file, encoding, cb) {
+    // Check rollup reference
+    if (typeof rollup === 'undefined') {
+      cb(new PluginError({
+        plugin: PLUGIN_NAME,
+        message: `${PLUGIN_NAME} require rollup. You need to install rollup.`,
+        showProperties: false
+      }));
+    }
+
     // Cannot handle empty or unavailable files
-    if (file.isNull()) return cb(null, file);
+    if (file.isNull()) cb(null, file);
 
     // Cannot handle streams
-    if (file.isStream()) return cb(new PluginError(PLUGIN_NAME, 'Streaming not supported'));
+    if (file.isStream()) cb(new PluginError(PLUGIN_NAME, 'Streaming not supported'));
 
+    // Create input object from `arg`
     if (this.arg2) {
       inputOptions = Object.assign({}, this.arg1);
       bundleList = parseBundles(this.arg2);
@@ -70,7 +73,7 @@ class GulpRollup extends Transform {
       inputOptions.cache = rollupCache[inputOptions.input] || null;
     }
 
-    // enable sourcemap is gulp-sourcemaps plugin is enabled
+    // Enable sourcemap is gulp-sourcemaps plugin is enabled
     const createSourceMap = file.sourceMap !== undefined;
 
     const originalCwd = file.cwd;
@@ -78,12 +81,11 @@ class GulpRollup extends Transform {
     const moduleName = path.basename(file.path, path.extname(file.path));
 
     function generateAndApplyBundle (bundle, outputOptions, targetFile) {
-      // Sugaring the API by copying convinience objects and properties from inputOptions
-      // to outputOptions (if not defined)
+      // Copying objects and properties from inputOptions to outputOptions (if not defined)
       // Directly copied from https://rollupjs.org/guide/en#outputoptions
       const propsToCopy = [
         // core options
-        'dir', 'file', 'format', 'globals' /*'name',*/,
+        'dir', 'file', 'format', 'globals',/* 'name',*/
 
         // advanced options
         'assetFileNames','banner','chunkFileNames','compact','entryFileNames','extend','footer','interop','intro','outro',
@@ -108,13 +110,13 @@ class GulpRollup extends Transform {
       // Enable sourcemap
       outputOptions.sourcemap = createSourceMap;
 
-      // generate bundle according to given or autocompleted options
+      // Generate bundle according to given or autocompleted options
       return bundle.generate(outputOptions).then(result => {
         if (result === undefined) return;
 
         const output = result.output[0];
 
-        // Pass sourcemap content and metadata to gulp-sourcemaps plugin to handle
+        // pass sourcemap content and metadata to gulp-sourcemaps plugin to handle
         // destination (and custom name) was given, possibly multiple output bundles.
         if (createSourceMap) {
           output.map.file = path.relative(originalCwd, originalPath);
@@ -130,7 +132,7 @@ class GulpRollup extends Transform {
     }
 
     const createBundle = (bundle, outputOptions, injectNewFile) => {
-      // custom output name might be set
+      // Custom output name might be set
       if (outputOptions.file) {
         // setup filename name from outputOptions.file
         const newFileName = path.basename(outputOptions.file);
@@ -172,20 +174,28 @@ class GulpRollup extends Transform {
     rollup = inputOptions.rollup || rollup;
     delete inputOptions.rollup;
 
-    rollup
-      // Pass basic options to rollup
-      .rollup(inputOptions)
+    // Pass basic options to rollup
+    rollup(inputOptions)
+
       // After the magic is done, configure the output format
       .then(bundle => {
-        // Cache rollup object if caching is enabled
+        // watch files
+        // console.log(bundle.watchFiles);
+
+        // cache rollup object if caching is enabled
         if (inputOptions.cache !== false) rollupCache[inputOptions.input] = bundle;
-        // Generate ouput according to (each of) given outputOptions
+
+        // generate ouput according to (each of) given outputOptions
         return Promise.all(bundleList.map((outputOptions, i) => createBundle(bundle, outputOptions, i)));
       })
+
       // Pass file to gulp and end stream
       .then(() => cb(null, file))
+
+      // Catch the `error`
       .catch(err => {
         if (inputOptions.cache !== false) rollupCache[inputOptions.input] = null;
+
         process.nextTick(() => {
           this.emit('error', new PluginError(PLUGIN_NAME, err));
           cb(null, file);
