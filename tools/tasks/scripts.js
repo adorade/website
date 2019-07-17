@@ -36,26 +36,26 @@ export function vendorJs () {
 vendorJs.displayName = 'vendor:js';
 vendorJs.description = 'Copy vendor JS files';
 
-export function lintEs () {
-  $.fancyLog(`${green('-> Linting ES files...')}`);
+export function lintMjs () {
+  $.fancyLog(`${green('-> Linting MJS files...')}`);
 
   const outputDir = paths.logs.gulp;
   fs.mkdirSync(`${outputDir}`, { recursive: true });
   const output = fs.createWriteStream( `${outputDir}/scripts.txt` );
 
   return src(paths.scripts.src, {
-    since: lastRun(lintEs)
+    since: lastRun(lintMjs)
   })
     .pipe($.gEslint())
     .pipe($.gEslint.format())
     .pipe($.gEslint.format('stylish', output))
     .pipe($.gEslint.failAfterError());
 }
-lintEs.displayName = 'lint:es';
-lintEs.description = 'Lint ES files';
+lintMjs.displayName = 'lint:mjs';
+lintMjs.description = 'Lint MJS files';
 
 export function transpile () {
-  $.fancyLog(`${green('-> Transpiling ES via Babel...')}`);
+  $.fancyLog(`${green('-> Transpiling MJS via Babel...')}`);
   return src(paths.scripts.input, {
     sourcemaps: true,
     since: lastRun(transpile)
@@ -66,8 +66,8 @@ export function transpile () {
     .pipe(dest(paths.scripts.dev, { sourcemaps: './' }))
     .pipe(bs.stream({ match: '**/*.js' }));
 }
-transpile.displayName = 'transpile:es';
-transpile.description = 'Transpile ES via Babel';
+transpile.displayName = 'transpile:mjs';
+transpile.description = 'Transpile MJS via Babel';
 
 export function uglify (done) {
   if (args.production) {

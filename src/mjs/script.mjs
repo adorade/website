@@ -4,22 +4,22 @@
 
 // Parallax plugin
 // -----------------------------------------------------------------------------
-import './parallax.es6'
+import './parallax'
 
 // Text Rotator
 // -----------------------------------------------------------------------------
-import './rotator.es6'
+import './rotator'
 
 // Picture observer with default `load` method
 // -----------------------------------------------------------------------------
-import { drawerObserver, pictureObserver } from './lazy-images.es6'
+import { drawerObserver, cardsObserver } from './lazy-images'
 drawerObserver.observe()
-pictureObserver.observe()
+cardsObserver.observe()
 
 // Document ready
 // -----------------------------------------------------------------------------
-import './doc-ready.es6'
+import './doc-ready'
 
 // Register Service Worker
 // -----------------------------------------------------------------------------
-import './service-worker.es6'
+import './service-worker'

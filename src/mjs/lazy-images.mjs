@@ -10,7 +10,7 @@ export const drawerObserver = lozad('.lozad-drawer', {
   }
 })
 
-export const pictureObserver = lozad('.lozad-picture', {
+export const cardsObserver = lozad('.lozad-cards', {
   threshold: 0.1,
   loaded (el) {
     el.classList.add('loaded')
