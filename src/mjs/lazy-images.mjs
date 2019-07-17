@@ -1,22 +1,38 @@
-//
-// Picture observer with default `load` method
+// Lazy-load images
 // -----------------------------------------------------------------------------
-/* global lozad */
-
-export const drawerObserver = lozad('.lozad-drawer', {
-  threshold: 0.1,
-  loaded (el) {
-    el.classList.add('loaded')
-  }
-})
-
-export const cardsObserver = lozad('.lozad-cards', {
-  threshold: 0.1,
-  loaded (el) {
-    el.classList.add('loaded')
-
-    // Show cards when picture is loaded
-    $('.loaded').parent().removeClass('invisible').css('opacity', 1)
-    $('.loaded').siblings('.card-img-overlay').removeClass('position-relative')
-  }
+/* globals yall */
+document.addEventListener('DOMContentLoaded', () => {
+  yall({
+    lazyClass: 'lazy-cards',
+    threshold: 0,
+    events: {
+      load: function (event) {
+        if (!event.target.classList.contains('lazy-cards') && event.target.nodeName == 'IMG') {
+          event.target.classList.add('yall-loaded')
+          event.target.parentNode.parentNode.style.opacity = '1'
+          event.target.parentNode.parentNode.classList.replace('invisible', 'visible')
+        }
+      }
+    }
+  })
+  yall({
+    lazyClass: 'lazy-parallax',
+    events: {
+      load: function (event) {
+        if (!event.target.classList.contains('lazy-parallax') && event.target.nodeName == 'IMG') {
+          event.target.classList.add('yall-loaded')
+        }
+      }
+    }
+  })
+  yall({
+    lazyClass: 'lazy-drawer',
+    events: {
+      load: function (event) {
+        if (!event.target.classList.contains('lazy-drawer') && event.target.nodeName == 'IMG') {
+          event.target.classList.add('yall-loaded')
+        }
+      }
+    }
+  })
 })
