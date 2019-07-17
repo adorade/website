@@ -26,7 +26,6 @@ const plugins = [
 
 // Output Options
 const file = `${filename}.js`;
-const name = `${filename}`;
 const format = 'cjs';
 
 export const inputOpts = {
@@ -34,5 +33,5 @@ export const inputOpts = {
 };
 
 export const outputOpts = {
-  file, name, format
+  file, format
 };
