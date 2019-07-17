@@ -7,7 +7,7 @@
 export { checks } from './checks';                                              // Checks
 export { clean } from './clean';                                                // Clean
 export { cleanCss, vendorCss, lintScss, compile, minify } from './styles';      // Styles
-export { cleanJs, vendorJs, lintEs, transpile, uglify } from './scripts';       // Scripts
+export { cleanJs, vendorJs, lintMjs, transpile, uglify } from './scripts';      // Scripts
 export { cleanStatics, favicons, statica } from './statics';                    // Statics
 export { cleanImages, imagine, convert } from './images';                       // Images
 export { cleanPages, lintPages, pagile, pagify } from './pages';                // Pages

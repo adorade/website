@@ -7,7 +7,7 @@
 import { series, args, $, green } from './tools/util';
 import {
   checks, clean, cleanCss, vendorCss, lintScss, compile, minify,
-  cleanJs, vendorJs, lintEs, transpile, uglify,
+  cleanJs, vendorJs, lintMjs, transpile, uglify,
   cleanImages, imagine, convert, cleanStatics, favicons, statica,
   cleanPages, lintPages, pagile, pagify,
   cleanDeploy, deploy, serve, serviceWorker
@@ -40,7 +40,7 @@ buildStyles.description = 'Build only styles files';
 /**
  * Scripts - processes script files
  * -------------------------------------------------------------------------- */
-const scripts = series(vendorJs, lintEs, transpile, uglify);
+const scripts = series(vendorJs, lintMjs, transpile, uglify);
 export const buildScripts = series(cleanJs, scripts);
 buildScripts.displayName = 'build:scripts';
 buildScripts.description = 'Build only scripts files';
