@@ -1,6 +1,9 @@
 // Lazy-load images
 // -----------------------------------------------------------------------------
 /* globals yall */
+
+const yallClasses = ['lazy-parallax', 'lazy-drawer']
+
 document.addEventListener('DOMContentLoaded', () => {
   yall({
     lazyClass: 'lazy-cards',
@@ -9,30 +12,22 @@ document.addEventListener('DOMContentLoaded', () => {
       load: function (event) {
         if (!event.target.classList.contains('lazy-cards') && event.target.nodeName == 'IMG') {
           event.target.classList.add('yall-loaded')
-          event.target.parentNode.parentNode.style.opacity = '1'
-          event.target.parentNode.parentNode.classList.replace('invisible', 'visible')
+          event.target.parentNode.parentNode.classList.add('card-fade-in')
         }
       }
     }
   })
-  yall({
-    lazyClass: 'lazy-parallax',
-    events: {
-      load: function (event) {
-        if (!event.target.classList.contains('lazy-parallax') && event.target.nodeName == 'IMG') {
-          event.target.classList.add('yall-loaded')
+
+  for (let value of Object.keys(yallClasses)) {
+    yall({
+      lazyClass: yallClasses[value],
+      events: {
+        load: function (event) {
+          if (!event.target.classList.contains(yallClasses[value]) && event.target.nodeName == 'IMG') {
+            event.target.classList.add('yall-loaded')
+          }
         }
       }
-    }
-  })
-  yall({
-    lazyClass: 'lazy-drawer',
-    events: {
-      load: function (event) {
-        if (!event.target.classList.contains('lazy-drawer') && event.target.nodeName == 'IMG') {
-          event.target.classList.add('yall-loaded')
-        }
-      }
-    }
-  })
+    })
+  }
 })

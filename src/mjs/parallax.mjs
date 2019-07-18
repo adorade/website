@@ -26,8 +26,6 @@
 
       const o = settings
 
-      console.log($parentY)
-
       function parallaxImg () {
         const $windowY = $(window).scrollTop(),
               $windowH = $(window).height()
