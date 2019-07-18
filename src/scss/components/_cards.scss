@@ -5,33 +5,49 @@
 .cards {
   display: flex;
   justify-content: center;
-  min-height: 1128px;
   padding: 3.5rem 0 1rem;
 
   .card {
     margin: 0 0 2rem;
-    border: 0 solid rgba(0, 0, 0, .125);
+    border: 0 solid rgba(0, 0, 0, 0);
+    border-radius: 0;
     box-shadow: 0 20px 30px rgba(0, 0, 0, .6);
     opacity: 0;
-    transition: opacity 2s ease-out;
+    transition: opacity .9s ease-in-out;
+    visibility: hidden;
+  }
+
+  .card-fade-in {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .image-wrapper {
+    // position: relative;
+    // height: auto;
+    // padding-bottom: calc(100% / (480 / 640)); // 133.333%
+
+    // intrinsic ratio
+    @include fluid-aspect(3 4, ".card-img");
+
+    .card-img {
+      border: none;
+      border-radius: 0;
+      font-size: 0;
+      line-height: 0;
+    }
   }
 
   @media (min-width: 768px) {
-    min-height: 1400px;
     padding-bottom: .5rem;
 
     .card {
       margin: 0 1rem 3rem;
     }
   }
-
-  @media (min-width: 768px) {
-    min-height: 848px;
-  }
 }
 
 .card-img-overlay {
-  min-height: 20rem;
   opacity: inherit;
   @include gradient-radial-circle(rgba(0, 0, 0, .3), rgba(0, 0, 0, .9));
 }
