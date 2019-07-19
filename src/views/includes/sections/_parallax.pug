@@ -1,9 +1,15 @@
 //- includes/sections/_parallax.pug
 section.parallax#parallax
   .parallax-window
-    .parallax-mask
     picture.d-block.h-100
       source(data-srcset="images/hero-unit/grass_field_dawn.webp" type="image/webp")
       source(data-srcset="images/hero-unit/grass_field_dawn.jpg" type="image/jpeg")
-      img.lazy-parallax.img-parallax#bg-parallax(
+      img.lazy-parallax.parallax-img#bg-parallax(
         data-src="images/hero-unit/grass_field_dawn.jpg" data-speed=".6" alt="Good Morning")
+    .parallax-mask
+      .container
+        .row
+          .col.col-lg-8.offset-lg-2
+            h2
+              | Once upon a time, we started a journey, to discover, to learn...
+              | #[span beautiful things].
