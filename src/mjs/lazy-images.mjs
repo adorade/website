@@ -18,6 +18,18 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   })
 
+  yall({
+    lazyClass: 'lazy-top',
+    events: {
+      load: function (event) {
+        if (!event.target.classList.contains('lazy-top') && event.target.nodeName == 'IMG') {
+          event.target.classList.add('yall-loaded')
+          event.target.parentNode.classList.add('top-fade-in')
+        }
+      }
+    }
+  })
+
   for (let value of Object.keys(yallClasses)) {
     yall({
       lazyClass: yallClasses[value],

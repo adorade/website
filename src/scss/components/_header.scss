@@ -8,3 +8,19 @@
     padding-left: 0;
   }
 }
+
+.image-wrapper {
+  opacity: 0;
+  transition: opacity .9s ease-in-out;
+  visibility: hidden;
+
+  // `Non-open Graph Stories Images` appear in a rectangular format.
+  // You should use a 1.91:1 image ratio, such as 600 x 314 px.
+  // intrinsic ratio
+  @include fluid-aspect(1.91 1, ".top-img");
+}
+
+.top-fade-in {
+  opacity: 1;
+  visibility: visible;
+}

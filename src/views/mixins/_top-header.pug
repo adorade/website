@@ -1,0 +1,13 @@
+//- mixins/_top-header.pug
+
+//- Page Top Picture
+//------------------------
+//- include ../path/to/mixins/_top-header
+//- Usage: +topPicture("name", "alt")
+mixin topPicture(name, alt)
+  picture.image-wrapper
+    source(type="image/webp" data-srcset="images/top/" + name + ".webp" media="(min-width: 576px)")
+    source(type="image/jpeg" data-srcset="images/top/" + name + ".jpg" media="(min-width: 576px)")
+    source(type="image/webp" data-srcset="images/top/" + name + "-min.webp")
+    source(type="image/jpeg" data-srcset="images/top/" + name + "-min.jpg")
+    img.lazy-top.top-img(data-src="images/top/" + name + "-min.jpg" alt=alt)
