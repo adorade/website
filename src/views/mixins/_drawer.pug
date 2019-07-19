@@ -1,5 +1,10 @@
 //- mixins/_drawer.pug
-mixin drawerlink(menu)
+
+//- Drawer menu
+//------------------------
+//- include ../path/to/mixins/_drawer
+//- Usage: +drawerLink("menu")
+mixin drawerLink(menu)
   if currentUrl
     - currentUrl = currentUrl;
   else
