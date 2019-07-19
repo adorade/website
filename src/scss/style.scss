@@ -6,11 +6,11 @@
 // @import "plugins/loader";
 
 @import "includes/variables";
-@import "includes/gradients";
 @import "includes/animation";
 
 @import "unikorn/unikorn";
 
+@import "mixins/gradients";
 @import "mixins/fluid-aspect";
 
 @import "components/basic";
