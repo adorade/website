@@ -5,7 +5,7 @@
 //- include ../path/to/mixins/_cards-picture
 //- Usage: +cardsPicture("name", "alt")
 mixin cardsPicture(name, alt)
-  picture.image-wrapper
+  picture.card-picture
     source(data-srcset="images/cards/" + name + ".webp" type="image/webp")
     source(data-srcset="images/cards/" + name + ".jpg" type="image/jpeg")
     img.lazy-cards.card-img(data-src="images/cards/" + name + ".jpg" alt=alt)

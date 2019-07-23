@@ -5,9 +5,11 @@
 //- include ../path/to/mixins/_top-picture
 //- Usage: +topPicture("name", "alt")
 mixin topPicture(name, alt)
-  picture.image-wrapper
+  picture.masthead-picture
     source(type="image/webp" data-srcset="images/top/" + name + ".webp" media="(min-width: 576px)")
     source(type="image/jpeg" data-srcset="images/top/" + name + ".jpg" media="(min-width: 576px)")
     source(type="image/webp" data-srcset="images/top/" + name + "-min.webp")
     source(type="image/jpeg" data-srcset="images/top/" + name + "-min.jpg")
-    img.lazy-top.top-img(data-src="images/top/" + name + "-min.jpg" alt=alt)
+    img.lazy-top.masthead-img(
+      src="images/top/" + name + "-min.jpg" inline
+      data-src="images/top/" + name + "-min.jpg" alt=alt)

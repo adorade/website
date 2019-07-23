@@ -1,12 +1,12 @@
 //- includes/sections/_parallax.pug
 section.parallax#parallax
   .parallax-window
-    picture.d-block.h-100
+    picture.parallax-picture
       source(data-srcset="images/hero-unit/grass_field_dawn.webp" type="image/webp")
       source(data-srcset="images/hero-unit/grass_field_dawn.jpg" type="image/jpeg")
       img.lazy-parallax.parallax-img#bg-parallax(
         data-src="images/hero-unit/grass_field_dawn.jpg" data-speed=".6" alt="Good Morning")
-    .parallax-mask
+    .parallax-overlay
       .container
         .row
           .col.col-lg-8.offset-lg-2
