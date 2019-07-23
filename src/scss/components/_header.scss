@@ -3,12 +3,15 @@
 // -----------------------------------------------------------------------------
 
 .masthead {
-  // height: 420px;
-  height: calc(100vh / 2);
+  // height: calc(100vh / 2);
+  height: 210px;
 
-  [class*="col-"] {
-    padding-right: 0;
-    padding-left: 0;
+  @media screen and (min-width: 576px) {
+    height: 300px;
+  }
+
+  @media screen and (min-width: 768px) {
+    height: 400px;
   }
 
   .masthead-wraper {
@@ -18,23 +21,23 @@
     overflow: hidden;
   }
 
-  .image-wrapper {
-    opacity: 0;
-    transition: opacity .9s ease-in-out;
-    visibility: hidden;
+  .masthead-picture {
+    opacity: .2;
+    transition: opacity .5s ease-in-out;
 
     // `Non-open Graph Stories Images` appear in a rectangular format.
     // You should use a 1.91:1 image ratio, such as 600 x 314 px.
-    @include fluid-aspect(1.91 1, ".top-img");
+    @include top-fluid-aspect(1.91 1, ".masthead-img");
 
-    .top-img {
-      top: -15%;
+    .masthead-img {
+      @media screen and (min-width: 1200px) {
+        width: 100%;
+      }
     }
   }
 
   .top-fade-in {
     opacity: 1;
-    visibility: visible;
   }
 
   .mastehead-overlay {

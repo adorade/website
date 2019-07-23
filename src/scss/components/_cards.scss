@@ -6,6 +6,7 @@
   display: flex;
   justify-content: center;
   padding: 3.5rem 0 1rem;
+  @include gradient-y($grey-700, $grey-800);
 
   .card {
     margin: 0 0 2rem;
@@ -22,11 +23,7 @@
     visibility: visible;
   }
 
-  .image-wrapper {
-    // position: relative;
-    // height: auto;
-    // padding-bottom: calc(100% / (480 / 640)); // 133.333%
-
+  .card-picture {
     // intrinsic ratio
     @include fluid-aspect(3 4, ".card-img");
 
