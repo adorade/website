@@ -1,0 +1,30 @@
+//
+// Portfolio
+// -----------------------------------------------------------------------------
+
+.portfolio {
+  padding: 3rem 1.5rem;
+  margin-right: 0;
+  margin-left: 0;
+  background-color: $grey-900;
+
+  .portfolio-picture {
+    position: relative;
+    display: block;
+    height: 100%;
+
+    .portfolio-img {
+      width: auto;
+
+      @media screen and (min-width: 1200px) {
+        width: 100%;
+      }
+    }
+  }
+
+  .carousel-control-prev,
+  .carousel-control-next {
+    background: none;
+  }
+}
+

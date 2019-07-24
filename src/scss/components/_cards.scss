@@ -6,7 +6,7 @@
   display: flex;
   justify-content: center;
   padding: 3.5rem 0 1rem;
-  @include gradient-y($grey-700, $grey-800);
+  background-color: darken($grey-800, 3%);
 
   .card {
     margin: 0 0 2rem;
