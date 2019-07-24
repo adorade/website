@@ -22,22 +22,22 @@
   }
 
   .masthead-picture {
-    opacity: .2;
-    transition: opacity .5s ease-in-out;
+    transition: filter .5s ease-in-out;
+    filter: grayscale(90%) blur(10px);
 
     // `Non-open Graph Stories Images` appear in a rectangular format.
     // You should use a 1.91:1 image ratio, such as 600 x 314 px.
     @include top-fluid-aspect(1.91 1, ".masthead-img");
 
     .masthead-img {
-      @media screen and (min-width: 1200px) {
+      @media screen and (min-width: 768px) {
         width: 100%;
       }
     }
   }
 
   .top-fade-in {
-    opacity: 1;
+    filter: none;
   }
 
   .mastehead-overlay {
