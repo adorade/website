@@ -1,0 +1,27 @@
+//- includes/sections/_testmonials.pug
+section.testimonials.text-center#testimonials
+  .container
+    .row
+      .col-12
+        h2.mb-0 What our clients say
+
+    .row.mt-5
+      .col-8.offset-2
+        .carousel.slide.pb-3#carouselTestimonial(data-ride="carousel")
+          .carousel-indicators
+            li.active(data-target="#carouselTestimonial" data-slide-to="0")
+            li(data-target="#carouselTestimonial" data-slide-to="1")
+
+          .carousel-inner
+            .carousel-item.active
+              blockquote.blockquote
+                p.mb-0: q
+                  | A true partnership is a two-way street, ideas and information flow openly and regularly, based on
+                  | a foundation of mutual trust and respect for one another’s expertise and our clients embrace this philosophy.
+                footer.blockquote-footer Someone famous in #[cite(title="Source Title") Source Title]
+            .carousel-item
+              blockquote.blockquote
+                p.mb-0: q
+                  | The best and most productive relationships are synergistic and goal-oriented, and a long-term
+                  | relationship has the value add of deep-rooted industry and company knowledge and relationships.
+                footer.blockquote-footer Someone famous in #[cite(title="Source Title") Source Title]

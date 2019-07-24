@@ -3,11 +3,10 @@
 // -----------------------------------------------------------------------------
 
 .technologies {
-  // @include gradient-radial-circle-bottom(rgba($black, .3), rgba($black, .9));
   padding: 3rem 1.5rem;
   margin-right: 0;
   margin-left: 0;
-  background-color: #fff;
+  background-color: $grey-100;
 
   h2 {
     color: #777;
