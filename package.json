@@ -10,7 +10,7 @@
     "verify": "node -v && npm -v && yarn -v && git --version && gulp -v",
     "dev": "gulp",
     "build": "gulp build --production",
-    "deploy": "build && gulp build:deploy",
+    "deploy": "gulp build --production && gulp build:deploy",
     "work": "gulp serve:watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
