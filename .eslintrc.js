@@ -1,3 +1,9 @@
+/*!
+ * Adorade (v1.0.0): .eslintrc.js
+ * Copyright (c) 2019 Adorade (https://adorade.ro)
+ * Licensed under MIT
+ * ========================================================================== */
+
 module.exports = {
   parser: "babel-eslint",
   env: {
