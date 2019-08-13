@@ -9,17 +9,8 @@
   background-color: $grey-900;
 
   .portfolio-picture {
-    position: relative;
-    display: block;
-    height: 100%;
-
-    .portfolio-img {
-      width: auto;
-
-      @media screen and (min-width: 1200px) {
-        width: 100%;
-      }
-    }
+    // You should use a 16:9 image ratio, such as 1280 x 720 px.
+    @include portfolio-fluid-aspect(16 9, ".portfolio-img");
   }
 
   .carousel-control-prev,
