@@ -21,7 +21,7 @@ $('document').ready(function () {
 
   // Window Scroll
   // ------------------------
-  $(window).scroll(function () {
+  $(window).on('scroll', function () {
     // prettier-ignore
     const $windowPos = $(this).scrollTop(),
           $windowH = $(this).height(),
@@ -63,7 +63,7 @@ $('document').ready(function () {
 
   // Parallax Effect
   // ------------------------
-  $('#bg-parallax').parallax()
+  $('.parallax-img').parallax()
 
   // Back to Top
   // ------------------------
