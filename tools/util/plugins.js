@@ -29,4 +29,3 @@ export const args = minimist(process.argv.slice(2));
 // Load others modules
 export const bs = require('browser-sync').create();
 export const fs = require('fs');
-export const http2 = require('http2');
