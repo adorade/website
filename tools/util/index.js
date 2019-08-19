@@ -8,7 +8,7 @@
 export {
   src, dest, series, parallel, lastRun, watch, tree,
   bgBlue, bgRed, cyan, green, magenta, red,
-  args, $, bs, fs, http2
+  args, $, bs, fs
 } from './plugins';
 
 // Configuration

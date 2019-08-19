@@ -5,7 +5,7 @@
  * ========================================================================== */
 
 import {
-  series, watch, args, $, bs, http2, magenta, green, red, bgBlue, bgRed, paths, opts, dirs
+  series, watch, args, $, bs, magenta, green, red, bgBlue, bgRed, paths, opts, dirs
 } from '../util';
 import {
   lintScss, compile, minify, lintMjs, transpile, uglify,
@@ -19,8 +19,7 @@ export function serve () {
     },
     port: args.production ? 6969 : 6970,
     logPrefix: args.production ? 'Adorade Prod' : 'Adorade Dev',
-    ui: false,
-    httpModule: http2
+    ui: false
   });
 
   function watchEvent (path, event, task) {
