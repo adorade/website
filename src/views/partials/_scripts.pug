@@ -23,7 +23,7 @@ block external-js
     crossorigin="anonymous")
 
 block custom-js
-  script#unikorn(defer src="js/vendor/unikorn.umd.min.js")
+  script#unikorn(defer src="js/vendor/unikorn.min.js")
   if entry.inline
     script#inline-script(defer src="js/script.min.js")
   else
