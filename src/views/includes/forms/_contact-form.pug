@@ -1,0 +1,56 @@
+//- includes/forms/_contact-form.pug
+// Contact form
+section.contact-form.text-center#scontact-form
+  .container
+    .row
+      .col-12
+        h3.mb-4 Please, be so kind, don't hesitate to contact us!
+
+    .row.no-gutters
+      .col-8.offset-md-2
+        form.form-horizontal#contact-form(action="#!" netlify)
+          .note
+          .load
+
+          //- Spam Trap
+          .form-group.d-none
+            .input
+              label(for="foo") Leave this field blank
+              input.form-control#foo(type="text" name="foo" autocomplete="off")
+
+          .form-group
+            .input
+              label(for="name") Name #[span.required *]
+              input.form-control#name(type="text" name="name" maxlength="50" placeholder="Your name" pattern="^[a-zA-Z][a-zA-Z-' ]{1,50}[a-zA-Z']{0,1}$" title="Please enter a valid name." required)
+
+          .form-group
+            .input
+              label(for="email") Email #[span.required *]
+              input.form-control#email(type="email" name="email" maxlength="100" placeholder="Your email" pattern="^([a-z0-9_\.\-]+)@([a-z0-9\.\-]+){2,255}\.([a-z]+){2,10}$" title="Please enter a valid email" required)
+
+          .form-group
+            .input
+              label(for="phone") Phone #[span.required *]
+              input.form-control#phone(type="tel" name="phone" maxlength="20" placeholder="Your phone" pattern="^(\+|0{2})?(\d{0,2}\s?)(\d{3}\s?)(\d{3}\s?)(\d{3})$" title="0000 000 000 or +40 000 000 000." required)
+
+          .form-group
+            .input
+              label(for="subject") Subject #[span.required *]
+              input.form-control#subject(type="text" name="subject" maxlength="100" placeholder="Your subject" pattern=".{1,100}" title="Maximum 100 characters." required)
+
+          .form-group
+            .input
+              label(for="message") Message #[span.required *]
+              textarea.form-control#message(name="message" rows="6" maxlength="600" placeholder="Your message" title="Maximum 600 characters." required)
+
+          //- Avoid spybots
+          //- .form-group
+          //-   .input
+          //-     label(for="answer") 5-2+1 #[span.required *]
+          //-     input.form-control#answer(type="text" name="answer" maxlength="1" placeholder="Correct answer?" pattern="4" title="Correct answer?" required)
+
+          //- For php script
+          //- input(type="hidden" name="submitted" value="true")
+
+          button.btn.btn-info#submit(type="submit") Send
+          button.btn.btn-outline-danger#reset(type="reset") Cancel

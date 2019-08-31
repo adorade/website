@@ -2,9 +2,13 @@
 // Content
 // -----------------------------------------------------------------------------
 
-.content {
+.newsletter {
   padding: 3rem 1.5rem;
   margin-right: 0;
   margin-left: 0;
   @include gradient-radial-circle-top(rgba($black, .3), rgba($black, .9));
+
+  .form-inline {
+    justify-content: center;
+  }
 }

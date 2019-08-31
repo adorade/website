@@ -1,10 +1,14 @@
 //
-// Content
+// Contact
 // -----------------------------------------------------------------------------
 
-.content {
+.contact-form {
   padding: 3rem 1.5rem;
   margin-right: 0;
   margin-left: 0;
-  @include gradient-radial-circle-top(rgba($black, .3), rgba($black, .9));
+  background-color: $grey-050;
+
+  h3 {
+    color: #777;
+  }
 }

@@ -1,8 +1,8 @@
-//- includes/sections/_newsletter.pug
+//- includes/forms/_newsletter.pug
 section.newsletter.text-center#newsletter
   h2.mb-4 Check our newsletter
-  form.form-inline(action="#!")
+  form.form-inline#news-form(action="#!" netlify)
     .input-group
       input.form-control#newsemail(type="email" name="newsemail" placeholder="your@email.here" aria-label="your@email.here")
       .input-group-append
-        button.btn.btn-outline-orange(type="submit") Submit
+        button.btn.btn-orange(type="submit") Submit
