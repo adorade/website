@@ -6,10 +6,7 @@ $('document').ready(function () {
   // Prepare hero height
   // ------------------------
   function heroHeight () {
-    // $('.hero-unit').height( $(window).height() )
     $('.hero-unit').innerHeight( $(window).innerHeight() )
-    // $('.hero-unit').innerHeight( $('.hero-unit').innerHeight() )
-    // $('.hero-unit').innerHeight( $(this).innerHeight() )
   }
   heroHeight()
 
@@ -59,7 +56,7 @@ $('document').ready(function () {
 
   // Text Rotate
   // ------------------------
-  $('#rotate').rotaterator()
+  // $('#rotate').rotaterator()
 
   // Parallax Effect
   // ------------------------

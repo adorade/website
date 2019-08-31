@@ -18,6 +18,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    width: 100%;
     height: 100%;
   }
 
@@ -61,17 +62,28 @@
   // Clip text element
   .clip-text {
     background-clip: text;
-    color: $primary-color;
+    color: $primary-color;//
     -webkit-text-fill-color: transparent;
+
+    // Hack Microsoft Edge
+    // Chrome and Safari on iPad
+    // https://browserstrangeness.github.io/css_hacks.html#webkit
+    @media screen and (-webkit-min-device-pixel-ratio: 0) { // stylelint-disable-line
+      -webkit-text-fill-color: $primary-color;
+    }
+
+    // option for Microsoft Edge
+    // @supports (-ms-ime-align:auto) {
+    //   -webkit-text-fill-color: $primary-color;
+    // }
   }
 
   // Main title
   .branding {
     width: 100%;
     font-size: 4rem;
-    line-height: 1.5;
-    letter-spacing: -.025em;
-    animation: letterspace ease-in-out 2s infinite;
+    line-height: 1.5;//
+    // animation: letterspace ease-in-out 2s infinite;
 
     @media (min-width: 576px) {
       font-size: 5rem;
@@ -88,8 +100,10 @@
 
   // Rotate text
   .rotate {
+    width: 100%;
+
     .rotate-text {
-      display: none;
+      // display: none;
 
       @media (max-width: 575.98px) {
         font-size: 1.5rem;
