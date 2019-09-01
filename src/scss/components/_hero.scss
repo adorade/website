@@ -62,28 +62,26 @@
   // Clip text element
   .clip-text {
     background-clip: text;
-    color: $primary-color;//
+    color: $primary-color;
     -webkit-text-fill-color: transparent;
 
-    // Hack Microsoft Edge
+    // CSS Hacks
     // Chrome and Safari on iPad
-    // https://browserstrangeness.github.io/css_hacks.html#webkit
-    @media screen and (-webkit-min-device-pixel-ratio: 0) { // stylelint-disable-line
+    @media not all and (min-resolution: .001dpcm) {
       -webkit-text-fill-color: $primary-color;
     }
 
-    // option for Microsoft Edge
-    // @supports (-ms-ime-align:auto) {
-    //   -webkit-text-fill-color: $primary-color;
-    // }
+    // Microsoft Edge
+    @supports (-ms-ime-align:auto) {
+      -webkit-text-fill-color: $primary-color;
+    }
   }
 
   // Main title
   .branding {
     width: 100%;
     font-size: 4rem;
-    line-height: 1.5;//
-    // animation: letterspace ease-in-out 2s infinite;
+    line-height: 1.5;
 
     @media (min-width: 576px) {
       font-size: 5rem;
