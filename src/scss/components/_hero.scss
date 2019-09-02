@@ -101,7 +101,10 @@
     width: 100%;
 
     .rotate-text {
-      // display: none;
+      display: none;
+
+      // CSS hack for animation
+      -webkit-text-fill-color: rgba($primary-color, .5);
 
       @media (max-width: 575.98px) {
         font-size: 1.5rem;
