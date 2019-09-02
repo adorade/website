@@ -18,7 +18,9 @@
       const o = settings
 
       items.each(function () { $(this).hide() })
+
       let next
+
       if (!o.child) {
         next = $(obj).children(':first')
       } else {
@@ -28,9 +30,11 @@
       $(next).fadeIn(o.fadeSpeed, () => {
         $(next).delay(o.pauseSpeed).fadeOut(o.fadeSpeed, function () {
           let next = $(this).next()
+
           if (next.length == 0) {
             next = $(obj).children(':first')
           }
+
           $(obj).rotaterator({
             child: next,
             fadeSpeed: o.fadeSpeed,

@@ -56,7 +56,7 @@ $('document').ready(function () {
 
   // Text Rotate
   // ------------------------
-  // $('#rotate').rotaterator()
+  $('#rotate').rotaterator()
 
   // Parallax Effect
   // ------------------------
