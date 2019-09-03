@@ -2,9 +2,12 @@
 // Content
 // -----------------------------------------------------------------------------
 
-.content {
-  padding: 3rem 1.5rem;
+section {
+  padding: 3rem 0;
   margin-right: 0;
   margin-left: 0;
+}
+
+.content {
   @include gradient-radial-circle-top(rgba($black, .3), rgba($black, .9));
 }
