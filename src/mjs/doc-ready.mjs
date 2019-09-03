@@ -27,9 +27,10 @@ $('document').ready(function () {
           $totop = $('.back-to-top'),
           $percent = $('.back-to-top-percent'),
           $hero = $('.hero-unit').height() - 1,
+          $masthead = $('.masthead').height() - 1,
           scrollPos = $windowPos ? $windowPos : 0
 
-    if (scrollPos > $hero) {
+    if (scrollPos > $hero || scrollPos > $masthead) {
       $toggler.addClass('btn-orange')
       $totop.filter(':hidden').stop(true, true).fadeIn()
     } else {

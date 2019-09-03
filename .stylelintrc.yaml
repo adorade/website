@@ -57,6 +57,7 @@ rules:
   number-leading-zero: never
   no-eol-whitespace: true
   no-extra-semicolons: true
+  no-empty-source: null
   no-missing-end-of-source-newline: true
   property-no-vendor-prefix: true
   rule-empty-line-before:
