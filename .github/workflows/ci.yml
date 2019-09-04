@@ -18,9 +18,9 @@ jobs:
         node_version: [10.x, 12.x]
         exclude:
         - os: windows-latest
-          node: 10.x
+          node_version: 10.x
         - os: macOS-latest
-          node: 10.x
+          node_version: 10.x
 
     runs-on: ${{ matrix.os }}
 
