@@ -10,7 +10,7 @@ on:
 
 jobs:
   build:
-    name: Build
+    name: Build on node ${{ matrix.node_version }} and ${{ matrix.os }}
 
     strategy:
       matrix:
