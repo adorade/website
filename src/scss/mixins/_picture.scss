@@ -2,14 +2,18 @@
 // Fluid aspect
 // -----------------------------------------------------------------------------
 
-@mixin top-fluid-aspect($ratio: 1 1, $selector: "> :first-child") {
-  $selector: unquote($selector);
-
-  // parent
+@mixin parent($ratio) {
   position: relative;
   display: block;
   height: auto;
   padding-bottom: percentage(nth($ratio, 2) / nth($ratio, 1));
+}
+
+@mixin top-fluid-aspect($ratio: 1 1, $selector: "> :first-child") {
+  $selector: unquote($selector);
+
+  // parent
+  @include parent($ratio);
 
   // child
   #{$selector} {
@@ -25,10 +29,7 @@
   $selector: unquote($selector);
 
   // parent
-  position: relative;
-  display: block;
-  height: auto;
-  padding-bottom: percentage(nth($ratio, 2) / nth($ratio, 1));
+  @include parent($ratio);
 
   // child
   #{$selector} {
@@ -44,10 +45,7 @@
   $selector: unquote($selector);
 
   // parent
-  position: relative;
-  display: block;
-  height: auto;
-  padding-bottom: percentage(nth($ratio, 2) / nth($ratio, 1));
+  @include parent($ratio);
 
   // child
   #{$selector} {
