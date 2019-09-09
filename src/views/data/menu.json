@@ -11,14 +11,14 @@
       "icon": "toolbox"
     },
     {
-      "label": "Portfolio",
-      "link": "portfolio.html",
-      "icon": "image"
-    },
-    {
       "label": "Info",
       "link": "info.html",
       "icon": "info-circle"
+    },
+    {
+      "label": "Portfolio",
+      "link": "portfolio.html",
+      "icon": "image"
     },
     {
       "label": "Contact",
