@@ -1,0 +1,21 @@
+//
+// Carousel
+// -----------------------------------------------------------------------------
+
+.carousel-portfolio {
+  background-color: $grey-900;
+
+  .carousel-picture {
+    // You should use a 16:9 image ratio, such as 1280 x 720 px.
+    @include portfolio-fluid-aspect(16 9, ".carousel-img");
+  }
+
+  .carousel-inner {
+    overflow: unset;
+  }
+
+  .carousel-control-prev,
+  .carousel-control-next {
+    background: none;
+  }
+}
