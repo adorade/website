@@ -11,7 +11,7 @@
     "dev": "gulp",
     "build": "gulp build --production",
     "deploy": "gulp build --production && gulp build:deploy",
-    "work": "gulp serve:watch",
+    "start": "gulp serve:watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
