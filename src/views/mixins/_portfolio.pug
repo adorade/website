@@ -20,4 +20,6 @@ mixin portfolioPicture(name, alt)
   picture.portfolio-picture.shadow-lg
     source(type="image/webp" data-srcset="images/portfolio/" + name + "-min.webp")
     source(type="image/png" data-srcset="images/portfolio/" + name + "-min.png")
-    img.lazy-portfolio.portfolio-img(data-src="images/portfolio/" + name + "-min.png" alt=alt)
+    img.lazy-portfolio.portfolio-img(
+      src="images/portfolio/" + name + "-min.png" inline
+      data-src="images/portfolio/" + name + "-min.png" alt=alt)
