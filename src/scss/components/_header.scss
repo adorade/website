@@ -30,13 +30,13 @@
     @include top-fluid-aspect(1.91 1, ".masthead-img");
 
     .masthead-img {
-      @media screen and (min-width: 768px) {
+      @media screen and (min-width: 1200px) {
         width: 100%;
       }
     }
   }
 
-  .top-fade-in {
+  .fade-in {
     filter: none;
   }
 
