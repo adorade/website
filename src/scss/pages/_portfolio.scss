@@ -1,6 +1,6 @@
 //
-// Portfolio
-// -----------------------------------------------------------------------------
+// Portfolio Page
+// =============================================================================
 
 .portfolio {
   background-color: $grey-900;
@@ -9,10 +9,4 @@
     // You should use a 16:9 image ratio, such as 1280 x 720 px.
     @include portfolio-fluid-aspect(16 9, ".portfolio-img");
   }
-
-  .carousel-control-prev,
-  .carousel-control-next {
-    background: none;
-  }
 }
-

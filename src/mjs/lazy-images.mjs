@@ -2,7 +2,7 @@
 // -----------------------------------------------------------------------------
 /* globals yall */
 
-const yallClasses = ['lazy-parallax', 'lazy-drawer', 'lazy-portfolio']
+const yallClasses = ['lazy-parallax', 'lazy-drawer', 'lazy-carousel', 'lazy-portfolio']
 
 document.addEventListener('DOMContentLoaded', () => {
   yall({

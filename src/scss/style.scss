@@ -5,6 +5,9 @@
 // Reset loader, inline stylesheet
 // @import "plugins/loader";
 
+// Import Material Color Palette.
+@import "includes/colors";
+
 @import "includes/variables";
 @import "includes/animation";
 
@@ -21,7 +24,7 @@
 @import "components/content";
 @import "components/cards";
 @import "components/features";
-@import "components/portfolio";
+@import "components/carousel";
 @import "components/testimonials";
 @import "components/parallax";
 @import "components/tags";
@@ -33,3 +36,7 @@
 @import "components/form";
 @import "components/contact";
 @import "components/misc";
+
+@import "pages/info";
+@import "pages/portfolio";
+@import "pages/services";
