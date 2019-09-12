@@ -1,11 +1,13 @@
 //- includes/pages/_info.pug
+include ../../mixins/_pictures
+
 section.info#info-1
   .container
     .row.align-items-center
       .col-12.col-md-6.order-md-1
-        .picture-wrapper.shadow-lg
+        +infoPicture("holder", "Performance")
       .col-12.col-md-6
-        h3.my-4.mt-md-0.text-center.text-md-left Test heading
+        h3.my-4.mt-md-0.text-center.text-md-left Performance
         p.mb-0.
           Lorem ipsum dolor sit amet, consec tetur adipiscing elit mauris solicitud.
           Consec tetur adipiscing elit mauris solicitud, lorem ipsum dolor sit amet.
@@ -15,9 +17,9 @@ section.info#info-2
   .container
     .row.align-items-center
       .col-12.col-md-6
-        .picture-wrapper.shadow-lg
+        +infoPicture("holder", "Audit Ready")
       .col-12.col-md-6
-        h3.my-4.mt-md-0.text-center.text-md-left Test heading
+        h3.my-4.mt-md-0.text-center.text-md-left Audit Ready
         p.mb-0.
           Lorem ipsum dolor sit amet, consec tetur adipiscing elit mauris solicitud.
           Consec tetur adipiscing elit mauris solicitud, lorem ipsum dolor sit amet.
@@ -27,9 +29,9 @@ section.info#info-3
   .container
     .row.align-items-center
       .col-12.col-md-6.order-md-1
-        .picture-wrapper.shadow-lg
+        +infoPicture("holder", "SEO Ready")
       .col-12.col-md-6
-        h3.my-4.mt-md-0.text-center.text-md-left Test heading
+        h3.my-4.mt-md-0.text-center.text-md-left SEO Ready
         p.mb-0.
           Lorem ipsum dolor sit amet, consec tetur adipiscing elit mauris solicitud.
           Consec tetur adipiscing elit mauris solicitud, lorem ipsum dolor sit amet.
@@ -39,9 +41,9 @@ section.info#info-4
   .container
     .row.align-items-center
       .col-12.col-md-6
-        .picture-wrapper.shadow-lg
+        +infoPicture("holder", "Best practices")
       .col-12.col-md-6
-        h3.my-4.mt-md-0.text-center.text-md-left Test heading
+        h3.my-4.mt-md-0.text-center.text-md-left Best practices
         p.mb-0.
           Lorem ipsum dolor sit amet, consec tetur adipiscing elit mauris solicitud.
           Consec tetur adipiscing elit mauris solicitud, lorem ipsum dolor sit amet.
@@ -51,9 +53,21 @@ section.info#info-5
   .container
     .row.align-items-center
       .col-12.col-md-6.order-md-1
-        .picture-wrapper.shadow-lg
+        +infoPicture("holder", "Accessibility")
       .col-12.col-md-6
-        h3.my-4.mt-md-0.text-center.text-md-left Test heading
+        h3.my-4.mt-md-0.text-center.text-md-left Accessibility
+        p.mb-0.
+          Lorem ipsum dolor sit amet, consec tetur adipiscing elit mauris solicitud.
+          Consec tetur adipiscing elit mauris solicitud, lorem ipsum dolor sit amet.
+          Dolor sit amet, consec tetur adipiscing elit mauris solicitud lorem ipsum.
+
+section.info#info-6
+  .container
+    .row.align-items-center
+      .col-12.col-md-6
+        +infoPicture("holder", "Responsive design")
+      .col-12.col-md-6
+        h3.my-4.mt-md-0.text-center.text-md-left Responsive design
         p.mb-0.
           Lorem ipsum dolor sit amet, consec tetur adipiscing elit mauris solicitud.
           Consec tetur adipiscing elit mauris solicitud, lorem ipsum dolor sit amet.
