@@ -4,7 +4,7 @@
 [![devDependencies Status](https://img.shields.io/david/dev/adorade/website.svg)](https://david-dm.org/adorade/website?type=dev)
 [![Build Status](https://img.shields.io/travis/adorade/website/master.svg?logo=travis)](https://travis-ci.org/adorade/website)
 [![Greenkeeper badge](https://badges.greenkeeper.io/adorade/website.svg)](https://greenkeeper.io/)
-[![Github Action Workflow](https://github.com/actions/setup-node/workflows/Main%20workflow/badge.svg)](https://github.com/adorade/website/actions)
+[![GitHub Actions status](https://github.com/adorade/website/workflows/Node%20CI/badge.svg)](https://github.com/adorade/website/actions)
 
 # Adorade
 
