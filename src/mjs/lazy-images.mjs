@@ -4,7 +4,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   const yallClasses = ['lazy-parallax', 'lazy-drawer', 'lazy-carousel']
-  const pictureClasses = ['lazy-top', 'lazy-portfolio']
+  const pictureClasses = ['lazy-top', 'lazy-services', 'lazy-info', 'lazy-portfolio']
 
   yall({
     lazyClass: 'lazy-cards',

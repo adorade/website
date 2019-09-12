@@ -1,0 +1,25 @@
+//- mixins/_pictures.pug
+
+//- Services Picture
+//------------------------
+//- include ../path/to/mixins/_pictures
+//- Usage: +servicesPicture("name", "alt")
+mixin servicesPicture(name, alt)
+  picture.services-picture.shadow-lg
+    source(type="image/webp" data-srcset="images/place/" + name + "-min.webp")
+    source(type="image/png" data-srcset="images/place/" + name + "-min.jpg")
+    img.lazy-services.services-img(
+      src="images/place/" + name + "-min.jpg" inline
+      data-src="images/place/" + name + "-min.jpg" alt=alt)
+
+//- Info Picture
+//------------------------
+//- include ../path/to/mixins/_pictures
+//- Usage: +infoPicture("name", "alt")
+mixin infoPicture(name, alt)
+  picture.info-picture.shadow-lg
+    source(type="image/webp" data-srcset="images/place/" + name + "-min.webp")
+    source(type="image/png" data-srcset="images/place/" + name + "-min.jpg")
+    img.lazy-info.info-img(
+      src="images/place/" + name + "-min.jpg" inline
+      data-src="images/place/" + name + "-min.jpg" alt=alt)
