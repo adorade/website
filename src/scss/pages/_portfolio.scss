@@ -9,7 +9,7 @@
     transition: filter .5s ease-in-out;
     filter: grayscale(90%) blur(10px);
 
-    // You should use a 16:9 image ratio, such as 1280 x 720 px.
+    // You should use a 16:9 image ratio, such as 540x304 px.
     @include portfolio-fluid-aspect(16 9, ".portfolio-img");
   }
 

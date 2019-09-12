@@ -1,3 +1,19 @@
 //
 // Info Page
 // =============================================================================
+
+.info {
+  background-color: $grey-900;
+
+  .info-picture {
+    transition: filter .5s ease-in-out;
+    filter: grayscale(90%) blur(10px);
+
+    // You should use a 16:9 image ratio, such as 540x304 px.
+    @include portfolio-fluid-aspect(16 9, ".info-img");
+  }
+
+  .fade-in {
+    filter: none;
+  }
+}
