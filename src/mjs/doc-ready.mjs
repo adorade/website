@@ -71,4 +71,16 @@ $('document').ready(function () {
     }, 1000)
     return false
   })
+
+  // AJAX Form Submissions
+  // ------------------------
+  const $ajaxForm = $('#contact-form, #modal-get-quote, #news-form')
+  $ajaxForm.submit((e) => {
+    e.preventDefault()
+
+    const $form = $(this)
+    $.post($form.attr('action'), $form.serialize()).then(() => {
+      alert('Thank you!')
+    })
+  })
 })
