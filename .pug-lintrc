@@ -14,7 +14,7 @@
   "requireLowerCaseTags": true,
   "requireSpaceAfterCodeOperator": true,
   "requireSpecificAttributes": [{
-    "form": ["action"],
+    "form": ["name"],
     "img": ["alt"],
     "input": ["type"],
     "input[type=submit]": ["value"]

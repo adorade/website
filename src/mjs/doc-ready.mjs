@@ -71,35 +71,4 @@ $('document').ready(function () {
     }, 1000)
     return false
   })
-
-  // AJAX Form Submissions
-  // ------------------------
-  const $ajaxForm = $('#contact-form, #modal-get-quote, #news-form')
-  // --- Attach a submit handler to the form
-  // $ajaxForm.submit((e) => {
-  //   // --- Stop form from submitting normally
-  //   e.preventDefault()
-
-  //   // --- Get some values from elements on the page:
-  //   const $form = $(this),
-  //         url = $form.attr('action'),
-  //         datas = $form.serialize()
-
-  //   // --- Send the data using post
-  //   const posting = $.post(url, datas)
-
-  //   // --- Put the results in a div
-  //   // posting.done(function (data) {
-  //   //   let content = $(data).find('.note')
-  //   //   $('#result').empty().append(content)
-  //   // })
-
-  //   posting.then(() => {
-  //     alert('Thank you!')
-  //   })
-  // })
-
-  $ajaxForm.submit(() => {
-    alert('Thank you!')
-  })
 })
