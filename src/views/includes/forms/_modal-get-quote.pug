@@ -11,15 +11,23 @@
 
       .modal-body
         p Please, be so kind, don't hesitate to contact us!
-        form.form-horizontal#modal-get-quote(name="modal-get-quote" method="POST" action="#!" netlify)
-          .note
-          .load
 
+        //- the form result (success or error) will be rendered inside `.note`
+        .note
+        .load
+
+        form.form-horizontal#modal-get-quote(name="modal-get-quote" method="POST" netlify-honeypot="bot-field" action="#!" netlify)
           //- Spam Trap
+          //- .form-group.d-none
+          //-   .input
+          //-     label(for="foo") Leave this field blank
+          //-     input.form-control#foo(type="text" name="foo" autocomplete="off")
+
+          //- HONEYPOT FIELD
           .form-group.d-none
             .input
-              label(for="modalfoo") Leave this field blank
-              input.form-control#modalfoo(type="text" name="modalfoo" autocomplete="off")
+              label(for="bot-field") Don’t fill this out if you're human
+              input.form-control#bot-field(type="text" name="bot-field" autocomplete="off")
 
           .form-group
             .input

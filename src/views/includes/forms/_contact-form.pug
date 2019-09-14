@@ -8,15 +8,22 @@ section.contact-form.text-center#scontact-form
 
     .row.no-gutters
       .col.col-md-8.offset-md-2
-        form.p-4.bg-gradient-dark.shadow-lg#contact-form(name="contact-form" method="POST" action="#!" netlify)
-          .note
-          .load
+        //- the form result (success or error) will be rendered inside `.note`
+        .note
+        .load
 
+        form.p-4.bg-gradient-dark.shadow-lg#contact-form(name="contact-form" method="POST" netlify-honeypot="bot-field" action="#!" netlify)
           //- Spam Trap
+          //- .form-group.d-none
+          //-   .input
+          //-     label(for="foo") Leave this field blank
+          //-     input.form-control#foo(type="text" name="foo" autocomplete="off")
+
+          //- HONEYPOT FIELD
           .form-group.d-none
             .input
-              label(for="foo") Leave this field blank
-              input.form-control#foo(type="text" name="foo" autocomplete="off")
+              label(for="bot-field") Don’t fill this out if you're human
+              input.form-control#bot-field(type="text" name="bot-field" autocomplete="off")
 
           .form-group
             .input
