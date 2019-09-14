@@ -1,7 +1,7 @@
 //- includes/forms/_newsletter.pug
 section.newsletter.text-center#newsletter
   h2.mb-4 Check our newsletter
-  form.form-inline#news-form(name="news-form" method="POST" netlify-honeypot="bot-field" action="#!" netlify)
+  form.form-inline#news-form(name="news-form" method="POST" netlify-honeypot="bot-field" netlify)
     .input-group
       input.form-control.d-none#bot-field(type="text" name="bot-field" autocomplete="off")
       input.form-control#newsemail(

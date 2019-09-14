@@ -45,7 +45,7 @@ form {
     transition: all .2s linear;
     cursor: text;
 
-    &[for="message"] {
+    &[for$="message"] {
       border-bottom: 1px solid #ccc;
       border-radius: 8px 0;
     }
