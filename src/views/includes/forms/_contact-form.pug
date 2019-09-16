@@ -13,9 +13,7 @@ section.contact-form-section.text-center#contact-form-section
         .load
 
         form.p-4.bg-gradient-dark.shadow-lg#contact-form(
-          name="contact-form" method="POST" netlify-honeypot="bot-field" enctype="application/x-www-form-urlencoded" netlify)
-
-          input(type="hidden" name="form-name" value="contact-form")
+          name="contact-form" method="POST" netlify-honeypot="bot-field" netlify)
 
           //- HONEYPOT FIELD
           .form-group.d-none
@@ -63,5 +61,5 @@ section.contact-form-section.text-center#contact-form-section
                 aria-label="Your message" required)
 
           .mt-5
-            button.btn.btn-info#submit(type="submit") Send
-            button.btn.btn-outline-light#reset(type="reset") Cancel
+            button.btn.btn-info(type="submit") Send
+            button.btn.btn-outline-light(type="reset") Cancel
