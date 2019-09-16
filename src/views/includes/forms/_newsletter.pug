@@ -1,11 +1,15 @@
 //- includes/forms/_newsletter.pug
 section.newsletter.text-center#newsletter
   h2.mb-4 Check our newsletter
-  form.form-inline#news-form(name="news-form" method="POST" netlify-honeypot="bot-field" netlify)
+  form.form-inline#news-form(
+    name="news-form" method="POST" netlify-honeypot="bot-field" netlify)
+
+    //- HONEYPOT FIELD
+    input.d-none(type="text" name="bot-field" autocomplete="off")
+
     .input-group
-      input.form-control.d-none#bot-field(type="text" name="bot-field" autocomplete="off")
-      input.form-control#newsemail(
-        type="email" name="newsemail" placeholder="your@email.here"
+      input.form-control#email(
+        type="email" name="email" placeholder="your@email.here"
         pattern="^([a-z0-9_\.\-]+)@([a-z0-9\.\-]+){2,255}\.([a-z]+){2,10}$" title="Please enter a valid email"
         aria-label="your@email.here" required)
       .input-group-append

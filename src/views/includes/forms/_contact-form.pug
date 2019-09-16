@@ -1,6 +1,6 @@
 //- includes/forms/_contact-form.pug
 //- Contact form
-section.contact-form.text-center#scontact-form
+section.contact-form-section.text-center#contact-form-section
   .container
     .row
       .col-12
@@ -12,12 +12,8 @@ section.contact-form.text-center#scontact-form
         .note
         .load
 
-        form.p-4.bg-gradient-dark.shadow-lg#contact-form(name="contact-form" method="POST" netlify-honeypot="bot-field" netlify)
-          //- Spam Trap
-          //- .form-group.d-none
-          //-   .input
-          //-     label(for="foo") Leave this field blank
-          //-     input.form-control#foo(type="text" name="foo" autocomplete="off")
+        form.p-4.bg-gradient-dark.shadow-lg#contact-form(
+          name="contact-form" method="POST" netlify-honeypot="bot-field" netlify)
 
           //- HONEYPOT FIELD
           .form-group.d-none
@@ -64,17 +60,6 @@ section.contact-form.text-center#scontact-form
                 name="message" rows="6" maxlength="600" placeholder="Your message" title="Maximum 600 characters."
                 aria-label="Your message" required)
 
-          //- Avoid spybots
-          //- .form-group
-          //-   .input
-          //-     label(for="answer") 5-2+1 #[span.required *]
-          //-     input.form-control#answer(
-          //-       type="text" name="answer" maxlength="1" placeholder="Correct answer?" pattern="4" title="Correct answer?"
-          //-       aria-label="Correct answer?" required)
-
-          //- For php script
-          //- input(type="hidden" name="submitted" value="true")
-
           .mt-5
-            button.btn.btn-info#submit(type="submit") Send
-            button.btn.btn-outline-light#reset(type="reset") Cancel
+            button.btn.btn-info(type="submit") Send
+            button.btn.btn-outline-light(type="reset") Cancel
