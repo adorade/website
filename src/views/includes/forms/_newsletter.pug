@@ -2,7 +2,7 @@
 section.newsletter.text-center#newsletter
   h2.mb-4 Check our newsletter
   form.form-inline#news-form(
-    name="news-form" method="POST" netlify-honeypot="bot-field" netlify)
+    name="news-form" method="POST" action="/thank-you.html" netlify-honeypot="bot-field" netlify)
 
     //- HONEYPOT FIELD
     input.d-none(type="text" name="bot-field" autocomplete="off")
