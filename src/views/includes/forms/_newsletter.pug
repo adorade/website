@@ -1,16 +1,22 @@
 //- includes/forms/_newsletter.pug
 section.newsletter.text-center#newsletter
   h2.mb-4 Check our newsletter
-  form.form-inline#news-form(
-    name="news-form" method="POST" action="/thank-you.html" netlify-honeypot="bot-field" netlify)
 
-    //- HONEYPOT FIELD
-    input.d-none(type="text" name="bot-field" autocomplete="off")
+  .container
+    .row
+      .col.col-md-8.offset-md-2
+        form.p-4.needs-validation.shadow-lg#news-form(
+          name="news-form" method="POST" action="/thanks/news.html" netlify-honeypot="bot-field" netlify novalidate)
 
-    .input-group
-      input.form-control#email(
-        type="email" name="email" placeholder="your@email.here"
-        pattern="^([a-z0-9_\.\-]+)@([a-z0-9\.\-]+){2,255}\.([a-z]+){2,10}$" title="Please enter a valid email"
-        aria-label="your@email.here" required)
-      .input-group-append
-        button.btn.btn-orange(type="submit") Submit
+          //- HONEYPOT FIELD
+          input.d-none#bot-field(type="text" name="bot-field" autocomplete="off")
+
+          .input-group
+            input.form-control#email(
+              type="email" name="email" placeholder="your@email.here"
+              pattern="^([a-z0-9_\\.\\-]+)@([a-z0-9\\.\\-]+){2,255}\.([a-z]+){2,10}$"
+              title="Please enter a valid email" aria-label="your@email.here" required)
+            .input-group-append
+              button.btn.btn-orange(type="submit") Submit
+            .valid-feedback Looks good!
+            .invalid-feedback Please enter a valid email.

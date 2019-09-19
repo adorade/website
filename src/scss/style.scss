@@ -15,6 +15,7 @@
 
 @import "mixins/gradients";
 @import "mixins/picture";
+@import "mixins/forms";
 
 @import "components/basic";
 @import "components/buttons";
@@ -34,9 +35,9 @@
 @import "components/marks";
 @import "components/modal";
 @import "components/form";
-@import "components/contact";
 @import "components/misc";
 
 @import "pages/info";
 @import "pages/portfolio";
 @import "pages/services";
+@import "pages/contact";
