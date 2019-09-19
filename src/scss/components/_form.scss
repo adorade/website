@@ -5,29 +5,30 @@
 form {
   padding: 0;
   margin: 0;
+  font-family: Roboto, Arial, sans-serif;
   font-size: 1rem;
   line-height: 1;
   font-weight: 400;
-}
-
-.form-group {
-  &:last-child {
-    margin-bottom: 0;
-  }
 }
 
 .form-control {
   border-color: #ccc;
 
   &:focus {
-    border-color: #14a0dc;
-    outline: 0;
-    box-shadow: none;
+    border-color: #17a2b8;
   }
 }
 
 .input {
   position: relative;
+
+  input,
+  textarea {
+    padding-left: 100px;
+    border-radius: .5rem;
+    color: #333;
+    transition: all .2s linear;
+  }
 
   label {
     position: absolute;
@@ -36,8 +37,10 @@ form {
     width: 90px;
     padding: .625rem .75rem;
     margin: 0;
-    border-right: 1px solid #ccc;
-    color: #333;
+    border-right: 1px solid #17a2b8;
+    border-radius: .5rem 0 0 .5rem;
+    background-color: #17a2b8;
+    color: $white;
     font-family: Roboto, Arial, sans-serif;
     font-size: .75rem;
     line-height: 1.5;
@@ -46,99 +49,24 @@ form {
     cursor: text;
 
     &[for$="message"] {
-      border-bottom: 1px solid #ccc;
-      border-radius: 8px 0;
+      border-bottom: 1px solid #17a2b8;
+      border-radius: .5rem 0;
     }
 
     .required {
-      color: #ff003b;
-    }
-  }
-
-  input,
-  textarea {
-    width: 100%;
-    padding-left: 100px;
-    margin: 0;
-    overflow: hidden;
-    border-radius: 8px;
-    color: #333;
-    font-family: Roboto, Arial, sans-serif;
-    transition: all .2s linear;
-  }
-
-  textarea {
-    height: auto;
-  }
-
-  &.active {
-    input,
-    textarea {
-      padding-left: 100px;
-    }
-
-    input:required:invalid,
-    textarea:required:invalid {
-      border: 1px solid #ff003b;
-      color: #ff003b;
-    }
-
-    input:required:invalid + label,
-    textarea:required:invalid + label {
-      background: #ff003b;
-    }
-
-    input:required:invalid + label {
-      border-right: 1px solid #ff003b;
-    }
-
-    textarea:required:invalid + label {
-      border-right: 1px solid #ff003b;
-      border-bottom: 1px solid #ff003b;
-      border-radius: 8px 0;
-    }
-
-    input:required:invalid:focus + label,
-    textarea:required:invalid:focus + label {
-      background: #ff003b;
-    }
-
-    input:required:invalid:focus + label {
-      border-right: 1px solid #ff003b;
-    }
-
-    textarea:required:invalid:focus + label {
-      border-right: 1px solid #ff003b;
-      border-bottom: 1px solid #ff003b;
-      border-radius: 8px 0;
-    }
-
-    label {
-      top: 0;
-      left: 15px;
-      width: 90px;
-      padding: 11px .75rem 9px;
-      border-right: 1px solid #14a0dc;
-      border-radius: 8px 0 0 8px;
-      background: #14a0dc;
-      color: #fff;
-      text-align: center;
-    }
-
-    label span {
-      color: #fff !important; // stylelint-disable-line
-    }
-
-    textarea + label {
-      border-right: 1px solid #14a0dc;
-      border-bottom: 1px solid #14a0dc;
-      border-radius: 8px 0;
+      color: $white;
     }
   }
 }
 
-// error ~ success
-// ---------------
+// Form validation
+// --------------------------
+@each $state, $data in $form-validation-states {
+  @include formarea-validation-state($state, map-get($data, color));
+}
+
+// Form response
+// --------------------------
 .loading {
   display: block;
   margin-bottom: 15px;

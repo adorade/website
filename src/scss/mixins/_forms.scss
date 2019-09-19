@@ -1,0 +1,31 @@
+//
+// Mixins - Forms
+// -----------------------------------------------------------------------------
+
+// Form validation states.
+// Generate the form validation CSS for warnings, errors, and successes.
+@mixin formarea-validation-state($state, $color) {
+  .form-control {
+    .was-validated &:#{$state},
+    &.is-#{$state} {
+
+      ~ label {
+        border-color: $color;
+        background-color: $color;
+        color: $white;
+
+        &:focus {
+          border-color: $color;
+        }
+      }
+    }
+  }
+
+  // stylelint-disable-next-line selector-no-qualifying-type
+  textarea.form-control {
+    .was-validated &:#{$state},
+    &.is-#{$state} {
+      // code here
+    }
+  }
+}

@@ -3,9 +3,5 @@
 // -----------------------------------------------------------------------------
 
 .newsletter {
-  @include gradient-radial-circle-top(rgba($black, .3), rgba($black, .9));
-
-  .form-inline {
-    justify-content: center;
-  }
+  background-color: darken($grey-900, 1%);
 }
