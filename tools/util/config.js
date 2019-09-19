@@ -67,8 +67,8 @@ export const paths = {
     dev: `${dirs.dev}/`,
     prod: `${dirs.prod}/`,
     files: {
-      dev: `${dirs.dev}/*.html`,
-      prod: `${dirs.prod}/*.html`
+      dev: `${dirs.dev}/**/*.html`,
+      prod: `${dirs.prod}/**/*.html`
     }
   },
   test: {
