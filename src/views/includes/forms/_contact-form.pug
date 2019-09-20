@@ -70,6 +70,13 @@ section.contact.text-center#contact
               .valid-feedback Looks good!
               .invalid-feedback Please enter a valid message.
 
+          .form-group
+            .form-check
+              input.form-check-input#terms-check(type="checkbox" value="" required)
+              label.form-check-label(for="terms-check") Agree to terms and conditions
+              .valid-feedback Looks good!
+              .invalid-feedback You must agree before submitting.
+
           .mt-4.text-center
             button.btn.btn-info(type="submit") Submit
             button.btn.btn-outline-light(type="reset") Cancel
