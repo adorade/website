@@ -8,12 +8,8 @@ body {
 }
 
 body {
-  // @include carbon-fibre($grey-900);
-  // @include carbon(#131313);
-  // @include print-stripe($grey-900);
-  background-color: $grey-800;//
-  // background-attachment: fixed;
-  color: $light-primary-text;
+  background-color: $gray-800;
+  color: $gray-100;
 }
 
 img {

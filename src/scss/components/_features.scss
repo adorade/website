@@ -3,13 +3,13 @@
 // -----------------------------------------------------------------------------
 
 .features {
-  background-color: darken($grey-800, 7%);
+  background-color: darken($gray-800, 5%);
 
   .card {
     margin: 0 0 2rem;
     border: 0 solid rgba(0, 0, 0, 0);
     border-radius: 0;
-    box-shadow: 0 20px 30px rgba(0, 0, 0, .6);
+    box-shadow: 0 1.2rem 2rem rgba(0, 0, 0, .6);
 
     .card-img {
       padding: 1.25rem 0 0;
