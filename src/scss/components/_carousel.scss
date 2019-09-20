@@ -3,7 +3,7 @@
 // -----------------------------------------------------------------------------
 
 .carousel-portfolio {
-  background-color: $grey-900;
+  background-color: darken($gray-800, 10%);
 
   .carousel-picture {
     // You should use a 16:9 image ratio, such as 1280 x 720 px.
