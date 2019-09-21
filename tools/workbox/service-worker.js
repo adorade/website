@@ -15,6 +15,14 @@
 // Import workbox-sw, which defines the global `workbox` object.
 importScripts('https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js');
 
+// self.addEventListener('fetch', (event) => {
+//   event.respondWith(
+//     caches.match(event.request).then((response) => {
+//       return response || fetch(event.request);
+//     })
+//   );
+// });
+
 if (workbox) {
   console.log('Yay! Workbox is loaded');
 
