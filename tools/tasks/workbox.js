@@ -20,7 +20,7 @@ export async function serviceWorker (done) {
       globIgnores: [
         // 'sw.js',
         'css/vendor/fonts.css',
-        'js/vendor/unikorn.umd.js'
+        'thanks/*.html'
       ]
     }).then(({count, size, warnings}) => {
       // In case there are any warnings from workbox-build, log them.
