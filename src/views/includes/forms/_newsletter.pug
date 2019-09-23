@@ -5,6 +5,9 @@ section.newsletter.text-center#newsletter
   .container
     .row
       .col.col-md-8.offset-md-2
+        //- the form result (success or error) will be rendered inside `.form-response`
+        .form-response.alert.shadow-lg.d-none
+
         form.needs-validation.p-4.shadow-lg#news-form(
           name="news-form" method="POST" action="/thanks/news.html" netlify-honeypot="bot-field" netlify novalidate)
 
@@ -17,6 +20,6 @@ section.newsletter.text-center#newsletter
               pattern="^([a-z0-9_\\.\\-]+)@([a-z0-9\\.\\-]+){2,255}\.([a-z]+){2,10}$"
               title="Please enter a valid email" aria-label="your@email.here" required)
             .input-group-append
-              button.btn.btn-orange(type="submit") Submit
+              button.btn.btn-orange(type="submit") Subscribe
             .valid-feedback Looks good!
             .invalid-feedback Please enter a valid email.

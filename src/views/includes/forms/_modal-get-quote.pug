@@ -12,9 +12,8 @@
       .modal-body
         p Please, be so kind, don't hesitate to contact us!
 
-        //- the form result (success or error) will be rendered inside `.note`
-        .note
-        .load
+        //- the form result (success or error) will be rendered inside `.form-response`
+        .form-response.alert.shadow-lg.d-none
 
         form.needs-validation.bg-light#modal-get-quote(
           name="modal-get-quote" method="POST" action="/thanks/modal.html" netlify-honeypot="bot-field" netlify novalidate)

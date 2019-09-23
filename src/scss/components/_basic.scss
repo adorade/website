@@ -17,3 +17,7 @@ img {
 }
 
 h1, h2, h3, h4, h5, h6 { font-family: Aclonica, sans-serif; } // stylelint-disable-line
+
+.shadow-lg {
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, .5) !important; // stylelint-disable-line
+}
