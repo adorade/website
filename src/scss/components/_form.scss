@@ -67,35 +67,6 @@ form {
 
 // Form response
 // --------------------------
-.loading {
-  display: block;
-  margin-bottom: 15px;
-  text-align: center;
-}
-
-.success {
-  border: 1px solid #0c7f2f;
-  background: rgba(17, 173, 64, .8);
-}
-
-.error {
-  border: 1px solid #ad102f;
-  background: rgba(220, 20, 60, 1);
-}
-
-.success,
-.error {
-  position: relative;
-  padding: 10px;
-  margin: 0 0 15px;
-  border-radius: 8px;
-  color: #fff;
-  font-size: 1em;
-  box-shadow: 0 0 10px rgba(0, 0, 0, .6);
-}
-
-.success span,
-.error span {
-  font-size: 1.2em;
-  font-weight: 900;
-}
+// .form-response {
+//   box-shadow: 0 1rem 3rem rgba(0, 0, 0, .5);
+// }
