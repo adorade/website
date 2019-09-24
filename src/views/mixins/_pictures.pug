@@ -30,11 +30,11 @@ mixin banner(name, alt)
 //- Usage: +servicesPicture("name", "alt")
 mixin servicesPicture(name, alt)
   picture.services-picture.shadow-lg
-    source(type="image/webp" data-srcset="images/place/" + name + "-min.webp")
-    source(type="image/png" data-srcset="images/place/" + name + "-min.jpg")
+    source(type="image/webp" data-srcset="images/services/" + name + ".webp")
+    source(type="image/png" data-srcset="images/services/" + name + ".jpg")
     img.lazy-services.services-img(
-      src="images/place/" + name + "-min.jpg" inline
-      data-src="images/place/" + name + "-min.jpg" alt=alt)
+      src="images/services/" + name + ".jpg" inline
+      data-src="images/services/" + name + ".jpg" alt=alt)
 
 //- Info Picture
 //------------------------
@@ -42,11 +42,11 @@ mixin servicesPicture(name, alt)
 //- Usage: +infoPicture("name", "alt")
 mixin infoPicture(name, alt)
   picture.info-picture.shadow-lg
-    source(type="image/webp" data-srcset="images/place/" + name + "-min.webp")
-    source(type="image/png" data-srcset="images/place/" + name + "-min.jpg")
+    source(type="image/webp" data-srcset="images/info/" + name + ".webp")
+    source(type="image/png" data-srcset="images/info/" + name + ".jpg")
     img.lazy-info.info-img(
-      src="images/place/" + name + "-min.jpg" inline
-      data-src="images/place/" + name + "-min.jpg" alt=alt)
+      src="images/info/" + name + ".jpg" inline
+      data-src="images/info/" + name + ".jpg" alt=alt)
 
 //- Carousel Items
 //------------------------
