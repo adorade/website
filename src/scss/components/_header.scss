@@ -27,7 +27,7 @@
 
     // `Non-open Graph Stories Images` appear in a rectangular format.
     // You should use a 1.91:1 image ratio, such as 600 x 314 px.
-    @include top-fluid-aspect(1.91 1, ".masthead-img");
+    @include banner(1.91 1, ".masthead-img");
 
     .masthead-img {
       @media screen and (min-width: 1200px) {
@@ -45,10 +45,17 @@
     top: 0;
     left: 0;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     width: 100%;
     height: 100%;
     @include gradient-radial-circle(rgba($black, .1), rgba($black, .7));
+
+    @media screen and (min-width: 768px) {
+      h1 {
+        font-size: 4rem;
+      }
+    }
   }
 }
