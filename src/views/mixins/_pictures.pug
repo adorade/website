@@ -1,5 +1,15 @@
 //- mixins/_pictures.pug
 
+//- Cards Picture
+//------------------------
+//- include ../path/to/mixins/_pictures
+//- Usage: +cardsPicture("name", "alt")
+mixin cardsPicture(name, alt)
+  picture.card-picture
+    source(data-srcset="images/cards/" + name + ".webp" type="image/webp")
+    source(data-srcset="images/cards/" + name + ".jpg" type="image/jpeg")
+    img.lazy-cards.card-img(data-src="images/cards/" + name + ".jpg" alt=alt)
+
 //- Top Banner
 //------------------------
 //- include ../path/to/mixins/_pictures
@@ -37,3 +47,27 @@ mixin infoPicture(name, alt)
     img.lazy-info.info-img(
       src="images/place/" + name + "-min.jpg" inline
       data-src="images/place/" + name + "-min.jpg" alt=alt)
+
+//- Carousel Items
+//------------------------
+//- include ../path/to/mixins/_pictures
+//- Usage: +carouselPicture("name", "alt")
+mixin carouselPicture(name, alt)
+  picture.carousel-picture.shadow-lg
+    source(type="image/webp" data-srcset="images/portfolio/" + name + ".webp" media="(min-width: 576px)")
+    source(type="image/png" data-srcset="images/portfolio/" + name + ".png" media="(min-width: 576px)")
+    source(type="image/webp" data-srcset="images/portfolio/" + name + "-min.webp")
+    source(type="image/png" data-srcset="images/portfolio/" + name + "-min.png")
+    img.lazy-carousel.carousel-img(data-src="images/portfolio/" + name + ".png" alt=alt)
+
+//- Portfolio Items
+//------------------------
+//- include ../path/to/mixins/_pictures
+//- Usage: +portfolioPicture("name", "alt")
+mixin portfolioPicture(name, alt)
+  picture.portfolio-picture.shadow-lg
+    source(type="image/webp" data-srcset="images/portfolio/" + name + "-min.webp")
+    source(type="image/png" data-srcset="images/portfolio/" + name + "-min.png")
+    img.lazy-portfolio.portfolio-img(
+      src="images/portfolio/" + name + "-min.png" inline
+      data-src="images/portfolio/" + name + "-min.png" alt=alt)

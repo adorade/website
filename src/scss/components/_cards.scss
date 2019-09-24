@@ -24,7 +24,7 @@
 
   .card-picture {
     // intrinsic ratio
-    @include fluid-aspect(3 4, ".card-img");
+    @include card(3 4, ".card-img");
 
     .card-img {
       border: none;
