@@ -9,7 +9,7 @@
   padding-bottom: percentage(nth($ratio, 2) / nth($ratio, 1));
 }
 
-@mixin top-fluid-aspect($ratio: 1 1, $selector: "> :first-child") {
+@mixin banner($ratio: 1 1, $selector: "> :first-child") {
   $selector: unquote($selector);
 
   // parent
@@ -25,7 +25,7 @@
   }
 }
 
-@mixin portfolio-fluid-aspect($ratio: 1 1, $selector: "> :first-child") {
+@mixin picture($ratio: 1 1, $selector: "> :first-child") {
   $selector: unquote($selector);
 
   // parent
@@ -41,7 +41,7 @@
   }
 }
 
-@mixin fluid-aspect($ratio: 1 1, $selector: "> :first-child") {
+@mixin card($ratio: 1 1, $selector: "> :first-child") {
   $selector: unquote($selector);
 
   // parent

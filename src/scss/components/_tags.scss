@@ -3,10 +3,10 @@
 // -----------------------------------------------------------------------------
 
 .tags {
-  float: left;
-  padding-top: .75rem;
+  // float: left;
+  // padding-top: .75rem;
 
-  .button {
+  .tag {
     display: inline-block;
     padding: .5rem;
     margin: 1rem .5rem 0;
@@ -18,9 +18,14 @@
     font-weight: 700;
   }
 
-  .node {
-    background-color: #5b5ea6;
-    color: #fff;
+  .babel {
+    background-color: #323330;
+    color: #f5da55;
+  }
+
+  .css {
+    background-color: #bc70a4;
+    color: #111;
   }
 
   .express {
@@ -33,28 +38,17 @@
     color: #100;
   }
 
-  .network {
-    background-color: #6b5b95;
-    color: #fff;
+  .go {
+    background-color: #bfd641;
+    color: #000;
   }
 
-  .webpack {
-    background-color: #8ed6fb;
-    color: #111;
+  .gulp {
+    background-color: #cf4647;
   }
 
-  .pwa {
-    background-color: #6f9fd8;
-  }
-
-  .react {
-    background-color: #282c34;
-    color: #61dafb;
-  }
-
-  .vue {
-    background-color: #00a591;
-    color: #200;
+  .html {
+    background-color: #f2552c;
   }
 
   .js {
@@ -62,41 +56,28 @@
     color: #000;
   }
 
-  .cookbook {
-    background-color: #eadedb;
-    color: #333;
+  .node {
+    background-color: #5b5ea6;
+    color: #fff;
   }
 
-  .css {
-    background-color: #bc70a4;
+  .react {
+    background-color: #282c34;
+    color: #61dafb;
+  }
+
+  .serverless {
+    background-color: #000;
+    color: #b73833;
+  }
+
+  .vue {
+    background-color: #00a591;
+    color: #200;
+  }
+
+  .webpack {
+    background-color: #8ed6fb;
     color: #111;
-  }
-
-  .babel {
-    background-color: #323330;
-    color: #f5da55;
-  }
-
-  .gulp {
-    background-color: #cf4647;
-  }
-
-  .services {
-    background-color: #f7786b;
-    color: #111;
-  }
-
-  .libraries {
-    background-color: #dd4132;
-  }
-
-  .go {
-    background-color: #bfd641;
-    color: #000;
-  }
-
-  .html,
-  .softskills {
-    background-color: #f2552c;
   }
 }

@@ -10,7 +10,7 @@
     filter: grayscale(90%) blur(10px);
 
     // You should use a 16:9 image ratio, such as 540x304 px.
-    @include portfolio-fluid-aspect(16 9, ".info-img");
+    @include picture(16 9, ".info-img");
   }
 
   .fade-in {

@@ -24,7 +24,7 @@
 
   .card-picture {
     // intrinsic ratio
-    @include fluid-aspect(3 4, ".card-img");
+    @include card(3 4, ".card-img");
 
     .card-img {
       border: none;
@@ -53,6 +53,11 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.card-text {
+  font-size: 1.1rem;
+  text-align: center;
 }
 
 .card-button {
