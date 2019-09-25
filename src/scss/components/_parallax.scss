@@ -46,6 +46,7 @@
   @include gradient-radial-circle(rgba($black, .1), rgba($black, .7));
 
   span {
+    background-color: rgba($black, .5);
     color: $primary-color;
   }
 }
