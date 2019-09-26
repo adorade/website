@@ -13,12 +13,17 @@ include ../../mixins/_drawer
         button.close(type="button" role="button" data-dismiss="drawer" aria-label="Close")
           i.fas.fa-times
       .drawer-body
-        ul.drawer-nav.fa-ul
+        ul.drawer-nav.mb-auto.mb-3.fa-ul
           +drawerLink(menu)
           //- li.nav-item.active: a.nav-link(href="./") #[span.fa-li #[i.fas.fa-home.fa-fw]] Home
-          //- li.nav-item: a.nav-link(href="#!") #[span.fa-li #[i.fas.fa-history.fa-fw]] Story
-          //- li.nav-item: a.nav-link(href="#!") #[span.fa-li #[i.fas.fa-info-circle.fa-fw]] About
+          //- li.nav-item: a.nav-link(href="#!") #[span.fa-li #[i.fas.fa-toolbox.fa-fw]] Services
+          //- li.nav-item: a.nav-link(href="#!") #[span.fa-li #[i.fas.fa-info-circle.fa-fw]] Info
           //- li.nav-item: a.nav-link(href="#!") #[span.fa-li #[i.fas.fa-image.fa-fw]] Portfolio
           //- li.nav-item: a.nav-link(href="#!") #[span.fa-li #[i.fas.fa-envelope.fa-fw]] Contact
+        hr.drawer-divider.mb-3
+        ul.drawer-nav.fa-ul
+          +drawerLink(settings)
+          //- li.nav-item.active: a.nav-link(href="./") #[span.fa-li #[i.fas.fa-cookie.fa-fw]] Cookie Consent
+          //- li.nav-item: a.nav-link(href="#!") #[span.fa-li #[i.fas.fa-user-cog.fa-fw]] Settings
       .drawer-footer
         include ../../includes/misc/_copyright
