@@ -6,11 +6,9 @@ prepend setting
   - description = '';
   - currentUrl = 'cookies-policy.html';
 
+block header
+  include modules/header/_header-cookies
+
 block content
-  .container
-    .row
-      .col
-        if entry.inline
-          script#CookieDeclaration(
-            src="https://consent.cookiebot.com/fa29e1aa-8209-485c-af5c-d9918ac44fdb/cd.js" async)
+  include includes/pages/_cookies
   include includes/sections/_parallax
