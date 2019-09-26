@@ -1,0 +1,16 @@
+//- cookies-policy.pug
+extends layout/_base
+
+prepend setting
+  - title = 'Adorade - Cookies Policy';
+  - description = '';
+  - currentUrl = 'cookies-policy.html';
+
+block content
+  .container
+    .row
+      .col
+        if entry.inline
+          script#CookieDeclaration(
+            src="https://consent.cookiebot.com/fa29e1aa-8209-485c-af5c-d9918ac44fdb/cd.js" async)
+  include includes/sections/_parallax
