@@ -15,14 +15,6 @@
 // Import workbox-sw, which defines the global `workbox` object.
 importScripts('https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js');
 
-// self.addEventListener('fetch', (event) => {
-//   event.respondWith(
-//     caches.match(event.request).then((response) => {
-//       return response || fetch(event.request);
-//     })
-//   );
-// });
-
 if (workbox) {
   console.log('Yay! Workbox is loaded');
 
@@ -36,20 +28,25 @@ if (workbox) {
    */
   workbox.precaching.precacheAndRoute([]);
 
-  // Enable Offline Google Analytics
-  workbox.googleAnalytics.initialize();
-
-  // Cache the Google Fonts webfont files with a CacheFirst strategy for 1 year.
+  // Cache the Google Fonts stylesheets with a stale while revalidate strategy.
   workbox.routing.registerRoute(
     /^https:\/\/fonts\.googleapis\.com/,
-    new workbox.strategies.CacheFirst({
-      cacheName: 'google-fonts-stylesheets',
+    workbox.strategies.staleWhileRevalidate({
+      cacheName: 'google-fonts-stylesheets'
+    })
+  );
+
+  // Cache the Google Fonts webfont files with a cache first strategy for 1 year.
+  workbox.routing.registerRoute(
+    /^https:\/\/fonts\.gstatic\.com/,
+    workbox.strategies.cacheFirst({
+      cacheName: 'google-fonts-webfonts',
       plugins: [
         new workbox.cacheableResponse.Plugin({
           statuses: [0, 200]
         }),
         new workbox.expiration.Plugin({
-          maxAgeSeconds: 365 * 24 * 60 * 60 // 365 days
+          maxAgeSeconds: 60 * 60 * 24 * 365 // 365 days
         })
       ]
     })
@@ -63,39 +60,7 @@ if (workbox) {
       plugins: [
         new workbox.expiration.Plugin({
           maxEntries: 20,
-          maxAgeSeconds: 7 * 24 * 60 * 60 // 7 days
-        })
-      ]
-    })
-  );
-
-  // Handle jQuery cdn requests
-  workbox.routing.registerRoute(
-    /^https:\/\/code\.jquery\.com/,
-    new workbox.strategies.CacheFirst({
-      cacheName: 'jquery-cdn',
-      plugins: [
-        new workbox.cacheableResponse.Plugin({
-          statuses: [0, 200]
-        }),
-        new workbox.expiration.Plugin({
-          maxAgeSeconds: 1 * 24 * 60 * 60 // 1 day
-        })
-      ]
-    })
-  );
-
-  // Handle cdnjs requests
-  workbox.routing.registerRoute(
-    /^https:\/\/cdnjs\.cloudflare\.com/,
-    new workbox.strategies.CacheFirst({
-      cacheName: 'cdnjs-cloudflare',
-      plugins: [
-        new workbox.cacheableResponse.Plugin({
-          statuses: [0, 200]
-        }),
-        new workbox.expiration.Plugin({
-          maxAgeSeconds: 1 * 24 * 60 * 60 // 1 day
+          maxAgeSeconds: 60 * 60 * 24 * 7 // 7 days
         })
       ]
     })
