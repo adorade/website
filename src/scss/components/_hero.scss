@@ -28,13 +28,15 @@
 
   // Clip background element
   .clip-bg {
-    background-image: url(../images/hero-unit/grass_field_dawn-portrait.jpg);
+    // background-image: url(../images/hero-unit/grass_field_dawn-portrait.jpg);
+    background-image: url(../images/hero-unit/grass_field_dawn-portrait.webp);
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
 
     @media (min-width: 768px) {
-      background-image: url(../images/hero-unit/grass_field_dawn.jpg);
+      // background-image: url(../images/hero-unit/grass_field_dawn.jpg);
+      background-image: url(../images/hero-unit/grass_field_dawn.webp);
     }
 
     &::before,
