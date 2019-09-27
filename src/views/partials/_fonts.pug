@@ -1,35 +1,27 @@
 //- partials/_fonts.pug
-// Load Fonts
-//- Use Google Fonts CSS
-link(href="https://fonts.googleapis.com/css?family=Aclonica|Roboto&display=swap" rel="stylesheet" media="all")
+//- Load Google Fonts
+script.
+  const loadFont = (url) => {
+    // the 'fetch' equivalent has caching issues
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', url, true);
+    xhr.onreadystatechange = () => {
+      if (xhr.readyState == 4 && xhr.status == 200) {
+        let css = xhr.responseText;
+        css = css.replace(/}/g, 'font-display: swap; }');
 
-//- Use WebFont Loader
-//- script.
-//-   WebFontConfig = {
-//-     google: { families: [ 'Aclonica%7CRoboto&display=swap' ] }
-//-   };
+        const head = document.getElementsByTagName('head')[0];
+        const style = document.createElement('style');
+        style.id = 'google-font-inline';
+        style.appendChild(document.createTextNode(css));
+        head.appendChild(style);
+      }
+    };
+    xhr.send();
+  }
 
-//-   (function() {
-//-     var wf = document.createElement('script');
-//-     wf.src = 'https://cdnjs.cloudflare.com/ajax/libs/webfont/1.6.28/webfontloader.js';
-//-     wf.async = 'true';
-//-     var s = document.getElementsByTagName('script')[0];
-//-     s.parentNode.insertBefore(wf, s);
-//-   })();
+  loadFont('https://fonts.googleapis.com/css?family=Aclonica|Roboto');
 
-//- Use your own Fonts CDN
-//- if entry.inline
-//-   link#fonts-style(href="css/vendor/fonts.css" inline)
-//- else
-//-   link#fonts-style(rel="stylesheet" href="css/vendor/fonts.css" media="all")
-
-//- Font Awesome Free
-//- script(defer
-//-   src="https://kit.fontawesome.com/22a4aa9152.js"
-//-   integrity="sha384-jGY5YUE3BAHeHKYaJOm6ksflRGCV6iXphfg/zIy5vu/7enHEusQ6GPSmqBPfcn3O"
-//-   crossorigin="anonymous")
-
-script(defer
-  src="https://use.fontawesome.com/releases/v5.11.2/js/all.js"
-  integrity="sha384-b3ua1l97aVGAPEIe48b4TC60WUQbQaGi2jqAWM90y0OZXZeyaTCWtBTKtjW2GXG1"
-  crossorigin="anonymous")
+//- Load Font Awesome
+link(rel="preconnect" href="https://kit-free.fontawesome.com")
+script(defer src="https://kit.fontawesome.com/aec4506a79.js" crossorigin="anonymous")
