@@ -18,27 +18,27 @@
 
       // --- Check form validity
       if (this.checkValidity() == false) {
-        // --- Stop form from submitting normally
+        // --- Stop form from submitting normally, handle the invalid form...
         event.preventDefault()
         event.stopPropagation()
 
-        console.log('Bootstrap will handle incomplete form fields')
+        $(this).addClass('shake animated').one('animationend', function () {
+          $(this).removeClass('shake animated')
+        })
       } else {
-        // --- Since form is now valid, prevent default behavior..
+        // --- Since form is now valid, prevent default behavior.
         event.preventDefault()
 
-        // console.info('All form fields are now valid...')
-
         // --- Get some values from elements on the page:
-        const $form = $(this),
-              url = $form.attr('action'),
-              datas = $form.serialize(),
-              $response = $form.parent().find('.form-response')
+        let $form = $(this),
+            url = $form.attr('action'),
+            datas = $form.serialize(),
+            $response = $form.parent().find('.form-response')
 
         // --- Message that will be displayed when everything is OK :)
         let okMessage
         if ( $form.attr('id') === 'news-form' ) {
-          okMessage = 'Newsletter form successfully submitted. Thank you, I will get back to you soon!'
+          okMessage = 'We have sent an email to confirm your subscription to your email address. Thank you for subscribing!'
         } else {
           okMessage = 'Contact form successfully submitted. Thank you, I will get back to you soon!'
         }
@@ -48,17 +48,11 @@
 
         // --- Send the data using post
         $.post(url, datas)
-          // .then(() => {
-          //   console.info('Your form are submitted...')
-          //   console.log(`Sample of data: ${datas}`)
-          // })
           .done(() => {
             $response.addClass('alert-success').removeClass('d-none').append(okMessage)
-            // console.log('done log')
           })
           .fail(() => {
             $response.addClass('alert-danger').removeClass('d-none').append(errorMessage)
-            // console.log('error log')
           })
           .always(() => {
             setTimeout(() => {
@@ -73,27 +67,19 @@
               }, 1000)
             }, 8000)
 
+            $('button:submit').blur()
             $form.removeClass('was-validated').trigger('reset')
-            // console.log('complete log')
           })
-
-        // Send the event to Google Analytics and
-        // resubmit the form once the hit is done.
-        // gtag('event', 'signup_form_complete', {
-        //   'event_callback': () => {
-        //     $(form).submit()
-        //   }
-        // })
       }
 
       $(this).addClass('was-validated')
+      $('button:submit').blur()
     })
 
     // --- Reset form
-    $('button:reset').click(() => {
-      $(form)
-        .removeClass('was-validated')
-        // .find('.form-control').val('')
+    $('button:reset').click(function () {
+      $(form).removeClass('was-validated')
+      $(this).blur()
     })
   })
 })()

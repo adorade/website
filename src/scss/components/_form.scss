@@ -59,6 +59,28 @@ form {
   }
 }
 
+.form-inline {
+  align-items: baseline;
+
+  .form-group {
+    position: relative;
+    flex: 1 1 auto;
+    width: 100%;
+
+    @include media-breakpoint-up(sm) {
+      width: 1%;
+    }
+  }
+
+  .form-control {
+    width: 100%;
+
+    @include media-breakpoint-up(sm) {
+      border-radius: 0;
+    }
+  }
+}
+
 // Form validation
 // --------------------------
 @each $state, $data in $form-validation-states {
