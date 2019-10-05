@@ -21,6 +21,10 @@
         // --- Stop form from submitting normally, handle the invalid form...
         event.preventDefault()
         event.stopPropagation()
+
+        $(this).addClass('shake animated').one('animationend', function () {
+          $(this).removeClass('shake animated')
+        })
       } else {
         // --- Since form is now valid, prevent default behavior.
         event.preventDefault()
