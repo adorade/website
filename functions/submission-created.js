@@ -1,18 +1,19 @@
 exports.handler = async (event, context) => {
   try {
-    console.log("Submission created: [error testing]");
+    console.log('Submission created: [error testing]');
 
     // Only allow POST
-    if (event.httpMethod !== "POST") {
-      return { statusCode: 405, body: "Method Not Allowed" };
+    if (event.httpMethod !== 'POST') {
+      return { statusCode: 405, body: 'Method Not Allowed' };
     }
 
     // When the method is POST
     let params = {
       data: JSON.parse(event.body).payload.data,
       site_url: JSON.parse(event.body).payload.site_url,
-      form_name: JSON.parse(event.body).payload.form_name,
-    }
+      form_name: JSON.parse(event.body).payload.form_name
+    };
+
     console.log(`Recieved a submission: ${JSON.stringify(params)}`);
 
     return {
@@ -25,4 +26,4 @@ exports.handler = async (event, context) => {
       body: err.toString()
     };
   }
-}
+};

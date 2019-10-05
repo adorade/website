@@ -46,6 +46,15 @@ module.exports = {
       rules: {
         semi: ["error", "always"]
       }
+    },
+    {
+      files: [
+        "functions/**/*.js"
+      ],
+      rules: {
+        "no-unused-vars": "off",
+        semi: ["error", "always"]
+      }
     }
   ]
 }
