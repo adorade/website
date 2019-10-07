@@ -1,17 +1,17 @@
 //- partials/_fonts.pug
 //- Load Google Fonts
-script.
-  const loadFont = (url) => {
+script#load-google-fonts.
+  var loadFont = function (url) {
     // the 'fetch' equivalent has caching issues
     var xhr = new XMLHttpRequest();
     xhr.open('GET', url, true);
-    xhr.onreadystatechange = () => {
+    xhr.onreadystatechange = function () {
       if (xhr.readyState == 4 && xhr.status == 200) {
-        let css = xhr.responseText;
+        var css = xhr.responseText;
         css = css.replace(/}/g, 'font-display: swap; }');
 
-        const head = document.getElementsByTagName('head')[0];
-        const style = document.createElement('style');
+        var head = document.getElementsByTagName('head')[0];
+        var style = document.createElement('style');
         style.id = 'google-font-inline';
         style.appendChild(document.createTextNode(css));
         head.appendChild(style);
