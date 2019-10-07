@@ -24,3 +24,23 @@ block custom-js
     script#inline-script(defer src="js/script.min.js")
   else
     script#main-script(defer src="js/script-dev.js")
+
+block cookie-consent
+  if entry.inline
+    script(
+      src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" data-cfasync="false"
+      integrity="sha384-xLPjH6nqG4p/2mu1KJ1t+4KqcvkyXVwBucQtyGK65lDNfKzECxGY/QEYWR+Wompr" crossorigin="anonymous")
+    script#init-cookie-consent.
+      window.cookieconsent.initialise({
+        "palette": {
+          "popup": {
+            "background": "#aa0000",
+            "text": "#ffdddd"
+          },
+          "button": {
+            "background": "#ff0000"
+          }
+        },
+        "position": "bottom-right",
+        "type": "opt-out"
+      });

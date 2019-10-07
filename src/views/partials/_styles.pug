@@ -5,18 +5,33 @@ block external-css
   //-   rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
   //-   integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
   //-   crossorigin="anonymous")
+
   //- link(
-  //-   rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.css"
-  //-   integrity="sha256-a2tobsqlbgLsWs7ZVUGgP5IvWZsx8bTNQpzsqCSm5mk=" crossorigin="anonymous")
-  link(
-    rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css" as="style"
-    integrity="sha256-PHcOkPmOshsMBC+vtJdVr5Mwb7r0LkSVJPlPrp/IMpU=" crossorigin="anonymous")
-  link(
-    rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css"
-    integrity="sha256-PHcOkPmOshsMBC+vtJdVr5Mwb7r0LkSVJPlPrp/IMpU=" crossorigin="anonymous")
+  //-   rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css" as="style"
+  //-   integrity="sha256-PHcOkPmOshsMBC+vtJdVr5Mwb7r0LkSVJPlPrp/IMpU=" crossorigin="anonymous")
+  //- link(
+  //-   rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css"
+  //-   integrity="sha256-PHcOkPmOshsMBC+vtJdVr5Mwb7r0LkSVJPlPrp/IMpU=" crossorigin="anonymous" inline)
+  if entry.inline
+    link#inline-animate-css(
+      rel="stylesheet" href="css/vendor/animate.min.css" inline)
+  else
+    link#animate-css(
+      rel="stylesheet" href="css/vendor/animate.min.css")
 
 block custom-css
   if entry.inline
     link#inline-style(href="css/style.min.css" inline)
   else
     link#main-style(rel="stylesheet" href="css/style.css" media="screen")
+
+block cookie-consent
+  //- link(
+  //-   rel="preload" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css" as="style"
+  //-   integrity="sha256-zQ0LblD/Af8vOppw18+2anxsuaz3pWYyVWi+bTvTH8Q=" crossorigin="anonymous")
+  //- link#inline-cookie-consent(
+  //-   rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"
+  //-   integrity="sha256-zQ0LblD/Af8vOppw18+2anxsuaz3pWYyVWi+bTvTH8Q=" crossorigin="anonymous" inline)
+  if entry.inline
+    link#inline-cookie-consent(
+      rel="stylesheet" href="css/vendor/cookieconsent.min.css" inline)
