@@ -12,6 +12,7 @@ include ../../mixins/_drawer
             img.lazy-drawer.img-fluid(data-src="images/logo/logo-adorade-drawer.png" alt="Adorade")
         button.close(type="button" role="button" data-dismiss="drawer" aria-label="Close")
           i.fas.fa-times
+
       .drawer-body
         ul.drawer-nav.mb-auto.mb-3.fa-ul
           +drawerLink(menu)
@@ -20,10 +21,6 @@ include ../../mixins/_drawer
           //- li.nav-item: a.nav-link(href="#!") #[span.fa-li #[i.fas.fa-info-circle.fa-fw]] Info
           //- li.nav-item: a.nav-link(href="#!") #[span.fa-li #[i.fas.fa-image.fa-fw]] Portfolio
           //- li.nav-item: a.nav-link(href="#!") #[span.fa-li #[i.fas.fa-envelope.fa-fw]] Contact
-        hr.drawer-divider.mb-3
-        ul.drawer-nav.fa-ul
-          +drawerLink(settings)
-          //- li.nav-item.active: a.nav-link(href="./") #[span.fa-li #[i.fas.fa-cookie.fa-fw]] Cookie Consent
-          //- li.nav-item: a.nav-link(href="#!") #[span.fa-li #[i.fas.fa-user-cog.fa-fw]] Settings
+
       .drawer-footer
         include ../../includes/misc/_copyright

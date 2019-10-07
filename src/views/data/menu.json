@@ -25,12 +25,5 @@
       "link": "contact.html",
       "icon": "envelope"
     }
-  ],
-  "settings": [
-    {
-      "label": "Cookies Policy",
-      "link": "cookies-policy.html",
-      "icon": "home"
-    }
   ]
 }
