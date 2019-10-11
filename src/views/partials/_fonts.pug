@@ -1,5 +1,5 @@
 //- partials/_fonts.pug
-//- Load Google Fonts
+//--- Load Google Fonts
 script#load-google-fonts.
   var loadFont = function (url) {
     // the 'fetch' equivalent has caching issues
@@ -22,6 +22,6 @@ script#load-google-fonts.
 
   loadFont('https://fonts.googleapis.com/css?family=Aclonica|Roboto');
 
-//- Load Font Awesome
+//--- Load Font Awesome
 link(rel="preconnect" href="https://kit-free.fontawesome.com")
-script(defer src="https://kit.fontawesome.com/aec4506a79.js" crossorigin="anonymous")
+script#load-font-aws-kit(defer src="https://kit.fontawesome.com/aec4506a79.js" crossorigin="anonymous")

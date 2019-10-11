@@ -1,31 +1,29 @@
 //- partials/_scripts.pug
 block external-js
-  // jQuery first, then ...
+  //--- jQuery first, then ...
   script(defer
     src="https://code.jquery.com/jquery-3.4.1.min.js"
-    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-    crossorigin="anonymous")
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous")
   script(defer
     src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js"
-    integrity="sha256-fTuUgtT7O2rqoImwjrhDgbXTKUwyxxujIMRIK7TbuNU="
-    crossorigin="anonymous")
+    integrity="sha256-fTuUgtT7O2rqoImwjrhDgbXTKUwyxxujIMRIK7TbuNU=" crossorigin="anonymous")
   //- script(defer
   //-   src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
   //-   integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
   //-   crossorigin="anonymous")
   script(defer
-    src="https://cdn.jsdelivr.net/npm/yall-js@3.1.4/dist/yall.min.js"
-    integrity="sha256-8CFVpfyZvd+kMYwaX0F87ULmsvKfhlagLyC6OsudeDA="
-    crossorigin="anonymous")
+    src="https://cdn.jsdelivr.net/npm/yall-js@3.1.6/dist/yall.min.js"
+    integrity="sha256-mc9oaETV2LNTFqAWtp+qFWA94Z9iNBWjHS1K6V4BtF8=" crossorigin="anonymous")
 
 block custom-js
   script#unikorn(defer src="js/vendor/unikorn.min.js")
   if entry.inline
-    script#inline-script(defer src="js/script.min.js")
+    script#main-min-script(defer src="js/script.min.js")
   else
-    script#main-script(defer src="js/script-dev.js")
+    script#main-dev-script(defer src="js/script-dev.js")
 
 block cookie-consent
+  //--- Cookie consent
   if entry.inline
     script(
       src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js"
