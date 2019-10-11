@@ -24,6 +24,7 @@ export function vendorCss () {
   return src(paths.vendor.src.css, {
     since: lastRun(vendorCss)
   })
+    .pipe($.concat('main.css'))
     .pipe($.size(opts.size))
     .pipe(dest(vendorTarget))
     .pipe(bs.stream({ match: '**/*.min.css' }));

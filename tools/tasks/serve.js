@@ -8,7 +8,7 @@ import {
   series, watch, args, $, bs, magenta, green, red, bgBlue, bgRed, paths, opts, dirs
 } from '../util';
 import {
-  lintScss, compile, minify, lintMjs, transpile, uglify,
+  vendorCss, lintScss, compile, minify, vendorJs, lintMjs, transpile, uglify,
   imagine, convert, favicons, statica, lintPages, pagile, pagify
 } from './';
 
@@ -35,9 +35,19 @@ export function serve () {
       tasks: [lintScss, compile, minify]
     },
     {
+      name: 'Vendor CSS',
+      paths: paths.vendor.src.css,
+      tasks: [vendorCss]
+    },
+    {
       name: 'Scripts',
       paths: paths.scripts.src,
       tasks: [lintMjs, transpile, uglify]
+    },
+    {
+      name: 'Vendor JS',
+      paths: paths.vendor.src.js,
+      tasks: [vendorJs]
     },
     {
       name: 'Images',
@@ -61,8 +71,17 @@ export function serve () {
         paths.views.data
       ],
       tasks: [lintPages, pagile, pagify]
+    },
+    {
+      name: 'Inline CSS',
+      paths: `${paths.styles.prod}**/*.css`,
+      tasks: [pagify]
     }
   ];
+
+  if (!args.production) {
+    watchers.pop();
+  }
 
   for (let watcher of watchers) {
     $.fancyLog(bgRed(`Watching ${watcher.name}`));
