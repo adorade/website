@@ -1,6 +1,6 @@
 //
 // AJAX Form Submissions
-// ============================================================================
+// -----------------------------------------------------------------------------
 
 // Disabling form submissions if there are invalid fields
 // Note: Keep in mind that
