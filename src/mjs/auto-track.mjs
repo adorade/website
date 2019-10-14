@@ -33,4 +33,9 @@ $(function () {
     let label = $(this).attr('aria-label')
     trackClick('misc', label)
   })
+
+  $('.cc-message a, .cc-compliance a').on('click', function () {
+    let label = $(this).attr('aria-label')
+    trackClick('consent', label)
+  })
 })
