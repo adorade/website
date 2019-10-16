@@ -44,6 +44,13 @@ export const paths = {
       js: `${dirs.prod}/js/vendor/`
     }
   },
+  fonts: {
+    css: {
+      src: `${dirs.src}/fonts/**/*.css`,
+      dev: `${dirs.dev}/fonts/`,
+      prod: `${dirs.prod}/fonts/`
+    }
+  },
   images: {
     src: `${dirs.src}/images/**/*.{gif,jpg,jpeg,png,svg}`,
     webp: `${dirs.src}/images/**/*.{jpg,jpeg,png}`,
