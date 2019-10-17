@@ -9,6 +9,8 @@
   text-align: center;
 
   .scroll-down-icon {
+    display: inline-flex;
+    margin: 0 auto;
     color: rgba(255, 255, 255, .7);
     font-size: 3rem;
     transition: all .2s ease-in;
@@ -24,8 +26,6 @@
   }
 
   .scroll {
-    display: block;
-    margin: 0 auto;
     animation: scroll ease-in-out 2s infinite;
 
     &:hover {

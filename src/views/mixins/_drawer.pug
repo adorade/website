@@ -17,5 +17,8 @@ mixin drawerLink(menu)
     else
       - linkActive = '';
       - scrOnly = '';
+
     li.nav-item(class=linkActive)
-      a.nav-link(href=menuItem.link) #[span.fa-li #[i(class=`fas fa-${menuItem.icon} fa-fw`)]] #{menuItem.label} !{scrOnly}
+      a.nav-link(href=menuItem.link)
+        img.svg-inline--fa.fa-fw.mr-3(id=`fa-${menuItem.icon}` src=`fonts/svgs/solid/${menuItem.icon}.svg` alt=`${menuItem.icon}` inline)
+        | #{menuItem.label} !{scrOnly}
