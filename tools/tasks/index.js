@@ -9,6 +9,7 @@ export { clean } from './clean';                                                
 export { cleanCss, vendorCss, lintScss, compile, minify } from './styles';      // Styles
 export { cleanJs, vendorJs, lintMjs, transpile, uglify } from './scripts';      // Scripts
 export { cleanStatics, favicons, statica } from './statics';                    // Statics
+export { cleanFonts, fontsCss, fontsSvg } from './fonts';                       // Fonts
 export { cleanImages, imagine, convert } from './images';                       // Images
 export { cleanPages, lintPages, pagile, pagify } from './pages';                // Pages
 export { cleanDeploy, deploy } from './deploy';                                 // Deploy

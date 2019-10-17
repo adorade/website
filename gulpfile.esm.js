@@ -8,8 +8,8 @@ import { series, args, $, green } from './tools/util';
 import {
   checks, clean, cleanCss, vendorCss, lintScss, compile, minify,
   cleanJs, vendorJs, lintMjs, transpile, uglify,
-  cleanImages, imagine, convert, cleanStatics, favicons, statica,
-  cleanPages, lintPages, pagile, pagify,
+  cleanStatics, favicons, statica, cleanFonts, fontsCss, fontsSvg,
+  cleanImages, imagine, convert, cleanPages, lintPages, pagile, pagify,
   cleanDeploy, deploy, serve, serviceWorker
 } from './tools';
 
@@ -62,6 +62,14 @@ buildStatics.displayName = 'build:statics';
 buildStatics.description = 'Build statics files';
 
 /**
+ * Fonts - processes font files
+ * -------------------------------------------------------------------------- */
+const fonts = series(fontsCss, fontsSvg);
+export const buildFonts = series(cleanFonts, fonts);
+buildFonts.displayName = 'build:fonts';
+buildFonts.description = 'Build fonts files';
+
+/**
  * Templates - processes templates files
  * -------------------------------------------------------------------------- */
 const pages = series(lintPages, pagile, pagify);
@@ -92,7 +100,7 @@ export const sw = serviceWorker;
  * Define `build` task - Specify if tasks run in series or parallel
  * -------------------------------------------------------------------------- */
 export const build = series(
-  clean, styles, scripts, images, statics, pages, sw
+  clean, styles, scripts, images, statics, fonts, pages, sw
 );
 build.description = 'Build task for production';
 

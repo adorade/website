@@ -9,7 +9,7 @@ import {
 } from '../util';
 import {
   vendorCss, lintScss, compile, minify, vendorJs, lintMjs, transpile, uglify,
-  imagine, convert, favicons, statica, lintPages, pagile, pagify
+  imagine, convert, favicons, statica, lintPages, pagile, pagify, fontsCss, fontsSvg
 } from './';
 
 export function serve () {
@@ -50,6 +50,16 @@ export function serve () {
       tasks: [vendorJs]
     },
     {
+      name: 'Fonts',
+      paths: paths.fonts.css.src,
+      tasks: [fontsCss]
+    },
+    {
+      name: 'SVGs',
+      paths: paths.fonts.svg.src,
+      tasks: [fontsSvg]
+    },
+    {
       name: 'Images',
       paths: paths.images.src,
       tasks: [imagine, convert]
@@ -74,7 +84,10 @@ export function serve () {
     },
     {
       name: 'Inline CSS',
-      paths: `${paths.styles.prod}**/*.css`,
+      paths: [
+        `${paths.styles.prod}**/*.css`,
+        `${paths.fonts.css.prod}**/*.css`
+      ],
       tasks: [pagify]
     }
   ];

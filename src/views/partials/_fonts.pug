@@ -1,27 +1,9 @@
 //- partials/_fonts.pug
 //--- Load Google Fonts
-script#load-google-fonts.
-  var loadFont = function (url) {
-    // the 'fetch' equivalent has caching issues
-    var xhr = new XMLHttpRequest();
-    xhr.open('GET', url, true);
-    xhr.onreadystatechange = function () {
-      if (xhr.readyState == 4 && xhr.status == 200) {
-        var css = xhr.responseText;
-        css = css.replace(/}/g, 'font-display: swap; }');
-
-        var head = document.getElementsByTagName('head')[0];
-        var style = document.createElement('style');
-        style.id = 'google-font-inline';
-        style.appendChild(document.createTextNode(css));
-        head.appendChild(style);
-      }
-    };
-    xhr.send();
-  }
-
-  loadFont('https://fonts.googleapis.com/css?family=Aclonica|Roboto');
+if entry.inline
+  link#inline-fonts-css(rel="stylesheet" href="fonts/fonts.css" inline)
+else
+  link#fonts-css(rel="stylesheet" href="fonts/fonts.css")
 
 //--- Load Font Awesome
-link(rel="preconnect" href="https://kit-free.fontawesome.com")
-script#load-font-aws-kit(defer src="https://kit.fontawesome.com/aec4506a79.js" crossorigin="anonymous")
+//- see fonts/fonts.css
