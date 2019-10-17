@@ -25,19 +25,7 @@ block custom-js
 block cookie-consent
   //--- Cookie consent
   if entry.inline
-    script(
+    script(async
       src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js"
       integrity="sha384-xLPjH6nqG4p/2mu1KJ1t+4KqcvkyXVwBucQtyGK65lDNfKzECxGY/QEYWR+Wompr" crossorigin="anonymous")
-    script.
-      window.cookieconsent.initialise({
-        "palette": {
-          "popup": {
-            "background": "#252e39"
-          },
-          "button": {
-            "background": "#17a2b8"
-          }
-        },
-        "theme": "classic",
-        "type": "opt-out"
-      });
+    script(src="js/vendor/cookie-init.js" inline)
