@@ -9,7 +9,7 @@ import {
 } from '../util';
 import {
   vendorCss, lintScss, compile, minify, vendorJs, lintMjs, transpile, uglify,
-  imagine, convert, favicons, statica, lintPages, pagile, pagify, fontsCss
+  imagine, convert, favicons, statica, lintPages, pagile, pagify, fontsCss, fontsSvg
 } from './';
 
 export function serve () {
@@ -53,6 +53,11 @@ export function serve () {
       name: 'Fonts',
       paths: paths.fonts.css.src,
       tasks: [fontsCss]
+    },
+    {
+      name: 'SVGs',
+      paths: paths.fonts.svg.src,
+      tasks: [fontsSvg]
     },
     {
       name: 'Images',

@@ -10,7 +10,7 @@ export {
   cleanJs, vendorJs, lintMjs, transpile, uglify,        // Scripts
   cleanImages, imagine, convert,                        // Images
   cleanStatics, favicons, statica,                      // Statics
-  cleanFonts, fontsCss,                                 // Fonts
+  cleanFonts, fontsCss, fontsSvg,                       // Fonts
   cleanPages, lintPages, pagile, pagify,                // Pages
   cleanDeploy, deploy,                                  // Deploy
   serve,                                                // Serve and Watch

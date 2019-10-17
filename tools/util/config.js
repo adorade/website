@@ -49,6 +49,11 @@ export const paths = {
       src: `${dirs.src}/fonts/**/*.css`,
       dev: `${dirs.dev}/fonts/`,
       prod: `${dirs.prod}/fonts/`
+    },
+    svg: {
+      src: `${dirs.src}/fonts/**/*.svg`,
+      dev: `${dirs.dev}/fonts/`,
+      prod: `${dirs.prod}/fonts/`
     }
   },
   images: {
