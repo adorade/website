@@ -22,7 +22,7 @@ import './forms'
 // -----------------------------------------------------------------------------
 import './doc-ready'
 
-// Automatic Tracking for gtags.js
+// Automatic Tracking for analytics.js
 // -----------------------------------------------------------------------------
 import './auto-track'
 
