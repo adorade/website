@@ -15,11 +15,10 @@ export async function serviceWorker (done) {
       swDest: `${dirs.prod}/sw.js`,
       globDirectory: dirs.prod,
       globPatterns: [
-        '**/*.{js,css,html}'
+        '**/*.{js,html}'
       ],
       globIgnores: [
         // 'sw.js',
-        'css/vendor/fonts.css',
         'thanks/*.html'
       ]
     }).then(({count, size, warnings}) => {
