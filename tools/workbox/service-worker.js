@@ -1,4 +1,8 @@
-/**
+/*!
+ * Adorade (v1.0.0): tools/workbox/service-worker.js
+ * Copyright (c) 2018 - 2019 Adorade (https://adorade.ro)
+ * Licensed under MIT
+ * =============================================================================
  * Welcome to your Workbox-powered service worker!
  *
  * You'll need to register this file in your web app and you should
@@ -27,30 +31,6 @@ if (workbox) {
    * See https://goo.gl/S9QRab
    */
   workbox.precaching.precacheAndRoute([]);
-
-  // Cache the Google Fonts stylesheets with a stale while revalidate strategy.
-  workbox.routing.registerRoute(
-    /^https:\/\/fonts\.googleapis\.com/,
-    workbox.strategies.staleWhileRevalidate({
-      cacheName: 'google-fonts-stylesheets'
-    })
-  );
-
-  // Cache the Google Fonts webfont files with a cache first strategy for 1 year.
-  workbox.routing.registerRoute(
-    /^https:\/\/fonts\.gstatic\.com/,
-    workbox.strategies.cacheFirst({
-      cacheName: 'google-fonts-webfonts',
-      plugins: [
-        new workbox.cacheableResponse.Plugin({
-          statuses: [0, 200]
-        }),
-        new workbox.expiration.Plugin({
-          maxAgeSeconds: 60 * 60 * 24 * 365 // 365 days
-        })
-      ]
-    })
-  );
 
   // Caching Images for 7 days
   workbox.routing.registerRoute(
