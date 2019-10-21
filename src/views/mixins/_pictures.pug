@@ -53,7 +53,7 @@ mixin infoPicture(name, alt)
 //- include ../path/to/mixins/_pictures
 //- Usage: +carouselPicture("name", "alt")
 mixin carouselPicture(name, alt)
-  picture.carousel-picture.shadow-lg
+  picture.carousel-picture
     source(type="image/webp" data-srcset="images/portfolio/" + name + ".webp" media="(min-width: 576px)")
     source(type="image/png" data-srcset="images/portfolio/" + name + ".png" media="(min-width: 576px)")
     source(type="image/webp" data-srcset="images/portfolio/" + name + "-min.webp")
