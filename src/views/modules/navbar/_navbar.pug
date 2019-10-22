@@ -1,8 +1,23 @@
 //- includes/drawernavbar/_navbar.pug
 nav.navbar.fixed-top.navbar-dark.bg-transparent
   .navbar-header.d-inline-flex
-    button.navbar-toggler(
+    button.navbar-toggler.text-light.border-0(
       type="button" role="button" data-toggle="drawer" data-target="#drawer"
       aria-controls="drawer" aria-expanded="false" aria-label="Toggle navigation")
       //- i.fas.fa-bars.fa-1x
       img.svg-inline--fa.fa-1x#fa-bars(src="fonts/svgs/solid/bars.svg" alt="Bars" inline)
+
+  .dropdown.theme-settings
+    button.navbar-toggler.text-light.border-0#dropdownThemeButton(
+      type="button" role="menu" data-toggle="dropdown"
+      aria-haspopup="true" aria-expanded="false" aria-label="Toggle settings")
+      //- i.fas.fa-adjust.fa-1x
+      img.svg-inline--fa.fa-1x#fa-adjust(src="fonts/svgs/solid/adjust.svg" alt="Settings" inline)
+
+    .dropdown-menu.dropdown-menu-right.p-3#theme-menu(role="menu" aria-labelledby="dropdownThemeButton")
+      .theme-selector
+        .btn-group.btn-group-toggle(data-toggle="buttons")
+          label.btn.btn-dark.active Dark
+            input#inputDark(type="radio" name="color" value="dark" autocomplete="off" aria-label="Dark Theme" checked)
+          label.btn.btn-dark Light
+            input#input-light(type="radio" name="color" value="light" autocomplete="off" aria-label="Light Theme")

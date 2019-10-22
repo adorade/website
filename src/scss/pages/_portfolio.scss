@@ -3,7 +3,8 @@
 // =============================================================================
 
 .portfolio {
-  background-color: $gray-800;
+  background-color: var(--body-background-color);
+  color: var(--text-color);
 
   .portfolio-picture {
     transition: filter .5s ease-in-out;
@@ -11,6 +12,10 @@
 
     // You should use a 16:9 image ratio, such as 540x304 px.
     @include picture(16 9, ".portfolio-img");
+  }
+
+  .portfolio-img {
+    background-color: var(--background-color-normal);
   }
 
   .fade-in {

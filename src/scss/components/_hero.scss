@@ -59,7 +59,7 @@
     // Overlay
     &::after {
       z-index: -1;
-      @include gradient-radial-circle(rgba($black, .3), rgba($black, .9));
+      @include gradient-radial-circle(rgba($black, .3), rgba($black, .7));
     }
   }
 

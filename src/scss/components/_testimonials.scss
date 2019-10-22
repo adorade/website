@@ -3,5 +3,6 @@
 // -----------------------------------------------------------------------------
 
 .testimonials {
-  background-color: $gray-800;
+  background-color: var(--body-background-color);
+  color: var(--text-color);
 }

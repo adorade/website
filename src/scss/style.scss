@@ -8,13 +8,13 @@
 // Import Material Color Palette.
 @import "includes/colors";
 
-// Import Theme Color Scheme.
-@import "includes/theme-mode";
-
 @import "includes/variables";
 @import "includes/animation";
 
 @import "unikorn/unikorn";
+
+// Import Theme Color Scheme.
+@import "includes/theme-mode";
 
 @import "mixins/gradients";
 @import "mixins/picture";

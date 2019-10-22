@@ -2,6 +2,7 @@
 // Navbar and Drawer
 // -----------------------------------------------------------------------------
 
+
 .navbar-toggler {
   line-height: 1.5;
 }
@@ -10,11 +11,46 @@
   width: 1em;
 }
 
-.bg-navbar-orange {
-  @include gradient-y(rgba($deep-orange-500, .7), rgba($deep-orange-900, .7));//
-  // box-shadow: 0 2px 5px rgba(0, 0, 0, .26);
-}
-
 .navbar-brand {
   font-family: Aclonica, sans-serif;
+}
+
+.theme-settings {
+  .dropdown-menu {
+    background-color: var(--background-color-medium);
+  }
+}
+
+.drawer-dark {
+  .drawer-content {
+    background-color: var(--background-color-medium);
+    color: var(--text-color);
+  }
+
+  .drawer-header {
+    background-color: var(--drawer-header-background-color);
+  }
+
+  .drawer-nav {
+    .nav-link {
+      color: var(--link-color);
+
+      @include hover-focus {
+        background-color: var(--background-color-dark);
+        color: var(--link-color);
+      }
+    }
+
+    .show > .nav-link,
+    .active > .nav-link,
+    .nav-link.show,
+    .nav-link.active {
+      background-color: var(--background-color-dark);
+    }
+  }
+
+  .drawer-footer {
+    background-color: var(--background-color-medium);
+    color: var(--text-color);
+  }
 }

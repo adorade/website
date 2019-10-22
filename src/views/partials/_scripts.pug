@@ -14,6 +14,9 @@ block external-js
   script(defer
     src="https://cdn.jsdelivr.net/npm/yall-js@3.1.6/dist/yall.min.js"
     integrity="sha256-mc9oaETV2LNTFqAWtp+qFWA94Z9iNBWjHS1K6V4BtF8=" crossorigin="anonymous")
+  script(defer
+    src="https://cdn.jsdelivr.net/npm/css-prefers-color-scheme@4.0.0/browser.min.js"
+    integrity="sha384-1i/QXoT6bNDldOlFSL2tUmbpuB5ankGOurJDVLj5TH8MRn0gxFR0y4ID0b3HMHRF" crossorigin="anonymous")
 
 block custom-js
   script#unikorn(defer src="js/vendor/unikorn.min.js")
@@ -22,10 +25,10 @@ block custom-js
   else
     script#main-dev-script(defer src="js/script-dev.js")
 
+//--- Cookie consent
 block cookie-consent
-  //--- Cookie consent
   if entry.inline
     script(async
       src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js"
       integrity="sha384-xLPjH6nqG4p/2mu1KJ1t+4KqcvkyXVwBucQtyGK65lDNfKzECxGY/QEYWR+Wompr" crossorigin="anonymous")
-    script(src="js/vendor/cookie-init.js" inline)
+    script#cookie-init(src="js/vendor/cookie-init.js" inline)

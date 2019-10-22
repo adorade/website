@@ -3,7 +3,8 @@
 // =============================================================================
 
 .info {
-  background-color: $gray-800;
+  background-color: var(--body-background-color);
+  color: var(--text-color);
 
   .info-picture {
     transition: filter .5s ease-in-out;

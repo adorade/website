@@ -4,6 +4,8 @@
 
 .footer {
   position: relative;
+  background-color: var(--body-background-color);
+  color: $grey-100;
 }
 
 .footer-container {
@@ -52,7 +54,7 @@
 
     a {
       display: block;
-      color: $white;
+      color: $grey-100;
     }
   }
 }
