@@ -27,7 +27,7 @@ export function vendorCss () {
     .pipe($.concat('main.css'))
     .pipe($.size(opts.size))
     .pipe(dest(vendorTarget))
-    .pipe(bs.stream({ match: '**/*.min.css' }));
+    .pipe(bs.stream({ match: '**/*.css' }));
 }
 vendorCss.displayName = 'vendor:css';
 vendorCss.description = 'Copy vendor CSS files';

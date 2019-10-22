@@ -31,7 +31,7 @@ export function vendorJs () {
   })
     .pipe($.size(opts.size))
     .pipe(dest(vendorTarget))
-    .pipe(bs.stream({ match: '**/*.min.js' }));
+    .pipe(bs.stream({ match: '**/*.js' }));
 }
 vendorJs.displayName = 'vendor:js';
 vendorJs.description = 'Copy vendor JS files';
