@@ -3,5 +3,6 @@
 // -----------------------------------------------------------------------------
 
 .newsletter {
-  background-color: $gray-900;
+  background-color: var(--background-color-dark);
+  color: var(--text-color);
 }

@@ -1,0 +1,26 @@
+//
+// Theme Color Scheme
+// -----------------------------------------------------------------------------
+// Dark Theme is default
+
+:root {
+  @media (color-index: 48) { // prefers-color-scheme: dark
+    --body-background-color: #{$gray-800};
+    --background-color-normal: #{darken($gray-800, 5%)};
+    --background-color-medium: #{darken($gray-800, 10%)};
+    --background-color-dark: #{$gray-900};
+    --text-color: #{$gray-100};
+    --link-color: #{$gray-100};
+    --drawer-header-background-color: #{$gray-900};
+  }
+
+  @media (color-index: 70) { // prefers-color-scheme: light
+    --body-background-color: #{$gray-100};
+    --background-color-normal: #{darken($gray-100, 5%)};
+    --background-color-medium: #{darken($gray-100, 10%)};
+    --background-color-dark: #{$gray-400};
+    --text-color: #{$gray-800};
+    --link-color: #{$gray-800};
+    --drawer-header-background-color: #{$gray-700};
+  }
+}

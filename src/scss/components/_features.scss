@@ -3,7 +3,8 @@
 // -----------------------------------------------------------------------------
 
 .features {
-  background-color: darken($gray-800, 5%);
+  background-color: var(--background-color-normal);
+  color: var(--text-color);
 
   .card {
     margin: 0 0 2rem;

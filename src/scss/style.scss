@@ -13,6 +13,9 @@
 
 @import "unikorn/unikorn";
 
+// Import Theme Color Scheme.
+@import "includes/theme-mode";
+
 @import "mixins/gradients";
 @import "mixins/picture";
 @import "mixins/forms";
