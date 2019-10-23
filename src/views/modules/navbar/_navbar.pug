@@ -15,9 +15,8 @@ nav.navbar.fixed-top.navbar-dark.bg-transparent
       img.svg-inline--fa.fa-1x#fa-adjust(src="fonts/svgs/solid/adjust.svg" alt="Settings" inline)
 
     .dropdown-menu.dropdown-menu-right.p-3#theme-menu(role="menu" aria-labelledby="dropdownThemeButton")
-      .theme-selector
-        .btn-group.btn-group-toggle(data-toggle="buttons")
-          label.btn.btn-dark.active Dark
-            input#inputDark(type="radio" name="color" value="dark" autocomplete="off" aria-label="Dark Theme" checked)
-          label.btn.btn-dark Light
-            input#input-light(type="radio" name="color" value="light" autocomplete="off" aria-label="Light Theme")
+      .btn-group.btn-group-toggle(data-toggle="buttons")
+        label.btn.btn-dark.active Dark
+          input.input-dark(type="radio" name="color" value="dark" autocomplete="off" aria-label="Dark Theme" checked)
+        label.btn.btn-dark Light
+          input.input-light(type="radio" name="color" value="light" autocomplete="off" aria-label="Light Theme")
