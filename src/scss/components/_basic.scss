@@ -2,10 +2,21 @@
 // Basic
 // -----------------------------------------------------------------------------
 
+
 html,
 body {
   height: 100%;
 }
+
+// stylelint-disable
+html.color-theme-in-transition,
+html.color-theme-in-transition *,
+html.color-theme-in-transition *::before,
+html.color-theme-in-transition *::after {
+  transition: all 500ms !important;
+  transition-delay: 0ms !important;
+}
+// stylelint-enable
 
 body {
   background-color: var(--body-background-color);
