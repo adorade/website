@@ -13,7 +13,6 @@
 
   // Check for saved user preference, if any, on load of the website
   if (currentTheme) {
-    console.log('Your current theme is: ' + currentTheme)
     colorScheme.scheme = currentTheme
 
     if (currentTheme === 'light') {
@@ -24,8 +23,6 @@
 
   // Switch theme function
   function switchTheme (event) {
-    console.log( $( this ).val() )
-    console.log('Your schema is: ' + event.target.value)
     const schema = event.target.value
 
     // Change color schema
