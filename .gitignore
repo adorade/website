@@ -1,6 +1,5 @@
 # https://git-scm.com/docs/gitignore
 # Folders to ignore
-.extra
 dist
 node_modules
 .publish
