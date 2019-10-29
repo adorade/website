@@ -6,15 +6,13 @@ $('document').ready(function () {
   // Prepare hero height
   // ------------------------
   function heroHeight () {
-    $('.hero-unit').innerHeight( $(window).innerHeight() )
+    $('.hero-unit').height( $(window).height() )
   }
   heroHeight()
 
   // Re-Set on orientation change and window resize
   // ------------------------
-  $(window).on('orientationchange resize', function () {
-    heroHeight()
-  })
+  $(window).on('orientationchange resize', heroHeight)
 
   // Window Scroll
   // ------------------------
