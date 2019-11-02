@@ -8,8 +8,10 @@ import {
   series, watch, args, $, bs, magenta, green, red, bgBlue, bgRed, paths, opts, dirs
 } from '../util';
 import {
-  vendorCss, lintScss, compile, minify, vendorJs, lintMjs, transpile, uglify,
-  imagine, convert, favicons, statica, lintPages, pagile, pagify, fontsCss, fontsSvg
+  vendorCss, lintScss, compile, minify,
+  vendorJs, lintMjs, transpile, uglify,
+  imagine, convert, favicons, statica, fontsCss, fontsSvg,
+  lintPages, pagile, pagify
 } from './';
 
 export function serve () {
@@ -30,24 +32,24 @@ export function serve () {
 
   const watchers = [
     {
+      name: 'Vendor CSS',
+      paths: paths.vendor.watch.css,
+      tasks: [vendorCss]
+    },
+    {
       name: 'Styles',
       paths: paths.styles.src,
       tasks: [lintScss, compile, minify]
     },
     {
-      name: 'Vendor CSS',
-      paths: paths.vendor.src.css,
-      tasks: [vendorCss]
+      name: 'Vendor JS',
+      paths: paths.vendor.watch.js,
+      tasks: [vendorJs]
     },
     {
       name: 'Scripts',
       paths: paths.scripts.src,
       tasks: [lintMjs, transpile, uglify]
-    },
-    {
-      name: 'Vendor JS',
-      paths: paths.vendor.src.js,
-      tasks: [vendorJs]
     },
     {
       name: 'Fonts',
