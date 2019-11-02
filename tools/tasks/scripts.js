@@ -29,6 +29,7 @@ export function vendorJs () {
   return src(paths.vendor.src.js, {
     since: lastRun(vendorJs)
   })
+    .pipe($.concat('main.js'))
     .pipe($.size(opts.size))
     .pipe(dest(vendorTarget))
     .pipe(bs.stream({ match: '**/*.js' }));

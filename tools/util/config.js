@@ -32,8 +32,18 @@ export const paths = {
   },
   vendor: {
     src: {
-      css: `${dirs.src}/vendor/css/**/*.css`,
-      js: `${dirs.src}/vendor/js/**/*.js`
+      css: [
+        `${dirs.src}/vendor/css/animate.min.css`,                // 3.7.2
+        `${dirs.src}/vendor/css/cookieconsent.min.css`           // 3.1.1
+      ],
+      js: [
+        `${dirs.src}/vendor/js/jquery.min.js`,                   // 3.4.1
+        `${dirs.src}/vendor/js/popper.min.js`,                   // 1.16.0
+        `${dirs.src}/vendor/js/unikorn.min.js`,
+        `${dirs.src}/vendor/js/yall.min.js`,                     // 3.1.6
+        `${dirs.src}/vendor/js/browser.min.js`,                  // 4.0.0
+        `${dirs.src}/vendor/js/cookieconsent.min.js`             // 3.1.1
+      ]
     },
     dev: {
       css: `${dirs.dev}/css/vendor/`,
@@ -42,6 +52,10 @@ export const paths = {
     prod: {
       css: `${dirs.prod}/css/vendor/`,
       js: `${dirs.prod}/js/vendor/`
+    },
+    watch: {
+      css: `${dirs.src}/vendor/css/**/*.css`,
+      js: `${dirs.src}/vendor/js/**/*.js`
     }
   },
   fonts: {
