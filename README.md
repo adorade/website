@@ -1,6 +1,6 @@
 [![GitHub package.json version](https://img.shields.io/github/package-json/v/adorade/website.svg?color=green&logo=github)](https://github.com/adorade/website/blob/master/package.json)
 [![license](https://img.shields.io/github/license/adorade/website.svg)](https://mit-license.org)
-[![website](https://img.shields.io/website/https/adorade.ro.svg)](https://adorade.ro/)
+[![website](https://img.shields.io/website/https/adorade.ro.svg?logo=google-chrome)](https://adorade.ro/)
 [![devDependencies Status](https://img.shields.io/david/dev/adorade/website.svg)](https://david-dm.org/adorade/website?type=dev)
 [![Travis (.com)](https://img.shields.io/travis/com/adorade/website?logo=travis)](https://travis-ci.com/adorade/website)
 [![Greenkeeper badge](https://badges.greenkeeper.io/adorade/website.svg)](https://greenkeeper.io/)
