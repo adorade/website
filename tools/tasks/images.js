@@ -28,7 +28,8 @@ export function imagine () {
       $.imagemin.jpegtran(opts.images.jpeg),
       $.imagemin.optipng(opts.images.png),
       $.imagemin.svgo(opts.images.svg)
-    ], { verbose: true }))
+    ], opts.images.general))
+    .pipe($.size(opts.size))
     .pipe(dest(taskTarget))
     .pipe(bs.stream({ match: '**/*.{gif,jpg,jpeg,png,svg}' }));
 }

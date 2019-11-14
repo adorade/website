@@ -50,6 +50,10 @@ export const opts = {
     jpeg: { progressive: true },
     png: { optimizationLevel: 4 },
     svg: { plugins: [{ removeViewBox: true }] },
+    general: {
+      verbose: args.production ? false : true,
+      silent: true
+    },
     webp: { // https://github.com/imagemin/imagemin-webp#options
       preset: 'default',
       quality: 60
