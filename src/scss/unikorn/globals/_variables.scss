@@ -1,6 +1,6 @@
 //
 // Variables
-// ============================================================================
+// =============================================================================
 // Copy settings from this file into the provided `_custom.scss` to override
 // the UniKorn defaults without modifying key, versioned files.
 // stylelint-disable scss/double-slash-comment-empty-line-before
@@ -229,6 +229,7 @@ $container-max-widths: map-merge(
 // Set the number of columns and specify the width of the gutters.
 $grid-columns:                12 !default;
 $grid-gutter-width:           30px !default;
+$grid-row-columns:            6 !default;
 
 
 // Components
@@ -418,6 +419,7 @@ $btn-padding-x:               $input-btn-padding-x !default;
 $btn-font-family:             $input-btn-font-family !default;
 $btn-font-size:               $input-btn-font-size !default;
 $btn-line-height:             $input-btn-line-height !default;
+$btn-white-space:             null !default; // Set to `nowrap` to prevent text wrapping
 
 $btn-padding-y-sm:            $input-btn-padding-y-sm !default;
 $btn-padding-x-sm:            $input-btn-padding-x-sm !default;
@@ -533,6 +535,8 @@ $custom-control-indicator-box-shadow:   $input-box-shadow !default;
 $custom-control-indicator-border-color: $gray-500 !default;
 $custom-control-indicator-border-width: $input-border-width !default;
 
+$custom-control-label-color:            null !default;
+
 $custom-control-indicator-disabled-bg:          $input-disabled-bg !default;
 $custom-control-label-disabled-color:           $gray-600 !default;
 
@@ -564,7 +568,7 @@ $custom-radio-indicator-icon-checked:           str-replace(url("data:image/svg+
 
 $custom-switch-width:                           $custom-control-indicator-size * 1.75 !default;
 $custom-switch-indicator-border-radius:         $custom-control-indicator-size / 2 !default;
-$custom-switch-indicator-size:                  calc(#{$custom-control-indicator-size} - #{$custom-control-indicator-border-width * 4}) !default;
+$custom-switch-indicator-size:                  subtract($custom-control-indicator-size, $custom-control-indicator-border-width * 4) !default;
 
 $custom-select-padding-y:           $input-padding-y !default;
 $custom-select-padding-x:           $input-padding-x !default;
@@ -762,7 +766,7 @@ $dropdown-bg:                       $white !default;
 $dropdown-border-color:             rgba($black, .15) !default;
 $dropdown-border-radius:            $border-radius !default;
 $dropdown-border-width:             $border-width !default;
-$dropdown-inner-border-radius:      calc(#{$dropdown-border-radius} - #{$dropdown-border-width}) !default;
+$dropdown-inner-border-radius:      subtract($dropdown-border-radius, $dropdown-border-width) !default;
 $dropdown-divider-bg:               $gray-200 !default;
 $dropdown-divider-margin-y:         $nav-divider-margin-y !default;
 $dropdown-box-shadow:               0 .5rem 1rem rgba($black, .175) !default;
@@ -838,9 +842,11 @@ $drawer-light-disabled-color:       rgba($black, .38) !default;
 $drawer-light-border-color:         rgba($black, .12) !default;
 
 // Transition
-$timing:                            cubic-bezier(.4, 0, .2, 1) !default;
-$drawer-transition:                 transform .3s $timing !default;
-$drawer-transition-opacity:         opacity .3s $timing !default;
+$drawer-fade-transform:             translate(-50px, 0) !default;
+$drawer-show-transform:             none !default;
+$drawer-transition:                 transform .3s ease-out !default;
+$drawer-transition-opacity:         opacity .3s ease-out !default;
+$drawer-scale-transform:            scale(1.02) !default;
 
 
 // Pagination
@@ -888,9 +894,10 @@ $card-spacer-x:                     1.25rem !default;
 $card-border-width:                 $border-width !default;
 $card-border-radius:                $border-radius !default;
 $card-border-color:                 rgba($black, .125) !default;
-$card-inner-border-radius:          calc(#{$card-border-radius} - #{$card-border-width}) !default;
+$card-inner-border-radius:          subtract($card-border-radius, $card-border-width) !default;
 $card-cap-bg:                       rgba($black, .03) !default;
 $card-cap-color:                    null !default;
+$card-height:                       null !default;
 $card-color:                        null !default;
 $card-bg:                           $white !default;
 
@@ -937,6 +944,7 @@ $popover-max-width:                 276px !default;
 $popover-border-width:              $border-width !default;
 $popover-border-color:              rgba($black, .2) !default;
 $popover-border-radius:             $border-radius-lg !default;
+$popover-inner-border-radius:       subtract($popover-border-radius, $popover-border-width) !default;
 $popover-box-shadow:                0 .25rem .5rem rgba($black, .2) !default;
 
 $popover-header-bg:                 darken($popover-bg, 3%) !default;
@@ -996,6 +1004,9 @@ $badge-pill-border-radius:          10rem !default;
 // Padding applied to the modal body
 $modal-inner-padding:               1rem !default;
 
+// Margin between elements in footer, must be lower than or equal to 2 * $modal-inner-padding
+$modal-footer-margin-between:       .5rem !default;
+
 $modal-dialog-margin:               .5rem !default;
 $modal-dialog-margin-y-sm-up:       1.75rem !default;
 
@@ -1006,6 +1017,7 @@ $modal-content-bg:                  $white !default;
 $modal-content-border-color:        rgba($black, .2) !default;
 $modal-content-border-width:        $border-width !default;
 $modal-content-border-radius:       $border-radius-lg !default;
+$modal-content-inner-border-radius: subtract($modal-content-border-radius, $modal-content-border-width) !default;
 $modal-content-box-shadow-xs:       0 .25rem .5rem rgba($black, .5) !default;
 $modal-content-box-shadow-sm-up:    0 .5rem 1rem rgba($black, .5) !default;
 
@@ -1027,6 +1039,7 @@ $modal-sm:                          300px !default;
 $modal-fade-transform:              translate(0, -50px) !default;
 $modal-show-transform:              none !default;
 $modal-transition:                  transform .3s ease-out !default;
+$modal-scale-transform:             scale(1.02) !default;
 
 
 // Alerts
@@ -1101,6 +1114,8 @@ $figure-caption-color:              $gray-600 !default;
 
 // Breadcrumbs
 // ----------------------------
+$breadcrumb-font-size:              null !default;
+
 $breadcrumb-padding-y:              .75rem !default;
 $breadcrumb-padding-x:              1rem !default;
 $breadcrumb-item-padding:           .5rem !default;
