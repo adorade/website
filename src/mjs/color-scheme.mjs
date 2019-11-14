@@ -15,10 +15,15 @@
   if (currentTheme) {
     colorScheme.scheme = currentTheme
 
-    if (currentTheme === 'light') {
-      $toggler.first().parent().removeClass('active')
-      $toggler.last().parent().addClass('active')
+    if (currentTheme === 'dark') {
+      $('.input-dark').prop({checked: true})
     }
+
+    if (currentTheme === 'light') {
+      $('.input-light').prop({checked: true})
+    }
+  } else {
+    $('.input-dark').prop({checked: true})
   }
 
   // Switch theme function
