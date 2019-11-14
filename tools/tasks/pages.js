@@ -38,20 +38,17 @@ lintPages.description = 'Lint pug (views) files';
 export function pagile () {
   $.fancyLog(`${green('-> Generating Pages via Pug...')}`);
 
+  // Data from `menu.json`
   const dataFile = paths.views.datas + 'menu.json';
+  const dataJson = JSON.parse(fs.readFileSync(dataFile));
+
+  // Options for pug
+  const locals = { locals: { entry } };
+  const pugOpts = Object.assign({}, opts.pug, locals);
 
   return src(paths.views.src)
-    .pipe($.data(() => {
-      return JSON.parse(fs.readFileSync(dataFile));
-    }))
-    // .pipe($.pug(opts.pug))
-    .pipe($.pug({
-      doctype: 'html',
-      pretty: true,
-      locals: {
-        entry
-      }
-    }))
+    .pipe($.data(() => dataJson))
+    .pipe($.pug(pugOpts))
     .pipe($.cached('pug_compile'))
     .pipe($.inlineSource(opts.inline))
     .pipe($.size(opts.size))
