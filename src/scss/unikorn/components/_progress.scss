@@ -1,6 +1,6 @@
 //
 // Progress
-// ============================================================================
+// =============================================================================
 
 // Base styles
 // ----------------------------
@@ -41,8 +41,10 @@
   .progress-bar-animated {
     animation: progress-bar-stripes $progress-bar-animation-timing;
 
-    @media (prefers-reduced-motion: reduce) {
-      animation: none;
+    @if $enable-prefers-reduced-motion-media-query {
+      @media (prefers-reduced-motion: reduce) {
+        animation: none;
+      }
     }
   }
 }
