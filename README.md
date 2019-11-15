@@ -1,4 +1,4 @@
-# Adorade
+# Adorade [![Twitter URL](https://img.shields.io/twitter/url?url=https%3A%2F%2Fadorade.ro)](https://twitter.com/intent/tweet?text=Adorade%20-%20Web%20Design%20Company%20&url=https://adorade.ro&hashtags=webdesign,development,mobileapp,webadd,website,templates)
 
 ![Adorade](src/images/share/adorade_og_share.jpg)
 
