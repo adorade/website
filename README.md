@@ -17,7 +17,7 @@ This is the [website](https://adorade.ro/) of the project.
 
 ## Build Tools
 
-This project have some requerements you need to meet in order to compile it.
+This project have some requirements you need to meet in order to compile it.
 
 * [Node.js](https://nodejs.org/)
 * [Yarn](https://yarnpkg.com/en/)
