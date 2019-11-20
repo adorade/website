@@ -3,7 +3,7 @@ name: Node CI
 
 on:
   push:
-    branches: [master, content, develop, actions]
+    branches: [master, content, develop, forms, theme]
   pull_request:
     branches: master
   schedule:
