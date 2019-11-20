@@ -1,0 +1,6 @@
+{
+  "name": "Node CI",
+  "description": "Build a Node.js project with yarn.",
+  "iconName": "nodejs",
+  "categories": ["JavaScript", "Node", "Yarn"]
+}

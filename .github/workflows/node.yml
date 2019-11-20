@@ -3,9 +3,9 @@ name: Node CI
 
 on:
   push:
-    branches: [master, content, develop]
+    branches: [master, content, develop, forms, theme]
   pull_request:
-    branches: [master, content, develop]
+    branches: master
   schedule:
   - cron: 0 2 * * 1-5
 
@@ -36,15 +36,20 @@ jobs:
       with:
         node-version: ${{ matrix.node_version }}
 
-    # install dependencies, verify and build
-    - name: Clean install dependencies and build
-      run: |
-        yarn install
-        yarn run verify
-        yarn run build
+    # install dependencies
+    - name: Clean install dependencies
+      run: yarn install
       shell: bash
-      env:
-        CI: true
+
+    # verify build tools
+    - name: Verify build tools
+      run: yarn run verify
+      shell: bash
+
+    # build proccess
+    - name: Build proccess
+      run: yarn run build
+      shell: bash
 
     # deploy web app using publish profile credentials
     # coming soon
