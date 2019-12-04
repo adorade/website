@@ -1,7 +1,7 @@
 //- partials/_analytics.pug
 if entry.inline
   //--- Google Analytics (analytics.js) - Async tracking snippet
-  script.
+  script#ga(nonce="R4nd0m").
     window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
     ga('create', 'UA-39823263-1', 'auto', {
       //- Set the user ID using signed-in user_id.
