@@ -24,7 +24,7 @@ block vendors-css
   //--- Vendors main CSS
   if entry.inline
     link#inline-vendors-css(
-      rel="stylesheet" href="css/vendor/main.css" nonce="R4nd0m" inline)
+      rel="stylesheet" href="css/vendor/main.css" inline)
   else
     link#vendors-css(
       rel="stylesheet" href="css/vendor/main.css")
@@ -32,7 +32,7 @@ block vendors-css
 block custom-css
   //--- Main Style
   if entry.inline
-    link#inline-style(href="css/style.min.css" nonce="R4nd0m" inline)
+    link#inline-style(href="css/style.min.css" inline)
   else
     link#main-style(rel="stylesheet" href="css/style.css" media="screen")
 
