@@ -39,8 +39,8 @@ export const paths = {
       js: [
         `${dirs.src}/vendor/js/jquery.min.js`,                   // 3.4.1
         `${dirs.src}/vendor/js/popper.min.js`,                   // 1.16.0
-        `${dirs.src}/vendor/js/unikorn.min.js`,
-        `${dirs.src}/vendor/js/yall.min.js`,                     // 3.1.6
+        `${dirs.src}/vendor/js/unikorn.min.js`,                  // 1.0.0
+        `${dirs.src}/vendor/js/yall.min.js`,                     // 3.1.7
         `${dirs.src}/vendor/js/browser.min.js`,                  // 4.0.0
         `${dirs.src}/vendor/js/cookieconsent.min.js`             // 3.1.1
       ]
