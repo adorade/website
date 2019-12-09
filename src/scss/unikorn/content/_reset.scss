@@ -47,8 +47,8 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
 //    the `inherit` value on things like `<th>` elements.
 body {
   margin: 0; // 1
-  background-color: $body-bg; // 2
-  color: $body-color;
+  // background-color: $body-bg; // 2
+  // color: $body-color;
   font-family: $font-family-base;
   font-size: $font-size-base;
   line-height: $line-height-base;
