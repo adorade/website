@@ -9,41 +9,34 @@
 
   // Intrisic ratio
   padding-bottom: percentage(nth($ratio, 2) / nth($ratio, 1));
+}
 
-  // Grayscale filter (go from grayscale to full picture on load
+@mixin child() {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin filter() {
+  // Grayscale filter - go from grayscale to full picture on load
   transition: filter .3s ease-in-out;
   filter: grayscale(90%) blur(10px);
 }
 
-@mixin banner($ratio: 1 1, $selector: "> :first-child") {
+@mixin picture($ratio: 1 1, $selector: "> :first-child", $filter: true) {
   $selector: unquote($selector);
 
   // parent
   @include parent($ratio);
-
-  // child
-  #{$selector} {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: auto;
-    transform: translate(-50%, -50%);
+  @if $filter {
+    @include filter();
   }
-}
-
-@mixin picture($ratio: 1 1, $selector: "> :first-child") {
-  $selector: unquote($selector);
-
-  // parent
-  @include parent($ratio);
 
   // child
   #{$selector} {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 100%;
-    transform: translate(-50%, -50%);
+    @include child();
   }
 }
 
