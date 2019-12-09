@@ -1,37 +1,17 @@
 //- partials/_scripts.pug
 block external-js
-  //--- jQuery first, then ...
-  //- script(defer
-  //-   src="https://code.jquery.com/jquery-3.4.1.min.js"
-  //-   integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous")
-  //- script(defer
-  //-   src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js"
-  //-   integrity="sha256-fTuUgtT7O2rqoImwjrhDgbXTKUwyxxujIMRIK7TbuNU=" crossorigin="anonymous")
-  //- script(defer
-  //-   src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-  //-   integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-  //-   crossorigin="anonymous")
-  //- script(defer
-  //-   src="https://cdn.jsdelivr.net/npm/yall-js@3.1.6/dist/yall.min.js"
-  //-   integrity="sha256-mc9oaETV2LNTFqAWtp+qFWA94Z9iNBWjHS1K6V4BtF8=" crossorigin="anonymous")
-  //- script(defer
-  //-   src="https://cdn.jsdelivr.net/npm/css-prefers-color-scheme@4.0.0/browser.min.js"
-  //-   integrity="sha384-1i/QXoT6bNDldOlFSL2tUmbpuB5ankGOurJDVLj5TH8MRn0gxFR0y4ID0b3HMHRF" crossorigin="anonymous")
+  //--- Adorade JS Files
+  //- external scripts here (cdn), then ...
 
 block vendors-js
+  //--- Vendors main JS
+  //- jQuery 3.4.1, popper.js 1.16.0, unikorn 1.0.0
+  //- yall.js 3.1.7, browser.js 4.0.0, cookieconsent 3.1.1
   script#vendors(defer src="js/vendor/main.js")
 
 block custom-js
-  //- script#unikorn(defer src="js/vendor/unikorn.min.js")
+  //--- Main Script
   if entry.inline
     script#main-min-script(defer src="js/script.min.js")
   else
     script#main-dev-script(defer src="js/script-dev.js")
-
-//--- Cookie consent
-//- block cookie-consent
-//-   if entry.inline
-//-     script(async
-//-       src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js"
-//-       integrity="sha384-xLPjH6nqG4p/2mu1KJ1t+4KqcvkyXVwBucQtyGK65lDNfKzECxGY/QEYWR+Wompr" crossorigin="anonymous")
-//-     script#cookie-init(src="js/vendor/cookie-init.js" inline)

@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
   for (let value of Object.keys(pictureClasses)) {
     yall({
       lazyClass: pictureClasses[value],
-      threshold: -100,
+      threshold: -50,
       events: {
         load: (event) => {
           if (!event.target.classList.contains(pictureClasses[value]) && event.target.nodeName == 'IMG') {

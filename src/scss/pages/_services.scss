@@ -7,9 +7,6 @@
   color: var(--text-color);
 
   .services-picture {
-    transition: filter .5s ease-in-out;
-    filter: grayscale(90%) blur(10px);
-
     // You should use a 16:9 image ratio, such as 540x304 px.
     @include picture(16 9, ".services-img");
   }

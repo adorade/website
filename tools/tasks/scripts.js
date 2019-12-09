@@ -27,7 +27,7 @@ cleanJs.description = 'Clean up scripts folders';
 export function vendorJs () {
   $.fancyLog(`${green('-> Copying vendor JS files...')}`);
   return src(paths.vendor.src.js, {
-    since: lastRun(vendorJs)
+    // since: lastRun(vendorJs)
   })
     .pipe($.concat('main.js'))
     .pipe($.size(opts.size))
