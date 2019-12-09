@@ -22,9 +22,6 @@
   }
 
   .masthead-picture {
-    transition: filter .5s ease-in-out;
-    filter: grayscale(90%) blur(10px);
-
     // `Non-open Graph Stories Images` appear in a rectangular format.
     // You should use a 1.91:1 image ratio, such as 600 x 314 px.
     @include banner(1.91 1, ".masthead-img");

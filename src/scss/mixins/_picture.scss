@@ -6,7 +6,13 @@
   position: relative;
   display: block;
   height: auto;
+
+  // Intrisic ratio
   padding-bottom: percentage(nth($ratio, 2) / nth($ratio, 1));
+
+  // Grayscale filter (go from grayscale to full picture on load
+  transition: filter .3s ease-in-out;
+  filter: grayscale(90%) blur(10px);
 }
 
 @mixin banner($ratio: 1 1, $selector: "> :first-child") {
