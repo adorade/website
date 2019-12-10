@@ -45,7 +45,7 @@
     "gulp-replace": "^1.0.0",
     "gulp-sass": "^4.0.2",
     "gulp-size": "^3.0.0",
-    "gulp-stylelint": "^10.0.0",
+    "gulp-stylelint": "^11.0.0",
     "gulp-uglify": "^3.0.2",
     "gulp-webp": "^4.0.1",
     "minimist": "^1.2.0",
