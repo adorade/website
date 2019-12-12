@@ -10,6 +10,8 @@
   // Toggle selector and currnt theme constant
   const $toggler = $('.btn-group-toggle input:radio')
   const currentTheme = localStorage.getItem('theme')
+    ? localStorage.getItem('theme')
+    : null
 
   // Check for saved user preference, if any, on load of the website
   if (currentTheme) {
@@ -24,6 +26,7 @@
     }
   } else {
     $('.input-dark').prop({checked: true})
+    localStorage.setItem('theme', 'dark')
   }
 
   // Switch theme function

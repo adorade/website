@@ -15,9 +15,9 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
-    "@babel/cli": "^7.7.4",
-    "@babel/core": "^7.7.4",
-    "@babel/preset-env": "^7.7.4",
+    "@babel/cli": "^7.7.5",
+    "@babel/core": "^7.7.5",
+    "@babel/preset-env": "^7.7.6",
     "ansi-colors": "^4.1.1",
     "babel-eslint": "^10.0.3",
     "browser-sync": "^2.26.7",
@@ -49,7 +49,7 @@
     "gulp-uglify": "^3.0.2",
     "gulp-webp": "^4.0.1",
     "minimist": "^1.2.0",
-    "rollup": "^1.27.8",
+    "rollup": "^1.27.11",
     "rollup-plugin-babel": "^4.3.3",
     "stylelint": "^12.0.0",
     "stylelint-config-standard": "^19.0.0",
