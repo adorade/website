@@ -5,7 +5,7 @@
  * ========================================================================== */
 
 import {
-  src, dest, lastRun, args, $, bs, fs, magenta, green,
+  src, dest, lastRun, args, $, bs, fs, green, magenta,
   paths, opts, banner, inputOpts, outputOpts
 } from '../util';
 

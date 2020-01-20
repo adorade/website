@@ -4,7 +4,7 @@
  * Licensed under MIT
  * ========================================================================== */
 
-import { src, dest, lastRun, args, $, bs, magenta, green, paths, opts, banner } from '../util';
+import { src, dest, lastRun, args, $, bs, green, magenta, paths, opts, banner } from '../util';
 
 const taskTarget = args.production ? paths.styles.prod : paths.styles.dev;
 const vendorTarget = args.production ? paths.vendor.prod.css : paths.vendor.dev.css;

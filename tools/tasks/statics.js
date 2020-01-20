@@ -4,7 +4,7 @@
  * Licensed under MIT
  * ========================================================================== */
 
-import { src, dest, lastRun, args, $, bs, magenta, green, dirs, paths, opts } from '../util';
+import { src, dest, lastRun, args, $, bs, green, magenta, dirs, paths, opts } from '../util';
 
 const taskFavTarget = args.production ? paths.statics.prod : paths.statics.dev;
 const taskConfTarget = args.production ? dirs.prod : dirs.dev;

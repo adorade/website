@@ -4,7 +4,7 @@
  * Licensed under MIT
  * ========================================================================== */
 
-import { src, dest, lastRun, args, $, bs, magenta, green, paths, opts } from '../util';
+import { src, dest, lastRun, args, $, bs, green, magenta, paths, opts } from '../util';
 
 const taskTarget = args.production ? paths.images.prod : paths.images.dev;
 
@@ -25,7 +25,7 @@ export function imagine () {
   })
     .pipe($.imagemin([
       $.imagemin.gifsicle(opts.images.gif),
-      $.imagemin.jpegtran(opts.images.jpeg),
+      $.imagemin.mozjpeg(opts.images.jpeg),
       $.imagemin.optipng(opts.images.png),
       $.imagemin.svgo(opts.images.svg)
     ], opts.images.general))

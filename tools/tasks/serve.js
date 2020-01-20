@@ -5,7 +5,7 @@
  * ========================================================================== */
 
 import {
-  series, watch, args, $, bs, magenta, green, red, bgBlue, bgRed, paths, opts, dirs
+  series, watch, args, $, bs, bgBlue, bgRed, green, magenta, red, paths, opts, dirs
 } from '../util';
 import {
   vendorCss, lintScss, compile, minify,
