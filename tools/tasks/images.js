@@ -4,7 +4,7 @@
  * Licensed under MIT
  * ========================================================================== */
 
-import { src, dest, lastRun, args, $, bs, magenta, green, paths, opts } from '../util';
+import { src, dest, lastRun, args, $, bs, green, magenta, paths, opts } from '../util';
 
 const taskTarget = args.production ? paths.images.prod : paths.images.dev;
 

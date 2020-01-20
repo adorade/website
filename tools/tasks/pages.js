@@ -4,7 +4,7 @@
  * Licensed under MIT
  * ========================================================================== */
 
-import { src, dest, lastRun, args, $, bs, fs, magenta, green, paths, opts } from '../util';
+import { src, dest, lastRun, args, $, bs, fs, green, magenta, paths, opts } from '../util';
 
 const taskTarget = args.production ? paths.views.files.prod : paths.views.files.dev;
 const entry = opts.entry;
