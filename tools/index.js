@@ -14,5 +14,5 @@ export {
   cleanPages, lintPages, pagile, pagify,                // Pages
   cleanDeploy, deploy,                                  // Deploy
   serve,                                                // Serve and Watch
-  serviceWorker                                         // Workbox build
+  cleanSW, serviceWorker                                // Workbox build
 } from './tasks';

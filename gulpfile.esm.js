@@ -10,7 +10,7 @@ import {
   cleanJs, vendorJs, lintMjs, transpile, uglify,
   cleanStatics, favicons, statica, cleanFonts, fontsCss, fontsSvg,
   cleanImages, imagine, convert, cleanPages, lintPages, pagile, pagify,
-  cleanDeploy, deploy, serve, serviceWorker
+  cleanDeploy, deploy, serve, cleanSW, serviceWorker
 } from './tools';
 
 if (args.production) {
@@ -95,6 +95,9 @@ export { serve };
  * Precache files with workbox
  * -------------------------------------------------------------------------- */
 export const sw = serviceWorker;
+export const buildSW = series(cleanSW, serviceWorker);
+buildSW.displayName = 'build:sw';
+buildSW.description = 'Build only Service Worker';
 
 /**
  * Define `build` task - Specify if tasks run in series or parallel
