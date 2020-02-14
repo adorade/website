@@ -4,7 +4,19 @@
  * Licensed under MIT
  * ========================================================================== */
 
-import { args, $, cyan, green, dirs } from '../util';
+import { args, $, bgRed, cyan, green, magenta, dirs } from '../util';
+
+export function cleanSW (done) {
+  if (args.production) {
+    $.fancyLog(`${green('-> Clean up service worker')} ${magenta(`${dirs.prod}/sw.js`)}`);
+    return $.del(`${dirs.prod}/sw.js`);
+  } else {
+    $.fancyLog(`${green('-> No service worker to clean...')}`);
+    done();
+  }
+}
+cleanSW.displayName = 'clean:sw';
+cleanSW.description = 'Clean up service-worker';
 
 // NOTE: This should be run *AFTER* all your assets are built
 export async function serviceWorker (done) {
@@ -27,13 +39,12 @@ export async function serviceWorker (done) {
       $.fancyLog(`${cyan(count)} files will be precached, totaling ${cyan(size)} bytes.`);
       // $.fancyLog.info('Service worker generation completed.');
     }).catch((error) => {
-      $.fancyLog.warn('Service worker generation failed:', error);
+      $.fancyLog(`${bgRed('Service worker generation failed:')} ${error.stack}`);
     });
   } else {
-    $.fancyLog(`${green('-> No service worker...')}`);
+    $.fancyLog(`${green('-> No service worker to generate...')}`);
+    done();
   }
-
-  done();
 }
 serviceWorker.displayName = 'gen:sw';
 serviceWorker.description = 'Precache files with workbox';
