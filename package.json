@@ -15,9 +15,9 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
-    "@babel/cli": "^7.8.3",
-    "@babel/core": "^7.8.3",
-    "@babel/preset-env": "^7.8.3",
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.8.4",
+    "@babel/preset-env": "^7.8.4",
     "ansi-colors": "^4.1.1",
     "babel-eslint": "^10.0.3",
     "browser-sync": "^2.26.7",
@@ -36,7 +36,7 @@
     "gulp-gh-pages": "^0.6.0-6",
     "gulp-header": "^2.0.9",
     "gulp-htmlmin": "^5.0.1",
-    "gulp-imagemin": "^7.0.0",
+    "gulp-imagemin": "^7.1.0",
     "gulp-inline-source": "^4.0.0",
     "gulp-load-plugins": "^2.0.2",
     "gulp-pug": "^4.0.1",
@@ -49,13 +49,13 @@
     "gulp-uglify": "^3.0.2",
     "gulp-webp": "^4.0.1",
     "minimist": "^1.2.0",
-    "rollup": "^1.30.0",
+    "rollup": "^1.31.0",
     "rollup-plugin-babel": "^4.3.3",
     "stylelint": "^13.0.0",
-    "stylelint-config-standard": "^19.0.0",
+    "stylelint-config-standard": "^20.0.0",
     "stylelint-order": "^4.0.0",
-    "stylelint-scss": "^3.13.0",
-    "workbox-build": "^5.0.0"
+    "stylelint-scss": "^3.14.2",
+    "workbox-build": "^4.3.1"
   },
   "engines": {
     "node": ">=10"
