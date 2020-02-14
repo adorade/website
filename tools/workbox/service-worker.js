@@ -17,28 +17,35 @@
 /* globals importScripts, workbox */
 
 // Import workbox-sw, which defines the global `workbox` object.
-importScripts('https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js');
+importScripts('https://storage.googleapis.com/workbox-cdn/releases/5.0.0/workbox-sw.js');
+
+// Force production builds, set to `false` for localhost
+// workbox.setConfig({ debug: false });
+
+// Workbox modules and plugins
+const { cleanupOutdatedCaches, precacheAndRoute} = workbox.precaching;
+const { registerRoute } = workbox.routing;
+const { CacheFirst } = workbox.strategies;
+const { ExpirationPlugin } = workbox.expiration;
 
 if (workbox) {
   console.log('Yay! Workbox is loaded');
-
-  // Force production builds, set to false
-  workbox.setConfig({ debug: false });
 
   /**
    * The workboxSW.precacheAndRoute() method efficiently caches and responds to
    * requests for URLs in the manifest.
    * See https://goo.gl/S9QRab
    */
-  workbox.precaching.precacheAndRoute([]);
+  precacheAndRoute(self.__WB_MANIFEST);
+  cleanupOutdatedCaches();
 
   // Caching Images for 7 days
-  workbox.routing.registerRoute(
+  registerRoute(
     /\.(?:png|gif|jpg|jpeg|webp|svg)$/,
-    new workbox.strategies.CacheFirst({
+    new CacheFirst({
       cacheName: 'image-cache',
       plugins: [
-        new workbox.expiration.Plugin({
+        new ExpirationPlugin({
           maxEntries: 20,
           maxAgeSeconds: 60 * 60 * 24 * 7 // 7 days
         })
