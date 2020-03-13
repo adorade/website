@@ -31,7 +31,7 @@ function assignCertainProperties (toObject, fromObject, properties = []) {
   }
 }
 
-// transformer class
+// Transformer class
 class GulpRollup extends Transform {
   _transform (file, encoding, cb) {
     // Check rollup reference
@@ -81,18 +81,21 @@ class GulpRollup extends Transform {
     const moduleName = path.basename(file.path, path.extname(file.path));
 
     function generateAndApplyBundle (bundle, outputOptions, targetFile) {
-      // Copying objects and properties from inputOptions to outputOptions (if not defined)
-      // Directly copied from https://rollupjs.org/guide/en#outputoptions
+      // Sugaring the API by copying convinience objects and properties
+      // from `inputOptions` to `outputOptions` (if not defined)
+      // Directly copied from https://rollupjs.org/guide/en/#outputoptions-object
       const propsToCopy = [
         // core options
-        'dir', 'file', 'format', 'globals',/* 'name',*/
+        'dir', 'file', 'format', 'globals', /*'name', 'plugins',*/
 
         // advanced options
-        'assetFileNames','banner','chunkFileNames','compact','entryFileNames','extend','footer','interop','intro','outro',
-        'paths', 'sourcemap', 'sourcemapExcludeSources', 'sourcemapFile', 'sourcemapPathTransform',
+        'assetFileNames', 'banner', 'chunkFileNames', 'compact', 'entryFileNames', 'extend',
+        'footer', 'interop', 'intro', 'outro', 'paths',
+        'sourcemap', 'sourcemapExcludeSources', 'sourcemapFile', 'sourcemapPathTransform',
 
         // danger zone
-        /*'amd',*/ 'esModule', 'exports', 'freeze', 'indent', 'namespaceToStringTag', 'noConflict', 'preferConst', 'strict'
+        /*'amd',*/ 'dynamicImportFunction', 'esModule', 'exports', 'freeze', 'indent',
+        'namespaceToStringTag', 'noConflict', 'preferConst', 'strict'
       ];
 
       assignCertainProperties(outputOptions, inputOptions, propsToCopy);
