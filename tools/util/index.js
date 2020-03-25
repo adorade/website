@@ -18,7 +18,7 @@ export { dirs, paths } from './config';
 export { opts } from './options';
 
 // Rollup Configuration
-export { inputOpts, outputOpts } from './rollup-config';
+export { inputOpts, outputOpts } from '../rollup/rollup-config';
 
 // Template for banner to add to file headers
 export { banner } from './banner';

@@ -1,11 +1,11 @@
 /*!
- * Adorade (v1.0.0): tools/util/rollup-config.js
+ * Adorade (v1.0.0): tools/rollup/rollup-config.js
  * Copyright (c) 2018 - 2019 Adorade (https://adorade.ro)
  * Licensed under MIT
  * ========================================================================== */
 
 import babel from 'rollup-plugin-babel';
-import { args } from './plugins';
+import { args } from '../util/plugins';
 
 const filename = args.production ? 'script' : 'script-dev' ;
 
