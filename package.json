@@ -51,7 +51,7 @@
     "minimist": "1.2.5",
     "rollup": "2.3.3",
     "rollup-plugin-babel": "4.4.0",
-    "stylelint": "13.3.0",
+    "stylelint": "13.3.1",
     "stylelint-config-standard": "20.0.0",
     "stylelint-order": "4.0.0",
     "stylelint-scss": "3.16.0",
