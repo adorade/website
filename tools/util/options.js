@@ -35,7 +35,7 @@ export const opts = {
     comments: false
   },
   eslint: {
-    // for more options see .eslintrc.json
+    // for more options see .eslintrc.js
   },
   uglify: {
     compress: {
