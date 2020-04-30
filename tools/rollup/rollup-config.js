@@ -4,7 +4,7 @@
  * Licensed under MIT
  * ========================================================================== */
 
-import babel from 'rollup-plugin-babel';
+import babel from '@rollup/plugin-babel';
 import { args } from '../util/plugins';
 
 const filename = args.production ? 'script' : 'script-dev' ;
@@ -13,14 +13,7 @@ const filename = args.production ? 'script' : 'script-dev' ;
 const plugins = [
   babel({
     // for more options see: .babelrc.js,
-    exclude: 'node_modules/**', // Only transpile our source code
-    externalHelpersWhitelist: [ // Include only required helpers
-      'defineProperties',
-      'createClass',
-      'inheritsLoose',
-      'defineProperty',
-      'objectSpread'
-    ]
+    babelHelpers: 'bundled'
   })
 ];
 

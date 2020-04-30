@@ -41,8 +41,8 @@
         }
 
         $img.css({
-          top: imgPercent + '%',
-          transform: 'translate(-50%, -' + imgPercent + '%)'
+          top: `${imgPercent}%`,
+          transform: `translate(-50%, -${imgPercent}%)`
         })
       }
 
