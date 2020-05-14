@@ -14,6 +14,13 @@
     "start": "gulp serve:watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "dependencies": {
+    "animate.css": "4.1.0",
+    "cookieconsent": "3.1.1",
+    "jquery": "3.5.1",
+    "popper.js": "1.16.1",
+    "yall-js": "3.1.7"
+  },
   "devDependencies": {
     "@babel/cli": "7.8.4",
     "@babel/core": "7.9.6",

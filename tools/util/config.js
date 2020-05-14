@@ -12,6 +12,7 @@ export const dirs = {
   dev: 'tmp',
   prod: 'dist',
   test: 'test',
+  modules: 'node_modules',
   deploy: '.publish',
   logs: 'logs'
 };
@@ -33,16 +34,16 @@ export const paths = {
   vendor: {
     src: {
       css: [
-        `${dirs.src}/vendor/css/animate.min.css`,                // 3.7.2
-        `${dirs.src}/vendor/css/cookieconsent.min.css`           // 3.1.1
+        `${dirs.modules}/animate.css/animate.min.css`,               // 4.1.0
+        `${dirs.modules}/cookieconsent/build/cookieconsent.min.css`  // 3.1.1
       ],
       js: [
-        `${dirs.src}/vendor/js/jquery.min.js`,                   // 3.4.1
-        `${dirs.src}/vendor/js/popper.min.js`,                   // 1.16.0
-        `${dirs.src}/vendor/js/unikorn.min.js`,                  // 1.0.0
-        `${dirs.src}/vendor/js/yall.min.js`,                     // 3.1.7
-        `${dirs.src}/vendor/js/browser.min.js`,                  // 4.0.0
-        `${dirs.src}/vendor/js/cookieconsent.min.js`             // 3.1.1
+        `${dirs.modules}/jquery/dist/jquery.min.js`,                 // 3.5.1
+        `${dirs.modules}/popper.js/dist/umd/popper.min.js`,          // 1.16.1
+        `${dirs.src}/vendor/js/unikorn.min.js`,                      // 1.0.0
+        `${dirs.modules}/yall-js/dist//yall.min.js`,                 // 3.1.7
+        `${dirs.src}/vendor/js/browser.min.js`,                      // 4.0.0
+        `${dirs.modules}/cookieconsent/build/cookieconsent.min.js`   // 3.1.1
       ]
     },
     dev: {
