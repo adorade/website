@@ -9573,10 +9573,10 @@ y18n@^4.0.0:
   resolved "https://registry.yarnpkg.com/y18n/-/y18n-4.0.0.tgz#95ef94f85ecc81d007c264e190a120f0a3c8566b"
   integrity sha512-r9S/ZyXu/Xu9q1tYlpsLIsa3EeLXXk0VwlxqTcFRfg9EhMW+17kbt9G0NrgCmhGb5vT2hyhJZLfDGx+7+5Uj/w==
 
-yall-js@3.1.7:
-  version "3.1.7"
-  resolved "https://registry.yarnpkg.com/yall-js/-/yall-js-3.1.7.tgz#a757f0007e8276f12345763d289e488cb24f6803"
-  integrity sha512-rCuaO7El9dQOffYxhMzeW98vBeSVcPErUSx+c9RvfNFpoF/Ep1hyt7FIDqA3XSM0xwMXtYVNXnkuBwvAY9E1GQ==
+yall-js@3.2.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/yall-js/-/yall-js-3.2.0.tgz#2b284eb2fdc9a61fd43fccedc8559146e692ab68"
+  integrity sha512-e62eb6pZdCs/YhKrgTYG6vlzIwNeqzA8j/jVjdLJLFaAHZVzWylSqe/LIHeMGcSExfDHtKeN8Dk6QMTLy17Bxg==
 
 yallist@^2.1.2:
   version "2.1.2"
