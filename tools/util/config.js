@@ -22,14 +22,14 @@ export const paths = {
     src: `${dirs.src}/scss/**/*.scss`,
     dev: `${dirs.dev}/css/`,
     prod: `${dirs.prod}/css/`,
-    filter: [ `${dirs.dev}/css/*.css`, '!**/*.min.css' ]
+    filter: [ `${dirs.dev}/css/**/*.css`, '!**/*.min.css' ]
   },
   scripts: {
     src: `${dirs.src}/mjs/**/*.mjs`,
     input: args.production ? `${dirs.src}/mjs/script.mjs` : `${dirs.src}/mjs/script-dev.mjs`,
     dev: `${dirs.dev}/js/`,
     prod: `${dirs.prod}/js/`,
-    filter: [ `${dirs.dev}/js/*.js`, '!**/*.min.js' ]
+    filter: [ `${dirs.dev}/js/**/*.js`, '!**/*.min.js' ]
   },
   vendor: {
     src: {
