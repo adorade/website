@@ -1,11 +1,9 @@
 //- includes/sections/_parallax.pug
+include ../../mixins/_pictures
+
 section.parallax#parallax
   .parallax-window
-    picture.parallax-picture
-      source(data-srcset="images/hero-unit/grass_field_dawn.webp" type="image/webp")
-      source(data-srcset="images/hero-unit/grass_field_dawn.jpg" type="image/jpeg")
-      img.lazy-parallax.parallax-img(
-        data-src="images/hero-unit/grass_field_dawn.jpg" data-speed=".6" alt="Good Morning")
+    +parallaxPicture("grass_field_dawn", "Good Morning")
     .parallax-overlay
       .container
         .row

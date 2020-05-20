@@ -1,15 +1,13 @@
 //- modules/drawer/_drawer.pug
 include ../../mixins/_drawer
+include ../../mixins/_pictures
 
 .drawer.fade#drawer(tabindex="-1" role="dialog" aria-hidden="true")
   .drawer-dialog.drawer-dark(role="document")
     .drawer-content
       .drawer-header
         a.drawer-logo(href="./")
-          picture
-            source(data-srcset="images/logo/logo-adorade-drawer.webp" type="image/webp")
-            source(data-srcset="images/logo/logo-adorade-drawer.png" type="image/png")
-            img.lazy-drawer.img-fluid(data-src="images/logo/logo-adorade-drawer.png" alt="Adorade")
+          +drawerLogo("logo-adorade-drawer", "Adorade")
         button.close(type="button" role="button" data-dismiss="drawer" aria-label="Close Drawer")
           //- i.fas.fa-times
           img.svg-inline--fa#fa-times(src="fonts/svgs/solid/times.svg" alt="times" inline)

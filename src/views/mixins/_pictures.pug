@@ -6,9 +6,10 @@
 //- Usage: +cardsPicture("name", "alt")
 mixin cardsPicture(name, alt)
   picture.card-picture
-    source(data-srcset="images/cards/" + name + ".webp" type="image/webp")
-    source(data-srcset="images/cards/" + name + ".jpg" type="image/jpeg")
-    img.lazy-cards.card-img(data-src="images/cards/" + name + ".jpg" alt=alt)
+    source(type="image/webp" data-srcset="images/cards/" + name + ".webp")
+    source(type="image/jpeg" data-srcset="images/cards/" + name + ".jpg")
+    img.lazy-cards.card-img(
+      data-src="images/cards/" + name + ".jpg" alt=alt)
 
 //- Top Banner
 //------------------------
@@ -58,7 +59,8 @@ mixin carouselPicture(name, alt)
     source(type="image/png" data-srcset="images/portfolio/" + name + ".png" media="(min-width: 576px)")
     source(type="image/webp" data-srcset="images/portfolio/" + name + "-min.webp")
     source(type="image/png" data-srcset="images/portfolio/" + name + "-min.png")
-    img.lazy-carousel.carousel-img(data-src="images/portfolio/" + name + ".png" alt=alt)
+    img.lazy-carousel.carousel-img(
+      data-src="images/portfolio/" + name + ".png" alt=alt)
 
 //- Portfolio Items
 //------------------------
@@ -71,3 +73,25 @@ mixin portfolioPicture(name, alt)
     img.lazy-portfolio.portfolio-img(
       src="images/portfolio/" + name + "-min.png" inline
       data-src="images/portfolio/" + name + "-min.png" alt=alt)
+
+//- Drawer logo
+//------------------------
+//- include ../path/to/mixins/_pictures
+//- Usage: +drawerLogo("name", "alt")
+mixin drawerLogo(name, alt)
+  picture
+    source(type="image/webp" data-srcset="images/logo/" + name + ".webp")
+    source(type="image/png" data-srcset="images/logo/" + name + ".png")
+    img.lazy-drawer.img-fluid(
+      data-src="images/logo/" + name + ".png" alt=alt)
+
+//- Parallax Picture
+//------------------------
+//- include ../path/to/mixins/_pictures
+//- Usage: +parallaxPicture("name", "alt")
+mixin parallaxPicture(name, alt)
+  picture.parallax-picture
+    source(type="image/webp" data-srcset="images/hero-unit/" + name + ".webp")
+    source(type="image/jpeg" data-srcset="images/hero-unit/" + name + ".jpg")
+    img.lazy-parallax.parallax-img(
+      data-src="images/hero-unit/" + name + ".jpg" data-speed=".6" alt=alt)
