@@ -7,7 +7,6 @@
 import { src, dest, lastRun, args, $, bs, green, magenta, paths, opts, banner } from '../util';
 
 const taskTarget = args.production ? paths.styles.prod : paths.styles.dev;
-const vendorTarget = args.production ? paths.vendor.prod.css : paths.vendor.dev.css;
 
 // For debugging usage:
 // .pipe($.debug({ title: 'unicorn:' }))
@@ -26,7 +25,7 @@ export function vendorCss () {
   })
     .pipe($.concat('main.css'))
     .pipe($.size(opts.size))
-    .pipe(dest(vendorTarget))
+    .pipe(dest(paths.vendor.dev.css))
     .pipe(bs.stream({ match: '**/*.css' }));
 }
 vendorCss.displayName = 'vendor:css';

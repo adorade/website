@@ -12,7 +12,6 @@ import {
 import gulpRollup from '../rollup';
 
 const taskTarget = args.production ? paths.scripts.prod : paths.scripts.dev;
-const vendorTarget = args.production ? paths.vendor.prod.js : paths.vendor.dev.js;
 
 // For debugging usage:
 // .pipe($.debug({ title: 'unicorn:' }))
@@ -31,7 +30,7 @@ export function vendorJs () {
   })
     .pipe($.concat('main.js'))
     .pipe($.size(opts.size))
-    .pipe(dest(vendorTarget))
+    .pipe(dest(paths.vendor.dev.js))
     .pipe(bs.stream({ match: '**/*.js' }));
 }
 vendorJs.displayName = 'vendor:js';

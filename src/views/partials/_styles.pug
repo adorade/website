@@ -7,11 +7,9 @@ block vendors-css
   //--- Vendors main CSS
   //- animate.min.css 3.7.2, cookieconsent 3.1.1
   if entry.inline
-    link#inline-vendors-css(
-      rel="stylesheet" href="css/vendor/main.css" inline)
+    link#inline-vendors-css(rel="stylesheet" href="css/vendor/main.min.css" inline)
   else
-    link#vendors-css(
-      rel="stylesheet" href="css/vendor/main.css")
+    link#vendors-css(rel="stylesheet" href="css/vendor/main.css")
 
 block custom-css
   //--- Main Style
