@@ -22,9 +22,9 @@
     "yall-js": "3.2.0"
   },
   "devDependencies": {
-    "@babel/cli": "7.8.4",
-    "@babel/core": "7.9.6",
-    "@babel/preset-env": "7.9.6",
+    "@babel/cli": "7.10.1",
+    "@babel/core": "7.10.2",
+    "@babel/preset-env": "7.10.2",
     "@rollup/plugin-babel": "5.0.2",
     "ansi-colors": "4.1.1",
     "babel-eslint": "10.1.0",
