@@ -1578,10 +1578,10 @@
     "@nodelib/fs.scandir" "2.1.3"
     fastq "^1.6.0"
 
-"@rollup/plugin-babel@5.0.3":
-  version "5.0.3"
-  resolved "https://registry.yarnpkg.com/@rollup/plugin-babel/-/plugin-babel-5.0.3.tgz#8d416865b0da79faf14e07c8d233abe0eac0753d"
-  integrity sha512-NlaPf4E6YFxeOCbqc+A2PTkB1BSy3rfKu6EJuQ1MGhMHpTVvMqKi6Rf0DlwtnEsTNK9LueUgsGEgp5Occ4KDVA==
+"@rollup/plugin-babel@5.0.4":
+  version "5.0.4"
+  resolved "https://registry.yarnpkg.com/@rollup/plugin-babel/-/plugin-babel-5.0.4.tgz#dbfcf86a0561e399579ceb1a534a83c970e76645"
+  integrity sha512-MBtNoi5gqBEbqy1gE9jZBfPsi10kbuK2CEu9bx53nk1Z3ATRvBOoZ/GsbhXOeVbS76xXi/DeYM+vYX6EGIDv9A==
   dependencies:
     "@babel/helper-module-imports" "^7.7.4"
     "@rollup/pluginutils" "^3.0.8"
@@ -8385,10 +8385,10 @@ rollup-pluginutils@^2.8.1, rollup-pluginutils@^2.8.2:
   dependencies:
     estree-walker "^0.6.1"
 
-rollup@2.16.1:
-  version "2.16.1"
-  resolved "https://registry.yarnpkg.com/rollup/-/rollup-2.16.1.tgz#97805e88071e2c6727bd0b64904976d14495c873"
-  integrity sha512-UYupMcbFtoWLB6ZtL4hPZNUTlkXjJfGT33Mmhz3hYLNmRj/cOvX2B26ZxDQuEpwtLdcyyyraBGQ7EfzmMJnXXg==
+rollup@2.18.2:
+  version "2.18.2"
+  resolved "https://registry.yarnpkg.com/rollup/-/rollup-2.18.2.tgz#886ac6e4549e493df106c3e2580c89aeb997be25"
+  integrity sha512-+mzyZhL9ZyLB3eHBISxRNTep9Z2qCuwXzAYkUbFyz7yNKaKH03MFKeiGOS1nv2uvPgDb4ASKv+FiS5mC4h5IFQ==
   optionalDependencies:
     fsevents "~2.1.2"
 
