@@ -23,9 +23,9 @@ export function vendorCss () {
   return src(paths.vendor.src.css, {
     since: lastRun(vendorCss)
   })
-    .pipe($.concat('main.css'))
+    .pipe($.concat('vendors.min.css'))
     .pipe($.size(opts.size))
-    .pipe(dest(paths.vendor.dev.css))
+    .pipe(dest(paths.vendor.dest.css))
     .pipe(bs.stream({ match: '**/*.css' }));
 }
 vendorCss.displayName = 'vendor:css';

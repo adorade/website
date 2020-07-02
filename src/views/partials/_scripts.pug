@@ -5,12 +5,9 @@ block external-js
 
 block vendors-js
   //--- Vendors main JS
-  //- jQuery 3.5.1, popper.js 1.16.1, unikorn 1.0.0
+  //- jQuery 3.5.1, popper.js 1.16.1, unikorn 1.1.1
   //- yall.js 3.2.0, browser.js 4.0.0, cookieconsent 3.1.1
-  if entry.inline
-    script#vendors(defer src="js/vendor/main.min.js")
-  else
-    script#vendors(defer src="js/vendor/main.js")
+  script#vendors(defer src="js/vendors.min.js")
 
 block custom-js
   //--- Main Script
