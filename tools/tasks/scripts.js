@@ -28,9 +28,10 @@ export function vendorJs () {
   return src(paths.vendor.src.js, {
     // since: lastRun(vendorJs)
   })
-    .pipe($.concat('main.js'))
+    .pipe($.replace(/\/\/.*?sourceMappingURL\s*=.*?[\r\n]/, ''))
+    .pipe($.concat('vendors.min.js'))
     .pipe($.size(opts.size))
-    .pipe(dest(paths.vendor.dev.js))
+    .pipe(dest(paths.vendor.dest.js))
     .pipe(bs.stream({ match: '**/*.js' }));
 }
 vendorJs.displayName = 'vendor:js';

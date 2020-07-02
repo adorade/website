@@ -41,18 +41,14 @@ export const paths = {
         `${dirs.modules}/jquery/dist/jquery.min.js`,                 // 3.5.1
         `${dirs.modules}/popper.js/dist/umd/popper.min.js`,          // 1.16.1
         `${dirs.src}/vendor/js/unikorn.min.js`,                      // 1.0.0
-        `${dirs.modules}/yall-js/dist//yall.min.js`,                 // 3.2.0
+        `${dirs.modules}/yall-js/dist/yall.min.js`,                  // 3.2.0
         `${dirs.src}/vendor/js/browser.min.js`,                      // 4.0.0
         `${dirs.modules}/cookieconsent/build/cookieconsent.min.js`   // 3.1.1
       ]
     },
-    dev: {
-      css: `${dirs.dev}/css/vendor/`,
-      js: `${dirs.dev}/js/vendor/`
-    },
-    prod: {
-      css: `${dirs.prod}/css/vendor/`,
-      js: `${dirs.prod}/js/vendor/`
+    dest: {
+      css: args.production ? `${dirs.prod}/css/` : `${dirs.dev}/css/`,
+      js: args.production ? `${dirs.prod}/js/` : `${dirs.dev}/js/`
     },
     watch: {
       css: `${dirs.src}/vendor/css/**/*.css`,
