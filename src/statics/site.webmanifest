@@ -1,6 +1,9 @@
 {
     "name": "Adorade",
     "short_name": "Adorade",
+    "description": "Once upon a time we started a journey.",
+    "start_url": "/?utm_source=homescreen",
+    "scope": "/",
     "icons": [
         {
             "src": "statics/icons/android-chrome-192x192.png",
@@ -11,12 +14,54 @@
             "src": "statics/icons/android-chrome-512x512.png",
             "sizes": "512x512",
             "type": "image/png"
+        },
+        {
+            "src": "statics/icons/icon-small-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "maskable"
+        },
+        {
+            "src": "statics/icons/icon-large-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable"
         }
     ],
     "theme_color": "#ff5722",
     "background_color": "#ff5722",
-    "start_url": "/?utm_source=app",
-    "display": "standalone",
     "orientation": "portrait",
-    "description": "Once upon a time we started a journey."
+    "display": "standalone",
+    "shortcuts": [
+        {
+            "name": "Adorade Web Design",
+            "short_name": "Home",
+            "url": "/index.html?utm_source=pwa",
+            "icons": [{ "src": "statics/icons/icon-blue-192x192.png", "sizes": "192x192" }]
+        },
+        {
+            "name": "Professional services",
+            "short_name": "Services",
+            "url": "/services.tml?utm_source=pwa",
+            "icons": [{ "src": "statics/icons/icon-cyan-192x192.png", "sizes": "192x192" }]
+        },
+        {
+            "name": "Info for you",
+            "short_name": "Info",
+            "url": "/info.html?utm_source=pwa",
+            "icons": [{ "src": "statics/icons/icon-green-192x192.png", "sizes": "192x192" }]
+        },
+        {
+            "name": "Our Portfolio showcase",
+            "short_name": "Portfolio",
+            "url": "/portfolio.html?utm_source=pwa",
+            "icons": [{ "src": "statics/icons/icon-red-192x192.png", "sizes": "192x192" }]
+        },
+        {
+            "name": "Contact us",
+            "short_name": "Contact",
+            "url": "/contact.html?utm_source=pwa",
+            "icons": [{ "src": "statics/icons/icon-yellow-192x192.png", "sizes": "192x192" }]
+        }
+    ]
 }
