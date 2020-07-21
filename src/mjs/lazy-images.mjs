@@ -1,50 +1,28 @@
 //
 // Lazy-load images
 // -----------------------------------------------------------------------------
-/* globals yall */
 
-document.addEventListener('DOMContentLoaded', () => {
-  const yallClasses = ['lazy-parallax', 'lazy-drawer', 'lazy-carousel']
-  const pictureClasses = ['lazy-top', 'lazy-services', 'lazy-info', 'lazy-portfolio']
 
-  yall({
-    lazyClass: 'lazy-cards',
-    threshold: 0,
-    events: {
-      load: (event) => {
-        if (!event.target.classList.contains('lazy-cards') && event.target.nodeName == 'IMG') {
-          event.target.classList.add('yall-loaded')
-          event.target.parentNode.parentNode.classList.add('card-fade-in')
-        }
-      }
-    }
+if ('loading' in HTMLImageElement.prototype) {
+  const images = document.querySelectorAll('img[loading="lazy"]')
+  images.forEach(img => {
+    img.src = img.dataset.src
   })
 
-  for (let value of Object.keys(pictureClasses)) {
-    yall({
-      lazyClass: pictureClasses[value],
-      threshold: -50,
-      events: {
-        load: (event) => {
-          if (!event.target.classList.contains(pictureClasses[value]) && event.target.nodeName == 'IMG') {
-            event.target.classList.add('yall-loaded')
-            event.target.parentNode.classList.add('fade-in')
-          }
-        }
-      }
-    })
-  }
+  const cardsPicture = document.querySelectorAll('.card-picture')
+  cardsPicture.forEach(card => {
+    card.parentNode.classList.add('card-fade-in')
+  })
 
-  for (let value of Object.keys(yallClasses)) {
-    yall({
-      lazyClass: yallClasses[value],
-      events: {
-        load: (event) => {
-          if (!event.target.classList.contains(yallClasses[value]) && event.target.nodeName == 'IMG') {
-            event.target.classList.add('yall-loaded')
-          }
-        }
-      }
-    })
-  }
-})
+  const fadeImages = [].slice.call(document.querySelectorAll(
+    '.lazy-top, .lazy-services, .lazy-info, .lazy-portfolio'
+  ))
+  fadeImages.forEach(img => {
+    img.parentNode.classList.add('fade-in')
+  })
+} else {
+  // Dynamically import the LazySizes library
+  const script = document.createElement('script')
+  script.src = 'https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.2.2/lazysizes.min.js'
+  document.body.appendChild(script)
+}
