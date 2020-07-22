@@ -1,8 +1,8 @@
 //- mixins/_pictures.pug
+//- include ../path/to/mixins/_pictures
 
 //- Drawer logo
 //------------------------
-//- include ../path/to/mixins/_pictures
 //- Usage: +drawerLogo("name", "alt")
 mixin drawerLogo(name, alt)
   picture
@@ -13,7 +13,6 @@ mixin drawerLogo(name, alt)
 
 //- Cards Picture
 //------------------------
-//- include ../path/to/mixins/_pictures
 //- Usage: +cardsPicture("name", "alt")
 mixin cardsPicture(name, alt)
   picture.card-picture
@@ -24,7 +23,6 @@ mixin cardsPicture(name, alt)
 
 //- Carousel Items
 //------------------------
-//- include ../path/to/mixins/_pictures
 //- Usage: +carouselPicture("name", "alt")
 mixin carouselPicture(name, alt)
   picture.carousel-picture
@@ -37,7 +35,6 @@ mixin carouselPicture(name, alt)
 
 //- Parallax Picture
 //------------------------
-//- include ../path/to/mixins/_pictures
 //- Usage: +parallaxPicture("name", "alt")
 mixin parallaxPicture(name, alt)
   picture.parallax-picture
@@ -48,7 +45,6 @@ mixin parallaxPicture(name, alt)
 
 //- Top Banner
 //------------------------
-//- include ../path/to/mixins/_pictures
 //- Usage: +banner("name", "alt")
 mixin banner(name, alt)
   picture.masthead-picture
@@ -59,38 +55,14 @@ mixin banner(name, alt)
     img.lazy-top.masthead-img(
       src="images/top/" + name + "-min.jpg" alt=alt)
 
-//- Services Picture
+//- Features Picture
 //------------------------
-//- include ../path/to/mixins/_pictures
-//- Usage: +servicesPicture("name", "alt")
-mixin servicesPicture(name, alt)
-  picture.services-picture.shadow-lg
-    source(type="image/webp" srcset="images/services/" + name + ".webp")
-    source(type="image/png" srcset="images/services/" + name + ".jpg")
-    img.lazy-services.lazyload.services-img(
-      src="images/services/" + name + ".jpg" inline
-      loading="lazy" data-src="images/services/" + name + ".jpg" alt=alt)
-
-//- Info Picture
-//------------------------
-//- include ../path/to/mixins/_pictures
-//- Usage: +infoPicture("name", "alt")
-mixin infoPicture(name, alt)
-  picture.info-picture.shadow-lg
-    source(type="image/webp" srcset="images/info/" + name + ".webp")
-    source(type="image/png" srcset="images/info/" + name + ".jpg")
-    img.lazy-info.lazyload.info-img(
-      src="images/info/" + name + ".jpg" inline
-      loading="lazy" data-src="images/info/" + name + ".jpg" alt=alt)
-
-//- Portfolio Items
-//------------------------
-//- include ../path/to/mixins/_pictures
-//- Usage: +portfolioPicture("name", "alt")
-mixin portfolioPicture(name, alt)
-  picture.portfolio-picture.shadow-lg
-    source(type="image/webp" srcset="images/portfolio/" + name + "-min.webp")
-    source(type="image/png" srcset="images/portfolio/" + name + "-min.png")
-    img.lazy-portfolio.lazyload.portfolio-img(
-      src="images/portfolio/" + name + "-min.png" inline
-      loading="lazy" data-src="images/portfolio/" + name + "-min.png" alt=alt)
+//- Usage: +featuresPicture("path", "name", "type", "alt")
+//- services, info, portfolio
+mixin featuresPicture(path, name, type, alt)
+  picture.picture-wrapper.shadow-lg
+    source(type="image/webp" srcset="images/" + path + "/" + name + ".webp")
+    source(type="image/png" srcset="images/" + path + "/" + name + ".jpg")
+    img.lazy-features.lazyload(
+      src="images/" + path + "/" + name + "." + type inline
+      loading="lazy" data-src="images/" + path + "/" + name + "." + type alt=alt)

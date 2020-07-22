@@ -15,7 +15,7 @@ if ('loading' in HTMLImageElement.prototype) {
   })
 
   const fadeImages = [].slice.call(document.querySelectorAll(
-    '.lazy-top, .lazy-services, .lazy-info, .lazy-portfolio'
+    '.lazy-top, .lazy-features'
   ))
   fadeImages.forEach(img => {
     img.parentNode.classList.add('fade-in')
