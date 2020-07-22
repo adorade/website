@@ -1,0 +1,21 @@
+//
+// Pages
+// -----------------------------------------------------------------------------
+
+.contact,
+.marks,
+.info,
+.portfolio,
+.services {
+  background-color: var(--body-background-color);
+  color: var(--text-color);
+}
+
+.picture-wrapper {
+  // You should use a 16:9 image ratio, such as 540x304 px.
+  @include picture(16 9, ".lazy-features");
+}
+
+.fade-in {
+  filter: none;
+}
