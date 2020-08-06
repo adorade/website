@@ -1,3 +1,5 @@
+/* eslint-disable no-control-regex */
+/* eslint-disable no-useless-escape */
 /*!
  * Adorade (v1.0.0): tools/tasks/styles.js
  * Copyright (c) 2018 - 2019 Adorade (https://adorade.ro)
@@ -23,6 +25,14 @@ export function vendorCss () {
   return src(paths.vendor.src.css, {
     since: lastRun(vendorCss)
   })
+    .pipe($.replace(/[\r\n]^@charset\s"UTF-8";[\r\n]/m, ''))
+    .pipe($.replace(/^\/\*![\r\n]/m, ''))
+    .pipe($.replace(/^\s\*\s.*[\r\n]/m, ''))
+    .pipe($.replace(/^\s\*\s.*[\r\n]/m, ''))
+    .pipe($.replace(/^\s\*\s.*[\r\n]/m, ''))
+    .pipe($.replace(/^\s\*\s.*[\r\n]/m, ''))
+    .pipe($.replace(/^\s\*\s.*[\r\n]/m, ''))
+    .pipe($.replace(/^\s\*\//m, ''))
     .pipe($.concat('vendors.min.css'))
     .pipe($.size(opts.size))
     .pipe(dest(paths.vendor.dest.css))
