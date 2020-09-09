@@ -5,7 +5,7 @@
  * ========================================================================== */
 
 // Importing specific gulp API functions lets us write them as series() instead of gulp.series()
-export { src, dest, task, series, parallel, lastRun, watch, tree } from 'gulp';
+export { src, dest, series, parallel, lastRun, watch, tree } from 'gulp';
 
 // Load all plugins in "devDependencies" into the variable $
 export const $ = require('gulp-load-plugins')({
