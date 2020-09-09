@@ -34,13 +34,13 @@ export const paths = {
   vendor: {
     src: {
       css: [
-        `${dirs.modules}/animate.css/animate.min.css`,               // 4.1.0
+        `${dirs.modules}/animate.css/animate.min.css`,               // 4.1.1
         `${dirs.modules}/cookieconsent/build/cookieconsent.min.css`  // 3.1.1
       ],
       js: [
         `${dirs.modules}/jquery/dist/jquery.min.js`,                 // 3.5.1
         `${dirs.modules}/popper.js/dist/umd/popper.min.js`,          // 1.16.1
-        `${dirs.src}/vendor/js/unikorn.min.js`,                      // 1.0.0
+        `${dirs.src}/vendor/js/unikorn.min.js`,                      // 1.1.1
         `${dirs.src}/vendor/js/browser.min.js`,                      // 4.0.0
         `${dirs.modules}/cookieconsent/build/cookieconsent.min.js`   // 3.1.1
       ]
