@@ -22,8 +22,8 @@
         event.preventDefault()
         event.stopPropagation()
 
-        $(this).addClass('shake animated').one('animationend', function () {
-          $(this).removeClass('shake animated')
+        $(this).addClass('shakeX animated').one('animationend', function () {
+          $(this).removeClass('shakeX animated')
         })
       } else {
         // --- Since form is now valid, prevent default behavior.
