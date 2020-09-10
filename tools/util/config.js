@@ -34,7 +34,6 @@ export const paths = {
   vendor: {
     src: {
       css: [
-        `${dirs.modules}/animate.css/animate.min.css`,               // 4.1.1
         `${dirs.modules}/cookieconsent/build/cookieconsent.min.css`  // 3.1.1
       ],
       js: [
