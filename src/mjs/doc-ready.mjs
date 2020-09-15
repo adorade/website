@@ -2,22 +2,27 @@
 // Document ready
 // -----------------------------------------------------------------------------
 
-$('document').ready(function () {
-  // Prepare hero height
-  // ------------------------
-  function heroHeight () {
-    $('.hero-unit').height( $(window).height() )
-  }
-  heroHeight()
+// Prepare hero height
+// Re-Set on orientation change and window resize
+// ------------------------
+$(window).on('load orientationchange resize', () => {
+  $('.hero-unit').height( $(window).height() )
+})
 
-  // Re-Set on orientation change and window resize
+// On Dccument ready
+// ------------------------
+$(() => {
+  // Text Rotate
   // ------------------------
-  $(window).on('orientationchange resize', heroHeight)
+  $('#rotate').rotaterator()
+
+  // Parallax Effect
+  // ------------------------
+  $('.parallax-img').parallax()
 
   // Window Scroll
   // ------------------------
   $(window).on('scroll', function () {
-    // prettier-ignore
     const $windowPos = $(this).scrollTop(),
           $windowH = $(this).height(),
           $documentH = $(document).height(),
@@ -46,24 +51,16 @@ $('document').ready(function () {
 
   // Scroll to Cards section
   // ------------------------
-  $('.scroll-down').on('click', function () {
+  $('.scroll-down').on('click', () => {
     $('html, body').animate({
       // scrollTop: $('#cards').offset().top - 56 // value for .fixed-top
       scrollTop: $('#cards').offset().top
     }, 1000)
   })
 
-  // Text Rotate
-  // ------------------------
-  $('#rotate').rotaterator()
-
-  // Parallax Effect
-  // ------------------------
-  $('.parallax-img').parallax()
-
   // Back to Top
   // ------------------------
-  $('.back-to-top-icon').on('click', function () {
+  $('.back-to-top-icon').on('click', () => {
     $('html, body').animate({
       scrollTop: 0
     }, 1000)
