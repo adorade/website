@@ -15,10 +15,7 @@ node_js:
 dist: focal
 
 git:
-  depth: 10
-
-before_install:
-  - npm install -g yarn
+  depth: 4
 
 cache:
   yarn: true
