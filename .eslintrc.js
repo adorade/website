@@ -41,7 +41,9 @@ module.exports = {
       files: [
         "gulpfile.esm.js",
         "**/vendor/js/**/*.js",
-        "tools/**/*.js"
+        "tools/**/*.js",
+        ".eslintrc.js",
+        "functions/**/*.js"
       ],
       rules: {
         semi: ["error", "always"]
@@ -52,9 +54,16 @@ module.exports = {
         "functions/**/*.js"
       ],
       rules: {
-        "no-unused-vars": "off",
-        semi: ["error", "always"]
+        "no-unused-vars": "off"
+      }
+    },
+    {
+      files: [
+        ".eslintrc.js"
+      ],
+      rules: {
+        quotes: ["error", "double"]
       }
     }
   ]
-}
+};

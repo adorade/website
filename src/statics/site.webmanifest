@@ -42,7 +42,7 @@
         {
             "name": "Professional services",
             "short_name": "Services",
-            "url": "/services.tml?utm_source=pwa",
+            "url": "/services.html?utm_source=pwa",
             "icons": [{ "src": "statics/icons/icon-cyan-192x192.png", "sizes": "192x192" }]
         },
         {

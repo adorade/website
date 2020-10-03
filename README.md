@@ -2,7 +2,7 @@
 
 ![Adorade](src/images/share/adorade_og_share.jpg)
 
-[![GitHub package.json version](https://img.shields.io/github/package-json/v/adorade/website.svg?label=&color=green&logo=github)](https://github.com/adorade/website/blob/master/package.json)
+[![GitHub package.json version](https://img.shields.io/github/package-json/v/adorade/website.svg?label=&color=green&logo=github)](https://github.com/adorade/website/blob/main/package.json)
 [![license](https://img.shields.io/github/license/adorade/website.svg?label=)](https://mit-license.org)
 [![website](https://img.shields.io/website/https/adorade.ro.svg?logo=google-chrome)](https://adorade.ro/)
 [![devDependencies Status](https://img.shields.io/david/dev/adorade/website.svg?label=deps)](https://david-dm.org/adorade/website?type=dev)

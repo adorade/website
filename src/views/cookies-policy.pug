@@ -1,0 +1,14 @@
+//- cookies-policy.pug
+extends layout/_base
+
+prepend setting
+  - title = 'Adorade - Cookies Policy';
+  - description = 'Cookies use policy.';
+  - currentUrl = 'cookies-policy.html';
+
+block header
+  include modules/header/_header-cookies
+
+block content
+  include includes/pages/_cookies
+  include includes/sections/_parallax

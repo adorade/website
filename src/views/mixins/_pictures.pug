@@ -1,97 +1,68 @@
 //- mixins/_pictures.pug
-
-//- Cards Picture
-//------------------------
 //- include ../path/to/mixins/_pictures
-//- Usage: +cardsPicture("name", "alt")
-mixin cardsPicture(name, alt)
-  picture.card-picture
-    source(type="image/webp" data-srcset="images/cards/" + name + ".webp")
-    source(type="image/jpeg" data-srcset="images/cards/" + name + ".jpg")
-    img.lazy-cards.card-img(
-      data-src="images/cards/" + name + ".jpg" alt=alt)
-
-//- Top Banner
-//------------------------
-//- include ../path/to/mixins/_pictures
-//- Usage: +banner("name", "alt")
-mixin banner(name, alt)
-  picture.masthead-picture
-    source(type="image/webp" data-srcset="images/top/" + name + ".webp" media="(min-width: 576px)")
-    source(type="image/jpeg" data-srcset="images/top/" + name + ".jpg" media="(min-width: 576px)")
-    source(type="image/webp" data-srcset="images/top/" + name + "-min.webp")
-    source(type="image/jpeg" data-srcset="images/top/" + name + "-min.jpg")
-    img.lazy-top.masthead-img(
-      src="images/top/" + name + "-min.jpg" inline
-      data-src="images/top/" + name + "-min.jpg" alt=alt)
-
-//- Services Picture
-//------------------------
-//- include ../path/to/mixins/_pictures
-//- Usage: +servicesPicture("name", "alt")
-mixin servicesPicture(name, alt)
-  picture.services-picture.shadow-lg
-    source(type="image/webp" data-srcset="images/services/" + name + ".webp")
-    source(type="image/png" data-srcset="images/services/" + name + ".jpg")
-    img.lazy-services.services-img(
-      src="images/services/" + name + ".jpg" inline
-      data-src="images/services/" + name + ".jpg" alt=alt)
-
-//- Info Picture
-//------------------------
-//- include ../path/to/mixins/_pictures
-//- Usage: +infoPicture("name", "alt")
-mixin infoPicture(name, alt)
-  picture.info-picture.shadow-lg
-    source(type="image/webp" data-srcset="images/info/" + name + ".webp")
-    source(type="image/png" data-srcset="images/info/" + name + ".jpg")
-    img.lazy-info.info-img(
-      src="images/info/" + name + ".jpg" inline
-      data-src="images/info/" + name + ".jpg" alt=alt)
-
-//- Carousel Items
-//------------------------
-//- include ../path/to/mixins/_pictures
-//- Usage: +carouselPicture("name", "alt")
-mixin carouselPicture(name, alt)
-  picture.carousel-picture
-    source(type="image/webp" data-srcset="images/portfolio/" + name + ".webp" media="(min-width: 576px)")
-    source(type="image/png" data-srcset="images/portfolio/" + name + ".png" media="(min-width: 576px)")
-    source(type="image/webp" data-srcset="images/portfolio/" + name + "-min.webp")
-    source(type="image/png" data-srcset="images/portfolio/" + name + "-min.png")
-    img.lazy-carousel.carousel-img(
-      data-src="images/portfolio/" + name + ".png" alt=alt)
-
-//- Portfolio Items
-//------------------------
-//- include ../path/to/mixins/_pictures
-//- Usage: +portfolioPicture("name", "alt")
-mixin portfolioPicture(name, alt)
-  picture.portfolio-picture.shadow-lg
-    source(type="image/webp" data-srcset="images/portfolio/" + name + "-min.webp")
-    source(type="image/png" data-srcset="images/portfolio/" + name + "-min.png")
-    img.lazy-portfolio.portfolio-img(
-      src="images/portfolio/" + name + "-min.png" inline
-      data-src="images/portfolio/" + name + "-min.png" alt=alt)
 
 //- Drawer logo
 //------------------------
-//- include ../path/to/mixins/_pictures
 //- Usage: +drawerLogo("name", "alt")
 mixin drawerLogo(name, alt)
   picture
     source(type="image/webp" data-srcset="images/logo/" + name + ".webp")
     source(type="image/png" data-srcset="images/logo/" + name + ".png")
-    img.lazy-drawer.img-fluid(
-      data-src="images/logo/" + name + ".png" alt=alt)
+    img.lazyload.img-fluid(
+      loading="lazy" data-src="images/logo/" + name + ".png" alt=alt)
+
+//- Cards Picture
+//------------------------
+//- Usage: +cardsPicture("name", "alt")
+mixin cardsPicture(name, alt)
+  picture.card-picture
+    source(type="image/webp" srcset="images/cards/" + name + ".webp")
+    source(type="image/jpeg" srcset="images/cards/" + name + ".jpg")
+    img.lazy-cards.lazyload.card-img(
+      loading="lazy" data-src="images/cards/" + name + ".jpg" alt=alt)
+
+//- Carousel Items
+//------------------------
+//- Usage: +carouselPicture("name", "alt")
+mixin carouselPicture(name, alt)
+  picture.carousel-picture
+    source(type="image/webp" srcset="images/portfolio/" + name + ".webp" media="(min-width: 576px)")
+    source(type="image/png" srcset="images/portfolio/" + name + ".png" media="(min-width: 576px)")
+    source(type="image/webp" srcset="images/portfolio/" + name + "-min.webp")
+    source(type="image/png" srcset="images/portfolio/" + name + "-min.png")
+    img.lazy-carousel.lazyload.carousel-img(
+      loading="lazy" data-src="images/portfolio/" + name + ".png" alt=alt)
 
 //- Parallax Picture
 //------------------------
-//- include ../path/to/mixins/_pictures
 //- Usage: +parallaxPicture("name", "alt")
 mixin parallaxPicture(name, alt)
   picture.parallax-picture
     source(type="image/webp" data-srcset="images/hero-unit/" + name + ".webp")
     source(type="image/jpeg" data-srcset="images/hero-unit/" + name + ".jpg")
-    img.lazy-parallax.parallax-img(
-      data-src="images/hero-unit/" + name + ".jpg" data-speed=".6" alt=alt)
+    img.lazy-parallax.lazyload.parallax-img(
+      loading="lazy" data-src="images/hero-unit/" + name + ".jpg" data-speed=".6" alt=alt)
+
+//- Top Banner
+//------------------------
+//- Usage: +banner("name", "alt")
+mixin banner(name, alt)
+  picture.masthead-picture
+    source(type="image/webp" srcset="images/top/" + name + ".webp" media="(min-width: 576px)")
+    source(type="image/jpeg" srcset="images/top/" + name + ".jpg" media="(min-width: 576px)")
+    source(type="image/webp" srcset="images/top/" + name + "-min.webp")
+    source(type="image/jpeg" srcset="images/top/" + name + "-min.jpg")
+    img.lazy-top.masthead-img(
+      src="images/top/" + name + "-min.jpg" alt=alt)
+
+//- Features Picture
+//------------------------
+//- Usage: +featuresPicture("path", "name", "type", "alt")
+//- services, info, portfolio
+mixin featuresPicture(path, name, type, alt)
+  picture.picture-wrapper.shadow-lg
+    source(type="image/webp" srcset="images/" + path + "/" + name + ".webp")
+    source(type="image/png" srcset="images/" + path + "/" + name + ".jpg")
+    img.lazy-features.lazyload(
+      src="images/" + path + "/" + name + "." + type inline
+      loading="lazy" data-src="images/" + path + "/" + name + "." + type alt=alt)

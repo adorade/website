@@ -1,3 +1,5 @@
+/* eslint-disable no-control-regex */
+/* eslint-disable no-useless-escape */
 /*!
  * Adorade (v1.0.0): tools/tasks/styles.js
  * Copyright (c) 2018 - 2019 Adorade (https://adorade.ro)
