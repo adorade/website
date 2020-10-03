@@ -14,84 +14,55 @@
   justify-content: center;
   width: 100%;
   height: 100vh;
-  text-align: center;
 
-  // Hero content
-  .hero-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  .hero-image,
+  .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
   }
 
-  // Clip background element
-  .clip-bg {
-    background-image: url(../images/hero-unit/grass_field_dawn-portrait.webp);
+  // Hero background image
+  .hero-image {
+    z-index: -2;
+    background-image: url(../images/hero-unit/silhouette_tree_water_608x1080.webp);
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
 
     .no-webp & {
-      background-image: url(../images/hero-unit/grass_field_dawn-portrait.jpg);
+      background-image: url(../images/hero-unit/silhouette_tree_water_608x1080.jpg);
     }
 
     @media (min-width: 768px) {
-      background-image: url(../images/hero-unit/grass_field_dawn.webp);
+      background-image: url(../images/hero-unit/silhouette_tree_water_1920x1080.webp);
 
       .no-webp & {
-        background-image: url(../images/hero-unit/grass_field_dawn.jpg);
+        background-image: url(../images/hero-unit/silhouette_tree_water_1920x1080.jpg);
       }
-    }
-
-    &::before,
-    &::after {
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      content: "";
-    }
-
-    // Background
-    &::before {
-      z-index: -2;
-      background-image: inherit;
-      background-position: inherit;
-      background-size: inherit;
-      background-repeat: inherit;
-    }
-
-    // Overlay
-    &::after {
-      z-index: -1;
-      @include gradient-radial-circle(rgba($black, .3), rgba($black, .7));
     }
   }
 
-  // Clip text element
-  .clip-text {
-    background-clip: text;
+  // Hero overlay
+  .hero-overlay {
+    z-index: -1;
+    @include gradient-radial-circle(rgba($black, .3), rgba($black, .7));
+  }
+
+  // Hero content
+  .hero-content {
+    width: auto;
+    height: auto;
     color: $primary-color;
-    -webkit-text-fill-color: transparent;
-
-    // CSS Hacks
-    // Chrome and Safari on iPad
-    @media not all and (min-resolution: .001dpcm) {
-      -webkit-text-fill-color: $primary-color;
-    }
-
-    // Microsoft Edge
-    @supports (-ms-ime-align:auto) {
-      -webkit-text-fill-color: $primary-color;
-    }
+    text-shadow: 20px 20px 15px $black;
   }
 
   // Main title
-  .branding {
+  .hero-title {
     width: 100%;
+    height: auto;
     font-size: 4rem;
     line-height: 1.5;
 
@@ -108,15 +79,13 @@
     }
   }
 
-  // Rotate text
-  .rotate {
+  // Description, rotate text
+  .hero-desc {
     width: 100%;
+    height: auto;
 
     .rotate-text {
       display: none;
-
-      // CSS hack for animation
-      -webkit-text-fill-color: rgba($primary-color, .5);
 
       @media (max-width: 575.98px) {
         font-size: 1.5rem;
