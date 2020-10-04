@@ -8,8 +8,8 @@ import {
   series, watch, args, $, bs, bgBlue, bgRed, green, magenta, red, paths, opts, dirs
 } from '../util';
 import {
-  vendorCss, lintScss, compile, minify,
-  vendorJs, lintMjs, transpile, uglify,
+  vendorCss, lintScss, compile, minifyCss,
+  vendorJs, lintMjs, transpile, minifyJs,
   imagine, convert, favicons, statica, fontsCss, fontsSvg,
   lintPages, pagile, pagify
 } from './';
@@ -39,7 +39,7 @@ export function serve () {
     {
       name: 'Styles',
       paths: paths.styles.src,
-      tasks: [lintScss, compile, minify]
+      tasks: [lintScss, compile, minifyCss]
     },
     {
       name: 'Vendor JS',
@@ -49,7 +49,7 @@ export function serve () {
     {
       name: 'Scripts',
       paths: paths.scripts.src,
-      tasks: [lintMjs, transpile, uglify]
+      tasks: [lintMjs, transpile, minifyJs]
     },
     {
       name: 'Fonts',
