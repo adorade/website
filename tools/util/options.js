@@ -37,13 +37,15 @@ export const opts = {
   eslint: {
     // for more options see .eslintrc.js
   },
-  uglify: {
+  terser: {
     compress: {
       evaluate: false
     },
-    mangle: {
-      keep_fnames: true
-    }
+    output: {
+      comments: false
+    },
+    keep_classnames: true,
+    keep_fnames: true
   },
   images: {
     gif: { interlaced: true },
