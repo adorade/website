@@ -27,20 +27,20 @@
   // Hero background image
   .hero-image {
     z-index: -2;
-    background-image: url(../images/hero-unit/silhouette_tree_water_608x1080.webp);
+    background-image: url(../images/hero-unit/pine_trees_under_blue_sky_608x1080.webp);
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
 
     .no-webp & {
-      background-image: url(../images/hero-unit/silhouette_tree_water_608x1080.jpg);
+      background-image: url(../images/hero-unit/pine_trees_under_blue_sky_608x1080.jpg);
     }
 
     @media (min-width: 768px) {
-      background-image: url(../images/hero-unit/silhouette_tree_water_1920x1080.webp);
+      background-image: url(../images/hero-unit/pine_trees_under_blue_sky_1920x1080.webp);
 
       .no-webp & {
-        background-image: url(../images/hero-unit/silhouette_tree_water_1920x1080.jpg);
+        background-image: url(../images/hero-unit/pine_trees_under_blue_sky_1920x1080.jpg);
       }
     }
   }
@@ -48,7 +48,7 @@
   // Hero overlay
   .hero-overlay {
     z-index: -1;
-    @include gradient-radial-circle(rgba($black, .3), rgba($black, .7));
+    @include gradient-radial-circle(rgba($black, .1), rgba($black, .5));
   }
 
   // Hero content
@@ -56,7 +56,7 @@
     width: auto;
     height: auto;
     color: $primary-color;
-    text-shadow: 20px 20px 15px $black;
+    text-shadow: 10px 10px 15px $black;
   }
 
   // Main title
