@@ -1,5 +1,6 @@
 //- partials/_preconnect.pug
-link(rel="preconnect" href="https://stats.g.doubleclick.net" crossorigin)
-link(rel="preconnect" href="https://www.google.ro" crossorigin)
-link(rel="preconnect" href="https://www.google.com" crossorigin)
-link(rel="preconnect" href="https://www.google-analytics.com" crossorigin)
+if entry.inline
+  link(rel="preconnect" href="https://stats.g.doubleclick.net" crossorigin)
+  link(rel="preconnect" href="https://www.google.ro" crossorigin)
+  link(rel="preconnect" href="https://www.google.com" crossorigin)
+  link(rel="preconnect" href="https://www.googletagmanager.com" crossorigin)
