@@ -1,59 +1,34 @@
 //
-// Automatic Tracking Of Buttons and Links for analytics.js
+// Automatic Tracking Of Buttons and Links for gtag.js
 //
-// Function that automatically tracks a click on a link in Google Analytics,
-// using the analytics.js. Setting the transport method to 'beacon' lets the hit be
-// sent using 'navigator.sendBeacon' in browser that support it.
 // https://support.google.com/analytics/answer/7478520?hl=en
 // -----------------------------------------------------------------------------
-/* globals ga */
+/* globals gtag */
 
 $(function () {
-  function handleInlineClicks (track, label) {
-    // console.log('Label: ' + label + '\nTrack: ' + track)
+  function getOutboundLink (event) {
+    let category = event.data.name,
+        label = $(this).attr('aria-label')
+    // console.log('Track: ' + category + '\nLabel: ' + label)
 
-    ga('send', 'event', {
-      eventCategory: track,
-      eventAction: 'click',
-      eventLabel: label,
-      transport: 'beacon'
+    gtag('event', 'click', {        // action => 'click'
+      'event_category': category,   // 'outbound'
+      'event_label': label,
+      'transport_type': 'beacon'
     })
   }
 
-  function handleOutboundLinkClicks (track, label) {
-    // console.log('Label: ' + label + '\nTrack: ' + track)
+  // Internal, on page
+  $('button, .scroll-down-icon, .back-to-top-icon, .input-dark, .input-light, .carousel-control-prev, .carousel-control-next')
+    .on('click', { name: 'internal' }, getOutboundLink)
+  $('.cc-message a, .cc-compliance a')
+    .on('click', { name: 'consent'}, getOutboundLink)
 
-    ga('send', 'event', {
-      eventCategory: track,
-      eventAction: 'click',
-      eventLabel: label,
-      transport: 'beacon'
-    })
-  }
+  // Internal, navigation
+  $('.nav-link, .card-link, .track-link, .back-link')
+    .on('click', { name: 'navigation' }, getOutboundLink)
 
-  $('button').on('click', function () {
-    let label = $(this).attr('aria-label')
-    handleInlineClicks('button', label)
-  })
-
-  $('.card-link, .track-link').on('click', function () {
-    let label = $(this).attr('aria-label')
-    handleInlineClicks('link', label)
-  })
-
-  $('.scroll-down-icon, .back-to-top-icon').on('click', function () {
-    let label = $(this).attr('aria-label')
-    handleInlineClicks('misc', label)
-  })
-
-  $('.cc-message a, .cc-compliance a').on('click', function () {
-    let label = $(this).attr('aria-label')
-    handleInlineClicks('consent', label)
-  })
-
-  $('.outbound-link').on('click', function () {
-    let track = $(this).attr('href')
-    let label = $(this).attr('aria-label')
-    handleOutboundLinkClicks(track, label)
-  })
+  // External
+  $('.external-link').on('click', { name: 'portfolio'}, getOutboundLink)
+  $('.social-link').on('click', { name: 'social'}, getOutboundLink)
 })
