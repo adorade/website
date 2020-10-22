@@ -3,9 +3,9 @@
 // -----------------------------------------------------------------------------
 
 document.addEventListener('DOMContentLoaded', () => {
-  const cardPictures = document.querySelectorAll('.card-picture')
+  const cardPictures = [].slice.call(document.querySelectorAll('.card-picture'))
   const featurePictures = [].slice.call(document.querySelectorAll('.lazy-features'))
-  const topPictures = document.querySelectorAll('.lazy-top')
+  const topPictures = [].slice.call(document.querySelectorAll('.lazy-top'))
 
   topPictures.forEach(top => {
     top.parentNode.classList.add('fade-in')
