@@ -55,7 +55,7 @@
     "gulp-terser-js": "5.2.2",
     "gulp-webp": "4.0.1",
     "minimist": "1.2.5",
-    "rollup": "2.32.1",
+    "rollup": "2.33.1",
     "stylelint": "13.7.2",
     "stylelint-config-standard": "20.0.0",
     "stylelint-order": "4.1.0",
