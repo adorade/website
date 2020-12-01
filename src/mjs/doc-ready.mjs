@@ -1,16 +1,15 @@
 //
 // Document ready
-// -----------------------------------------------------------------------------
+// =============================================================================
 
-// Prepare hero height
-// Re-Set on orientation change and window resize
-// ------------------------
+// Prepare hero height and reset on orientation change and window resize
+// -----------------------------------------------------------------------------
 $(window).on('load orientationchange resize', () => {
   $('.hero-unit').height( $(window).height() )
 })
 
-// On Dccument ready
-// ------------------------
+// On Document Ready
+// -----------------------------------------------------------------------------
 $(() => {
   // Text Rotate
   // ------------------------
@@ -19,35 +18,6 @@ $(() => {
   // Parallax Effect
   // ------------------------
   $('.parallax-img').parallax()
-
-  // Window Scroll
-  // ------------------------
-  $(window).on('scroll', function () {
-    const $windowPos = $(this).scrollTop(),
-          $windowH = $(this).height(),
-          $documentH = $(document).height(),
-          $toggler = $('.navbar-toggler'),
-          $totop = $('.back-to-top'),
-          $percent = $('.back-to-top-percent'),
-          $hero = $('.hero-unit').height() - 1,
-          $masthead = $('.masthead').height() - 1,
-          scrollPos = $windowPos ? $windowPos : 0
-
-    if (scrollPos > $hero || scrollPos > $masthead) {
-      $toggler.addClass('btn-orange')
-      $totop.filter(':hidden').stop(true, true).fadeIn()
-    } else {
-      $toggler.removeClass('btn-orange')
-      $totop.stop(true, true).fadeOut()
-    }
-
-    let scrollProcent = 0
-    scrollProcent = 100 - Math.round(
-      (($documentH - $windowH - $windowPos) * 100) /
-      ($documentH - $windowH)
-    )
-    $percent.height(scrollProcent + '%')
-  })
 
   // Scroll to Cards section
   // ------------------------
@@ -65,4 +35,33 @@ $(() => {
       scrollTop: 0
     }, 1000)
   })
+})
+
+// On Window Scroll
+// -----------------------------------------------------------------------------
+$(window).on('scroll', function () {
+  const $windowPos = $(this).scrollTop(),
+        $windowH = $(this).height(),
+        $documentH = $(document).height(),
+        $toggler = $('.navbar-toggler'),
+        $totop = $('.back-to-top'),
+        $percent = $('.back-to-top-percent'),
+        $hero = $('.hero-unit').height() - 1,
+        $masthead = $('.masthead').height() - 1,
+        scrollPos = $windowPos ? $windowPos : 0
+
+  if (scrollPos > $hero || scrollPos > $masthead) {
+    $toggler.addClass('btn-orange')
+    $totop.filter(':hidden').stop(true, true).fadeIn()
+  } else {
+    $toggler.removeClass('btn-orange')
+    $totop.stop(true, true).fadeOut()
+  }
+
+  let scrollProcent = 0
+  scrollProcent = 100 - Math.round(
+    (($documentH - $windowH - $windowPos) * 100) /
+    ($documentH - $windowH)
+  )
+  $percent.height(scrollProcent + '%')
 })
