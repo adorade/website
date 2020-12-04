@@ -17,7 +17,7 @@
 /* globals importScripts, workbox */
 
 // Import workbox-sw, which defines the global `workbox` object.
-importScripts('https://storage.googleapis.com/workbox-cdn/releases/6.0.0/workbox-sw.js');
+importScripts('https://storage.googleapis.com/workbox-cdn/releases/6.0.2/workbox-sw.js');
 
 // Force production builds, set to `false` for localhost
 // workbox.setConfig({ debug: false });
