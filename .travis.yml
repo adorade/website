@@ -11,10 +11,10 @@ language: node_js
 
 os: linux
 
+dist: focal
+
 node_js:
   - "lts/*"
-
-dist: focal
 
 git:
   depth: 4
@@ -27,6 +27,11 @@ cache:
 before_script:
   - yarn global add gulp-cli
 
-script:
-  - yarn run verify
-  - yarn run build
+jobs:
+  include:
+    - stage: prepare cache
+      script: true
+    - stage: verify
+      script: yarn run verify
+    - stage: build
+      script: yarn run build
