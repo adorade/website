@@ -29,9 +29,11 @@ before_script:
 
 jobs:
   include:
-    - stage: prepare cache
+    - stage: Test
+      script: echo "Running unit tests"
+    - stage: Prepare cache
       script: true
-    - stage: verify
+    - stage: Verify
       script: yarn run verify
-    - stage: build
+    - stage: Build
       script: yarn run build
