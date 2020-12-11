@@ -19,14 +19,21 @@ node_js:
 git:
   depth: 4
 
+cache:
+  yarn: true
+  directories:
+    - node_modules
+
 before_script:
   - yarn global add gulp-cli
 
 jobs:
   include:
-    - stage: prepare cache
+    - stage: Test
+      script: echo "Running unit tests"
+    - stage: Prepare cache
       script: true
-    - stage: verify
+    - stage: Verify
       script: yarn run verify
-    - stage: build
+    - stage: Build
       script: yarn run build
