@@ -6,7 +6,6 @@
 [![license](https://img.shields.io/github/license/adorade/website.svg?label=)](https://mit-license.org)
 [![website](https://img.shields.io/website/https/adorade.ro.svg?logo=google-chrome)](https://adorade.ro/)
 [![devDependencies Status](https://img.shields.io/david/dev/adorade/website.svg?label=deps)](https://david-dm.org/adorade/website?type=dev)
-[![Travis (.com)](https://img.shields.io/travis/com/adorade/website?logo=travis)](https://travis-ci.com/adorade/website)
 [![Renovate enabled](https://img.shields.io/badge/renovate-enabled-brightgreen.svg)](https://renovatebot.com/)
 [![GitHub Actions status](https://github.com/adorade/website/workflows/Node%20CI/badge.svg)](https://github.com/adorade/website/actions)
 [![Total alerts](https://img.shields.io/lgtm/alerts/g/adorade/website.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/adorade/website/alerts/)
