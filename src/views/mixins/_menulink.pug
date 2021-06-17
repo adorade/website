@@ -1,10 +1,10 @@
-//- mixins/_drawer.pug
+//- mixins/_menulink.pug
 
-//- Drawer menu
+//- Menu link
 //------------------------
-//- include ../path/to/mixins/_drawer
-//- Usage: +drawerLink("menu")
-mixin drawerLink(menu)
+//- include ../path/to/mixins/_menulink
+//- Usage: +menuLink("menu")
+mixin menuLink(menu)
   if currentUrl
     - currentUrl = currentUrl;
   else
@@ -18,13 +18,13 @@ mixin drawerLink(menu)
       - linkActive = '';
       - scrOnly = '';
 
-    li.nav-item(class=linkActive)
-      a.nav-link(href=menuItem.link aria-label=`Go to ${menuItem.label}`)
-        img.svg-inline--fa.fa-fw.mr-3(id=`fa-${menuItem.icon}` src=`fonts/svgs/solid/${menuItem.icon}.svg` alt=`${menuItem.icon}` inline)
+    li.nav-item
+      a.nav-link(class=linkActive href=menuItem.link aria-label=`Go to ${menuItem.label}`)
+        img.svg-inline--fa.fa-fw.me-3(id=`fa-${menuItem.icon}` src=`fonts/svgs/solid/${menuItem.icon}.svg` alt=`${menuItem.icon}` inline)
         | #{menuItem.label} !{scrOnly}
 
 //--- Result
-//- li.nav-item.active: a.nav-link(href="./" aria-label="Go to Home") #[span.fa-li #[i.fas.fa-home.fa-fw]] Home
+//- li.nav-item: a.nav-link.active(href="./" aria-label="Go to Home") #[span.fa-li #[i.fas.fa-home.fa-fw]] Home
 //- li.nav-item: a.nav-link(href="#!" aria-label="Go to Services") #[span.fa-li #[i.fas.fa-toolbox.fa-fw]] Services
 //- li.nav-item: a.nav-link(href="#!" aria-label="Go to Info") #[span.fa-li #[i.fas.fa-info-circle.fa-fw]] Info
 //- li.nav-item: a.nav-link(href="#!" aria-label="Go to Portfolio") #[span.fa-li #[i.fas.fa-image.fa-fw]] Portfolio

@@ -7,21 +7,27 @@ section.testimonials.text-center#testimonials
 
     .row.mt-5
       .col-8.offset-2
-        .carousel.slide#carouselTestimonial(data-ride="carousel")
-          ol.carousel-indicators.mb-n3
-            li.active(data-target="#carouselTestimonial" data-slide-to="0")
-            li(data-target="#carouselTestimonial" data-slide-to="1")
+        .carousel.slide#carouselTestimonial(data-bs-ride="carousel")
+          .carousel-indicators.mb-n3
+            button.active(
+              role="button" type="button"
+              data-bs-target="#carouselTestimonial" data-bs-slide-to="0"
+              aria-current="true" aria-label="Slide 1")
+            button(
+              role="button" type="button"
+              data-bs-target="#carouselTestimonial" data-bs-slide-to="1"
+              aria-label="Slide 2")
 
           .carousel-inner
             .carousel-item.active
               blockquote.blockquote
-                p.mb-0: q
+                p: q
                   | A true partnership is a two-way street, ideas and information flow openly and regularly, based on
                   | a foundation of mutual trust and respect for one another’s expertise and our clients embrace this philosophy.
                 footer.blockquote-footer.text-light Chalion Trevor - #[cite(title="WebMagia") WebMagia]
             .carousel-item
               blockquote.blockquote
-                p.mb-0: q
+                p: q
                   | The best and most productive relationships are synergetic and goal-oriented, and a long-term
                   | relationship has the value added of deep-rooted industry and company knowledge and relationships.
                 footer.blockquote-footer.text-light Mario Dederio - #[cite(title="UniKorn") UniKorn]

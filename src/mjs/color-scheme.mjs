@@ -8,7 +8,7 @@
   const colorScheme = initPrefersColorScheme('dark')
 
   // Toggle selector and currnt theme constant
-  const $toggler = $('.btn-group-toggle input:radio')
+  const $toggler = $('.btn-theme-toggle input:radio')
   const currentTheme = localStorage.getItem('theme')
     ? localStorage.getItem('theme')
     : null
@@ -49,7 +49,7 @@
   }
 
   // Event handlers on change
-  $toggler.change(switchTheme)
+  $toggler.on('change', switchTheme)
 
   // let’s run it now
   // colorScheme.onChange();

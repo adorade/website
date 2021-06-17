@@ -18,6 +18,11 @@ if description
 else
   meta(name="description" content= desc)
 
+if currentUrl
+  link(rel="canonical" href= url + currentUrl)
+else
+  link(rel="canonical" href= url)
+
 //- //--- Schema.org markup for Google
 //- script(type="application/ld+json").
 //-   {

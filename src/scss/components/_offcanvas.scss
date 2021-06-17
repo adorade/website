@@ -1,0 +1,57 @@
+//
+// OffCanvas Sidebar Menu
+// -----------------------------------------------------------------------------
+
+.offcanvas {
+  background-color: var(--background-color-medium);
+  color: var(--text-color);
+}
+
+.offcanvas-start {
+  border: none;
+}
+
+.offcanvas-header {
+  padding: 0;
+  border-bottom: 1px solid rgba($white, .12);
+  background-color: var(--drawer-header-background-color);
+
+  .btn-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    padding: .5rem;
+    margin: 0;
+    background: 0 0;
+    font-size: 1.5rem;
+  }
+}
+
+.offcanvas-body {
+  // code here
+}
+
+.offcanvas-nav {
+  .nav-link {
+    color: var(--link-color);
+
+    @include hover-focus {
+      background-image: var(--bs-gradient);
+      background-color: var(--background-color-dark);
+      color: var(--link-color);
+    }
+  }
+
+  .nav-link.active,
+  .show > .nav-link {
+    background-color: var(--background-color-dark);
+    color: $primary-color;
+  }
+}
+
+.offcanvas-footer {
+  padding: 1rem .5rem;
+  border-top: 1px solid rgba($white, .12);
+  color: var(--text-color);
+}

@@ -5,8 +5,7 @@
     .modal-content
       .modal-header
         h4.modal-title#GetQuoteModalLabel Contact us
-        button.close(type="button" data-dismiss="modal" aria-label="Close Modal")
-          span(aria-hidden="true") &times;
+        button.btn-close(type="button" data-bs-dismiss="modal" aria-label="Close Modal")
           span.sr-only Close
 
       .modal-body
@@ -24,7 +23,7 @@
               label(for="bot-field") Don’t fill this out if you're human
               input.form-control#modal-bot-field(type="text" name="bot-field" autocomplete="off")
 
-          .form-group
+          .form-group.mb-3
             .input
               input.form-control#modal-name(
                 type="text" name="name" maxlength="50" placeholder="Your name"
@@ -34,7 +33,7 @@
               .valid-feedback Looks good!
               .invalid-feedback Please enter a valid name.
 
-          .form-group
+          .form-group.mb-3
             .input
               input.form-control#modal-email(
                 type="email" name="email" maxlength="100" placeholder="Your email"
@@ -44,7 +43,7 @@
               .valid-feedback Looks good!
               .invalid-feedback Please enter a valid email.
 
-          .form-group
+          .form-group.mb-3
             .input
               input.form-control#modal-phone(
                 type="tel" name="phone" maxlength="20" placeholder="Your phone"
@@ -54,7 +53,7 @@
               .valid-feedback Looks good!
               .invalid-feedback Please enter a valid phone.
 
-          .form-group
+          .form-group.mb-3
             .input
               input.form-control#modal-subject(
                 type="text" name="subject" maxlength="100" placeholder="Your subject"
@@ -64,7 +63,7 @@
               .valid-feedback Looks good!
               .invalid-feedback Please enter a valid subject.
 
-          .form-group
+          .form-group.mb-3
             .input
               textarea.form-control#modal-message(
                 name="message" rows="6" maxlength="600" placeholder="Your message"
@@ -81,7 +80,7 @@
               .invalid-feedback You must agree before submitting.
 
           .mt-4.text-center
-            button.btn.btn-info.mr-1(type="submit" aria-label="Submit Get Quote") Submit
+            button.btn.btn-info.me-1(type="submit" aria-label="Submit Get Quote") Submit
             button.btn.btn-outline-dark(type="reset" aria-label="Cancel Get Quote") Cancel
 
       .modal-footer

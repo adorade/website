@@ -3,9 +3,9 @@
 // -----------------------------------------------------------------------------
 
 .btn-orange {
-  @include button-variant(rgba($primary-color, .5), rgba($primary-color, .5));
+  @include button-variant(rgba($primary-color, 1), rgba($primary-color, 1), $white);
 }
 
 .btn-outline-orange {
-  @include button-outline-variant(rgba($primary-color, .5));
+  @include button-outline-variant(rgba($primary-color, 1));
 }

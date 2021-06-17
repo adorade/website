@@ -1,12 +1,12 @@
 //- includes/forms/_contact-form.pug
 //- Contact form
-section.contact.text-center#contact
+section.contact#contact
   .container
     .row
       .col-12
-        h4.mb-5 If you have any type of questions do not hesitate to contact us!
+        h4.text-center.mb-5 If you have any type of questions do not hesitate to contact us!
 
-    .row.no-gutters
+    .row.g-0
       .col.col-md-8.offset-md-2
         //- the form result (success or error) will be rendered inside `.form-response`
         .form-response.alert.shadow-lg.d-none
@@ -20,7 +20,7 @@ section.contact.text-center#contact
               label(for="bot-field") Don’t fill this out if you're human
               input.form-control#contact-bot-field(type="text" name="bot-field" autocomplete="off")
 
-          .form-group
+          .form-group.mb-3
             .input
               input.form-control#contact-name(
                 type="text" name="name" maxlength="50" placeholder="Your name"
@@ -30,7 +30,7 @@ section.contact.text-center#contact
               .valid-feedback Looks good!
               .invalid-feedback Please enter a valid name.
 
-          .form-group
+          .form-group.mb-3
             .input
               input.form-control#contact-email(
                 type="email" name="email" maxlength="100" placeholder="Your email"
@@ -40,7 +40,7 @@ section.contact.text-center#contact
               .valid-feedback Looks good!
               .invalid-feedback Please enter a valid email.
 
-          .form-group
+          .form-group.mb-3
             .input
               input.form-control#contact-phone(
                 type="tel" name="phone" maxlength="20" placeholder="Your phone"
@@ -50,7 +50,7 @@ section.contact.text-center#contact
               .valid-feedback Looks good!
               .invalid-feedback Please enter a valid phone.
 
-          .form-group
+          .form-group.mb-3
             .input
               input.form-control#contact-subject(
                 type="text" name="subject" maxlength="100" placeholder="Your subject"
@@ -60,7 +60,7 @@ section.contact.text-center#contact
               .valid-feedback Looks good!
               .invalid-feedback Please enter a valid subject.
 
-          .form-group
+          .form-group.mb-3
             .input
               textarea.form-control#contact-message(
                 name="message" rows="6" maxlength="600" placeholder="Your message"
@@ -77,5 +77,5 @@ section.contact.text-center#contact
               .invalid-feedback You must agree before submitting.
 
           .mt-4.text-center
-            button.btn.btn-info.mr-1(type="submit" aria-label="Submit Contact") Submit
+            button.btn.btn-info.me-1(type="submit" aria-label="Submit Contact") Submit
             button.btn.btn-outline-light(type="reset" aria-label="Cancel Contact") Cancel
