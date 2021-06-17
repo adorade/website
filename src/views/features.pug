@@ -1,0 +1,13 @@
+//- features.pug
+extends layout/_base
+
+prepend setting
+  - title = 'Adorade - Features info';
+  - description = 'We look forward to a successful working relationship in the future.';
+  - currentUrl = 'features.html';
+
+block header
+  include modules/header/_header-features
+
+prepend content
+  include includes/pages/_features

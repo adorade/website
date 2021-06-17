@@ -1,0 +1,18 @@
+//- modules/offcanvas/_offcanvas.pug
+include ../../mixins/_menulink
+include ../../mixins/_pictures
+
+.offcanvas.offcanvas-start#main-menu(tabindex="-1" aria-labelledby="menuLogo")
+  .offcanvas-header
+    h5.menu-logo.mb-0#menuLogo
+      +menuLogo("logo-drawer", "Adorade")
+    button.btn-close.text-reset(type="button" data-bs-dismiss="offcanvas" aria-label="Close Main Menu")
+      //- i.fas.fa-times
+      img.svg-inline--fa#fa-times(src="fonts/svgs/solid/times.svg" alt="times" inline)
+
+  .offcanvas-body
+    ul.offcanvas-nav.nav.nav-pills.flex-column.mb-auto
+      +menuLink(menu)
+
+  .offcanvas-footer
+    include ../../includes/misc/_copyright

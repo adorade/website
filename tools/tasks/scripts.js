@@ -28,7 +28,9 @@ export function vendorJs () {
   return src(paths.vendor.src.js, {
     // since: lastRun(vendorJs)
   })
-    .pipe($.replace(/\/\/.*?sourceMappingURL\s*=.*?[\r\n]/, ''))
+    // .pipe($.replace(/\/\/.*?sourceMappingURL\s*=.*?[\r\n]/, ''))
+    .pipe($.replace(/\/\/[#@]\s(source(?:Mapping)?URL)=\s*(\S+)/, ''))
+    .pipe($.replace(/^(?:[\t ]*(?:\r?\n|\r))+/, ''))
     .pipe($.concat('vendors.min.js'))
     .pipe($.size(opts.size))
     .pipe(dest(paths.vendor.dest.js))

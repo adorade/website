@@ -9,10 +9,16 @@ section.carousel-portfolio.text-center#carousel-portfolio
 
     .row.mb-5
       .col
-        .carousel.slide.carousel-fade#carouselPortfolio(data-ride="carousel")
-          ol.carousel-indicators
-            li.active(data-target="#carouselPortfolio" data-slide-to="0")
-            li(data-target="#carouselPortfolio" data-slide-to="1")
+        .carousel.slide.carousel-fade#carouselPortfolio(data-bs-ride="carousel")
+          .carousel-indicators
+            button.active(
+              role="button" type="button"
+              data-bs-target="#carouselPortfolio" data-bs-slide-to="0"
+              aria-current="true" aria-label="Slide 1")
+            button(
+              role="button" type="button"
+              data-bs-target="#carouselPortfolio" data-bs-slide-to="1"
+              aria-label="Slide 2")
 
           .carousel-inner.shadow-lg
             .carousel-item.active
@@ -20,11 +26,15 @@ section.carousel-portfolio.text-center#carousel-portfolio
             .carousel-item
               +carouselPicture("unikorn", "UniKorn")
 
-          a.carousel-control-prev(href="#carouselPortfolio" role="button" data-slide="prev" aria-label="Previous")
+          button.carousel-control-prev(role="button" type="button"
+            data-bs-target="#carouselPortfolio" data-bs-slide="prev" aria-label="Previous")
             span.carousel-control-prev-icon(aria-hidden="true")
-          a.carousel-control-next(href="#carouselPortfolio" role="button" data-slide="next" aria-label="Next")
+            span.visually-hidden Previous
+          button.carousel-control-next(role="button" type="button"
+            data-bs-target="#carouselPortfolio" data-bs-slide="next" aria-label="Next")
             span.carousel-control-next-icon(aria-hidden="true")
+            span.visually-hidden Next
 
     .row
       .col
-        p.mb-0: a.btn.btn-orange.track-link(href="portfolio.html" aria-label="Get Portfolio") See our work &#8594;
+        p.mb-0: a.btn.btn-orange.track-link(href="portfolio.html" aria-label="Get Portfolio") Portfolio &#8594;

@@ -1,11 +1,11 @@
 //- mixins/_pictures.pug
 //- include ../path/to/mixins/_pictures
 
-//- Drawer logo
+//- Menu logo
 //------------------------
-//- Usage: +drawerLogo("name", "alt")
-mixin drawerLogo(name, alt)
-  picture
+//- Usage: +menuLogo("name", "alt")
+mixin menuLogo(name, alt)
+  picture.d-block
     source(type="image/webp" data-srcset=`images/logo/${name}.webp`)
     source(type="image/png" data-srcset=`images/logo/${name}.png`)
     img.lazyload.img-fluid(
@@ -41,7 +41,7 @@ mixin parallaxPicture(name, alt)
     source(type="image/webp" data-srcset=`images/hero-unit/${name}.webp`)
     source(type="image/jpeg" data-srcset=`images/hero-unit/${name}.jpg`)
     img.lazy-parallax.lazyload.parallax-img(
-      loading="lazy" data-src=`images/hero-unit/${name}.jpg` data-speed=".6" alt=alt)
+      loading="lazy" data-src=`images/hero-unit/${name}.jpg` data-speed=".8" alt=alt)
 
 //- Top Banner
 //------------------------
