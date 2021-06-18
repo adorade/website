@@ -14,7 +14,7 @@
 .offcanvas-header {
   padding: 0;
   border-bottom: 1px solid rgba($white, .12);
-  background-color: var(--drawer-header-background-color);
+  background-color: var(--offcanvas-header-background-color);
 
   .btn-close {
     position: absolute;
@@ -37,7 +37,7 @@
     color: var(--link-color);
 
     @include hover-focus {
-      background-image: var(--bs-gradient);
+      background-image: unset;
       background-color: var(--background-color-dark);
       color: var(--link-color);
     }
@@ -45,6 +45,7 @@
 
   .nav-link.active,
   .show > .nav-link {
+    background-image: unset;
     background-color: var(--background-color-dark);
     color: $primary-color;
   }
