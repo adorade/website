@@ -12,7 +12,7 @@
 
 .picture-wrapper {
   // You should use a 16:9 image ratio, such as 540x304 px.
-  @include picture(16 9, ".lazy-features");
+  @include picture(16 9, ".lazy-features", false, true);
 }
 
 .fade-in {

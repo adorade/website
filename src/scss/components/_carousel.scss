@@ -8,7 +8,7 @@
 
   .carousel-picture {
     // You should use a 16:9 image ratio, such as 1280 x 720 px.
-    @include picture(16 9, ".carousel-img", false);
+    @include picture(16 9, ".carousel-img", false, false);
   }
 
   .carousel-img {
