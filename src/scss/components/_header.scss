@@ -3,8 +3,10 @@
 // -----------------------------------------------------------------------------
 
 .masthead {
-  // height: calc(100vh / 2);
+  position: relative;
+  width: 100%;
   height: 210px;
+  overflow: hidden;
 
   @media screen and (min-width: 576px) {
     height: 300px;
@@ -13,47 +15,37 @@
   @media screen and (min-width: 768px) {
     height: 400px;
   }
+}
 
-  .masthead-wraper {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-  }
+.masthead-picture {
+  // This images is used for Open Graph
+  // `Non-open Graph Stories Images` appear in a rectangular format.
+  // You should use a 1.91:1 image ratio, such as 600 x 315 px.
+  @include picture(16 9, ".masthead-img", true, true);
 
-  .masthead-picture {
-    // `Non-open Graph Stories Images` appear in a rectangular format.
-    // You should use a 1.91:1 image ratio, such as 600 x 314 px.
-    @include picture(1.91 1, ".masthead-img");
-
-    .masthead-img {
-      @media screen and (max-width: 320px) {
-        width: auto;
-      }
+  .masthead-img {
+    @media screen and (max-width: 320px) {
+      width: auto;
     }
   }
+}
 
-  .fade-in {
-    filter: none;
-  }
+.mastehead-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  color: $grey-100;
+  @include gradient-radial-circle(rgba($black, .1), rgba($black, .7));
 
-  .mastehead-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    color: $grey-100;
-    @include gradient-radial-circle(rgba($black, .1), rgba($black, .7));
-
-    @media screen and (min-width: 768px) {
-      h1 {
-        font-size: 4rem;
-      }
+  @media screen and (min-width: 768px) {
+    h1 {
+      font-size: 4rem;
     }
   }
 }
