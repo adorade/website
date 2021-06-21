@@ -3,11 +3,27 @@
 // -----------------------------------------------------------------------------
 
 .contact,
+.carousel-portfolio,
 .features,
+.newsletter,
+.portfolio,
+.services {
+  color: var(--text-color);
+}
+
+.contact,
 .portfolio,
 .services {
   background-color: var(--body-background-color);
-  color: var(--text-color);
+}
+
+.carousel-portfolio {
+  background-color: var(--background-color-medium);
+}
+
+.features,
+.newsletter {
+  background-color: var(--background-color-dark);
 }
 
 .picture-wrapper {
