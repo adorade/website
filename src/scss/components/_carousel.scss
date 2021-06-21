@@ -3,8 +3,9 @@
 // -----------------------------------------------------------------------------
 
 .carousel-portfolio {
-  background-color: var(--background-color-medium);
-  color: var(--text-color);
+  // NOTE: see `pages/_pages.scss`
+  // background-color: var(--background-color-medium);
+  // color: var(--text-color);
 
   .carousel-picture {
     // You should use a 16:9 image ratio, such as 1280 x 720 px.
