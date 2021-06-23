@@ -46,9 +46,9 @@
             "icons": [{ "src": "statics/icons/icon-cyan-192x192.png", "sizes": "192x192" }]
         },
         {
-            "name": "Info for you",
-            "short_name": "Info",
-            "url": "/info.html?utm_source=pwa",
+            "name": "Features info for you",
+            "short_name": "Features",
+            "url": "/features.html?utm_source=pwa",
             "icons": [{ "src": "statics/icons/icon-green-192x192.png", "sizes": "192x192" }]
         },
         {
