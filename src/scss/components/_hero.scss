@@ -14,6 +14,7 @@
   justify-content: center;
   width: 100%;
   height: 100vh;
+  overflow: hidden;
 
   .hero-image,
   .hero-overlay {
@@ -27,20 +28,20 @@
   // Hero background image
   .hero-image {
     z-index: -2;
-    background-image: url(../images/hero-unit/pine_trees_under_blue_sky_608x1080.webp);
+    background-image: url(../images/hero-unit/forest_lake_sunset_608x1080.webp);
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
 
     .no-webp & {
-      background-image: url(../images/hero-unit/pine_trees_under_blue_sky_608x1080.jpg);
+      background-image: url(../images/hero-unit/forest_lake_sunset_608x1080.jpg);
     }
 
     @media (min-width: 768px) {
-      background-image: url(../images/hero-unit/pine_trees_under_blue_sky_1920x1080.webp);
+      background-image: url(../images/hero-unit/forest_lake_sunset_1920x1080.webp);
 
       .no-webp & {
-        background-image: url(../images/hero-unit/pine_trees_under_blue_sky_1920x1080.jpg);
+        background-image: url(../images/hero-unit/forest_lake_sunset_1920x1080.jpg);
       }
     }
   }

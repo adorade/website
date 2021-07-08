@@ -37,8 +37,22 @@
   }
 }
 
+@keyframes skale {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.025);
+  }
+}
+
 .shakeX {
   animation-name: shakeX;
+}
+
+.skale {
+  animation: skale 8s infinite;
 }
 
 .animated {
