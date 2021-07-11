@@ -24,7 +24,7 @@
   @include picture(16 9, ".masthead-img", true, true);
 
   .masthead-img {
-    @media screen and (max-width: 320px) {
+    @media screen and (max-width: 575.98px) {
       width: auto;
     }
   }
