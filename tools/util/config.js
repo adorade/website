@@ -38,8 +38,8 @@ export const paths = {
       ],
       js: [
         `${dirs.modules}/jquery/dist/jquery.min.js`,                 // 3.6.0
-        `${dirs.modules}/@popperjs/core/dist/umd/popper.min.js`,     // 2.9.2
-        `${dirs.modules}/bootstrap/dist/js/bootstrap.min.js`,        // 5.0.1
+        `${dirs.modules}/@popperjs/core/dist/umd/popper.min.js`,     // 2.10.2
+        `${dirs.modules}/bootstrap/dist/js/bootstrap.min.js`,        // 5.1.3
         `${dirs.src}/vendor/js/browser.min.js`,                      // 4.0.0
         `${dirs.modules}/cookieconsent/build/cookieconsent.min.js`   // 3.1.1
       ]
