@@ -48,7 +48,7 @@ export function compile () {
   return src(paths.styles.src, {
     sourcemaps: true
   })
-    .pipe($.sass(opts.sass).on('error', $.sass.logError))
+    .pipe($.gSass(opts.sass).on('error', $.gSass.logError))
     .pipe($.autoprefixer(opts.autoprefixer))
     .pipe($.header(banner()))
     .pipe($.size(opts.size))

@@ -11,12 +11,18 @@ export { src, dest, series, parallel, lastRun, watch, tree } from 'gulp';
 export const $ = require('gulp-load-plugins')({
   pattern: ['*'],
   rename: {
-    'gulp-stylelint': 'gStylelint',
     'gulp-eslint': 'gEslint',
-    'gulp-pug-linter': 'pugLinter',
-    'gulp-terser-js': 'gTerser',
     'gulp-gh-pages': 'ghPages',
+    'gulp-pug-linter': 'pugLinter',
+    'gulp-sass': 'gSass',
+    'gulp-stylelint': 'gStylelint',
+    'gulp-terser-js': 'gTerser',
     'workbox-build': 'workboxBuild'
+  },
+  postRequireTransforms: {
+    gSass: function (gSass) {
+      return gSass(require('sass'));
+    }
   }
 });
 
