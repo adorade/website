@@ -22,8 +22,8 @@ $(window).on('load', () => {
       event.stopPropagation()
 
       // --- Add `shake` animation
-      $(this).addClass('shakeX animated').one('animationend', function () {
-        $(this).removeClass('shakeX animated')
+      $(this).addClass('shake-x animated').one('animationend', function () {
+        $(this).removeClass('shake-x animated')
       })
     } else {
       // --- Since form is now valid, prevent default behavior.
