@@ -4,8 +4,7 @@
  * Licensed under MIT
  * ========================================================================== */
 
-import { args } from './plugins';
-import { dirs, paths } from './config';
+import { args, dirs, paths } from './index.js';
 
 const dates = new Date(
   process.env.SOURCE_DATE_EPOCH ? process.env.SOURCE_DATE_EPOCH * 1000 : new Date().getTime()
@@ -51,12 +50,17 @@ export const opts = {
     gif: { interlaced: true },
     jpeg: { progressive: true },
     png: { optimizationLevel: 4 },
-    svg: { plugins: [{ removeViewBox: true }] },
+    svg: { plugins: [
+      {
+        name: 'removeViewBox',
+        active: true
+      }
+    ]},
     general: {
-      verbose: args.production ? false : true,
+      verbose: false,
       silent: true
     },
-    webp: { // https://github.com/imagemin/imagemin-webp#options
+    webp: {
       preset: 'default',
       quality: 60
     }

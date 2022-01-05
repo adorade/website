@@ -30,7 +30,6 @@
     "browser-sync": "2.27.7",
     "del": "6.0.0",
     "eslint": "8.6.0",
-    "esm": "3.2.25",
     "fancy-log": "1.3.3",
     "gulp": "4.0.2",
     "gulp-autoprefixer": "8.0.0",
@@ -43,9 +42,8 @@
     "gulp-gh-pages": "0.6.0-6",
     "gulp-header": "2.0.9",
     "gulp-htmlmin": "5.0.1",
-    "gulp-imagemin": "7.1.0",
+    "gulp-imagemin": "8.0.0",
     "gulp-inline-source": "4.0.0",
-    "gulp-load-plugins": "2.0.7",
     "gulp-pug": "5.0.0",
     "gulp-pug-linter": "1.5.0",
     "gulp-rename": "2.0.0",
@@ -65,8 +63,9 @@
     "workbox-build": "6.4.2"
   },
   "engines": {
-    "node": ">=10"
+    "node": "^12.20.0 || ^14.13.1 || >=16.0.0"
   },
+  "type": "module",
   "private": true,
   "license": "MIT"
 }

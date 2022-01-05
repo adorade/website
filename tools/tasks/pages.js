@@ -4,7 +4,13 @@
  * Licensed under MIT
  * ========================================================================== */
 
-import { src, dest, lastRun, args, $, bs, fs, green, magenta, paths, opts } from '../util';
+import { src, dest, lastRun, args, fs, del, size, bs, fancyLog, green, magenta, paths, opts } from '../utils/index.js';
+import pugLinter from 'gulp-pug-linter';
+import data from 'gulp-data';
+import pug from 'gulp-pug';
+import cached from 'gulp-cached';
+import inlineSource from 'gulp-inline-source';
+import htmlmin from 'gulp-htmlmin';
 
 const taskTarget = args.production ? paths.views.files.prod : paths.views.files.dev;
 const entry = opts.entry;
@@ -13,45 +19,42 @@ if (args.production) {
   entry.inline = true;
 }
 
-// For debugging usage:
-// .pipe($.debug({ title: 'unicorn:' }))
-
-export function cleanPages () {
-  $.fancyLog(`${green('-> Clean all pages')} in ${magenta(taskTarget)} folder`);
-  return $.del(taskTarget);
+export async function cleanPages () {
+  await del(taskTarget);
+  fancyLog(`${green('-> Clean all pages')} in ${magenta(taskTarget)} folder`);
 }
 cleanPages.displayName = 'clean:pages';
 cleanPages.description = 'Clean up html files';
 
 export function lintPages () {
-  $.fancyLog(`${green('-> Linting templates...')}`);
+  fancyLog(`${green('-> Linting templates...')}`);
   return src(paths.views.all, {
     since: lastRun(lintPages)
   })
-    .pipe($.pugLinter())
-    .pipe($.pugLinter({ reporter: 'default' }))
-    .pipe($.pugLinter({ failAfterError: true }));
+    .pipe(pugLinter())
+    .pipe(pugLinter({ reporter: 'default' }))
+    .pipe(pugLinter({ failAfterError: true }));
 }
 lintPages.displayName = 'lint:pages';
 lintPages.description = 'Lint pug (views) files';
 
 export function pagile () {
-  $.fancyLog(`${green('-> Generating Pages via Pug...')}`);
+  fancyLog(`${green('-> Generating Pages via Pug...')}`);
 
   // Data from `menu.json`
   const dataFile = paths.views.datas + 'menu.json';
-  const dataJson = JSON.parse(fs.readFileSync(dataFile));
+  const dataJson = JSON.parse(fs.readFileSync(dataFile, 'utf8'));
 
   // Options for pug
   const locals = { locals: { entry } };
   const pugOpts = Object.assign({}, opts.pug, locals);
 
   return src(paths.views.src)
-    .pipe($.data(() => dataJson))
-    .pipe($.pug(pugOpts))
-    .pipe($.cached('pug_compile'))
-    .pipe($.inlineSource(opts.inline))
-    .pipe($.size(opts.size))
+    .pipe(data(() => dataJson))
+    .pipe(pug(pugOpts))
+    .pipe(cached('pug_compile'))
+    .pipe(inlineSource(opts.inline))
+    .pipe(size(opts.size))
     .pipe(dest(paths.views.dev))
     .pipe(bs.stream({ match: '**/*.html' }));
 }
@@ -60,18 +63,18 @@ pagile.description = 'Generate Pages via Pug';
 
 export function pagify (done) {
   if (args.production) {
-    $.fancyLog(`${green('-> Minify HTML...')}`);
+    fancyLog(`${green('-> Minify HTML...')}`);
     return src(paths.views.files.dev, {
       // since: lastRun(pagify)
     })
-      .pipe($.inlineSource(opts.inline))
-      .pipe($.htmlmin(opts.html))
-      // .pipe($.cached('html_min'))
-      .pipe($.size(opts.size))
+      .pipe(inlineSource(opts.inline))
+      .pipe(htmlmin(opts.html))
+      // .pipe(cached('html_min'))
+      .pipe(size(opts.size))
       .pipe(dest(paths.views.prod))
       .pipe(bs.stream({ match: '**/*.html' }));
   } else {
-    $.fancyLog(`${green('-> No minify HTML...')}`);
+    fancyLog(`${green('-> No minify HTML...')}`);
     done();
   }
 }

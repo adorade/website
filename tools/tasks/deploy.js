@@ -4,22 +4,20 @@
  * Licensed under MIT
  * ========================================================================== */
 
-import { src, $, magenta, green, dirs, opts } from '../util';
+import { src, del, fancyLog, green, magenta, dirs, opts } from '../utils/index.js';
+import ghPages from 'gulp-gh-pages';
 
-// For debugging usage:
-// .pipe($.debug({ title: 'unicorn:' }))
-
-export function cleanDeploy () {
-  $.fancyLog(`${green('-> Clean up')} ${magenta(dirs.deploy)} folder`);
-  return $.del(dirs.deploy);
+export async function cleanDeploy () {
+  await del(dirs.deploy);
+  fancyLog(`${green('-> Clean up')} ${magenta(dirs.deploy)} folder`);
 }
 cleanDeploy.displayName = 'clean:deploy';
 cleanDeploy.description = 'Clean up deploy folder';
 
 export function deploy () {
-  $.fancyLog(`${green('-> Deploy to GitHub Pages...')}`);
+  fancyLog(`${green('-> Deploy to GitHub Pages...')}`);
   return src(`${dirs.prod}/**/*`)
-    .pipe($.ghPages(opts.deploy));
+    .pipe(ghPages(opts.deploy));
 }
 deploy.displayName = 'deploy';
 deploy.description = 'Deploy to GitHub Pages';

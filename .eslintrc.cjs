@@ -39,10 +39,10 @@ module.exports = {
   overrides: [
     {
       files: [
-        "gulpfile.esm.js",
+        "gulpfile.js",
         "**/vendor/js/**/*.js",
         "tools/**/*.js",
-        ".eslintrc.js",
+        ".eslintrc.cjs",
         "functions/**/*.js"
       ],
       rules: {
@@ -59,7 +59,7 @@ module.exports = {
     },
     {
       files: [
-        ".eslintrc.js"
+        ".eslintrc.cjs"
       ],
       rules: {
         quotes: ["error", "double"]

@@ -7,18 +7,18 @@
 // Load plugins
 export {
   src, dest, series, parallel, lastRun, watch, tree,
-  bgBlue, bgRed, cyan, green, magenta, red,
-  args, $, bs, fs
-} from './plugins';
+  args, fs, del, size, bs,
+  fancyLog, bgBlue, bgRed, cyan, green, magenta, red
+} from './plugins.js';
 
 // Configuration
-export { dirs, paths } from './config';
+export { dirs, paths } from './config.js';
 
 // Options
-export { opts } from './options';
+export { opts } from './options.js';
 
 // Rollup Configuration
-export { inputOpts, outputOpts } from '../rollup/rollup-config';
+export { inputOpts, outputOpts } from '../rollup/rollup-config.js';
 
 // Template for banner to add to file headers
-export { banner } from './banner';
+export { banner } from './banner.js';

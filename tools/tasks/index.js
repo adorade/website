@@ -4,14 +4,14 @@
  * Licensed under MIT
  * ========================================================================== */
 
-export { checks } from './checks';                                              // Checks
-export { clean } from './clean';                                                // Clean
-export { cleanCss, vendorCss, lintScss, compile, minifyCss } from './styles';   // Styles
-export { cleanJs, vendorJs, lintMjs, transpile, minifyJs } from './scripts';    // Scripts
-export { cleanStatics, favicons, statica } from './statics';                    // Statics
-export { cleanFonts, fontsCss, fontsSvg } from './fonts';                       // Fonts
-export { cleanImages, imagine, convert } from './images';                       // Images
-export { cleanPages, lintPages, pagile, pagify } from './pages';                // Pages
-export { cleanDeploy, deploy } from './deploy';                                 // Deploy
-export { serve } from './serve';                                                // Serve and Watch
-export { cleanSW, serviceWorker } from './workbox';                             // Workbox build
+export { checks } from './checks.js';                                              // Checks
+export { clean } from './clean.js';                                                // Clean
+export { cleanCss, vendorCss, lintScss, compile, minifyCss } from './styles.js';   // Styles
+export { cleanJs, vendorJs, lintMjs, transpile, minifyJs } from './scripts.js';    // Scripts
+export { cleanStatics, favicons, statica } from './statics.js';                    // Statics
+export { cleanFonts, fontsCss, fontsSvg } from './fonts.js';                       // Fonts
+export { cleanImages, imagine, convert } from './images.js';                       // Images
+export { cleanPages, lintPages, pagile, pagify } from './pages.js';                // Pages
+export { cleanDeploy, deploy } from './deploy.js';                                 // Deploy
+export { serve } from './serve.js';                                                // Serve and Watch
+export { cleanSW, serviceWorker } from './workbox.js';                             // Workbox build

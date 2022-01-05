@@ -4,7 +4,8 @@
  * Licensed under MIT
  * ========================================================================== */
 
-const pkg = require(`${process.cwd()}/package.json`);
+import { fs } from './index.js';
+const pkg = JSON.parse(fs.readFileSync('package.json', 'utf8'));
 
 const year = new Date(
   process.env.SOURCE_DATE_EPOCH ? process.env.SOURCE_DATE_EPOCH * 1000 : new Date().getTime()
