@@ -4,30 +4,27 @@
  * Licensed under MIT
  * ========================================================================== */
 
-import { src, dest, lastRun, args, $, bs, green, magenta, dirs, paths, opts } from '../util';
+import { src, dest, lastRun, args, del, size, bs, fancyLog, green, magenta, dirs, paths, opts } from '../utils/index.js';
 
 const taskFavTarget = args.production ? paths.statics.prod : paths.statics.dev;
 const taskConfTarget = args.production ? dirs.prod : dirs.dev;
 
 const delConfTarget = `${taskConfTarget}/${paths.statics.ext}`;
 
-// For debugging usage:
-// .pipe($.debug({ title: 'unicorn:' }))
-
-export function cleanStatics () {
-  $.fancyLog(`${green('-> Clean up')} ${magenta(taskFavTarget)} folder`);
-  $.fancyLog(`${green('-> Clean up')} all ${magenta('conf')} files`);
-  return $.del([taskFavTarget, delConfTarget]);
+export async function cleanStatics () {
+  await del([taskFavTarget, delConfTarget]);
+  fancyLog(`${green('-> Clean up')} ${magenta(taskFavTarget)} folder`);
+  fancyLog(`${green('-> Clean up')} all ${magenta('conf')} files`);
 }
 cleanStatics.displayName = 'clean:statics';
 cleanStatics.description = 'Clean up statics folders';
 
 export function favicons () {
-  $.fancyLog(`${green('-> Copying favicons files...')}`);
+  fancyLog(`${green('-> Copying favicons files...')}`);
   return src(paths.statics.src.icons, {
     since: lastRun(favicons)
   })
-    .pipe($.size(opts.size))
+    .pipe(size(opts.size))
     .pipe(dest(taskFavTarget))
     .pipe(bs.stream({ match: '**/*.{ico,png,svg}' }));
 }
@@ -35,11 +32,11 @@ favicons.displayName = 'favicons';
 favicons.description = 'Copy favicons files';
 
 export function statica () {
-  $.fancyLog(`${green('-> Copying statics files...')}`);
+  fancyLog(`${green('-> Copying statics files...')}`);
   return src(paths.statics.src.conf, {
     since: lastRun(statica)
   })
-    .pipe($.size(opts.size))
+    .pipe(size(opts.size))
     .pipe(dest(taskConfTarget))
     .pipe(bs.stream({ match: '**/*.{json,text,webmanifest,xml}' }));
 }

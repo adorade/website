@@ -4,8 +4,8 @@
  * Licensed under MIT
  * ========================================================================== */
 
-import babel from '@rollup/plugin-babel';
-import { args } from '../util/plugins';
+import { babel } from '@rollup/plugin-babel';
+import { args } from '../utils/index.js';
 
 const filename = args.production ? 'script' : 'script-dev' ;
 

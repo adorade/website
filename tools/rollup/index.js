@@ -10,7 +10,7 @@ import path from 'path';
 import { rollup } from 'rollup';
 import File from 'vinyl';
 import PluginError from 'plugin-error';
-const applySourceMap = require('vinyl-sourcemaps-apply');
+import applySourceMap from 'vinyl-sourcemaps-apply';
 
 const PLUGIN_NAME = 'gulp-uni-rollup';
 
@@ -174,7 +174,7 @@ class GulpRollup extends Transform {
     };
 
     // Custom rollup can be provided inside the config object
-    rollup = inputOptions.rollup || rollup;
+    rollup == inputOptions.rollup || rollup;
     delete inputOptions.rollup;
 
     // Pass basic options to rollup

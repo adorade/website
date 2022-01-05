@@ -4,7 +4,7 @@
  * Licensed under MIT
  * ========================================================================== */
 
-import { args } from './plugins';
+import { args } from './plugins.js';
 
 export const dirs = {
   root: './',

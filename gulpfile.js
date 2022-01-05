@@ -4,19 +4,19 @@
  * Licensed under MIT
  * ========================================================================== */
 
-import { series, args, $, green } from './tools/util';
+import { series, args, fancyLog, green } from './tools/utils/index.js';
 import {
   checks, clean, cleanCss, vendorCss, lintScss, compile, minifyCss,
   cleanJs, vendorJs, lintMjs, transpile, minifyJs,
   cleanStatics, favicons, statica, cleanFonts, fontsCss, fontsSvg,
   cleanImages, imagine, convert, cleanPages, lintPages, pagile, pagify,
   cleanDeploy, deploy, serve, cleanSW, serviceWorker
-} from './tools';
+} from './tools/index.js';
 
 if (args.production) {
-  $.fancyLog(`${green('Looks like we are in production mode!')}`);
+  fancyLog(`${green('Looks like we are in production mode!')}`);
 } else {
-  $.fancyLog(`${green('Looks like we are in development mode!')}`);
+  fancyLog(`${green('Looks like we are in development mode!')}`);
 }
 
 /**

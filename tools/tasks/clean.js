@@ -4,7 +4,7 @@
  * Licensed under MIT
  * ========================================================================== */
 
-import { args, $, green, magenta, dirs } from '../util';
+import { args, del, fancyLog, green, magenta, dirs } from '../utils/index.js';
 
 let delTarget;
 
@@ -14,9 +14,9 @@ if (args.production) {
   delTarget = `${dirs.dev}`;
 }
 
-export function clean () {
-  $.fancyLog(`${green('-> Clean all files')} in ${magenta(delTarget)} folder`);
-  return $.del(delTarget);
+export async function clean () {
+  await del(delTarget);
+  fancyLog(`${green('-> Clean all files')} in ${magenta(delTarget)} folder`);
 }
 clean.displayName = 'clean:all';
 clean.description = 'Clean up dist folders';

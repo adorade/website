@@ -4,15 +4,15 @@
  * Licensed under MIT
  * ========================================================================== */
 
-import { tree, $, green, magenta, dirs, paths, opts, banner } from '../util';
+import { tree, fancyLog, green, magenta, dirs, paths, opts, banner } from '../utils/index.js';
 
 export function checks (done) {
   const gulpTree = tree();
-  $.fancyLog(`${green('Gulp Tasks:\n')}`, gulpTree.nodes);
-  $.fancyLog(`${magenta('Directories configuration:\n')}`, dirs);
-  $.fancyLog(`${magenta('Paths configuration:\n')}`, paths);
-  $.fancyLog(`${magenta('Options configuration:\n')}`, opts);
-  $.fancyLog(`${green('Banner:\n')}`, banner());
+  fancyLog(`${green('Gulp Tasks:\n')}`, gulpTree.nodes);
+  fancyLog(`${magenta('Directories configuration:\n')}`, dirs);
+  fancyLog(`${magenta('Paths configuration:\n')}`, paths);
+  fancyLog(`${magenta('Options configuration:\n')}`, opts);
+  fancyLog(`${green('Banner:\n')}`, banner());
   done();
 }
 checks.displayName = 'check:settings';

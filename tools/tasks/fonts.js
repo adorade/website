@@ -4,26 +4,23 @@
  * Licensed under MIT
  * ========================================================================== */
 
-import { src, dest, lastRun, args, $, bs, magenta, green, paths, opts } from '../util';
+import { src, dest, lastRun, args, del, size, bs, fancyLog, green, magenta, paths, opts } from '../utils/index.js';
 
 const taskTarget = args.production ? paths.fonts.css.prod : paths.fonts.css.dev;
 
-// For debugging usage:
-// .pipe($.debug({ title: 'unicorn:' }))
-
-export function cleanFonts () {
-  $.fancyLog(`${green('-> Clean all fonts')} in ${magenta(taskTarget)} folder`);
-  return $.del(taskTarget);
+export async function cleanFonts () {
+  await del(taskTarget);
+  fancyLog(`${green('-> Clean all fonts')} in ${magenta(taskTarget)} folder`);
 }
 cleanFonts.displayName = 'clean:fonts';
 cleanFonts.description = 'Clean up fonts folders';
 
 export function fontsCss () {
-  $.fancyLog(`${green('-> Copying css font files...')}`);
+  fancyLog(`${green('-> Copying css font files...')}`);
   return src(paths.fonts.css.src, {
     since: lastRun(fontsCss)
   })
-    .pipe($.size(opts.size))
+    .pipe(size(opts.size))
     .pipe(dest(taskTarget))
     .pipe(bs.stream({ match: '**/*.css' }));
 }
@@ -31,11 +28,11 @@ fontsCss.displayName = 'fonts:css';
 fontsCss.description = 'Copy css font files';
 
 export function fontsSvg () {
-  $.fancyLog(`${green('-> Copying svg font files...')}`);
+  fancyLog(`${green('-> Copying svg font files...')}`);
   return src(paths.fonts.svg.src, {
     since: lastRun(fontsSvg)
   })
-    .pipe($.size(opts.size))
+    .pipe(size(opts.size))
     .pipe(dest(taskTarget))
     .pipe(bs.stream({ match: '**/*.html' }));
 }

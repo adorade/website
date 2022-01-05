@@ -15,4 +15,4 @@ export {
   cleanDeploy, deploy,                                  // Deploy
   serve,                                                // Serve and Watch
   cleanSW, serviceWorker                                // Workbox build
-} from './tasks';
+} from './tasks/index.js';

@@ -4,15 +4,13 @@
  * Licensed under MIT
  * ========================================================================== */
 
-import {
-  series, watch, args, $, bs, bgBlue, bgRed, green, magenta, red, paths, opts, dirs
-} from '../util';
+import { series, watch, args, bs, fancyLog, bgBlue, bgRed, green, magenta, red, dirs, paths, opts } from '../utils/index.js';
 import {
   vendorCss, lintScss, compile, minifyCss,
   vendorJs, lintMjs, transpile, minifyJs,
   imagine, convert, favicons, statica, fontsCss, fontsSvg,
   lintPages, pagile, pagify
-} from './';
+} from './index.js';
 
 export function serve () {
   bs.init({
@@ -25,7 +23,7 @@ export function serve () {
   });
 
   function watchEvent (path, event, task) {
-    $.fancyLog(
+    fancyLog(
       `File ${magenta(path)} was ${green(event)} running ${red(task)}`
     );
   }
@@ -99,10 +97,10 @@ export function serve () {
   }
 
   for (let watcher of watchers) {
-    $.fancyLog(bgRed(`Watching ${watcher.name}`));
+    fancyLog(bgRed(`Watching ${watcher.name}`));
 
     for (let p of [watcher.paths]) {
-      $.fancyLog(bgBlue('Source: '), magenta(p));
+      fancyLog(bgBlue('Source: '), magenta(p));
     }
 
     let taskNames = [];
