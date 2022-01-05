@@ -10,7 +10,7 @@
   background-color: var(--background-color-normal);
 }
 
-@mixin childTop() {
+@mixin child-top() {
   position: absolute;
   top: 0;
   left: 50%;
@@ -39,7 +39,7 @@
 }
 
 @mixin picture($ratio: 1 1, $selector: "> :first-child", $banner: true, $filter: true) {
-  $selector: unquote($selector);
+  $selector-child: unquote($selector);
 
   // parent
   @include parent($ratio);
@@ -48,9 +48,9 @@
   }
 
   // child
-  #{$selector} {
+  #{$selector-child} {
     @if $banner {
-      @include childTop();
+      @include child-top();
     } @else {
       @include child($ratio);
     }
@@ -58,13 +58,13 @@
 }
 
 @mixin card($ratio: 1 1, $selector: "> :first-child") {
-  $selector: unquote($selector);
+  $selector-child: unquote($selector);
 
   // parent
   @include parent($ratio);
 
   // child
-  #{$selector} {
+  #{$selector-child} {
     @include child($ratio);
   }
 }

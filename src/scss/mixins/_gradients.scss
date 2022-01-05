@@ -20,7 +20,7 @@
 
 // Shape is ellipse, size is farthest-corner, and position is bottom
 // ## Usage: @include gradient-radial-ellipse-bottom(#555, #333);
-@mixin gradient-radial-ellipse-top($inner-color: #555, $outer-color: #333) {
+@mixin gradient-radial-ellipse-bottom($inner-color: #555, $outer-color: #333) {
   background-image: radial-gradient(ellipse at bottom, $inner-color 0%, $outer-color 100%);
   background-repeat: no-repeat;
 }
