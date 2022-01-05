@@ -44,6 +44,7 @@ $(window).on('scroll', function () {
         $windowH = $(this).height(),
         $documentH = $(document).height(),
         $toggler = $('.navbar-toggler'),
+        $getInTouch = $('.get-in-touch'),
         $totop = $('.back-to-top'),
         $percent = $('.back-to-top-percent'),
         $hero = $('.hero-unit').height() - 1,
@@ -52,9 +53,11 @@ $(window).on('scroll', function () {
 
   if (scrollPos > $hero || scrollPos > $masthead) {
     $toggler.addClass('btn-orange')
+    $getInTouch.addClass('shrink')
     $totop.filter(':hidden').stop(true, true).fadeIn()
   } else {
     $toggler.removeClass('btn-orange')
+    $getInTouch.removeClass('shrink')
     $totop.stop(true, true).fadeOut()
   }
 
