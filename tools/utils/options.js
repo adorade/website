@@ -19,8 +19,7 @@ export const opts = {
     reportOutputDir: paths.logs.gulp,
     reporters: [
       { formatter: 'string', console: true, save: 'styles.txt' }
-    ],
-    syntax: 'scss'
+    ]
   },
   sass: {
     outputStyle: 'expanded',
