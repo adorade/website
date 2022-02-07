@@ -4,18 +4,20 @@
  * Licensed under MIT
  * ========================================================================== */
 
-import { src, dest, lastRun, args, fs, del, size, bs, fancyLog, green, magenta, paths, opts } from '../utils/index.js';
+import {
+  src, dest, lastRun, isProd, fs, del, size, bs,
+  fancyLog, green, magenta, cached, paths, opts
+} from '../utils/index.js';
 import pugLinter from 'gulp-pug-linter';
 import data from 'gulp-data';
 import pug from 'gulp-pug';
-import cached from 'gulp-cached';
-import inlineSource from 'gulp-inline-source';
+import inlineSource from 'gulp-inline-source-html';
 import htmlmin from 'gulp-htmlmin';
 
-const taskTarget = args.production ? paths.views.files.prod : paths.views.files.dev;
+const taskTarget = isProd ? paths.views.files.prod : paths.views.files.dev;
 const entry = opts.entry;
 
-if (args.production) {
+if (isProd) {
   entry.inline = true;
 }
 
@@ -62,7 +64,7 @@ pagile.displayName = 'gen:pages';
 pagile.description = 'Generate Pages via Pug';
 
 export function pagify (done) {
-  if (args.production) {
+  if (isProd) {
     fancyLog(`${green('-> Minify HTML...')}`);
     return src(paths.views.files.dev, {
       // since: lastRun(pagify)

@@ -4,11 +4,11 @@
  * Licensed under MIT
  * ========================================================================== */
 
-import { args, del, fancyLog, bgRed, cyan, green, magenta, dirs } from '../utils/index.js';
+import { isProd, del, fancyLog, bgRed, cyan, green, magenta, dirs } from '../utils/index.js';
 import workboxBuild from 'workbox-build';
 
 export async function cleanSW (done) {
-  if (args.production) {
+  if (isProd) {
     await del(`${dirs.prod}/sw.js`);
     fancyLog(`${green('-> Clean up service worker')} ${magenta(`${dirs.prod}/sw.js`)}`);
   } else {
@@ -21,7 +21,7 @@ cleanSW.description = 'Clean up service-worker';
 
 // NOTE: This should be run *AFTER* all your assets are built
 export async function serviceWorker (done) {
-  if (args.production) {
+  if (isProd) {
     fancyLog(`${green('-> Precache files with workbox...')}`);
     await workboxBuild.injectManifest({
       swSrc: 'tools/workbox/service-worker.js',

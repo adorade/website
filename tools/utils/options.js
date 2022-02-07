@@ -4,11 +4,9 @@
  * Licensed under MIT
  * ========================================================================== */
 
-import { args, dirs, paths } from './index.js';
+import { time, isProd, dirs, paths } from './index.js';
 
-const dates = new Date(
-  process.env.SOURCE_DATE_EPOCH ? process.env.SOURCE_DATE_EPOCH * 1000 : new Date().getTime()
-).toDateString();
+const dates = time.toDateString();
 
 export const opts = {
   entry: {
@@ -82,7 +80,7 @@ export const opts = {
     removeStyleLinkTypeAttributes: true
   },
   inline: {
-    rootpath: args.production ? `${dirs.prod}/` : `${dirs.dev}/`
+    rootpath: isProd ? `${dirs.prod}/` : `${dirs.dev}/`
   },
   size: {
     gzip: true,

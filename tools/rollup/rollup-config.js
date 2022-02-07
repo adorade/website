@@ -5,9 +5,9 @@
  * ========================================================================== */
 
 import { babel } from '@rollup/plugin-babel';
-import { args } from '../utils/index.js';
+import { isProd } from '../utils/index.js';
 
-const filename = args.production ? 'script' : 'script-dev' ;
+const filename = isProd ? 'script' : 'script-dev' ;
 
 // Input Options
 const plugins = [

@@ -4,11 +4,11 @@
  * Licensed under MIT
  * ========================================================================== */
 
-import { src, dest, lastRun, args, del, size, bs, fancyLog, green, magenta, paths, opts } from '../utils/index.js';
+import { src, dest, lastRun, isProd, del, size, bs, fancyLog, green, magenta, paths, opts } from '../utils/index.js';
 import imagemin, {gifsicle, mozjpeg, optipng, svgo} from 'gulp-imagemin';
 import webp from 'gulp-webp';
 
-const taskTarget = args.production ? paths.images.prod : paths.images.dev;
+const taskTarget = isProd ? paths.images.prod : paths.images.dev;
 
 export async function cleanImages () {
   await del(taskTarget);

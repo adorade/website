@@ -9,8 +9,7 @@ import gulp from 'gulp';
 export const { src, dest, series, parallel, lastRun, watch, tree } = gulp;
 
 // Fetch command line arguments for development or production environment
-import minimist from 'minimist';
-const args = minimist(process.argv.slice(2));
+// see: ./settings.js
 
 // Load others modules
 import * as fs from 'fs';
@@ -19,10 +18,18 @@ import size from 'gulp-size';
 import browserSync from 'browser-sync';
 const bs = browserSync.create();
 
-export { args, fs, del, size, bs };
+export { fs, del, size, bs };
 
 // Fancy log with colors
 import log from 'fancy-log';
 export const fancyLog = log;
 import colors from 'ansi-colors';
 export const { bgBlue, bgRed, cyan, green, magenta, red } = colors;
+
+// Load specific modules
+import cached from 'gulp-cached';
+import concat from 'gulp-concat';
+import header from 'gulp-header';
+import rename from 'gulp-rename';
+import replace from 'gulp-replace';
+export { cached, concat, header, rename, replace };

@@ -1,5 +1,3 @@
-/* eslint-disable no-control-regex */
-/* eslint-disable no-useless-escape */
 /*!
  * Adorade (v1.0.0): tools/tasks/styles.js
  * Copyright (c) 2018 - 2019 Adorade (https://adorade.ro)
@@ -7,21 +5,17 @@
  * ========================================================================== */
 
 import {
-  src, dest, lastRun, args, del, size, bs,
-  fancyLog, green, magenta, paths, opts, banner
+  src, dest, lastRun, isProd, del, size, bs, fancyLog, green, magenta,
+  concat, header, rename, paths, opts, banner
 } from '../utils/index.js';
-import concat from 'gulp-concat';
 import gStylelint from 'gulp-stylelint';
 import dartSass from 'sass';
 import gulpSass from 'gulp-sass';
 const gSass = gulpSass(dartSass);
 import autoprefixer from 'gulp-autoprefixer';
-import header from 'gulp-header';
 import csso from 'gulp-csso';
-import rename from 'gulp-rename';
-// import cached from 'gulp-cached';
 
-const taskTarget = args.production ? paths.styles.prod : paths.styles.dev;
+const taskTarget = isProd ? paths.styles.prod : paths.styles.dev;
 
 export async function cleanCss () {
   await del(taskTarget);
@@ -32,12 +26,12 @@ cleanCss.description = 'Clean up styles folders';
 
 export function vendorCss () {
   fancyLog(`${green('-> Copying vendor CSS files...')}`);
-  return src(paths.vendor.src.css, {
+  return src(paths.vendors.src.css, {
     since: lastRun(vendorCss)
   })
     .pipe(concat('vendors.min.css'))
     .pipe(size(opts.size))
-    .pipe(dest(paths.vendor.dest.css))
+    .pipe(dest(paths.vendors.dest.css))
     .pipe(bs.stream({ match: '**/*.css' }));
 }
 vendorCss.displayName = 'vendor:css';
@@ -69,7 +63,7 @@ compile.displayName = 'compile:scss';
 compile.description = 'Compile SCSS files';
 
 export function minifyCss (done) {
-  if (args.production) {
+  if (isProd) {
     fancyLog(`${green('-> Minify CSS...')}`);
     return src(paths.styles.filter, {
       // since: lastRun(minifyCss)

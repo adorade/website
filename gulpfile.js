@@ -4,20 +4,29 @@
  * Licensed under MIT
  * ========================================================================== */
 
-import { series, args, fancyLog, green } from './tools/utils/index.js';
+import { series, isClean, isProd, fancyLog, green } from './tools/utils/index.js';
 import {
-  checks, clean, cleanCss, vendorCss, lintScss, compile, minifyCss,
+  help, checks, clean, cleanCss, vendorCss, lintScss, compile, minifyCss,
   cleanJs, vendorJs, lintMjs, transpile, minifyJs,
   cleanStatics, favicons, statica, cleanFonts, fontsCss, fontsSvg,
   cleanImages, imagine, convert, cleanPages, lintPages, pagile, pagify,
   cleanDeploy, deploy, serve, cleanSW, serviceWorker
 } from './tools/index.js';
 
-if (args.production) {
+if (isClean) {
+  fancyLog(`${green('Looks like we are cleaning up all generated files!')}`);
+}
+
+if (isProd) {
   fancyLog(`${green('Looks like we are in production mode!')}`);
 } else {
   fancyLog(`${green('Looks like we are in development mode!')}`);
 }
+
+/**
+ * Print HELP for this project
+ * -------------------------------------------------------------------------- */
+export { help };
 
 /**
  * Check dirs, paths, options and settings
@@ -94,7 +103,7 @@ export { serve };
 /**
  * Precache files with workbox
  * -------------------------------------------------------------------------- */
-export const sw = serviceWorker;
+const sw = serviceWorker;
 export const buildSW = series(cleanSW, serviceWorker);
 buildSW.displayName = 'build:sw';
 buildSW.description = 'Build only Service Worker';
