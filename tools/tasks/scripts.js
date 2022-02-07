@@ -5,20 +5,15 @@
  * ========================================================================== */
 
 import {
-  src, dest, lastRun, args, fs, del, size, bs, fancyLog, green, magenta,
-  paths, opts, banner, inputOpts, outputOpts
+  src, dest, lastRun, isProd, fs, del, size, bs, fancyLog, green, magenta,
+  concat, header, rename, replace, paths, opts, banner, inputOpts, outputOpts
 } from '../utils/index.js';
-import replace from 'gulp-replace';
-import concat from 'gulp-concat';
 import gEslint from 'gulp-eslint';
-import header from 'gulp-header';
 import gTerser from 'gulp-terser-js';
-import rename from 'gulp-rename';
-// import cached from 'gulp-cached';
 
 import gulpRollup from '../rollup/index.js';
 
-const taskTarget = args.production ? paths.scripts.prod : paths.scripts.dev;
+const taskTarget = isProd ? paths.scripts.prod : paths.scripts.dev;
 
 export async function cleanJs () {
   await del(taskTarget);
@@ -29,14 +24,14 @@ cleanJs.description = 'Clean up scripts folders';
 
 export function vendorJs () {
   fancyLog(`${green('-> Copying vendor JS files...')}`);
-  return src(paths.vendor.src.js, {
+  return src(paths.vendors.src.js, {
     // since: lastRun(vendorJs)
   })
     .pipe(replace(/\/\/[#@]\s(source(?:Mapping)?URL)=\s*(\S+)/, ''))
     .pipe(replace(/^(?:[\t ]*(?:\r?\n|\r))+/, ''))
     .pipe(concat('vendors.min.js'))
     .pipe(size(opts.size))
-    .pipe(dest(paths.vendor.dest.js))
+    .pipe(dest(paths.vendors.dest.js))
     .pipe(bs.stream({ match: '**/*.js' }));
 }
 vendorJs.displayName = 'vendor:js';
@@ -75,7 +70,7 @@ transpile.displayName = 'transpile:mjs';
 transpile.description = 'Transpile MJS via Babel';
 
 export function minifyJs (done) {
-  if (args.production) {
+  if (isProd) {
     fancyLog(`${green('-> Minify JS...')}`);
     return src(paths.scripts.filter, {
       // since: lastRun(minifyJs)

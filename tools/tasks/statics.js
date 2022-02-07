@@ -4,10 +4,10 @@
  * Licensed under MIT
  * ========================================================================== */
 
-import { src, dest, lastRun, args, del, size, bs, fancyLog, green, magenta, dirs, paths, opts } from '../utils/index.js';
+import { src, dest, lastRun, isProd, del, size, bs, fancyLog, green, magenta, dirs, paths, opts } from '../utils/index.js';
 
-const taskFavTarget = args.production ? paths.statics.prod : paths.statics.dev;
-const taskConfTarget = args.production ? dirs.prod : dirs.dev;
+const taskFavTarget = isProd ? paths.statics.prod : paths.statics.dev;
+const taskConfTarget = isProd ? dirs.prod : dirs.dev;
 
 const delConfTarget = `${taskConfTarget}/${paths.statics.ext}`;
 

@@ -4,12 +4,9 @@
  * Licensed under MIT
  * ========================================================================== */
 
-import { fs } from './index.js';
-const pkg = JSON.parse(fs.readFileSync('package.json', 'utf8'));
+import { pkg, title, time } from './index.js';
 
-const year = new Date(
-  process.env.SOURCE_DATE_EPOCH ? process.env.SOURCE_DATE_EPOCH * 1000 : new Date().getTime()
-).getFullYear();
+const year = time.getFullYear();
 
 export function banner () {
   let result = '';
@@ -17,9 +14,9 @@ export function banner () {
   try {
     result = [
       '/*!',
-      ` * ${pkg.title} (v${pkg.version}): <%= file.relative %>`,
+      ` * ${title} (v${pkg.version}): <%= file.relative %>`,
       ` * ${pkg.description}`,
-      ` * Copyright (c) ${year} ${pkg.author} (${pkg.homepage})`,
+      ` * Copyright (c) 2010 - ${year} ${pkg.author.name} (${pkg.homepage})`,
       ` * License under ${pkg.license} (${pkg.repository}/blob/master/LICENSE)`,
       ' * ========================================================================== */',
       '' // new line

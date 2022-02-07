@@ -4,11 +4,11 @@
  * Licensed under MIT
  * ========================================================================== */
 
-import { args, del, fancyLog, green, magenta, dirs } from '../utils/index.js';
+import { isClean, isProd, del, fancyLog, green, magenta, dirs } from '../utils/index.js';
 
 let delTarget;
 
-if (args.production) {
+if (isClean || isProd) {
   delTarget = [`${dirs.dev}`, `${dirs.prod}`];
 } else {
   delTarget = `${dirs.dev}`;

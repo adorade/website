@@ -7,12 +7,16 @@
 // Load plugins
 export {
   src, dest, series, parallel, lastRun, watch, tree,
-  args, fs, del, size, bs,
-  fancyLog, bgBlue, bgRed, cyan, green, magenta, red
+  fs, del, size, bs,
+  fancyLog, bgBlue, bgRed, cyan, green, magenta, red,
+  cached, concat, header, rename, replace
 } from './plugins.js';
 
-// Configuration
-export { dirs, paths } from './config.js';
+// Settings
+export { pkg, title, time, arg, isClean, isProd } from './settings.js';
+
+// Dirs and Paths configuration
+export { dirs, paths } from './paths.js';
 
 // Options
 export { opts } from './options.js';

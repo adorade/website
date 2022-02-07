@@ -4,7 +4,7 @@
  * Licensed under MIT
  * ========================================================================== */
 
-import { args } from './plugins.js';
+import { isProd } from './index.js';
 
 export const dirs = {
   root: './',
@@ -26,12 +26,12 @@ export const paths = {
   },
   scripts: {
     src: `${dirs.src}/mjs/**/*.mjs`,
-    input: args.production ? `${dirs.src}/mjs/script.mjs` : `${dirs.src}/mjs/script-dev.mjs`,
+    input: isProd ? `${dirs.src}/mjs/script.mjs` : `${dirs.src}/mjs/script-dev.mjs`,
     dev: `${dirs.dev}/js/`,
     prod: `${dirs.prod}/js/`,
     filter: [ `${dirs.dev}/js/**/*.js`, '!**/*.min.js' ]
   },
-  vendor: {
+  vendors: {
     src: {
       css: [
         `${dirs.modules}/cookieconsent/build/cookieconsent.min.css`  // 3.1.1
@@ -45,8 +45,8 @@ export const paths = {
       ]
     },
     dest: {
-      css: args.production ? `${dirs.prod}/css/` : `${dirs.dev}/css/`,
-      js: args.production ? `${dirs.prod}/js/` : `${dirs.dev}/js/`
+      css: isProd ? `${dirs.prod}/css/` : `${dirs.dev}/css/`,
+      js: isProd ? `${dirs.prod}/js/` : `${dirs.dev}/js/`
     },
     watch: {
       css: `${dirs.src}/vendor/css/**/*.css`,

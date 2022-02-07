@@ -4,6 +4,7 @@
  * Licensed under MIT
  * ========================================================================== */
 
+export { help } from './help.js';                                                  // Help
 export { checks } from './checks.js';                                              // Checks
 export { clean } from './clean.js';                                                // Clean
 export { cleanCss, vendorCss, lintScss, compile, minifyCss } from './styles.js';   // Styles

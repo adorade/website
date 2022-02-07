@@ -4,7 +4,7 @@
  * Licensed under MIT
  * ========================================================================== */
 
-import { series, watch, args, bs, fancyLog, bgBlue, bgRed, green, magenta, red, dirs, paths, opts } from '../utils/index.js';
+import { series, watch, isProd, bs, fancyLog, bgBlue, bgRed, green, magenta, red, dirs, paths, opts } from '../utils/index.js';
 import {
   vendorCss, lintScss, compile, minifyCss,
   vendorJs, lintMjs, transpile, minifyJs,
@@ -15,10 +15,10 @@ import {
 export function serve () {
   bs.init({
     server: {
-      baseDir: args.production ? dirs.prod : dirs.dev
+      baseDir: isProd ? dirs.prod : dirs.dev
     },
-    port: args.production ? 6969 : 6970,
-    logPrefix: args.production ? 'Adorade Prod' : 'Adorade Dev',
+    port: isProd ? 6969 : 6970,
+    logPrefix: isProd ? 'Adorade Prod' : 'Adorade Dev',
     ui: false
   });
 
@@ -31,23 +31,23 @@ export function serve () {
   const watchers = [
     {
       name: 'Vendor CSS',
-      paths: paths.vendor.watch.css,
+      paths: paths.vendors.watch.css,
       tasks: [vendorCss]
     },
     {
       name: 'Styles',
       paths: paths.styles.src,
-      tasks: [lintScss, compile, minifyCss]
+      tasks: isProd ? [lintScss, compile, minifyCss] : [lintScss, compile]
     },
     {
       name: 'Vendor JS',
-      paths: paths.vendor.watch.js,
+      paths: paths.vendors.watch.js,
       tasks: [vendorJs]
     },
     {
       name: 'Scripts',
       paths: paths.scripts.src,
-      tasks: [lintMjs, transpile, minifyJs]
+      tasks: isProd ? [lintMjs, transpile, minifyJs] : [lintMjs, transpile]
     },
     {
       name: 'Fonts',
@@ -80,7 +80,7 @@ export function serve () {
         paths.views.all,
         paths.views.data
       ],
-      tasks: [lintPages, pagile, pagify]
+      tasks: isProd ? [lintPages, pagile, pagify] : [lintPages, pagile]
     },
     {
       name: 'Inline CSS',
@@ -92,7 +92,7 @@ export function serve () {
     }
   ];
 
-  if (!args.production) {
+  if (!isProd) {
     watchers.pop();
   }
 
