@@ -13,7 +13,7 @@ export {
 } from './plugins.js';
 
 // Settings
-export { pkg, title, time, arg, isClean, isProd } from './settings.js';
+export { pkg, title, time, arg, isClean, isProd, isSilent } from './settings.js';
 
 // Dirs and Paths configuration
 export { dirs, paths } from './paths.js';

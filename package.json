@@ -12,8 +12,8 @@
   "scripts": {
     "verify": "node -v && npm -v && yarn -v && git --version && gulp -v",
     "dev": "gulp",
-    "build": "gulp build --production",
-    "deploy": "gulp build --production && gulp build:deploy",
+    "build": "gulp build --prod --silent",
+    "deploy": "gulp build --prod --silent && gulp build:deploy --silent",
     "start": "gulp serve:watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

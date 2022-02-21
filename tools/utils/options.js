@@ -4,13 +4,13 @@
  * Licensed under MIT
  * ========================================================================== */
 
-import { time, isProd, dirs, paths } from './index.js';
+import { time, isProd, isSilent, dirs, paths } from './index.js';
 
 const dates = time.toDateString();
 
 export const opts = {
   entry: {
-    inline: false
+    inline: isProd ? true : false
   },
   styles: {
     failAfterError: true,
@@ -83,8 +83,9 @@ export const opts = {
     rootpath: isProd ? `${dirs.prod}/` : `${dirs.dev}/`
   },
   size: {
-    gzip: true,
-    showFiles: true
+    gzip: isProd ? true : false,
+    showFiles: isSilent ? false : true,
+    showTotal: isSilent ? false : true
   },
   deploy: {
     remoteUrl: 'https://github.com/adorade/adorade.github.io.git',
