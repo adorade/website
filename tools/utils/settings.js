@@ -43,3 +43,7 @@ export const isClean = arg.clean ? arg.clean : false;
 // Production mode (Default: false)
 // set to 'true' with command line option: '--production' or '--prod'
 export const isProd = arg.production || arg.prod ? arg.production || arg.prod : false;
+
+// Silent mode (Default: false)
+// set to 'true' with command line option: '--silent'
+export const isSilent = arg.silent ? arg.silent : false;

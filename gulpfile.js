@@ -4,7 +4,7 @@
  * Licensed under MIT
  * ========================================================================== */
 
-import { series, isClean, isProd, fancyLog, green } from './tools/utils/index.js';
+import { series, isClean, isProd, isSilent, fancyLog, green } from './tools/utils/index.js';
 import {
   help, checks, clean, cleanCss, vendorCss, lintScss, compile, minifyCss,
   cleanJs, vendorJs, lintMjs, transpile, minifyJs,
@@ -17,9 +17,9 @@ if (isClean) {
   fancyLog(`${green('Looks like we are cleaning up all generated files!')}`);
 }
 
-if (isProd) {
+if (isProd && !isSilent) {
   fancyLog(`${green('Looks like we are in production mode!')}`);
-} else {
+} else if (!isSilent) {
   fancyLog(`${green('Looks like we are in development mode!')}`);
 }
 

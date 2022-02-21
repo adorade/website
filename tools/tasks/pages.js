@@ -17,10 +17,6 @@ import htmlmin from 'gulp-htmlmin';
 const taskTarget = isProd ? paths.views.files.prod : paths.views.files.dev;
 const entry = opts.entry;
 
-if (isProd) {
-  entry.inline = true;
-}
-
 export async function cleanPages () {
   await del(taskTarget);
   fancyLog(`${green('-> Clean all pages')} in ${magenta(taskTarget)} folder`);

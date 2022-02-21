@@ -4,7 +4,7 @@
  * Licensed under MIT
  * ========================================================================== */
 
-import { isProd, del, fancyLog, bgRed, cyan, green, magenta, dirs } from '../utils/index.js';
+import { isProd, isSilent, del, fancyLog, bgRed, cyan, green, magenta, dirs } from '../utils/index.js';
 import workboxBuild from 'workbox-build';
 
 export async function cleanSW (done) {
@@ -37,8 +37,11 @@ export async function serviceWorker (done) {
     }).then(({count, size, warnings}) => {
       // In case there are any warnings from workbox-build, log them.
       warnings.forEach(fancyLog.warn);
-      fancyLog(`${cyan(count)} files will be precached, totaling ${cyan(size)} bytes.`);
-      // fancyLog.info('Service worker generation completed.');
+
+      // Output message at the end
+      if (!isSilent) {
+        fancyLog(`${cyan(count)} files will be precached, totaling ${cyan(size)} bytes.`);
+      }
     }).catch((error) => {
       fancyLog(`${bgRed('Service worker generation failed:')} ${error.stack}`);
     });
