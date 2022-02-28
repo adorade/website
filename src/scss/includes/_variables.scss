@@ -80,5 +80,7 @@ $link-hover-color       : darken($link-color, 15%);
 $link-hover-decoration  : none;
 
 $enable-gradients       : true;
+$enable-negative-margins: true;
 
+$offcanvas-horizontal-width: 300px;
 $drawer-dark-active-color: $primary-color;

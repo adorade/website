@@ -12,8 +12,8 @@
 @import "includes/variables";
 @import "includes/animation";
 
-$enable-negative-margins: true;
-$offcanvas-horizontal-width: 300px;
+// Import Theme Color Scheme.
+@import "includes/color-scheme";
 
 // 3. Include remainder of required Bootstrap stylesheets
 @import "../../node_modules/bootstrap/scss/variables";
@@ -63,9 +63,6 @@ $offcanvas-horizontal-width: 300px;
 // 5. Add additional custom code here
 // Reset loader, inline stylesheet
 // @import "plugins/loader";
-
-// Import Theme Color Scheme.
-@import "includes/theme-mode";
 
 @import "mixins/gradients";
 @import "mixins/picture";
