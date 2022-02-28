@@ -1,21 +1,22 @@
 //
-// Color Schema - css-prefers-color-scheme init
+// Color Schema - init (dark is default)
 // -----------------------------------------------------------------------------
-/* globals initPrefersColorScheme */
 
 (() => {
-  // This enables prefers-color-scheme media queries
-  const colorScheme = initPrefersColorScheme('dark')
+  // --- Dark Theme is default
+  let themeScheme = 'dark'
+  const colorScheme = document.documentElement
+  const meta = document.querySelector('meta[name="color-scheme"]')
 
-  // Toggle selector and currnt theme constant
-  const $toggler = $('.btn-theme-toggle input:radio')
+  // --- Toggle selector and current theme constant
   const currentTheme = localStorage.getItem('theme')
     ? localStorage.getItem('theme')
     : null
 
-  // Check for saved user preference, if any, on load of the website
+  // --- Check for saved user preference, if any, on load of the website
   if (currentTheme) {
-    colorScheme.scheme = currentTheme
+    colorScheme.setAttribute('color-scheme', currentTheme)
+    meta.content = currentTheme
 
     if (currentTheme === 'dark') {
       $('.input-dark').prop({checked: true})
@@ -24,12 +25,16 @@
     if (currentTheme === 'light') {
       $('.input-light').prop({checked: true})
     }
+
+  // --- Set Dark as default theme
   } else {
+    colorScheme.setAttribute('color-scheme', themeScheme)
+    meta.content = themeScheme
     $('.input-dark').prop({checked: true})
-    localStorage.setItem('theme', 'dark')
+    localStorage.setItem('theme', themeScheme)
   }
 
-  // Switch theme function
+  // --- Switch theme function
   function switchTheme (event) {
     const schema = event.target.value
 
@@ -37,7 +42,8 @@
     $('html').addClass('color-theme-in-transition')
 
     // Change color schema
-    colorScheme.scheme = schema
+    colorScheme.setAttribute('color-scheme', schema)
+    meta.content = schema
 
     // Remove as soon as the transition was over
     setTimeout(() => {
@@ -48,9 +54,7 @@
     localStorage.setItem('theme', schema)
   }
 
-  // Event handlers on change
+  // --- Toogle selector, event handlers on change
+  const $toggler = $('.btn-theme-toggle input:radio')
   $toggler.on('change', switchTheme)
-
-  // let’s run it now
-  // colorScheme.onChange();
 })()
