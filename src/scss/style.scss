@@ -2,26 +2,26 @@
 // Styles
 // =============================================================================
 
-// 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
+// --- 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
 @import "../../node_modules/bootstrap/scss/functions";
 
-// 2. Include any default variable overrides here
+// --- 2. Include any default variable overrides here
 // Import Material Color Palette.
 @import "includes/colors";
 
-@import "includes/variables";
+@import "includes/custom-variables";
 @import "includes/animation";
 
 // Import Theme Color Scheme.
 @import "includes/color-scheme";
 
-// 3. Include remainder of required Bootstrap stylesheets
+// --- 3. Include remainder of required Bootstrap stylesheets
 @import "../../node_modules/bootstrap/scss/variables";
 @import "../../node_modules/bootstrap/scss/mixins";
 @import "../../node_modules/bootstrap/scss/utilities";
 
 // stylelint-disable scss/double-slash-comment-empty-line-before
-// 4. Include any optional Bootstrap components as you like
+// --- 4. Include any optional Bootstrap components as you like
 @import "../../node_modules/bootstrap/scss/root";
 @import "../../node_modules/bootstrap/scss/reboot";
 @import "../../node_modules/bootstrap/scss/type";
@@ -57,10 +57,10 @@
 // Helpers
 @import "../../node_modules/bootstrap/scss/helpers";
 
-// Utilities
+// --- 5. Optionally include utilities API last to generate classes based on the Sass map in `_utilities.scss`
 @import "../../node_modules/bootstrap/scss/utilities/api";
 
-// 5. Add additional custom code here
+// --- 6. Add additional custom code here
 // Reset loader, inline stylesheet
 // @import "plugins/loader";
 
