@@ -1,8 +1,10 @@
 {
   "extends": [
     "config:base",
-    "schedule:nonOfficeHours",
-    ":assignAndReview(adorade)"
+    ":dependencyDashboardApproval",
+    "schedule:earlyMondays",
+    ":assignAndReview(adorade)",
+    ":maintainLockFilesMonthly"
   ],
   "timezone": "Europe/Bucharest",
   "labels": ["deps"],
@@ -20,7 +22,6 @@
     {
       "matchPackagePatterns": ["^rollup|^@rollup/"],
       "groupName": "rollup packages",
-      "schedule": ["after 5pm on friday"],
       "labels": ["build"]
     },
     {
@@ -33,11 +34,5 @@
       "groupName": "gulp packages",
       "labels": ["gulp"]
     }
-  ],
-  "lockFileMaintenance": {
-    "enabled": true,
-    "extends": [
-      "schedule:monthly"
-    ]
-  }
+  ]
 }
