@@ -58,7 +58,7 @@
     "gulp-webp": "4.0.1",
     "rollup": "2.73.0",
     "sass": "1.51.0",
-    "stylelint": "14.8.1",
+    "stylelint": "14.8.2",
     "stylelint-config-standard-scss": "3.0.0",
     "stylelint-order": "5.0.0",
     "workbox-build": "6.5.3"
