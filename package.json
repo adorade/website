@@ -31,7 +31,7 @@
     "@rollup/plugin-babel": "5.3.1",
     "ansi-colors": "4.1.2",
     "browser-sync": "2.27.9",
-    "del": "6.0.0",
+    "del": "6.1.1",
     "eslint": "8.15.0",
     "fancy-log": "2.0.0",
     "gulp": "4.0.2",
