@@ -56,7 +56,7 @@
     "gulp-stylelint": "https://github.com/adorade/gulp-stylelint.git",
     "gulp-terser-js": "5.2.2",
     "gulp-webp": "4.0.1",
-    "rollup": "2.75.3",
+    "rollup": "2.77.0",
     "sass": "1.52.1",
     "stylelint": "14.8.5",
     "stylelint-config-standard-scss": "4.0.0",
