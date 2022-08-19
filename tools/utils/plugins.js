@@ -13,7 +13,7 @@ export const { src, dest, series, parallel, lastRun, watch, tree } = gulp;
 
 // Load others modules
 import * as fs from 'fs';
-import del from 'del';
+import { deleteAsync as del } from 'del';
 import size from 'gulp-size';
 import browserSync from 'browser-sync';
 const bs = browserSync.create();
