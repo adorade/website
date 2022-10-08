@@ -7,7 +7,7 @@
 import {
   src, dest, lastRun, isProd, fs, del, size, bs,
   fancyLog, green, magenta, cached, paths, opts
-} from '../utils/index.js';
+} from '../utils/index.mjs';
 import pugLinter from 'gulp-pug-linter';
 import data from 'gulp-data';
 import pug from 'gulp-pug';

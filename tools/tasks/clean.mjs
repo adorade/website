@@ -4,7 +4,7 @@
  * Licensed under MIT
  * ========================================================================== */
 
-import { isClean, isProd, del, fancyLog, green, magenta, dirs } from '../utils/index.js';
+import { isClean, isProd, del, fancyLog, green, magenta, dirs } from '../utils/index.mjs';
 
 let delTarget;
 

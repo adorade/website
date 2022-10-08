@@ -7,7 +7,7 @@
 import {
   src, dest, lastRun, isProd, del, size, bs, fancyLog, green, magenta,
   concat, header, rename, paths, opts, banner
-} from '../utils/index.js';
+} from '../utils/index.mjs';
 import gStylelint from 'gulp-stylelint';
 import dartSass from 'sass';
 import gulpSass from 'gulp-sass';

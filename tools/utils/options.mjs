@@ -4,7 +4,7 @@
  * Licensed under MIT
  * ========================================================================== */
 
-import { time, isProd, isSilent, dirs, paths } from './index.js';
+import { time, isProd, isSilent, dirs, paths } from './index.mjs';
 
 const dates = time.toDateString();
 

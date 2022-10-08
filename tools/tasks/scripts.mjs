@@ -7,11 +7,11 @@
 import {
   src, dest, lastRun, isProd, fs, del, size, bs, fancyLog, green, magenta,
   concat, header, rename, replace, paths, opts, banner, inputOpts, outputOpts
-} from '../utils/index.js';
+} from '../utils/index.mjs';
 import gEslint from 'gulp-eslint';
 import gTerser from 'gulp-terser-js';
 
-import gulpRollup from '../rollup/index.js';
+import gulpRollup from '../rollup/index.mjs';
 
 const taskTarget = isProd ? paths.scripts.prod : paths.scripts.dev;
 

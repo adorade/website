@@ -4,7 +4,7 @@
  * Licensed under MIT
  * ========================================================================== */
 
-import { pkg, title, time } from './index.js';
+import { pkg, title, time } from './index.mjs';
 
 const year = time.getFullYear();
 

@@ -4,7 +4,7 @@
  * Licensed under MIT
  * ========================================================================== */
 
-import { isProd, isSilent, del, fancyLog, bgRed, cyan, green, magenta, dirs } from '../utils/index.js';
+import { isProd, isSilent, del, fancyLog, bgRed, cyan, green, magenta, dirs } from '../utils/index.mjs';
 import workboxBuild from 'workbox-build';
 
 export async function cleanSW (done) {
@@ -24,7 +24,7 @@ export async function serviceWorker (done) {
   if (isProd) {
     fancyLog(`${green('-> Precache files with workbox...')}`);
     await workboxBuild.injectManifest({
-      swSrc: 'tools/workbox/service-worker.js',
+      swSrc: 'tools/workbox/service-worker.mjs',
       swDest: `${dirs.prod}/sw.js`,
       globDirectory: dirs.prod,
       globPatterns: [

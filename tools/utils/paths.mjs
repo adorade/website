@@ -4,7 +4,7 @@
  * Licensed under MIT
  * ========================================================================== */
 
-import { isProd } from './index.js';
+import { isProd } from './index.mjs';
 
 export const dirs = {
   root: './',

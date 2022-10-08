@@ -5,7 +5,7 @@
  * ========================================================================== */
 
 import { babel } from '@rollup/plugin-babel';
-import { isProd } from '../utils/index.js';
+import { isProd } from '../utils/index.mjs';
 
 const filename = isProd ? 'script' : 'script-dev' ;
 

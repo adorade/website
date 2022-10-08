@@ -4,7 +4,7 @@
  * Licensed under MIT
  * ========================================================================== */
 
-import { tree, arg, fancyLog, green, magenta, dirs, paths, opts, banner } from '../utils/index.js';
+import { tree, arg, fancyLog, green, magenta, dirs, paths, opts, banner } from '../utils/index.mjs';
 
 export function checks (done) {
   const gulpTree = tree();

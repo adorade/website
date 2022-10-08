@@ -10,19 +10,19 @@ export {
   fs, del, size, bs,
   fancyLog, bgBlue, bgRed, cyan, green, magenta, red,
   cached, concat, header, rename, replace
-} from './plugins.js';
+} from './plugins.mjs';
 
 // Settings
-export { pkg, title, time, arg, isClean, isProd, isSilent } from './settings.js';
+export { pkg, title, time, arg, isClean, isProd, isSilent } from './settings.mjs';
 
 // Dirs and Paths configuration
-export { dirs, paths } from './paths.js';
+export { dirs, paths } from './paths.mjs';
 
 // Options
-export { opts } from './options.js';
+export { opts } from './options.mjs';
 
 // Rollup Configuration
-export { inputOpts, outputOpts } from '../rollup/rollup-config.js';
+export { inputOpts, outputOpts } from '../rollup/rollup-config.mjs';
 
 // Template for banner to add to file headers
-export { banner } from './banner.js';
+export { banner } from './banner.mjs';

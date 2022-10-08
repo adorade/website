@@ -4,7 +4,7 @@
  * Licensed under MIT
  * ========================================================================== */
 
-import { title, fancyLog,  cyan, green, magenta } from '../utils/index.js';
+import { title, fancyLog,  cyan, green, magenta } from '../utils/index.mjs';
 
 export function help (done) {
   fancyLog('');
