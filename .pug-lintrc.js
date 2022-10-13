@@ -1,6 +1,6 @@
 /*!
  * Adorade (v1.0.0): .pug-lintrc.js
- * Copyright (c) 2019 Adorade (https://adorade.ro)
+ * Copyright (c) 2019 - 2022 Adorade (https://adorade.ro)
  * Licensed under MIT
  * ========================================================================== */
 
