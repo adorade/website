@@ -4,7 +4,10 @@
  * Licensed under MIT
  * ========================================================================== */
 
+import { babel } from '@rollup/plugin-babel';
 import { isProd } from './index.mjs';
+
+const filename = isProd ? 'script' : 'script-dev';
 
 export const dirs = {
   root: './',
@@ -30,6 +33,22 @@ export const paths = {
     dev: `${dirs.dev}/js/`,
     prod: `${dirs.prod}/js/`,
     filter: [ `${dirs.dev}/js/**/*.js`, '!**/*.min.js' ]
+  },
+  rollup: {
+    inputOpts: {
+      // `input` is optional
+      plugins: [
+        babel({
+          // for more options see: .babelrc.js,
+          babelHelpers: 'bundled'
+        })
+      ]
+    },
+    outputOpts: {
+      // `sourcemap` is optional
+      file: `${filename}.js`,
+      format: 'cjs'
+    }
   },
   vendors: {
     src: {

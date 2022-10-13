@@ -6,7 +6,7 @@
 
 import {
   src, dest, lastRun, isProd, fs, del, size, bs, fancyLog, green, magenta,
-  concat, header, rename, replace, paths, opts, banner, inputOpts, outputOpts
+  concat, header, rename, replace, paths, opts, banner
 } from '../utils/index.mjs';
 import gEslint from 'gulp-eslint';
 import gTerser from 'gulp-terser-js';
@@ -60,7 +60,7 @@ export function transpile () {
   return src(paths.scripts.input, {
     sourcemaps: true
   })
-    .pipe(gulpRollup(inputOpts, outputOpts))
+    .pipe(gulpRollup(paths.rollup.inputOpts, paths.rollup.outputOpts))
     .pipe(header(banner()))
     .pipe(size(opts.size))
     .pipe(dest(paths.scripts.dev, { sourcemaps: './' }))

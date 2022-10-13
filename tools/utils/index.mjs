@@ -21,8 +21,5 @@ export { dirs, paths } from './paths.mjs';
 // Options
 export { opts } from './options.mjs';
 
-// Rollup Configuration
-export { inputOpts, outputOpts } from '../rollup/rollup-config.mjs';
-
 // Template for banner to add to file headers
 export { banner } from './banner.mjs';
