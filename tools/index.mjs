@@ -1,6 +1,6 @@
 /*!
  * Adorade (v1.0.0): tools/index.js
- * Copyright (c) 2018 - 2019 Adorade (https://adorade.ro)
+ * Copyright (c) 2018 - 2022 Adorade (https://adorade.ro)
  * Licensed under MIT
  * ========================================================================== */
 
@@ -15,4 +15,4 @@ export {
   cleanDeploy, deploy,                                  // Deploy
   serve,                                                // Serve and Watch
   cleanSW, serviceWorker                                // Workbox build
-} from './tasks/index.js';
+} from './tasks/index.mjs';

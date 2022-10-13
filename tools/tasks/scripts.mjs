@@ -1,17 +1,17 @@
 /*!
  * Adorade (v1.0.0): tools/tasks/scripts.js
- * Copyright (c) 2018 - 2019 Adorade (https://adorade.ro)
+ * Copyright (c) 2018 - 2022 Adorade (https://adorade.ro)
  * Licensed under MIT
  * ========================================================================== */
 
 import {
   src, dest, lastRun, isProd, fs, del, size, bs, fancyLog, green, magenta,
-  concat, header, rename, replace, paths, opts, banner, inputOpts, outputOpts
-} from '../utils/index.js';
+  concat, header, rename, replace, paths, opts, banner
+} from '../utils/index.mjs';
 import gEslint from 'gulp-eslint';
 import gTerser from 'gulp-terser-js';
 
-import gulpRollup from '../rollup/index.js';
+import gulpRollup from '../rollup/index.mjs';
 
 const taskTarget = isProd ? paths.scripts.prod : paths.scripts.dev;
 
@@ -60,7 +60,7 @@ export function transpile () {
   return src(paths.scripts.input, {
     sourcemaps: true
   })
-    .pipe(gulpRollup(inputOpts, outputOpts))
+    .pipe(gulpRollup(paths.rollup.inputOpts, paths.rollup.outputOpts))
     .pipe(header(banner()))
     .pipe(size(opts.size))
     .pipe(dest(paths.scripts.dev, { sourcemaps: './' }))

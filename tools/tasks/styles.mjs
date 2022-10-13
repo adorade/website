@@ -1,13 +1,13 @@
 /*!
  * Adorade (v1.0.0): tools/tasks/styles.js
- * Copyright (c) 2018 - 2019 Adorade (https://adorade.ro)
+ * Copyright (c) 2018 - 2022 Adorade (https://adorade.ro)
  * Licensed under MIT
  * ========================================================================== */
 
 import {
   src, dest, lastRun, isProd, del, size, bs, fancyLog, green, magenta,
   concat, header, rename, paths, opts, banner
-} from '../utils/index.js';
+} from '../utils/index.mjs';
 import gStylelint from 'gulp-stylelint';
 import dartSass from 'sass';
 import gulpSass from 'gulp-sass';

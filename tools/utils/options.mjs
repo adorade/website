@@ -1,10 +1,10 @@
 /*!
  * Adorade (v1.0.0): tools/util/options.js
- * Copyright (c) 2018 - 2019 Adorade (https://adorade.ro)
+ * Copyright (c) 2018 - 2022 Adorade (https://adorade.ro)
  * Licensed under MIT
  * ========================================================================== */
 
-import { time, isProd, isSilent, dirs, paths } from './index.js';
+import { time, isProd, isSilent, dirs, paths } from './index.mjs';
 
 const dates = time.toDateString();
 

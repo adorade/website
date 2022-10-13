@@ -1,10 +1,10 @@
 /*!
  * Adorade (v1.0.0): tools/utils/settings.js
- * Copyright (c) 2018 - 2019 Adorade (https://adorade.ro)
+ * Copyright (c) 2018 - 2022 Adorade (https://adorade.ro)
  * Licensed under MIT
  * ========================================================================== */
 
-import { fs } from './index.js';
+import { fs } from './index.mjs';
 
 export const pkg = JSON.parse(fs.readFileSync('package.json', 'utf8'));
 export const title = `${pkg.name.charAt(0).toUpperCase()}${pkg.name.slice(1)}`;

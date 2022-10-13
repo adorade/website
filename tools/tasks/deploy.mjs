@@ -1,10 +1,10 @@
 /*!
  * Adorade (v1.0.0): tools/tasks/serve.js
- * Copyright (c) 2018 - 2019 Adorade (https://adorade.ro)
+ * Copyright (c) 2018 - 2022 Adorade (https://adorade.ro)
  * Licensed under MIT
  * ========================================================================== */
 
-import { src, del, fancyLog, green, magenta, dirs, opts } from '../utils/index.js';
+import { src, del, fancyLog, green, magenta, dirs, opts } from '../utils/index.mjs';
 import ghPages from 'gulp-gh-pages';
 
 export async function cleanDeploy () {

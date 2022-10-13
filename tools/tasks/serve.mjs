@@ -1,16 +1,16 @@
 /*!
  * Adorade (v1.0.0): tools/tasks/serve.js
- * Copyright (c) 2018 - 2019 Adorade (https://adorade.ro)
+ * Copyright (c) 2018 - 2022 Adorade (https://adorade.ro)
  * Licensed under MIT
  * ========================================================================== */
 
-import { series, watch, isProd, bs, fancyLog, bgBlue, bgRed, green, magenta, red, dirs, paths, opts } from '../utils/index.js';
+import { series, watch, isProd, bs, fancyLog, bgBlue, bgRed, green, magenta, red, dirs, paths, opts } from '../utils/index.mjs';
 import {
   vendorCss, lintScss, compile, minifyCss,
   vendorJs, lintMjs, transpile, minifyJs,
   imagine, convert, favicons, statica, fontsCss, fontsSvg,
   lintPages, pagile, pagify
-} from './index.js';
+} from './index.mjs';
 
 export function serve () {
   bs.init({
@@ -97,10 +97,10 @@ export function serve () {
   }
 
   for (let watcher of watchers) {
-    fancyLog(bgRed(`Watching ${watcher.name}`));
+    fancyLog(bgRed(` Watching: ${watcher.name} `));
 
     for (let p of [watcher.paths]) {
-      fancyLog(bgBlue('Source: '), magenta(p));
+      fancyLog(bgBlue(' Source: '), magenta(p));
     }
 
     let taskNames = [];

@@ -1,10 +1,10 @@
 /*!
  * Adorade (v1.0.0): tools/tasks/images.js
- * Copyright (c) 2018 - 2019 Adorade (https://adorade.ro)
+ * Copyright (c) 2018 - 2022 Adorade (https://adorade.ro)
  * Licensed under MIT
  * ========================================================================== */
 
-import { src, dest, lastRun, isProd, del, size, bs, fancyLog, green, magenta, paths, opts } from '../utils/index.js';
+import { src, dest, lastRun, isProd, del, size, bs, fancyLog, green, magenta, paths, opts } from '../utils/index.mjs';
 import imagemin, {gifsicle, mozjpeg, optipng, svgo} from 'gulp-imagemin';
 import webp from 'gulp-webp';
 

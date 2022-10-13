@@ -1,6 +1,6 @@
 /*!
  * Adorade (v1.0.0): tools/workbox/service-worker.js
- * Copyright (c) 2018 - 2019 Adorade (https://adorade.ro)
+ * Copyright (c) 2018 - 2022 Adorade (https://adorade.ro)
  * Licensed under MIT
  * =============================================================================
  * Welcome to your Workbox-powered service worker!

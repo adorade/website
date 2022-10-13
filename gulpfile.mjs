@@ -1,17 +1,17 @@
 /*!
  * Adorade (v1.0.0): gulpfile.esm.js
- * Copyright (c) 2018 - 2019 Adorade (https://adorade.ro)
+ * Copyright (c) 2018 - 2022 Adorade (https://adorade.ro)
  * Licensed under MIT
  * ========================================================================== */
 
-import { series, isClean, isProd, isSilent, fancyLog, green } from './tools/utils/index.js';
+import { series, isClean, isProd, isSilent, fancyLog, green } from './tools/utils/index.mjs';
 import {
   help, checks, clean, cleanCss, vendorCss, lintScss, compile, minifyCss,
   cleanJs, vendorJs, lintMjs, transpile, minifyJs,
   cleanStatics, favicons, statica, cleanFonts, fontsCss, fontsSvg,
   cleanImages, imagine, convert, cleanPages, lintPages, pagile, pagify,
   cleanDeploy, deploy, serve, cleanSW, serviceWorker
-} from './tools/index.js';
+} from './tools/index.mjs';
 
 if (isClean) {
   fancyLog(`${green('Looks like we are cleaning up all generated files!')}`);

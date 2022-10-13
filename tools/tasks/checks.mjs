@@ -1,10 +1,10 @@
 /*!
  * Adorade (v1.0.0): tools/tasks/checks.js
- * Copyright (c) 2018 - 2019 Adorade (https://adorade.ro)
+ * Copyright (c) 2018 - 2022 Adorade (https://adorade.ro)
  * Licensed under MIT
  * ========================================================================== */
 
-import { tree, arg, fancyLog, green, magenta, dirs, paths, opts, banner } from '../utils/index.js';
+import { tree, arg, fancyLog, green, magenta, dirs, paths, opts, banner } from '../utils/index.mjs';
 
 export function checks (done) {
   const gulpTree = tree();

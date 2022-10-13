@@ -1,10 +1,10 @@
 /*!
  * Adorade (v1.0.0): tools/util/banner.js
- * Copyright (c) 2018 - 2019 Adorade (https://adorade.ro)
+ * Copyright (c) 2018 - 2022 Adorade (https://adorade.ro)
  * Licensed under MIT
  * ========================================================================== */
 
-import { pkg, title, time } from './index.js';
+import { pkg, title, time } from './index.mjs';
 
 const year = time.getFullYear();
 

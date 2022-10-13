@@ -1,10 +1,10 @@
 /*!
  * Adorade (v1.0.0): tools/tasks/help.js
- * Copyright (c) 2018 - 2019 Adorade (https://adorade.ro)
+ * Copyright (c) 2018 - 2022 Adorade (https://adorade.ro)
  * Licensed under MIT
  * ========================================================================== */
 
-import { title, fancyLog,  cyan, green, magenta } from '../utils/index.js';
+import { title, fancyLog,  cyan, green, magenta } from '../utils/index.mjs';
 
 export function help (done) {
   fancyLog('');
