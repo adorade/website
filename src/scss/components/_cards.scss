@@ -85,6 +85,10 @@
 }
 
 // Light and Dark background
+.card {
+  background-color: rgba($black, 0);
+}
+
 .card-light {
   background-color: $white;
   color: $black;

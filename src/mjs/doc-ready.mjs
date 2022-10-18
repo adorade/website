@@ -11,10 +11,6 @@ $(window).on('load orientationchange resize', () => {
 // On Document Ready
 // -----------------------------------------------------------------------------
 $(() => {
-  // Text Rotate
-  // ------------------------
-  $('.hero-desc').rotaterator()
-
   // Parallax Effect
   // ------------------------
   $('.parallax-img').parallax()
