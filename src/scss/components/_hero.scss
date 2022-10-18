@@ -61,9 +61,13 @@
   }
 
   // Main title
-  .hero-title {
+  .hero-title,
+  .hero-desc {
     width: 100%;
     height: auto;
+  }
+
+  .hero-title {
     font-size: 4rem;
     line-height: 1.5;
 
@@ -80,17 +84,8 @@
     }
   }
 
-  // Description, rotate text
+  // Description
   .hero-desc {
-    width: 100%;
-    height: auto;
-
-    .rotate-text {
-      display: none;
-
-      @media (max-width: 575.98px) {
-        font-size: 1.5rem;
-      }
-    }
+    // code here
   }
 }
