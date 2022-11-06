@@ -44,6 +44,7 @@ rules:
   function-url-no-scheme-relative: true
   function-url-quotes: never
   indentation: 2
+  keyframe-selector-notation: keyword
   length-zero-no-unit: true
   max-empty-lines: 2
   max-line-length: null
