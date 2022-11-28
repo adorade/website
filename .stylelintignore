@@ -2,5 +2,3 @@
 **/*.min.css
 **/*.css
 **/dist
-**/docs
-**/unikorn

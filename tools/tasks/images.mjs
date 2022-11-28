@@ -27,7 +27,7 @@ export function imagine () {
       mozjpeg(opts.images.jpeg),
       optipng(opts.images.png),
       svgo(opts.images.svg)
-    ], opts.images.general ))
+    ], opts.images.general))
     .pipe(size(opts.size))
     .pipe(dest(taskTarget))
     .pipe(bs.stream({ match: '**/*.{gif,jpg,jpeg,png,svg}' }));
