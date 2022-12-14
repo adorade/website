@@ -2,10 +2,13 @@
 // Buttons
 // -----------------------------------------------------------------------------
 
-.btn-orange {
-  @include button-variant(rgba($primary-color, 1), rgba($primary-color, 1), $white);
+$button-orange: rgba($primary-color, 1);
+
+.btn-orange { // background, border, color
+  @include button-variant($button-orange, $button-orange, $white);
+  background-color: var(--bs-btn-bg);
 }
 
-.btn-outline-orange {
-  @include button-outline-variant(rgba($primary-color, 1));
+.btn-outline-orange { // color
+  @include button-outline-variant($button-orange);
 }
