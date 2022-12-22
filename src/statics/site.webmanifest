@@ -8,12 +8,14 @@
         {
             "src": "statics/icons/android-chrome-192x192.png",
             "sizes": "192x192",
-            "type": "image/png"
+            "type": "image/png",
+            "purpose": "any"
         },
         {
             "src": "statics/icons/android-chrome-512x512.png",
             "sizes": "512x512",
-            "type": "image/png"
+            "type": "image/png",
+            "purpose": "any"
         },
         {
             "src": "statics/icons/icon-small-192x192.png",
@@ -36,31 +38,31 @@
         {
             "name": "Adorade Web Design",
             "short_name": "Home",
-            "url": "/index.html?utm_source=pwa",
+            "url": "/?utm_source=pwa",
             "icons": [{ "src": "statics/icons/icon-blue-192x192.png", "sizes": "192x192" }]
         },
         {
             "name": "Professional services",
             "short_name": "Services",
-            "url": "/services.html?utm_source=pwa",
+            "url": "/services?utm_source=pwa",
             "icons": [{ "src": "statics/icons/icon-cyan-192x192.png", "sizes": "192x192" }]
         },
         {
             "name": "Features info for you",
             "short_name": "Features",
-            "url": "/features.html?utm_source=pwa",
+            "url": "/features?utm_source=pwa",
             "icons": [{ "src": "statics/icons/icon-green-192x192.png", "sizes": "192x192" }]
         },
         {
             "name": "Our Portfolio showcase",
             "short_name": "Portfolio",
-            "url": "/portfolio.html?utm_source=pwa",
+            "url": "/portfolio?utm_source=pwa",
             "icons": [{ "src": "statics/icons/icon-red-192x192.png", "sizes": "192x192" }]
         },
         {
             "name": "Contact us",
             "short_name": "Contact",
-            "url": "/contact.html?utm_source=pwa",
+            "url": "/contact?utm_source=pwa",
             "icons": [{ "src": "statics/icons/icon-yellow-192x192.png", "sizes": "192x192" }]
         }
     ]
