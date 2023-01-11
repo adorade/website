@@ -14,14 +14,20 @@ section.carousel-portfolio.text-center#carousel-portfolio
             button.active(
               role="button" type="button"
               data-bs-target="#carouselPortfolio" data-bs-slide-to="0"
-              aria-current="true" aria-label="Slide 1")
+              aria-current="true" aria-label="BooDark")
             button(
               role="button" type="button"
               data-bs-target="#carouselPortfolio" data-bs-slide-to="1"
-              aria-label="Slide 2")
+              aria-label="WebMagia")
+            button(
+              role="button" type="button"
+              data-bs-target="#carouselPortfolio" data-bs-slide-to="2"
+              aria-label="UniKorn")
 
           .carousel-inner.shadow-lg
             .carousel-item.active
+              +carouselPicture("boodark", "BooDark")
+            .carousel-item
               +carouselPicture("webmagia", "WebMagia")
             .carousel-item
               +carouselPicture("unikorn", "UniKorn")
