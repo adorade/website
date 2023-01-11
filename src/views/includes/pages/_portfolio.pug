@@ -4,6 +4,27 @@ include ../../mixins/_pictures
 section.portfolio#portfolio-1
   .container
     .row.align-items-center
+      .col-12.col-md-6
+        +featuresPicture("portfolio", "boodark", "png", "BooDark")
+      .col-12.col-md-6
+        h3.my-4.mt-md-0.text-center.text-md-start BooDark
+        p.mb-0 A modern Bootstrap Dark theme for phpMyAdmin.
+        p.mb-4.fw-bold #dark-theme #css #theme #scss #phpmyadmin #dark #pma #bootstrap5
+        .buttons-wrapper
+          a.btn.btn-info.me-2.external-link(
+            href="https://www.phpmyadmin.net/themes/" rel="noopener" target="_blank" aria-label="BooDark online")
+            //- i.fas.fa-external-link-alt.me-2
+            img.svg-inline--fa.me-2#fa-external-link(src="fonts/svgs/solid/external-link-alt.svg" alt="external-link" inline)
+            span.fw-bold PMA Themes
+          a.btn.btn-light.external-link(
+            href="https://github.com/adorade/boodark" rel="noopener" target="_blank" aria-label="BooDark github")
+            //- i.fab.fa-github.me-2
+            img.svg-inline--fa.me-2#fa-github(src="fonts/svgs/brands/github.svg" alt="github" inline)
+            span.fw-bold GitHub
+
+section.portfolio#portfolio-2
+  .container
+    .row.align-items-center
       .col-12.col-md-6.order-md-1
         +featuresPicture("portfolio", "unikorn", "png", "UniKorn")
       .col-12.col-md-6
@@ -22,7 +43,7 @@ section.portfolio#portfolio-1
             img.svg-inline--fa.me-2#fa-github(src="fonts/svgs/brands/github.svg" alt="github" inline)
             span.fw-bold GitHub
 
-section.portfolio#portfolio-2
+section.portfolio#portfolio-3
   .container
     .row.align-items-center
       .col-12.col-md-6
@@ -43,7 +64,7 @@ section.portfolio#portfolio-2
             img.svg-inline--fa.me-2#fa-github(src="fonts/svgs/brands/github.svg" alt="github" inline)
             span.fw-bold GitHub
 
-section.portfolio#portfolio-3
+section.portfolio#portfolio-4
   .container
     .row.align-items-center
       .col-12.col-md-6.order-md-1
@@ -63,7 +84,7 @@ section.portfolio#portfolio-3
           //-   span.fw-bold GitHub
           span.fw-bold Coming soon!
 
-section.portfolio#portfolio-4
+section.portfolio#portfolio-5
   .container
     .row.align-items-center
       .col-12.col-md-6
