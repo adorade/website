@@ -8,7 +8,6 @@
 [![Depfu Status](https://img.shields.io/depfu/dependencies/github/adorade/website)](https://depfu.com/repos/github/adorade/website)
 [![Renovate enabled](https://img.shields.io/badge/renovate-enabled-brightgreen.svg)](https://renovatebot.com/)
 [![GitHub Actions status](https://github.com/adorade/website/workflows/Node%20CI/badge.svg)](https://github.com/adorade/website/actions)
-[![Total alerts](https://img.shields.io/lgtm/alerts/g/adorade/website.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/adorade/website/alerts/)
 
 This is the project [website](https://adorade.ro/).
 
