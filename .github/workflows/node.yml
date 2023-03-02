@@ -15,33 +15,30 @@ jobs:
 
     strategy:
       matrix:
-        os: [ubuntu-20.04]
-        node_version: [14.x]
+        os: [ubuntu-latest]
+        node_version: [18.x]
 
     runs-on: ${{ matrix.os }}
 
     steps:
-    # checkout the repo
-    - name: Checkout the repo
-      uses: actions/checkout@v3
+      # checkout the repo
+      - name: Checkout
+        uses: actions/checkout@v3
 
-    # use node.js matrix
-    - name: Use Node.js ${{ matrix.node_version }}
-      uses: actions/setup-node@v3
-      with:
-        node-version: ${{ matrix.node_version }}
+      # use node.js matrix
+      - name: Use Node.js ${{ matrix.node_version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node_version }}
 
-    # install dependencies
-    - name: Clean install dependencies
-      run: yarn install
+      # install dependencies
+      - name: Clean install dependencies
+        run: yarn install
 
-    # verify build tools
-    - name: Verify build tools
-      run: yarn run verify
+      # verify build tools
+      - name: Verify build tools
+        run: yarn run verify
 
-    # build proccess
-    - name: Build proccess
-      run: yarn run build
-
-    # deploy web app using publish profile credentials
-    # coming soon
+      # build proccess
+      - name: Build proccess
+        run: yarn run build
