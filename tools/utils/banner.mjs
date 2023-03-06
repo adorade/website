@@ -1,5 +1,5 @@
 /*!
- * Adorade (v1.1.0): tools/util/banner.js
+ * Adorade (v2.1.0): tools/util/banner.js
  * Copyright (c) 2018 - 2023 Adorade (https://adorade.ro)
  * Licensed under MIT
  * ========================================================================== */

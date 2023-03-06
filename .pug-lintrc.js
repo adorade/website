@@ -1,5 +1,5 @@
 /*!
- * Adorade (v1.1.0): .pug-lintrc.js
+ * Adorade (v2.1.0): .pug-lintrc.js
  * Copyright (c) 2019 - 2023 Adorade (https://adorade.ro)
  * Licensed under MIT
  * ========================================================================== */
