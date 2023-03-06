@@ -1,6 +1,6 @@
 /*!
- * Adorade (v1.0.0): tools/tasks/index.js
- * Copyright (c) 2018 - 2022 Adorade (https://adorade.ro)
+ * Adorade (v1.1.0): tools/tasks/index.js
+ * Copyright (c) 2018 - 2023 Adorade (https://adorade.ro)
  * Licensed under MIT
  * ========================================================================== */
 
