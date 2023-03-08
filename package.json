@@ -24,6 +24,7 @@
     "jquery": "3.6.3"
   },
   "devDependencies": {
+    "@adorade/gulp-stylelint": "15.1.3",
     "@babel/cli": "7.21.0",
     "@babel/core": "7.21.0",
     "@babel/eslint-parser": "7.19.1",
@@ -53,7 +54,6 @@
     "gulp-replace": "1.1.4",
     "gulp-sass": "5.1.0",
     "gulp-size": "4.0.1",
-    "gulp-stylelint": "https://github.com/adorade/gulp-stylelint.git",
     "gulp-terser-js": "5.2.2",
     "gulp-webp": "4.0.1",
     "postcss": "8.4.21",

@@ -8,7 +8,7 @@ import {
   src, dest, lastRun, isProd, del, size, bs, fancyLog, green, magenta,
   concat, header, rename, paths, opts, banner
 } from '../utils/index.mjs';
-import gStylelint from 'gulp-stylelint';
+import gStylelint from '@adorade/gulp-stylelint';
 import dartSass from 'sass';
 import gulpSass from 'gulp-sass';
 const gSass = gulpSass(dartSass);
