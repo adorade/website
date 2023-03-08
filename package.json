@@ -21,7 +21,7 @@
     "@popperjs/core": "2.11.6",
     "bootstrap": "5.2.3",
     "cookieconsent": "3.1.1",
-    "jquery": "3.6.3"
+    "jquery": "3.6.4"
   },
   "devDependencies": {
     "@adorade/gulp-stylelint": "15.1.3",
