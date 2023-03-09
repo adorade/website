@@ -8,7 +8,7 @@ import {
   src, dest, lastRun, isProd, del, size, bs, fancyLog, green, magenta,
   concat, header, rename, paths, opts, banner
 } from '../utils/index.mjs';
-import gStylelint from '@adorade/gulp-stylelint';
+import gStylelintEsm from 'gulp-stylelint-esm';
 import dartSass from 'sass';
 import gulpSass from 'gulp-sass';
 const gSass = gulpSass(dartSass);
@@ -42,7 +42,7 @@ export function lintScss () {
   return src(paths.styles.src, {
     since: lastRun(lintScss)
   })
-    .pipe(gStylelint(opts.styles));
+    .pipe(gStylelintEsm(opts.styles));
 }
 lintScss.displayName = 'lint:scss';
 lintScss.description = 'Lint SCSS files';
