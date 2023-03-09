@@ -2,16 +2,6 @@
 # yarn lockfile v1
 
 
-"@adorade/gulp-stylelint@15.1.3":
-  version "15.1.3"
-  resolved "https://registry.yarnpkg.com/@adorade/gulp-stylelint/-/gulp-stylelint-15.1.3.tgz#eed57bf8164d28f781e999145c2e711deffbe357"
-  integrity sha512-kIjPaw3chfY2AAGWocuPd8k8c4QAjmP0EFmxrQLl4f7LnwX8ojP9GbImZvZKN190HQ5BPKu89Qd7xrpX8SiGYA==
-  dependencies:
-    ansi-colors "4.1.3"
-    fancy-log "2.0.0"
-    plugin-error "2.0.1"
-    source-map "0.7.4"
-
 "@ampproject/remapping@^2.2.0":
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/@ampproject/remapping/-/remapping-2.2.0.tgz#56c133824780de3174aed5ab6834f3026790154d"
@@ -4641,6 +4631,16 @@ gulp-size@4.0.1:
     pretty-bytes "^5.6.0"
     stream-counter "^1.0.0"
     through2 "^4.0.2"
+
+gulp-stylelint-esm@1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/gulp-stylelint-esm/-/gulp-stylelint-esm-1.0.0.tgz#539d4588c05ceaad5455eae2e100b1cd7180ac18"
+  integrity sha512-uhSe4SHISjmNAxVOAp8cSr7g9lDMlGLxRneC68S0HMfXDeS2B7kVucJeIpuxKr/onr4r0IopeoESbTEibTseog==
+  dependencies:
+    ansi-colors "4.1.3"
+    fancy-log "2.0.0"
+    plugin-error "2.0.1"
+    source-map "0.7.4"
 
 gulp-terser-js@5.2.2:
   version "5.2.2"
