@@ -16,7 +16,6 @@ export const dirs = {
   prod: 'dist',
   test: 'test',
   modules: 'node_modules',
-  deploy: '.publish',
   logs: 'logs'
 };
 

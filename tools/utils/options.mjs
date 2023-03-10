@@ -4,9 +4,7 @@
  * Licensed under MIT
  * ========================================================================== */
 
-import { time, isProd, isSilent, dirs, paths } from './index.mjs';
-
-const dates = time.toDateString();
+import { isProd, isSilent, dirs, paths } from './index.mjs';
 
 export const opts = {
   entry: {
@@ -86,14 +84,6 @@ export const opts = {
     gzip: isProd ? true : false,
     showFiles: isSilent ? false : true,
     showTotal: isSilent ? false : true
-  },
-  deploy: {
-    remoteUrl: 'https://github.com/adorade/adorade.github.io.git',
-    // branch: 'gh-pages',
-    // cacheDir: '.publish',
-    // push: true,
-    // force: false,
-    message: `Update ${dates}`
   },
   watch: {
     delay: 2000
