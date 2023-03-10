@@ -1,6 +1,6 @@
 /*!
- * Adorade (v2.1.0): tools/tasks/pages.js
- * Copyright (c) 2018 - 2023 Adorade (https://adorade.ro)
+ * Adorade (v2.1.0): tools/tasks/pages.mjs
+ * Copyright (c) 2018-23 Adorade (https://adorade.ro)
  * Licensed under MIT
  * ========================================================================== */
 
