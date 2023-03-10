@@ -13,6 +13,5 @@ export { cleanStatics, favicons, statica } from './statics.mjs';                
 export { cleanFonts, fontsCss, fontsSvg } from './fonts.mjs';                       // Fonts
 export { cleanImages, imagine, convert } from './images.mjs';                       // Images
 export { cleanPages, lintPages, pagile, pagify } from './pages.mjs';                // Pages
-export { cleanDeploy, deploy } from './deploy.mjs';                                 // Deploy
 export { serve } from './serve.mjs';                                                // Serve and Watch
 export { cleanSW, serviceWorker } from './workbox.mjs';                             // Workbox build

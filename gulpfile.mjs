@@ -10,7 +10,7 @@ import {
   cleanJs, vendorJs, lintMjs, transpile, minifyJs,
   cleanStatics, favicons, statica, cleanFonts, fontsCss, fontsSvg,
   cleanImages, imagine, convert, cleanPages, lintPages, pagile, pagify,
-  cleanDeploy, deploy, serve, cleanSW, serviceWorker
+  serve, cleanSW, serviceWorker
 } from './tools/index.mjs';
 
 if (isClean) {
@@ -85,13 +85,6 @@ const pages = series(lintPages, pagile, pagify);
 export const buildPages = series(cleanPages, pages);
 buildPages.displayName = 'build:pages';
 buildPages.description = 'Build only html files';
-
-/**
- * Deploy to GitHub Pages
- * -------------------------------------------------------------------------- */
-export const buildDeploy = series(cleanDeploy, deploy);
-buildDeploy.displayName = 'build:deploy';
-buildDeploy.description = 'Deploy to GitHub Pages';
 
 /**
  * Watch and Serve - watch files for changes and reload
