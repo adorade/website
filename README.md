@@ -2,11 +2,11 @@
 
 ![Adorade](src/images/share/adorade_og_share.jpg)
 
-[![GitHub package.json version](https://img.shields.io/github/package-json/v/adorade/website.svg?label=&color=green&logo=github)](https://github.com/adorade/website/blob/main/package.json)
-[![license](https://img.shields.io/github/license/adorade/website.svg?label=)](https://mit-license.org)
-[![website](https://img.shields.io/website/https/adorade.ro.svg?logo=google-chrome)](https://adorade.ro/)
+[![GitHub package.json version](https://img.shields.io/github/package-json/v/adorade/website?color=green&logo=github)](https://github.com/adorade/website/blob/main/package.json)
+[![license](https://img.shields.io/github/license/adorade/website)](https://mit-license.org)
+[![website](https://img.shields.io/website/https/adorade.ro?logo=google-chrome)](https://adorade.ro/)
 [![Depfu Status](https://img.shields.io/depfu/dependencies/github/adorade/website)](https://depfu.com/repos/github/adorade/website)
-[![Renovate enabled](https://img.shields.io/badge/renovate-enabled-brightgreen.svg)](https://renovatebot.com/)
+[![Renovate enabled](https://img.shields.io/badge/renovate-enabled-brightgreen)](https://renovatebot.com/)
 [![GitHub Actions status](https://github.com/adorade/website/workflows/Node%20CI/badge.svg)](https://github.com/adorade/website/actions)
 
 This is the project [website](https://adorade.ro/).
