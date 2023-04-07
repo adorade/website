@@ -15,7 +15,8 @@ export const opts = {
     reportOutputDir: paths.logs.gulp,
     reporters: [
       { formatter: 'string', console: true, save: 'styles.txt' }
-    ]
+    ],
+    quietDeprecationWarnings: isProd ? true : false
   },
   sass: {
     outputStyle: 'expanded',
