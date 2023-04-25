@@ -1,5 +1,5 @@
 /*!
- * Adorade (v2.1.0): tools/workbox/service-worker.js
+ * Adorade (v2.1.0): tools/workbox/service-worker.mjs
  * Copyright (c) 2018-23 Adorade (https://adorade.ro)
  * Licensed under MIT
  * =============================================================================

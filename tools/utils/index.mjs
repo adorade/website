@@ -1,5 +1,5 @@
 /*!
- * Adorade (v2.1.0): tools/util/index.js
+ * Adorade (v2.1.0): tools/utils/index.mjs
  * Copyright (c) 2018-23 Adorade (https://adorade.ro)
  * Licensed under MIT
  * ========================================================================== */

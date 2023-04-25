@@ -1,5 +1,5 @@
 /*!
- * Adorade (v2.1.0): tools/util/config.js
+ * Adorade (v2.1.0): tools/utils/config.mjs
  * Copyright (c) 2018-23 Adorade (https://adorade.ro)
  * Licensed under MIT
  * ========================================================================== */
