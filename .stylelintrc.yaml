@@ -10,24 +10,21 @@ extends: [ stylelint-config-standard-scss ]
 plugins: [ stylelint-scss, stylelint-order ]
 # rules
 rules:
-  # Deprecation warnings
+# --- Deprecation warnings
   # https://github.com/stylelint/stylelint/blob/main/docs/user-guide/rules.md#deprecated
   at-rule-name-space-after: always
   at-rule-semicolon-space-before: never
-  block-closing-brace-empty-line-before: null
   block-closing-brace-newline-after:
     - always
     - ignoreAtRules: [ if, else ]
-  block-opening-brace-space-before: null
   declaration-block-semicolon-newline-after: always-multi-line
   declaration-block-semicolon-newline-before: never-multi-line
   declaration-block-semicolon-space-after: always-single-line
   indentation: 2
   max-empty-lines: 2
-  max-line-length: null
   media-feature-parentheses-space-inside: never
   media-feature-range-operator-space-after: always
-  media-feature-range-operator-space-before: never
+  media-feature-range-operator-space-before: always
   no-eol-whitespace: true
   no-extra-semicolons: true
   no-missing-end-of-source-newline: true
@@ -42,11 +39,13 @@ rules:
   value-list-comma-newline-before: never-multi-line
   value-list-comma-space-after: always-single-line
 
-  # Good
+# --- Good Rules
   alpha-value-notation: number
   at-rule-empty-line-before: null
   at-rule-no-unknown: null
   at-rule-no-vendor-prefix: true
+  block-closing-brace-empty-line-before: null
+  block-opening-brace-space-before: null
   color-function-notation: legacy
   color-named: never
   comment-word-disallowed-list:
@@ -68,10 +67,12 @@ rules:
   function-url-quotes: never
   keyframe-selector-notation: percentage
   length-zero-no-unit: true
+  max-line-length: null
   media-feature-name-no-unknown:
     - true
     - ignoreMediaFeatureNames: [ prefers-reduced-motion ]
   media-feature-name-no-vendor-prefix: true
+  media-feature-range-notation: prefix
   no-descending-specificity: null
   no-duplicate-selectors: true
   no-empty-source: null
@@ -96,16 +97,16 @@ rules:
   value-keyword-case: lower
   value-no-vendor-prefix: true
 
-  # -- Plugin Rules
+# --- Plugin Rules
   scss/at-mixin-argumentless-call-parentheses: null
   scss/at-rule-no-unknown: true
   scss/comment-no-empty: null
-  scss/no-global-function-names: null
   scss/double-slash-comment-empty-line-before:
     - always
     - except: [ first-nested ]
       ignore: [ between-comments, stylelint-commands ]
   scss/double-slash-comment-whitespace-inside: always
+  scss/no-global-function-names: null
 
   # Specify the order of properties using
   order/properties-order:
@@ -113,7 +114,7 @@ rules:
       # Layout Properties (position, float, clear, display, box-sizing, overflow, flex)
       - groupName: layout
         properties: [
-          position, top, right, bottom, left, z-index, box-sizing, display,
+          position, inset, top, right, bottom, left, z-index, box-sizing, display,
           flex-direction, flex-wrap, flex-flow, flex-grow, flex-shrink, flex-basis, flex, flex-align, flex-order, flex-pack,
           align-content, align-items, align-self, justify-content, order, float
         ]

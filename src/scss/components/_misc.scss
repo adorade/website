@@ -51,8 +51,7 @@
     margin: 0;
     overflow: hidden;
     border-radius: .25rem;
-    background: $gray;
-    background: rgba($gray, .5);
+    background-color: rgba($gray, .5);
     color: #f8f9fa;
     font-size: 1.25rem;
     text-align: center;
@@ -64,7 +63,7 @@
     }
 
     &:hover {
-      background: rgba($gray, .9);
+      background-color: rgba($gray, .9);
       transition: .5s;
     }
   }
