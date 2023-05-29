@@ -60,7 +60,7 @@
     "stylelint": "15.6.2",
     "stylelint-config-standard-scss": "7.0.1",
     "stylelint-order": "6.0.3",
-    "workbox-build": "6.5.4"
+    "workbox-build": "6.6.0"
   },
   "engines": {
     "node": "^14.13.1 || >=16.0.0"
