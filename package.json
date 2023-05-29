@@ -57,7 +57,7 @@
     "postcss": "8.4.24",
     "rollup": "3.23.0",
     "sass": "1.62.1",
-    "stylelint": "15.4.0",
+    "stylelint": "15.6.2",
     "stylelint-config-standard-scss": "7.0.1",
     "stylelint-order": "6.0.3",
     "workbox-build": "6.5.4"
