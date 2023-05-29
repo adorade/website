@@ -58,7 +58,7 @@
     "rollup": "3.23.0",
     "sass": "1.62.1",
     "stylelint": "15.6.2",
-    "stylelint-config-standard-scss": "7.0.1",
+    "stylelint-config-standard-scss": "9.0.0",
     "stylelint-order": "6.0.3",
     "workbox-build": "6.6.0"
   },
