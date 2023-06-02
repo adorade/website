@@ -17,6 +17,12 @@
 
 // --- 3. Include remainder of required Bootstrap stylesheets
 @import "../../node_modules/bootstrap/scss/variables";
+
+// Modified maps
+// Be aware you must insert between our requirements just after its definition
+// in `variables` and before its usage in `maps`
+@import "includes/new-grid";
+
 @import "../../node_modules/bootstrap/scss/maps";
 @import "../../node_modules/bootstrap/scss/mixins";
 @import "../../node_modules/bootstrap/scss/root";
@@ -65,10 +71,7 @@
 // Reset loader, inline stylesheet
 // @import "plugins/loader";
 
-@import "mixins/gradients";
-@import "mixins/picture";
-@import "mixins/forms";
-@import "mixins/hover";
+@import "mixins/mixins";
 
 @import "components/basic";
 @import "components/buttons";

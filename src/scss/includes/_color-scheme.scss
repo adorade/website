@@ -29,25 +29,24 @@
 
 :root {
   // Apply a default color scheme
+  @include dark-mode;
   @media (prefers-color-scheme: no-preference) {
-    // code here
+    @include dark-mode;
   }
 
   // Apply a dark color scheme
+  &[color-scheme="dark"] {
+    @include dark-mode;
+  }
   @media (prefers-color-scheme: dark) {
     @include dark-mode;
   }
 
-  &[color-scheme="dark"] {
-    @include dark-mode;
-  }
-
   // Apply a light color scheme
-  @media (prefers-color-scheme: light) {
+  &[color-scheme="light"] {
     @include light-mode;
   }
-
-  &[color-scheme="light"] {
+  @media (prefers-color-scheme: light) {
     @include light-mode;
   }
 }

@@ -1,0 +1,32 @@
+//
+// New Grid System - extend bootstrap grid
+// -----------------------------------------------------------------------------
+
+// --- Grid breakpoints
+// $grid-breakpoints: (
+//   xs: 0,
+//   sm: 576px,
+//   md: 768px,
+//   lg: 992px,
+//   xl: 1200px,
+//   xxl: 1400px
+// );
+$my-grid-breakpoints: (
+  hd: 1920px,
+  4k: 2560px
+);
+$grid-breakpoints: map-merge($grid-breakpoints, $my-grid-breakpoints);
+
+// --- Grid containers
+// $container-max-widths: (
+//   sm: 540px,
+//   md: 720px,
+//   lg: 960px,
+//   xl: 1140px,
+//   xxl: 1320px
+// );
+$my-container-max-widths: (
+  hd: 1860px,
+  4k: 2460px
+);
+$container-max-widths: map-merge($container-max-widths, $my-container-max-widths);
