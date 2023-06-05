@@ -7,6 +7,12 @@
   justify-content: center;
   padding: 3.5rem 0;
 
+  @media (min-width: 1920px) {
+    .container {
+      max-width: 1440px;
+    }
+  }
+
   .card {
     margin: 0;
     border: 0 solid rgba(0, 0, 0, 0);

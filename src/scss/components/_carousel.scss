@@ -7,6 +7,12 @@
   // background-color: var(--background-color-medium);
   // color: var(--text-color);
 
+  @media (min-width: 1920px) {
+    .container {
+      max-width: 1440px;
+    }
+  }
+
   .carousel-picture {
     // You should use a 16:9 image ratio, such as 1280 x 720 px.
     @include picture(16 9, ".carousel-img", false, false);
