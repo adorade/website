@@ -9,7 +9,7 @@ import {
   concat, header, rename, paths, opts, banner
 } from '../utils/index.mjs';
 import gStylelintEsm from 'gulp-stylelint-esm';
-import dartSass from 'sass';
+import * as dartSass from 'sass';
 import gulpSass from 'gulp-sass';
 const gSass = gulpSass(dartSass);
 import autoprefixer from 'gulp-autoprefixer';
