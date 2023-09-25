@@ -1,9 +1,11 @@
 //- partials/_fonts.pug
 //--- Load Google Fonts
-if entry.inline
-  link#inline-fonts-css(rel="stylesheet" href="fonts/fonts.css" inline)
-else
-  link#fonts-css(rel="stylesheet" href="fonts/fonts.css")
+link#google-fonts-css(
+  href="https://fonts.googleapis.com/css2?family=Aclonica&family=Roboto&display=swap"
+  rel="stylesheet")
 
 //--- Load Font Awesome
-//- see fonts/fonts.css
+if entry.inline
+  link#inline-fa-css(rel="stylesheet" href="fonts/fonts.css" inline)
+else
+  link#fa-css(rel="stylesheet" href="fonts/fonts.css")
