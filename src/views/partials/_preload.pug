@@ -1,7 +1,4 @@
-//- partials/_preconnect.pug
-- cdn = 'https://cdn.adorade.ro/fonts/google/'
-- aclonica = 'aclonica-v10-latin-regular'
-- roboto = 'roboto-v20-latin-regular'
-
-link(rel="preload" as="font" type="font/woff2" href=cdn + aclonica + ".woff2" crossorigin)
-link(rel="preload" as="font" type="font/woff2" href=cdn + roboto + ".woff2" crossorigin)
+//- partials/_preload.pug
+link(
+  href="https://fonts.googleapis.com/css2?family=Aclonica&family=Roboto&display=swap"
+  rel="stylesheet")
