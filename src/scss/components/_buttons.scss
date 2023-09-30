@@ -2,13 +2,28 @@
 // Buttons
 // -----------------------------------------------------------------------------
 
-$button-orange: rgba($primary-color, 1);
+$btn-orange: rgba($primary-color, 1);
+
+.btn-toggler {
+  padding: .5rem;
+  border: 0;
+  background-image: none;
+  color: $white;
+
+  .svg-inline--fa { // stylelint-disable-line
+    display: block;
+    font-size: 1.25rem;
+  }
+
+  &:hover {
+    @extend .btn-orange; // stylelint-disable-line
+  }
+}
 
 .btn-orange { // background, border, color
-  @include button-variant($button-orange, $button-orange, $white);
-  background-color: var(--bs-btn-bg);
+  @include button-variant($btn-orange, $btn-orange, $white, $hover-color: $white);
 }
 
 .btn-outline-orange { // color
-  @include button-outline-variant($button-orange);
+  @include button-outline-variant($btn-orange);
 }

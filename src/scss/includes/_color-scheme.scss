@@ -1,9 +1,19 @@
 //
 // Theme Color Scheme
 // -----------------------------------------------------------------------------
-// Dark Theme is default
 
-@mixin dark-mode() {
+:root,
+[data-bs-theme="light"] {
+  --body-background-color: #{$gray-100};
+  --background-color-normal: #{darken($gray-100, 5%)};
+  --background-color-medium: #{darken($gray-100, 10%)};
+  --background-color-dark: #{$gray-400};
+  --text-color: #{$gray-800};
+  --link-color: #{$gray-800};
+  --offcanvas-header-background-color: #{$gray-300};
+}
+
+[data-bs-theme="dark"] {
   color-scheme: dark;
 
   --body-background-color: #{$gray-800};
@@ -13,40 +23,4 @@
   --text-color: #{$gray-100};
   --link-color: #{$gray-100};
   --offcanvas-header-background-color: #{$gray-900};
-}
-
-@mixin light-mode() {
-  color-scheme: light;
-
-  --body-background-color: #{$gray-100};
-  --background-color-normal: #{darken($gray-100, 5%)};
-  --background-color-medium: #{darken($gray-100, 10%)};
-  --background-color-dark: #{$gray-400};
-  --text-color: #{$gray-800};
-  --link-color: #{$gray-800};
-  --offcanvas-header-background-color: #{$gray-700};
-}
-
-:root {
-  // Apply a default color scheme
-  @include dark-mode;
-  @media (prefers-color-scheme: no-preference) {
-    @include dark-mode;
-  }
-
-  // Apply a dark color scheme
-  &[color-scheme="dark"] {
-    @include dark-mode;
-  }
-  @media (prefers-color-scheme: dark) {
-    @include dark-mode;
-  }
-
-  // Apply a light color scheme
-  &[color-scheme="light"] {
-    @include light-mode;
-  }
-  @media (prefers-color-scheme: light) {
-    @include light-mode;
-  }
 }

@@ -27,6 +27,7 @@ export const paths = {
     filter: [ `${dirs.dev}/css/**/*.css`, '!**/*.min.css' ]
   },
   scripts: {
+    color: `${dirs.src}/mjs/color-modes.js`,
     src: `${dirs.src}/mjs/**/*.mjs`,
     input: isProd ? `${dirs.src}/mjs/script.mjs` : `${dirs.src}/mjs/script-dev.mjs`,
     dev: `${dirs.dev}/js/`,

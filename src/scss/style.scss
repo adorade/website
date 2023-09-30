@@ -12,11 +12,9 @@
 @import "includes/custom-variables";
 @import "includes/animation";
 
-// Import Theme Color Scheme.
-@import "includes/color-scheme";
-
 // --- 3. Include remainder of required Bootstrap stylesheets
 @import "../../node_modules/bootstrap/scss/variables";
+@import "../../node_modules/bootstrap/scss/variables-dark";
 
 // Modified maps
 // Be aware you must insert between our requirements just after its definition
@@ -71,11 +69,13 @@
 // Reset loader, inline stylesheet
 // @import "plugins/loader";
 
+// Import Theme Color Scheme.
+@import "includes/color-scheme";
+
 @import "mixins/mixins";
 
 @import "components/basic";
 @import "components/buttons";
-@import "components/navbar";
 @import "components/offcanvas";
 @import "components/hero";
 @import "components/header";

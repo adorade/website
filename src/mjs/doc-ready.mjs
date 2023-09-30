@@ -39,7 +39,7 @@ $(window).on('scroll', function () {
   const $windowPos = $(this).scrollTop(),
         $windowH = $(this).height(),
         $documentH = $(document).height(),
-        $toggler = $('.navbar-toggler'),
+        $toggler = $('.btn-toggler'),
         $getInTouch = $('.get-in-touch'),
         $totop = $('.back-to-top'),
         $percent = $('.back-to-top-percent'),

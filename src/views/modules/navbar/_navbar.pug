@@ -1,34 +1,12 @@
 //- modules/navbar/_navbar.pug
 nav.navbar.fixed-top.navbar-dark.bg-transparent
   .container-fluid
-    .navbar-header.d-inline-flex
-      button.navbar-toggler.text-light.border-0(
-        type="button"
-        data-bs-toggle="offcanvas"
-        data-bs-target="#main-menu"
-        aria-controls="main-menu"
-        aria-label="Toggle navigation")
+    .navbar-menu
+      button.btn.btn-toggler(
+        type="button" data-bs-toggle="offcanvas" data-bs-target="#main-menu"
+        aria-controls="main-menu" aria-label="Toggle navigation")
         //- i.fas.fa-bars.fa-1x
-        img.svg-inline--fa.fa-1x#fa-bars(src="fonts/svgs/solid/bars.svg" alt="Bars" inline)
+        img.svg-inline--fa.fa-w-16#fa-bars(src="fonts/svgs/solid/bars.svg" alt="Bars" inline)
+        //- svg.svg-inline--fa.fa-w-16#fa-bars: use(xlink:href="fonts/sprites/solid.svg#bars")
 
-    .dropdown.theme-settings
-      button.navbar-toggler.text-light.border-0#dropdownThemeButton(
-        type="button"
-        data-bs-toggle="dropdown"
-        aria-expanded="false"
-        aria-label="Toggle settings")
-        //- i.fas.fa-adjust.fa-1x
-        img.svg-inline--fa.fa-1x#fa-adjust(src="fonts/svgs/solid/adjust.svg" alt="Settings" inline)
-
-      .dropdown-menu.dropdown-menu-end.p-3#theme-menu(
-        role="menu" aria-labelledby="dropdownThemeButton")
-        .btn-group.btn-theme-toggle.d-flex(
-          role="group" aria-label="Toggle theme settings")
-
-          input.btn-check.input-dark#colordark(
-            type="radio" name="color" value="dark" autocomplete="off" aria-label="Dark Theme" checked)
-          label.btn.btn-outline-orange(for="colordark") Dark
-
-          input.btn-check.input-light#colorlight(
-            type="radio" name="color" value="light" autocomplete="off" aria-label="Light Theme")
-          label.btn.btn-outline-orange(for="colorlight") Light
+    include ../../includes/misc/_toggler.pug
