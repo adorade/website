@@ -14,7 +14,7 @@
         //- the form result (success or error) will be rendered inside `.form-response`
         .form-response.alert.shadow-lg.d-none
 
-        form.needs-validation.bg-light#modal-get-quote(
+        form.needs-validation#modal-get-quote(
           name="modal-get-quote" method="POST" action="/thanks/modal.html" netlify-honeypot="bot-field" netlify novalidate)
 
           //- HONEYPOT FIELD
@@ -83,6 +83,6 @@
 
           .mt-4.text-center
             button.btn.btn-info.me-1(type="submit" aria-label="Submit Get Quote") Submit
-            button.btn.btn-outline-dark(type="reset" aria-label="Cancel Get Quote") Cancel
+            button.btn.btn-secondary(type="reset" aria-label="Cancel Get Quote") Cancel
 
-      .modal-footer
+      //- .modal-footer

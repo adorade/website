@@ -3,12 +3,13 @@
 // -----------------------------------------------------------------------------
 
 .modal {
-  .modal-header,
-  .modal-body {
-    color: #424242;
-  }
+  --bs-modal-color: var(--bs-body-color);
 }
 
 .modal-dialog {
-  box-shadow: 0 0 10px rgba(255, 0, 59, 1);
+  box-shadow: 0 0 10px rgba(23, 162, 184, 1);
 }
+
+// .modal-quote-error {
+//   box-shadow: 0 0 10px rgba(255, 0, 59, 1);
+// }
