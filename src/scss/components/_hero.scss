@@ -33,16 +33,8 @@
     background-size: cover;
     background-repeat: no-repeat;
 
-    .no-webp & {
-      background-image: url(../images/hero-unit/forest_lake_sunset_608x1080.jpg);
-    }
-
     @media (min-width: 768px) {
       background-image: url(../images/hero-unit/forest_lake_sunset_1920x1080.webp);
-
-      .no-webp & {
-        background-image: url(../images/hero-unit/forest_lake_sunset_1920x1080.jpg);
-      }
     }
   }
 
