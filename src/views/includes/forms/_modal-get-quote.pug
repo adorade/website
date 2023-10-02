@@ -1,7 +1,7 @@
 //- includes/forms/_modal-get-quote.pug
 //- Contact modal content
 .modal.fade#GetQuoteModal(tabindex="-1" role="dialog" aria-labelledby="GetQuoteModalLabel" aria-hidden="true")
-  .modal-dialog(role="document")
+  .modal-dialog.modal-dialog-centered(role="document")
     .modal-content
       .modal-header
         h4.modal-title#GetQuoteModalLabel Contact us
@@ -20,7 +20,7 @@
           //- HONEYPOT FIELD
           .form-group.d-none
             .input
-              label(for="modal-bot-field") Don’t fill this out if you're human
+              label(for="modal-bot-field") Don't fill this out if you're human
               input.form-control#modal-bot-field(type="text" name="bot-field" autocomplete="off")
 
           .form-group.mb-3

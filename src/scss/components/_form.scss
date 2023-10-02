@@ -4,18 +4,20 @@
 
 form {
   padding: 0;
-  margin: 0;//
-  // background-color: var(--background-color-dark);
+  margin: 0;
   font-family: Roboto, Arial, sans-serif;
   font-size: 1rem;
   font-weight: 400;
 }
 
 .form-control {
-  border-color: #ccc;
-
   &:focus {
-    border-color: #17a2b8;
+    border-color: $buttons-color;
+  }
+
+  .newsletter & {
+    border-color: $gray-900;
+    background-color: darken($gray-900, 3%);
   }
 }
 
@@ -24,10 +26,9 @@ form {
 
   input,
   textarea {
+    // border-color: var(--body-background-color);
     padding-left: 100px;
-    border-color: #17a2b8;
     border-radius: .5rem;
-    color: #333;
     transition: all .2s linear;
   }
 
@@ -38,9 +39,9 @@ form {
     width: 90px;
     padding: .625rem .75rem;
     margin: 0;
-    border-right: 1px solid #17a2b8;
+    border-right: 1px solid $buttons-color;
     border-radius: .5rem 0 0 .5rem;
-    background-color: #17a2b8;
+    background-color: $buttons-color;
     color: $white;
     font-family: Roboto, Arial, sans-serif;
     font-size: .75rem;
@@ -50,7 +51,7 @@ form {
     cursor: text;
 
     &[for$="message"] {
-      border-bottom: 1px solid #17a2b8;
+      border-bottom: 1px solid $buttons-color;
       border-radius: .5rem 0;
     }
 
@@ -60,36 +61,8 @@ form {
   }
 }
 
-.form-inline {
-  align-items: baseline;
-
-  .form-group {
-    position: relative;
-    flex: 1 1 auto;
-    width: 100%;
-
-    @include media-breakpoint-up(sm) {
-      width: 1%;
-    }
-  }
-
-  .form-control {
-    width: 100%;
-
-    @include media-breakpoint-up(sm) {
-      border-radius: 0;
-    }
-  }
-}
-
 // Form validation
 // --------------------------
 @each $state, $data in $form-validation-states {
   @include formarea-validation-state($state, map-get($data, color));
 }
-
-// Form response
-// --------------------------
-// .form-response {
-//   box-shadow: 0 1rem 3rem rgba(0, 0, 0, .5);
-// }

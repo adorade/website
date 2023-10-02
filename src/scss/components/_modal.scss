@@ -6,8 +6,9 @@
   --bs-modal-color: var(--bs-body-color);
 }
 
-.modal-dialog {
-  box-shadow: 0 0 10px rgba(23, 162, 184, 1);
+.modal-content {
+  background-color: var(--body-background-color);
+  box-shadow: 0 0 10px $buttons-color;
 }
 
 // .modal-quote-error {
