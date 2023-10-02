@@ -13,7 +13,7 @@ mixin menuLink(menu)
   each menuItem in menu
     if (currentUrl === menuItem.link)
       - linkActive = 'active';
-      - scrOnly = '<span class="sr-only">(current)</span>';
+      - scrOnly = '<span class="visually-hidden">(current)</span>';
     else
       - linkActive = '';
       - scrOnly = '';
