@@ -2,12 +2,13 @@
 // Animation
 // -----------------------------------------------------------------------------
 
-@keyframes letterspace {
-  0%,
-  100% { letter-spacing: -.025em; }
-  50% { letter-spacing: .025em; }
-}
+// @keyframes letterspace {
+//   0%,
+//   100% { letter-spacing: -.025em; }
+//   50% { letter-spacing: .025em; }
+// }
 
+// Go to next section
 @keyframes scroll {
   0%,
   100% { opacity: .2; }
@@ -37,6 +38,24 @@
   }
 }
 
+.shake-x {
+  animation-name: shake-x;
+}
+
+.animated {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+
+  // stylelint-disable
+  @media (prefers-reduced-motion:reduce), (print) {
+    transition-duration: 1ms !important;
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+  }
+  // stylelint-enable
+}
+
+// For hero background image
 @keyframes skale {
   0%,
   100% {
@@ -47,15 +66,6 @@
   }
 }
 
-.shake-x {
-  animation-name: shake-x;
-}
-
 .skale {
   animation: skale 8s infinite;
-}
-
-.animated {
-  animation-duration: 1s;
-  animation-fill-mode: both;
 }

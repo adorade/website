@@ -1,16 +1,6 @@
 //- mixins/_pictures.pug
 //- include ../path/to/mixins/_pictures
 
-//- Menu logo
-//------------------------
-//- Usage: +menuLogo("name", "alt")
-mixin menuLogo(name, alt)
-  picture.d-block
-    source(type="image/webp" data-srcset=`images/logo/${name}.webp`)
-    source(type="image/png" data-srcset=`images/logo/${name}.png`)
-    img.lazyload.img-fluid(
-      loading="lazy" data-src=`images/logo/${name}.png` alt=alt)
-
 //- Cards Picture
 //------------------------
 //- Usage: +cardsPicture("name", "alt")

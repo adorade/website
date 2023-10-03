@@ -3,7 +3,10 @@
 // -----------------------------------------------------------------------------
 
 .technologies {
-  background-color: var(--background-color-medium);
+  // NOTE: see `pages/_pages.scss`
+  // background-color: var(--ad-bg-normal);
+  // color: var(--ad-text-color);
+
 
   .tech-logos {
     width: 40px;

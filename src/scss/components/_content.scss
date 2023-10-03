@@ -9,6 +9,5 @@ section {
 }
 
 .content {
-  // @include gradient-radial-circle-top(rgba($black, .3), rgba($black, .9));
-  background-color: $grey-800;
+  background-color: var(--ad-body-bg);
 }

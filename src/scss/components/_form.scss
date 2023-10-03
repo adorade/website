@@ -5,6 +5,7 @@
 form {
   padding: 0;
   margin: 0;
+  background-color: var(--ad-bg-normal);
   font-family: Roboto, Arial, sans-serif;
   font-size: 1rem;
   font-weight: 400;
@@ -16,8 +17,8 @@ form {
   }
 
   .newsletter & {
-    border-color: $gray-900;
-    background-color: darken($gray-900, 3%);
+    // background-color: var(--ad-body-bg);
+    border-color: var(--ad-body-bg);
   }
 }
 
@@ -26,8 +27,8 @@ form {
 
   input,
   textarea {
-    // border-color: var(--body-background-color);
     padding-left: 100px;
+    border-color: var(--ad-body-bg);
     border-radius: .5rem;
     transition: all .2s linear;
   }
@@ -59,6 +60,10 @@ form {
       color: $white;
     }
   }
+}
+
+.border-left {
+  border-left: 2px solid var(--ad-bg-normal) !important; // stylelint-disable-line
 }
 
 // Form validation

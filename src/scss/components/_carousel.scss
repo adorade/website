@@ -4,8 +4,8 @@
 
 .carousel-portfolio {
   // NOTE: see `pages/_pages.scss`
-  // background-color: var(--background-color-medium);
-  // color: var(--text-color);
+  // background-color: var(--ad-bg-medium);
+  // color: var(--ad-text-color);
 
   @media (min-width: 1920px) {
     .container {
@@ -16,10 +16,11 @@
   .carousel-picture {
     // You should use a 16:9 image ratio, such as 1280 x 720 px.
     @include picture(16 9, ".carousel-img", false, false);
+    background-color: var(--ad-bg-medium);
   }
 
   .carousel-img {
-    background-color: var(--background-color-medium);
+    // background-color: var(--ad-bg-medium);
   }
 
   .carousel-inner {
@@ -27,7 +28,7 @@
   }
 
   .carousel-indicators [data-bs-target] {
-    background-color: var(--text-color);
+    background-color: var(--ad-text-color);
   }
 
   .carousel-control-prev,
@@ -43,7 +44,7 @@
 
 [data-bs-theme="dark"] .carousel .carousel-indicators [data-bs-target],
 [data-bs-theme="dark"].carousel .carousel-indicators [data-bs-target] {
-  background-color: var(--text-color);
+  background-color: var(--ad-text-color);
 }
 
 [data-bs-theme="dark"] .carousel .carousel-control-prev-icon,

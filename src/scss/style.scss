@@ -9,7 +9,7 @@
 // Import Material Color Palette.
 @import "includes/colors";
 
-@import "includes/custom-variables";
+@import "includes/variables";
 @import "includes/animation";
 
 // --- 3. Include remainder of required Bootstrap stylesheets
@@ -95,3 +95,7 @@
 @import "components/misc";
 
 @import "pages/pages";
+
+// for debug purpose
+// stylelint-disable scss/at-import-no-partial-leading-underscore
+// @import "__debug";

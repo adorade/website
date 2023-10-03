@@ -5,12 +5,11 @@
 
 // --- Colors
 // Settings for some of the most global styles
-$primary-color          : $deep-orange-500;  // #ff5722
-$accent-color           : $light-blue-a400;  // #00b0ff
-
-$gray                   : $grey-700;         // #616161
+$primary                : $teal-500;         // #009688
 $info                   : $teal-500;         // #009688
 $orange                 : $deep-orange-500;  // #ff5722
+$base-color             : $deep-orange-500;  // #ff5722
+$base-gray              : $grey-700;         // #616161
 
 // --- Optional features
 $enable-gradients       : true;
@@ -21,7 +20,7 @@ $enable-negative-margins: true;
 // $body-color             : $gray-dark;
 
 // --- Links
-$link-color             : $accent-color;
+$link-color             : $info;
 $link-decoration        : none;
 $link-shade-percentage  : 15%;
 $link-hover-color       : shift-color($link-color, $link-shade-percentage);

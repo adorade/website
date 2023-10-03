@@ -3,6 +3,7 @@
 // -----------------------------------------------------------------------------
 
 .parallax {
+  // background-color: var(--ad-body-bg);
   // height: calc(100vh / 2);
   height: 450px;
   padding: 0;
@@ -48,6 +49,6 @@
 
   span {
     background-color: rgba($black, .5);
-    color: $primary-color;
+    color: $base-color;
   }
 }
