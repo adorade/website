@@ -9,7 +9,9 @@ section.newsletter.text-center#newsletter
         .form-response.alert.shadow-lg.d-none
 
         form.needs-validation.p-4.shadow-lg#news-form(
-          name="news-form" method="POST" action="/thanks/news.html" netlify-honeypot="bot-field" netlify novalidate)
+          name="news-form" method="POST" action="news.html" netlify-honeypot="bot-field" netlify novalidate)
+
+          input(type="hidden" name="form-name" value="news-form")
 
           //- HONEYPOT FIELD
           .d-none
@@ -22,7 +24,7 @@ section.newsletter.text-center#newsletter
             .col
               input.form-control.rounded-0.rounded-start#news-name(
                 type="text" name="name" maxlength="50" placeholder="Your name"
-                pattern="^[a-zA-Z][a-zA-Z-' ]{1,50}[a-zA-Z']{0,1}$" autocomplete="name"
+                pattern="^[a-zA-Z][a-zA-Z\\-' ]{1,50}[a-zA-Z']{0,1}$" autocomplete="name"
                 title="Please enter a valid name." aria-label="Your name" required)
               label.visually-hidden(for="news-name") Name
               .valid-feedback Looks good!

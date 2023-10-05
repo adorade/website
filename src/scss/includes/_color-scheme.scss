@@ -11,6 +11,7 @@
   --ad-link-color: #{$gray-900};
   --ad-offcanvas-bg: #{$gray-100};
   --ad-offcanvas-header-bg: #{darken($gray-100, 5%)};
+  --bs-border-color-translucent: rgba(255, 255, 255, .15);
 }
 
 [data-bs-theme="dark"] {
@@ -23,4 +24,5 @@
   --ad-link-color: #{$gray-100};
   --ad-offcanvas-bg: #{$gray-900};
   --ad-offcanvas-header-bg: #{darken($gray-900, 5%)};
+  --bs-border-color-translucent: rgba(0, 0, 0, .175);
 }

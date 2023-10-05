@@ -15,7 +15,9 @@
         .form-response.alert.shadow-lg.d-none
 
         form.needs-validation#modal-get-quote(
-          name="modal-get-quote" method="POST" action="/thanks/modal.html" netlify-honeypot="bot-field" netlify novalidate)
+          name="modal-get-quote" method="POST" action="modal.html" netlify-honeypot="bot-field" netlify novalidate)
+
+          input(type="hidden" name="form-name" value="modal-get-quote")
 
           //- HONEYPOT FIELD
           .form-group.d-none
@@ -27,7 +29,7 @@
             .input
               input.form-control#modal-name(
                 type="text" name="name" maxlength="50" placeholder="Your name"
-                pattern="^[a-zA-Z][a-zA-Z-' ]{1,50}[a-zA-Z']{0,1}$" autocomplete="name"
+                pattern="^[a-zA-Z][a-zA-Z\\-' ]{1,50}[a-zA-Z']{0,1}$" autocomplete="name"
                 title="Please enter a valid name." aria-label="Your name" required)
               label(for="modal-name") Name #[span.required *]
               .valid-feedback Looks good!

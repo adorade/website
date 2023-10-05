@@ -7,14 +7,14 @@
 // each <form> element must have the `novalidate` attribute and at the same time,
 // each <input> element in it must have the `required` attribute.
 // -----------------------------------------------------------------------------
-window.addEventListener('load', function () {
+window.addEventListener('load', () => {
   // --- Grab all the forms
   const forms = document.querySelectorAll('.needs-validation')
   // const modalQuote = document.querySelector('#modal-get-quote').closest('.modal-dialog')
 
   // --- Attach a submit handler to each form
-  forms.forEach(function (form) {
-    form.addEventListener('submit', function (event) {
+  forms.forEach((form) => {
+    form.addEventListener('submit', (event) => {
       // --- Check form validity
       if (!form.checkValidity()) {
         // --- Stop form from submitting normally, handle the invalid form...
@@ -23,7 +23,7 @@ window.addEventListener('load', function () {
 
         // --- Add `shake` animation
         form.classList.add('shake-x', 'animated')
-        form.addEventListener('animationend', function () {
+        form.addEventListener('animationend', () => {
           form.classList.remove('shake-x', 'animated')
         }, { once: true })
 
@@ -37,7 +37,6 @@ window.addEventListener('load', function () {
         event.preventDefault()
 
         // --- Get some values from elements on the page:
-        const url = form.getAttribute('action')
         const data = new URLSearchParams(new FormData(form))
         const response = form.parentElement.querySelector('.form-response')
 
@@ -53,38 +52,40 @@ window.addEventListener('load', function () {
         const errorMessage = 'There was an error while submitting the form. Please try again later'
 
         // --- Send the data using post
-        fetch(url, {
+        fetch('/', {
           method: 'POST',
-          body: data
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: data.toString()
         })
-          .then(function (response) {
-            if (response.ok) {
-              return response.text()
+          .then((result) => {
+            if (result.ok) {
+              return result.text()
             } else {
               throw new Error('Network response was not ok')
             }
           })
-          .then(function () {
+          .then(() => {
             response.classList.add('alert-success')
             response.classList.remove('d-none')
             response.textContent = okMessage
           })
-          .catch(function () {
+          .catch(() => {
             response.classList.add('alert-danger')
             response.classList.remove('d-none')
             response.textContent = errorMessage
           })
-          .finally(function () {
-            setTimeout(function () {
+          .finally(() => {
+            setTimeout(() => {
               response.style.display = 'none'
 
-              setTimeout(function () {
+              setTimeout(() => {
                 if (response.classList.contains('alert-success') || response.classList.contains('alert-danger')) {
                   response.classList.remove('alert-success', 'alert-danger')
                   response.classList.add('d-none')
                   response.textContent = ''
+                  response.removeAttribute('style')
                 }
-              }, 1000)
+              }, 2000)
             }, 8000)
 
             // Trigger blur event on submit button
@@ -112,7 +113,7 @@ window.addEventListener('load', function () {
     // --- Reset form
     const resetButton = form.querySelector('button[type="reset"]')
     if (resetButton) {
-      resetButton.addEventListener('click', function () {
+      resetButton.addEventListener('click', () => {
         form.classList.remove('was-validated')
         // if (modalQuote) {
         //   console.log('REMOVED')
