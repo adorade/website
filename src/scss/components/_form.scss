@@ -27,10 +27,14 @@ form {
 
   input,
   textarea {
-    padding-left: 100px;
     border-color: var(--ad-body-bg);
     border-radius: .5rem;
+    text-indent: 90px;
     transition: all .2s linear;
+  }
+
+  textarea {
+    line-height: 1.7;
   }
 
   label {
@@ -40,7 +44,6 @@ form {
     width: 90px;
     padding: .625rem .75rem;
     margin: 0;
-    border-right: 1px solid $buttons-color;
     border-radius: .5rem 0 0 .5rem;
     background-color: $buttons-color;
     color: $white;
@@ -52,7 +55,6 @@ form {
     cursor: text;
 
     &[for$="message"] {
-      border-bottom: 1px solid $buttons-color;
       border-radius: .5rem 0;
     }
 

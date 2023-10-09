@@ -1,7 +1,6 @@
 //
 // Form Submissions
 // -----------------------------------------------------------------------------
-
 // Disabling form submissions if there are invalid fields
 // Note: Keep in mind that
 // each <form> element must have the `novalidate` attribute and at the same time,
@@ -10,7 +9,6 @@
 window.addEventListener('load', () => {
   // --- Grab all the forms
   const forms = document.querySelectorAll('.needs-validation')
-  // const modalQuote = document.querySelector('#modal-get-quote').closest('.modal-dialog')
 
   // --- Attach a submit handler to each form
   forms.forEach((form) => {
@@ -26,12 +24,6 @@ window.addEventListener('load', () => {
         form.addEventListener('animationend', () => {
           form.classList.remove('shake-x', 'animated')
         }, { once: true })
-
-        // --- Change modal-dialog shadow
-        // if (modalQuote) {
-        //   console.log('EROOOOR')
-        //   modalQuote.classList.add('modal-quote-error')
-        // }
       } else {
         // --- Since the form is now valid, prevent the default behavior.
         event.preventDefault()
@@ -57,9 +49,9 @@ window.addEventListener('load', () => {
           headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
           body: data.toString()
         })
-          .then((result) => {
-            if (result.ok) {
-              return result.text()
+          .then((response) => {
+            if (response.ok) {
+              return response.text()
             } else {
               throw new Error('Network response was not ok')
             }
@@ -88,13 +80,7 @@ window.addEventListener('load', () => {
               }, 2000)
             }, 8000)
 
-            // Trigger blur event on submit button
-            var submitButton = form.querySelector('button[type="submit"]')
-            if (submitButton) {
-              submitButton.blur()
-            }
-
-            // Reset form
+            // --- Reset form
             form.classList.remove('was-validated')
             form.reset()
           })
@@ -103,7 +89,7 @@ window.addEventListener('load', () => {
       // Add 'was-validated' class to the form
       form.classList.add('was-validated')
 
-      // Trigger blur event on submit button
+      // --- Trigger blur event on submit button
       const submitButton = form.querySelector('button[type="submit"]')
       if (submitButton) {
         submitButton.blur()
@@ -115,10 +101,6 @@ window.addEventListener('load', () => {
     if (resetButton) {
       resetButton.addEventListener('click', () => {
         form.classList.remove('was-validated')
-        // if (modalQuote) {
-        //   console.log('REMOVED')
-        //   modalQuote.classList.remove('modal-quote-error')
-        // }
         resetButton.blur()
       })
     }

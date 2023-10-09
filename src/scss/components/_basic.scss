@@ -22,8 +22,8 @@ html {
 // stylelint-enable
 
 body {
-  background-color: var(--ad-body-bg, $gray-800);
-  color: var(--ad-text-color, $gray-100);
+  background-color: var(--ad-body-bg);
+  color: var(--ad-text-color);
 }
 
 img {

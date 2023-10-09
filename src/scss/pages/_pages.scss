@@ -11,12 +11,17 @@
   color: var(--ad-text-color);
 }
 
-// .contact,
-// .portfolio,
-// .services,
-// .testimonials {
-//   background-color: var(--ad-body-bg);
-// }
+.hero,
+.cards,
+.contact,
+.portfolio,
+.services,
+.feature,
+.parallax,
+.testimonials,
+.footer-container {
+  background-color: var(--ad-body-bg);
+}
 
 .features,
 .technologies {

@@ -28,7 +28,6 @@
 
   // Hero background image
   .hero-image {
-    z-index: -2;
     background-image: url(../images/hero-unit/forest_lake_sunset_608x1080.webp);
     background-position: center center;
     background-size: cover;
@@ -41,12 +40,12 @@
 
   // Hero overlay
   .hero-overlay {
-    z-index: -1;
     @include gradient-radial-circle(rgba($black, .1), rgba($black, .5));
   }
 
   // Hero content
   .hero-content {
+    position: relative;
     width: auto;
     height: auto;
     color: $base-color;
