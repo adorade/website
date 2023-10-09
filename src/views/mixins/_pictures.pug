@@ -1,16 +1,6 @@
 //- mixins/_pictures.pug
 //- include ../path/to/mixins/_pictures
 
-//- Menu logo
-//------------------------
-//- Usage: +menuLogo("name", "alt")
-mixin menuLogo(name, alt)
-  picture.d-block
-    source(type="image/webp" data-srcset=`images/logo/${name}.webp`)
-    source(type="image/png" data-srcset=`images/logo/${name}.png`)
-    img.lazyload.img-fluid(
-      loading="lazy" data-src=`images/logo/${name}.png` alt=alt)
-
 //- Cards Picture
 //------------------------
 //- Usage: +cardsPicture("name", "alt")
@@ -41,7 +31,7 @@ mixin parallaxPicture(name, alt)
     source(type="image/webp" data-srcset=`images/hero-unit/${name}.webp`)
     source(type="image/jpeg" data-srcset=`images/hero-unit/${name}.jpg`)
     img.lazy-parallax.lazyload.parallax-img(
-      loading="lazy" data-src=`images/hero-unit/${name}.jpg` data-speed=".8" alt=alt)
+      loading="lazy" data-src=`images/hero-unit/${name}.jpg` alt=alt)
 
 //- Top Banner
 //------------------------

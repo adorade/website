@@ -3,11 +3,10 @@
 // -----------------------------------------------------------------------------
 
 .technologies {
-  background-color: $gray-200;
+  // NOTE: see `pages/_pages.scss`
+  // background-color: var(--ad-bg-normal);
+  // color: var(--ad-text-color);
 
-  h2 {
-    color: #777;
-  }
 
   .tech-logos {
     width: 40px;
@@ -16,7 +15,14 @@
     margin: 1rem;
     border: none;
     border-radius: 0;
-    opacity: .5;
+    opacity: .8;
+  }
+
+  [data-bs-theme="dark"] & {
+    .tech-logos {
+      opacity: 1;
+      filter: invert(1) grayscale(100);
+    }
   }
 
   .angularjs {
@@ -54,3 +60,4 @@
     width: 35px;
   }
 }
+

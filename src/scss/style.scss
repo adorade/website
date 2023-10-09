@@ -9,14 +9,12 @@
 // Import Material Color Palette.
 @import "includes/colors";
 
-@import "includes/custom-variables";
+@import "includes/variables";
 @import "includes/animation";
-
-// Import Theme Color Scheme.
-@import "includes/color-scheme";
 
 // --- 3. Include remainder of required Bootstrap stylesheets
 @import "../../node_modules/bootstrap/scss/variables";
+@import "../../node_modules/bootstrap/scss/variables-dark";
 
 // Modified maps
 // Be aware you must insert between our requirements just after its definition
@@ -40,7 +38,7 @@
 @import "../../node_modules/bootstrap/scss/buttons";
 @import "../../node_modules/bootstrap/scss/transitions";
 @import "../../node_modules/bootstrap/scss/dropdown";
-@import "../../node_modules/bootstrap/scss/button-group";
+// @import "../../node_modules/bootstrap/scss/button-group";
 @import "../../node_modules/bootstrap/scss/nav";
 @import "../../node_modules/bootstrap/scss/navbar";
 @import "../../node_modules/bootstrap/scss/card";
@@ -50,11 +48,11 @@
 // @import "../../node_modules/bootstrap/scss/badge";
 @import "../../node_modules/bootstrap/scss/alert";
 // @import "../../node_modules/bootstrap/scss/progress";
-@import "../../node_modules/bootstrap/scss/list-group";
+// @import "../../node_modules/bootstrap/scss/list-group";
 @import "../../node_modules/bootstrap/scss/close";
 // @import "../../node_modules/bootstrap/scss/toasts";
 @import "../../node_modules/bootstrap/scss/modal";
-@import "../../node_modules/bootstrap/scss/tooltip";
+// @import "../../node_modules/bootstrap/scss/tooltip";
 // @import "../../node_modules/bootstrap/scss/popover";
 @import "../../node_modules/bootstrap/scss/carousel";
 // @import "../../node_modules/bootstrap/scss/spinners";
@@ -70,6 +68,9 @@
 // --- 6. Add additional custom code here
 // Reset loader, inline stylesheet
 // @import "plugins/loader";
+
+// Import Theme Color Scheme.
+@import "includes/color-scheme";
 
 @import "mixins/mixins";
 
@@ -94,3 +95,7 @@
 @import "components/misc";
 
 @import "pages/pages";
+
+// for debug purpose
+// stylelint-disable scss/at-import-no-partial-leading-underscore
+// @import "__debug";

@@ -7,7 +7,7 @@
   display: block;
   height: 0;
   padding-bottom: percentage(calc(nth($ratio, 2) / nth($ratio, 1))); // Intrisic ratio
-  background-color: var(--background-color-normal);
+  background-color: var(--ad-bg-normal);
 }
 
 @mixin child-top() {

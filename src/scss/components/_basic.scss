@@ -15,14 +15,15 @@ html {
   &.color-theme-in-transition *::after {
     transition:
       background-color .5s ease-in-out,
+      border-color .5s ease-in-out,
       color .1s ease !important;
   }
 }
 // stylelint-enable
 
 body {
-  background-color: var(--body-background-color, $gray-800);
-  color: var(--text-color, $gray-100);
+  background-color: var(--ad-body-bg);
+  color: var(--ad-text-color);
 }
 
 img {

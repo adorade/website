@@ -7,7 +7,7 @@
 import { series, watch, isProd, bs, fancyLog, bgBlue, bgRed, green, magenta, red, dirs, paths, opts } from '../utils/index.mjs';
 import {
   vendorCss, lintScss, compile, minifyCss,
-  vendorJs, lintMjs, transpile, minifyJs,
+  vendorJs, lintMjs, colorJs, transpile, minifyJs,
   imagine, convert, favicons, statica, fontsCss, fontsSvg,
   lintPages, pagile, pagify
 } from './index.mjs';
@@ -43,6 +43,11 @@ export function serve () {
       name: 'Vendor JS',
       paths: paths.vendors.watch.js,
       tasks: [vendorJs]
+    },
+    {
+      name: 'Color Modes',
+      paths: paths.scripts.color,
+      tasks: isProd ? [lintMjs, colorJs, pagile, pagify] : [lintMjs, colorJs]
     },
     {
       name: 'Scripts',

@@ -1,0 +1,32 @@
+//
+// Variables
+// -----------------------------------------------------------------------------
+// stylelint-disable scss/dollar-variable-colon-space-before
+
+// --- Colors
+// Settings for some of the most global styles
+$primary                : $teal-500;         // #009688
+$info                   : $teal-500;         // #009688
+$orange                 : $deep-orange-500;  // #ff5722
+$base-color             : $deep-orange-500;  // #ff5722
+$base-gray              : $grey-700;         // #616161
+
+// --- Optional features
+$enable-gradients       : true;
+$enable-negative-margins: true;
+
+// --- Body
+// $body-bg                : #fff;
+// $body-color             : $gray-dark;
+
+// --- Links
+$link-color             : $info;
+$link-decoration        : none;
+$link-shade-percentage  : 15%;
+$link-hover-color       : shift-color($link-color, $link-shade-percentage);
+
+// --- Buttons
+$buttons-color          : $info; // #009688
+
+// --- Components
+$offcanvas-horizontal-width: 300px;

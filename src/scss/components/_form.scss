@@ -5,90 +5,93 @@
 form {
   padding: 0;
   margin: 0;
-  background-color: var(--background-color-dark);
+  border-radius: var(--bs-border-radius);
+  background-color: var(--ad-bg-normal);
   font-family: Roboto, Arial, sans-serif;
   font-size: 1rem;
   font-weight: 400;
 }
 
 .form-control {
-  border-color: #ccc;
+  border-color: var(--bs-body-bg);
+  text-indent: 82px;
+  @media (min-width: 992px) {
+    text-indent: 110px;
+  }
+
+  @at-root textarea#{&} {
+    line-height: 1.7;
+  }
 
   &:focus {
-    border-color: #17a2b8;
-  }
-}
-
-.input {
-  position: relative;
-
-  input,
-  textarea {
-    padding-left: 100px;
-    border-radius: .5rem;
-    color: #333;
-    transition: all .2s linear;
+    border-color: $buttons-color;
   }
 
-  label {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 90px;
-    padding: .625rem .75rem;
-    margin: 0;
-    border-right: 1px solid #17a2b8;
-    border-radius: .5rem 0 0 .5rem;
-    background-color: #17a2b8;
-    color: $white;
-    font-family: Roboto, Arial, sans-serif;
-    font-size: .75rem;
-    line-height: 1.5;
-    text-align: center;
-    transition: all .2s linear;
-    cursor: text;
+  .newsletter & {
+    // background-color: var(--ad-body-bg);
+    border-color: var(--ad-body-bg);
 
-    &[for$="message"] {
-      border-bottom: 1px solid #17a2b8;
-      border-radius: .5rem 0;
-    }
-
-    .required {
-      color: $white;
+    @media (min-width: 992px) {
+      text-indent: 0;
     }
   }
 }
 
-.form-inline {
-  align-items: baseline;
+.form-label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 82px;
+  padding: .5625rem .75rem;
+  margin: 0;
+  border: solid $buttons-color;
+  border-width: 1px 0;
+  border-radius: var(--bs-border-radius) 0 0 var(--bs-border-radius);
+  background-color: $buttons-color;
+  color: $black;
+  font-size: .75rem;
+  line-height: 1.5;
+  text-align: center;
+  transition: all .2s linear;
+  cursor: text;
 
-  .form-group {
-    position: relative;
-    flex: 1 1 auto;
-    width: 100%;
-
-    @include media-breakpoint-up(sm) {
-      width: 1%;
-    }
+  &[for$="message"] {
+    border-radius: var(--bs-border-radius) 0;
   }
 
-  .form-control {
-    width: 100%;
-
-    @include media-breakpoint-up(sm) {
-      border-radius: 0;
-    }
+  @media (min-width: 992px) {
+    width: 110px;
+    padding: .375rem .75rem;
+    font-size: 1rem;
   }
 }
 
-// Form validation
+.newsletter .col-lg {
+  margin-right: 1px;
+}
+
+// Form validation for labels
 // --------------------------
 @each $state, $data in $form-validation-states {
   @include formarea-validation-state($state, map-get($data, color));
 }
 
-// Form response
+// Border radius
 // --------------------------
-// .form-response {
-//   box-shadow: 0 1rem 3rem rgba(0, 0, 0, .5);
-// }
+// stylelint-disable declaration-no-important
+@media (min-width: 992px) {
+  .rounded-lg-0 {
+    border-radius: 0 !important;
+  }
+
+  .rounded-lg-start-0 {
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+  }
+
+  .rounded-lg-end-0 {
+    border-top-right-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+  }
+}
+// stylelint-enable declaration-no-important

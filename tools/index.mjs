@@ -5,13 +5,13 @@
  * ========================================================================== */
 
 export {
-  help, checks, clean,                                  // Help, Checks and Clean
-  cleanCss, vendorCss, lintScss, compile, minifyCss,    // Styles
-  cleanJs, vendorJs, lintMjs, transpile, minifyJs,      // Scripts
-  cleanImages, imagine, convert,                        // Images
-  cleanStatics, favicons, statica,                      // Statics
-  cleanFonts, fontsCss, fontsSvg,                       // Fonts
-  cleanPages, lintPages, pagile, pagify,                // Pages
-  serve,                                                // Serve and Watch
-  cleanSW, serviceWorker                                // Workbox build
+  help, checks, clean,                                      // Help, Checks and Clean
+  cleanCss, vendorCss, lintScss, compile, minifyCss,        // Styles
+  cleanJs, vendorJs, lintMjs, colorJs, transpile, minifyJs, // Scripts
+  cleanImages, imagine, convert,                            // Images
+  cleanStatics, favicons, statica,                          // Statics
+  cleanFonts, fontsCss, fontsSvg,                           // Fonts
+  cleanPages, lintPages, pagile, pagify,                    // Pages
+  serve,                                                    // Serve and Watch
+  cleanSW, serviceWorker                                    // Workbox build
 } from './tasks/index.mjs';

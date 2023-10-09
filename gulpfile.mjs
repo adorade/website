@@ -7,7 +7,7 @@
 import { series, isClean, isProd, isSilent, fancyLog, green } from './tools/utils/index.mjs';
 import {
   help, checks, clean, cleanCss, vendorCss, lintScss, compile, minifyCss,
-  cleanJs, vendorJs, lintMjs, transpile, minifyJs,
+  cleanJs, vendorJs, lintMjs, colorJs, transpile, minifyJs,
   cleanStatics, favicons, statica, cleanFonts, fontsCss, fontsSvg,
   cleanImages, imagine, convert, cleanPages, lintPages, pagile, pagify,
   serve, cleanSW, serviceWorker
@@ -49,7 +49,7 @@ buildStyles.description = 'Build only styles files';
 /**
  * Scripts - processes script files
  * -------------------------------------------------------------------------- */
-const scripts = series(vendorJs, lintMjs, transpile, minifyJs);
+const scripts = series(vendorJs, lintMjs, colorJs, transpile, minifyJs);
 export const buildScripts = series(cleanJs, scripts);
 buildScripts.displayName = 'build:scripts';
 buildScripts.description = 'Build only scripts files';

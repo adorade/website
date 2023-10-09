@@ -55,6 +55,17 @@ export function lintMjs () {
 lintMjs.displayName = 'lint:mjs';
 lintMjs.description = 'Lint MJS files';
 
+export function colorJs () {
+  fancyLog(`${green('-> Copying color modes JS files...')}`);
+  return src(paths.scripts.color, {
+  })
+    .pipe(size(opts.size))
+    .pipe(dest(paths.scripts.dev))
+    .pipe(bs.stream({ match: '**/*.js' }));
+}
+colorJs.displayName = 'color:js';
+colorJs.description = 'Copy color modes JS files';
+
 export function transpile () {
   fancyLog(`${green('-> Transpiling MJS via Babel...')}`);
   return src(paths.scripts.input, {

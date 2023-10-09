@@ -1,52 +1,28 @@
 //
 // Theme Color Scheme
 // -----------------------------------------------------------------------------
-// Dark Theme is default
 
-@mixin dark-mode() {
+:root,
+[data-bs-theme="light"] {
+  --ad-body-bg: #{$gray-100};
+  --ad-bg-normal: #{$gray-200};
+  --ad-bg-medium: #{$gray-300};
+  --ad-text-color: #{$gray-900};
+  --ad-link-color: #{$gray-900};
+  --ad-offcanvas-bg: #{$gray-100};
+  --ad-offcanvas-header-bg: #{darken($gray-100, 5%)};
+  --bs-border-color-translucent: rgba(255, 255, 255, .15);
+}
+
+[data-bs-theme="dark"] {
   color-scheme: dark;
 
-  --body-background-color: #{$gray-800};
-  --background-color-normal: #{darken($gray-800, 5%)};
-  --background-color-medium: #{darken($gray-800, 10%)};
-  --background-color-dark: #{$gray-900};
-  --text-color: #{$gray-100};
-  --link-color: #{$gray-100};
-  --offcanvas-header-background-color: #{$gray-900};
-}
-
-@mixin light-mode() {
-  color-scheme: light;
-
-  --body-background-color: #{$gray-100};
-  --background-color-normal: #{darken($gray-100, 5%)};
-  --background-color-medium: #{darken($gray-100, 10%)};
-  --background-color-dark: #{$gray-400};
-  --text-color: #{$gray-800};
-  --link-color: #{$gray-800};
-  --offcanvas-header-background-color: #{$gray-700};
-}
-
-:root {
-  // Apply a default color scheme
-  @include dark-mode;
-  @media (prefers-color-scheme: no-preference) {
-    @include dark-mode;
-  }
-
-  // Apply a dark color scheme
-  &[color-scheme="dark"] {
-    @include dark-mode;
-  }
-  @media (prefers-color-scheme: dark) {
-    @include dark-mode;
-  }
-
-  // Apply a light color scheme
-  &[color-scheme="light"] {
-    @include light-mode;
-  }
-  @media (prefers-color-scheme: light) {
-    @include light-mode;
-  }
+  --ad-body-bg: #{$gray-900};
+  --ad-bg-normal: #{$gray-800};
+  --ad-bg-medium: #{darken($gray-900, 5%)};
+  --ad-text-color: #{$gray-100};
+  --ad-link-color: #{$gray-100};
+  --ad-offcanvas-bg: #{$gray-900};
+  --ad-offcanvas-header-bg: #{darken($gray-900, 5%)};
+  --bs-border-color-translucent: rgba(0, 0, 0, .175);
 }

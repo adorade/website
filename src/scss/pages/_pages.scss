@@ -8,22 +8,29 @@
 .newsletter,
 .portfolio,
 .services {
-  color: var(--text-color);
+  color: var(--ad-text-color);
 }
 
+.hero,
+.cards,
 .contact,
 .portfolio,
-.services {
-  background-color: var(--body-background-color);
-}
-
-.carousel-portfolio {
-  background-color: var(--background-color-medium);
+.services,
+.feature,
+.parallax,
+.testimonials,
+.footer-container {
+  background-color: var(--ad-body-bg);
 }
 
 .features,
-.newsletter {
-  background-color: var(--background-color-dark);
+.technologies {
+  background-color: var(--ad-bg-normal);
+}
+
+.newsletter,
+.carousel-portfolio {
+  background-color: var(--ad-bg-medium);
 }
 
 .picture-wrapper {

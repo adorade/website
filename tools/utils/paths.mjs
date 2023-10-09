@@ -27,6 +27,7 @@ export const paths = {
     filter: [ `${dirs.dev}/css/**/*.css`, '!**/*.min.css' ]
   },
   scripts: {
+    color: `${dirs.src}/mjs/color-modes.js`,
     src: `${dirs.src}/mjs/**/*.mjs`,
     input: isProd ? `${dirs.src}/mjs/script.mjs` : `${dirs.src}/mjs/script-dev.mjs`,
     dev: `${dirs.dev}/js/`,
@@ -55,7 +56,6 @@ export const paths = {
         `${dirs.modules}/cookieconsent/build/cookieconsent.min.css`  // 3.1.1
       ],
       js: [
-        `${dirs.modules}/jquery/dist/jquery.min.js`,                 // 3.6.0
         `${dirs.modules}/bootstrap/dist/js/bootstrap.bundle.min.js`, // 5.2.3
         `${dirs.modules}/cookieconsent/build/cookieconsent.min.js`   // 3.1.1
       ]

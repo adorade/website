@@ -1,5 +1,5 @@
 //- layout/_base.pug
-html(lang="en" prefix="og: http://ogp.me/ns#")
+html(lang="en" data-bs-theme="dark" prefix="og: http://ogp.me/ns#")
 
   include ../partials/_stamp
   block setting
@@ -9,6 +9,7 @@ html(lang="en" prefix="og: http://ogp.me/ns#")
       include ../partials/_meta
       include ../partials/_statics
       include ../partials/_preconnect
+      include ../partials/_color-modes
     block fonts
       include ../partials/_fonts
     block styles

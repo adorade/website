@@ -4,11 +4,10 @@ include ../../mixins/_pictures
 
 .offcanvas.offcanvas-start#main-menu(tabindex="-1" aria-labelledby="menuLogo")
   .offcanvas-header
-    h5.menu-logo.mb-0#menuLogo
-      +menuLogo("logo-drawer", "Adorade")
-    button.btn-close.text-reset(type="button" data-bs-dismiss="offcanvas" aria-label="Close Main Menu")
-      //- i.fas.fa-times
-      img.svg-inline--fa#fa-times(src="fonts/svgs/solid/times.svg" alt="times" inline)
+    .menu-logo.text-center#menuLogo
+      h2.display-5.mb-0 Adorade
+      p.mb-0 Your Web design
+    button.btn-close(type="button" data-bs-dismiss="offcanvas" aria-label="Close Main Menu")
 
   .offcanvas-body
     ul.offcanvas-nav.nav.nav-pills.flex-column.mb-auto

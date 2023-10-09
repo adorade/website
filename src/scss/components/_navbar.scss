@@ -2,20 +2,10 @@
 // Navbar and Drawer
 // -----------------------------------------------------------------------------
 
-.navbar-toggler {
-  line-height: 1.5;
+.navbar {
+  background-image: none;
 }
 
-.svg-inline--fa.fa-1x { // stylelint-disable-line
-  width: 1em;
-}
-
-.navbar-brand {
-  font-family: Aclonica, sans-serif;
-}
-
-.theme-settings {
-  .dropdown-menu {
-    background-color: var(--background-color-medium);
-  }
-}
+// Toggler themes
+// see components/_buttons.scss
+// see components/_misc.scss

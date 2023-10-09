@@ -16,7 +16,7 @@ module.exports = {
   requireClassLiteralsBeforeIdLiterals: true,
   requireIdLiteralsBeforeAttributes: true,
   requireLineFeedAtFileEnd: true,
-  requireLowerCaseAttributes: true,
+  requireLowerCaseAttributes: null,
   requireLowerCaseTags: true,
   requireSpaceAfterCodeOperator: true,
   requireSpecificAttributes: [{
