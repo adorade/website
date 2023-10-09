@@ -5,41 +5,39 @@ section.newsletter.text-center#newsletter
   .container
     .row.justify-content-center
       .col.col-md-8.col-xl-6
-        //- the form result (success or error) will be rendered inside `.form-response`
+
         .form-response.alert.shadow-lg.d-none
 
-        form.needs-validation.p-4.shadow-lg#news-form(
-          name="news-form" method="POST" action="news.html" netlify-honeypot="bot-field" netlify novalidate)
+        form.needs-validation.row.g-3.g-lg-0.p-4.shadow-lg#news-form(
+          name="news-form" method="POST" action="/thanks/news.html" netlify-honeypot="bot-field" netlify novalidate)
 
           input(type="hidden" name="form-name" value="news-form")
 
-          //- HONEYPOT FIELD
           .d-none
             input.form-control#news-bot-field(type="text" name="bot-field" autocomplete="off")
             label(for="news-bot-field") Don't fill this out if you're human
 
-          .w-100
+          .col-12.col-lg.mt-0.position-relative
+            input.form-control.rounded-lg-end-0#news-name(
+              type="text" name="name" maxlength="50" placeholder="Your name"
+              pattern="^[a-zA-Z][a-zA-Z\\-' ]{1,50}[a-zA-Z']{0,1}$" autocomplete="name"
+              title="Please enter a valid name." aria-label="Your name" required)
+            label.form-label.d-lg-none(for="news-name") Name
+            .valid-feedback Looks good!
+            .invalid-feedback Please enter a valid name.
 
-          .row.g-0.align-items-center
-            .col
-              input.form-control.rounded-0.rounded-start#news-name(
-                type="text" name="name" maxlength="50" placeholder="Your name"
-                pattern="^[a-zA-Z][a-zA-Z\\-' ]{1,50}[a-zA-Z']{0,1}$" autocomplete="name"
-                title="Please enter a valid name." aria-label="Your name" required)
-              label.visually-hidden(for="news-name") Name
-              .valid-feedback Looks good!
-              .invalid-feedback Please enter a valid name.
+          .col-12.col-lg.position-relative
+            input.form-control.rounded-lg-0#news-email(
+              type="email" name="email" placeholder="your@email.here"
+              pattern="^([a-z0-9_\\.\\-]+)@([a-z0-9\\.\\-]+){2,255}\.([a-z]+){2,10}$"
+              autocomplete="email"
+              title="Please enter a valid email" aria-label="your@email.here" required)
+            label.form-label.d-lg-none(for="news-email") Email
+            .valid-feedback Looks good!
+            .invalid-feedback Please enter a valid email.
 
-            .col
-              input.form-control.rounded-0.border-left#news-email(
-                type="email" name="email" placeholder="your@email.here"
-                pattern="^([a-z0-9_\\.\\-]+)@([a-z0-9\\.\\-]+){2,255}\.([a-z]+){2,10}$"
-                autocomplete="email"
-                title="Please enter a valid email" aria-label="your@email.here" required)
-              label.visually-hidden(for="news-email") Email
-              .valid-feedback Looks good!
-              .invalid-feedback Please enter a valid email.
-
-            .col-auto
-              button.btn.btn-orange.ml-sm-n1.rounded-0.rounded-end(
-                type="submit" aria-label="Subscribe") Subscribe
+          .col-12.col-lg-auto.text-center
+            button.btn.btn-orange.rounded-lg-start-0(
+              type="submit" aria-label="Subscribe") Subscribe
+            button.btn.btn-secondary.d-lg-none(
+              type="reset" aria-label="Cancel") Cancel

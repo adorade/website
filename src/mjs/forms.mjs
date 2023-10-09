@@ -58,26 +58,30 @@ window.addEventListener('load', () => {
           })
           .then(() => {
             response.classList.add('alert-success')
-            response.classList.remove('d-none')
             response.textContent = okMessage
+            response.classList.remove('d-none')
           })
           .catch(() => {
             response.classList.add('alert-danger')
-            response.classList.remove('d-none')
             response.textContent = errorMessage
+            response.classList.remove('d-none')
           })
           .finally(() => {
+            // --- Remove form alert
             setTimeout(() => {
               response.style.display = 'none'
 
               setTimeout(() => {
-                if (response.classList.contains('alert-success') || response.classList.contains('alert-danger')) {
-                  response.classList.remove('alert-success', 'alert-danger')
+                if (
+                  response.classList.contains('alert-success') ||
+                  response.classList.contains('alert-danger')
+                ) {
                   response.classList.add('d-none')
-                  response.textContent = ''
                   response.removeAttribute('style')
+                  response.classList.remove('alert-success', 'alert-danger')
+                  response.textContent = ''
                 }
-              }, 2000)
+              }, 1000)
             }, 8000)
 
             // --- Reset form
@@ -86,7 +90,7 @@ window.addEventListener('load', () => {
           })
       }
 
-      // Add 'was-validated' class to the form
+      // --- Add 'was-validated' class to the form
       form.classList.add('was-validated')
 
       // --- Trigger blur event on submit button

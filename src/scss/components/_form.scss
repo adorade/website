@@ -5,6 +5,7 @@
 form {
   padding: 0;
   margin: 0;
+  border-radius: var(--bs-border-radius);
   background-color: var(--ad-bg-normal);
   font-family: Roboto, Arial, sans-serif;
   font-size: 1rem;
@@ -12,6 +13,16 @@ form {
 }
 
 .form-control {
+  border-color: var(--bs-body-bg);
+  text-indent: 82px;
+  @media (min-width: 992px) {
+    text-indent: 110px;
+  }
+
+  @at-root textarea#{&} {
+    line-height: 1.7;
+  }
+
   &:focus {
     border-color: $buttons-color;
   }
@@ -19,57 +30,68 @@ form {
   .newsletter & {
     // background-color: var(--ad-body-bg);
     border-color: var(--ad-body-bg);
-  }
-}
 
-.input {
-  position: relative;
-
-  input,
-  textarea {
-    border-color: var(--ad-body-bg);
-    border-radius: .5rem;
-    text-indent: 90px;
-    transition: all .2s linear;
-  }
-
-  textarea {
-    line-height: 1.7;
-  }
-
-  label {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 90px;
-    padding: .625rem .75rem;
-    margin: 0;
-    border-radius: .5rem 0 0 .5rem;
-    background-color: $buttons-color;
-    color: $white;
-    font-family: Roboto, Arial, sans-serif;
-    font-size: .75rem;
-    line-height: 1.5;
-    text-align: center;
-    transition: all .2s linear;
-    cursor: text;
-
-    &[for$="message"] {
-      border-radius: .5rem 0;
-    }
-
-    .required {
-      color: $white;
+    @media (min-width: 992px) {
+      text-indent: 0;
     }
   }
 }
 
-.border-left {
-  border-left: 2px solid var(--ad-bg-normal) !important; // stylelint-disable-line
+.form-label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 82px;
+  padding: .5625rem .75rem;
+  margin: 0;
+  border: solid $buttons-color;
+  border-width: 1px 0;
+  border-radius: var(--bs-border-radius) 0 0 var(--bs-border-radius);
+  background-color: $buttons-color;
+  color: $black;
+  font-size: .75rem;
+  line-height: 1.5;
+  text-align: center;
+  transition: all .2s linear;
+  cursor: text;
+
+  &[for$="message"] {
+    border-radius: var(--bs-border-radius) 0;
+  }
+
+  @media (min-width: 992px) {
+    width: 110px;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+  }
 }
 
-// Form validation
+.newsletter .col-lg {
+  margin-right: 1px;
+}
+
+// Form validation for labels
 // --------------------------
 @each $state, $data in $form-validation-states {
   @include formarea-validation-state($state, map-get($data, color));
 }
+
+// Border radius
+// --------------------------
+// stylelint-disable declaration-no-important
+@media (min-width: 992px) {
+  .rounded-lg-0 {
+    border-radius: 0 !important;
+  }
+
+  .rounded-lg-start-0 {
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+  }
+
+  .rounded-lg-end-0 {
+    border-top-right-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+  }
+}
+// stylelint-enable declaration-no-important

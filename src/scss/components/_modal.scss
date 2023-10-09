@@ -8,14 +8,4 @@
 
 .modal-content {
   background-color: var(--ad-bg-normal);
-  box-shadow: 0 0 10px $buttons-color;
 }
-
-.modal-content,
-.modal-header {
-  border-radius: unset;
-}
-
-// .modal-quote-error {
-//   box-shadow: 0 0 10px rgba(255, 0, 59, 1);
-// }
