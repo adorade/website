@@ -1,6 +1,6 @@
 exports.handler = async (event, context) => {
   try {
-    console.log('Submission created: [error testing]');
+    console.log('Submission created!');
 
     // Only allow POST
     if (event.httpMethod !== 'POST') {

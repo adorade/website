@@ -56,7 +56,7 @@ export const paths = {
         `${dirs.modules}/cookieconsent/build/cookieconsent.min.css`  // 3.1.1
       ],
       js: [
-        `${dirs.modules}/bootstrap/dist/js/bootstrap.bundle.min.js`, // 5.2.3
+        `${dirs.modules}/bootstrap/dist/js/bootstrap.bundle.min.js`, // 5.3.2
         `${dirs.modules}/cookieconsent/build/cookieconsent.min.js`   // 3.1.1
       ]
     },

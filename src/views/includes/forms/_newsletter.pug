@@ -9,9 +9,10 @@ section.newsletter.text-center#newsletter
         .form-response.alert.shadow-lg.d-none
 
         form.needs-validation.row.g-3.g-lg-0.p-4.shadow-lg#news-form(
-          name="news-form" method="POST" action="/thanks/news.html" netlify-honeypot="bot-field" netlify novalidate)
+          name="news-form" method="POST" action="/thanks/news" netlify-honeypot="bot-field" netlify novalidate)
 
           input(type="hidden" name="form-name" value="news-form")
+          input(type="hidden" name="subject" value="New subscribe from %{formName} (%{siteName})")
 
           .d-none
             input.form-control#news-bot-field(type="text" name="bot-field" autocomplete="off")
