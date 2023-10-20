@@ -5,7 +5,6 @@
 .footer {
   // background-color: var(--ad-body-bg);
   position: relative;
-  color: $grey-100;
 }
 
 .footer-container {
@@ -14,7 +13,7 @@
   align-items: center;
   justify-content: center;
   padding: 3rem 0 4.75rem;
-  @include gradient-radial-circle(rgba($black, .3), rgba($black, .9));
+  @include gradient-radial-circle(rgba($black, .1), rgba($black, .5));
 
   @media screen and (min-width: 768px) {
     padding-bottom: 2rem;
@@ -58,7 +57,7 @@
 
     a {
       display: block;
-      color: $grey-100;
+      color: var(--ad-social-link);
     }
   }
 }

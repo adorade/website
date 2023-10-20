@@ -2,12 +2,6 @@
 // Animation
 // -----------------------------------------------------------------------------
 
-// @keyframes letterspace {
-//   0%,
-//   100% { letter-spacing: -.025em; }
-//   50% { letter-spacing: .025em; }
-// }
-
 // Go to next section
 @keyframes scroll {
   0%,
@@ -53,19 +47,4 @@
     animation-iteration-count: 1 !important;
   }
   // stylelint-enable
-}
-
-// For hero background image
-@keyframes skale {
-  0%,
-  100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.025);
-  }
-}
-
-.skale {
-  animation: skale 8s infinite;
 }
