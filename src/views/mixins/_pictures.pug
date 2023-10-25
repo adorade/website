@@ -26,12 +26,12 @@ mixin carouselPicture(name, alt)
 //- Parallax Picture
 //------------------------
 //- Usage: +parallaxPicture("name", "alt")
-mixin parallaxPicture(name, alt)
-  picture.parallax-picture
-    source(type="image/webp" data-srcset=`images/hero-unit/${name}.webp`)
-    source(type="image/jpeg" data-srcset=`images/hero-unit/${name}.jpg`)
-    img.lazy-parallax.lazyload.parallax-img(
-      loading="lazy" data-src=`images/hero-unit/${name}.jpg` alt=alt)
+//- mixin parallaxPicture(name, alt)
+//-   picture.parallax-picture
+//-     source(type="image/webp" data-srcset=`images/hero-unit/${name}.webp`)
+//-     source(type="image/jpeg" data-srcset=`images/hero-unit/${name}.jpg`)
+//-     img.lazy-parallax.lazyload.parallax-img(
+//-       loading="lazy" data-src=`images/hero-unit/${name}.jpg` alt=alt)
 
 //- Top Banner
 //------------------------
