@@ -32,13 +32,13 @@
   .card-picture {
     // intrinsic ratio
     @include card(3 4, ".card-img");
+  }
 
-    .card-img {
-      border: none;
-      border-radius: 0;
-      font-size: 0;
-      line-height: 0;
-    }
+  .card-img {
+    border: none;
+    border-radius: 0;
+    font-size: 0;
+    line-height: 0;
   }
 }
 
@@ -58,32 +58,6 @@
 .card-text {
   font-size: 1.1rem;
   text-align: center;
-}
-
-.card-button {
-  position: absolute;
-  top: -1.5rem;
-  right: 1.5rem;
-  display: inline-flex;
-  width: 3rem;
-  height: 3rem;
-  padding: .75rem;
-  border: 0;
-  border-radius: 100%;
-  background-color: $light-blue-500;
-  color: #fff;
-  font-size: 1.5rem;
-  line-height: 1.5;
-  text-align: center;
-  outline: 0 !important; // stylelint-disable-line
-  box-shadow: 0 3px 10px rgba(0, 0, 0, .23), 0 3px 10px rgba(0, 0, 0, .16);
-  transition: all 200ms ease;
-  cursor: pointer;
-
-  &:hover {
-    color: darken($white, 20%);
-    transform: scale(1.1) rotate(-90deg);
-  }
 }
 
 .card-link {
