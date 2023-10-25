@@ -79,24 +79,3 @@
   background-color: rgba($black, .6);
   color: $white;
 }
-
-// Gradient background
-.card-orange {
-  @include gradient-x($deep-orange-900, $deep-orange-500);
-  color: $white;
-}
-
-.card-blue {
-  @include gradient-x($light-blue-900, $light-blue-500);
-  color: $white;
-}
-
-.card-green {
-  @include gradient-x($green-900, $green-500);
-  color: $white;
-}
-
-.card-grey {
-  @include gradient-x($grey-900, $grey-700);
-  color: $white;
-}
