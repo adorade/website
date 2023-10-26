@@ -16,32 +16,7 @@
   width: 100%;
   height: 100vh;
   overflow: hidden;
-
-  .hero-image,
-  .hero-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-
-  // Hero background image
-  .hero-image {
-    background-image: url(../images/hero-unit/forest_lake_sunset_608x1080.webp);
-    background-position: center center;
-    background-size: cover;
-    background-repeat: no-repeat;
-
-    @media (min-width: 768px) {
-      background-image: url(../images/hero-unit/forest_lake_sunset_1920x1080.webp);
-    }
-  }
-
-  // Hero overlay
-  .hero-overlay {
-    @include gradient-radial-circle(rgba($black, .1), rgba($black, .5));
-  }
+  @include gradient-radial-circle(rgba($black, .1), rgba($black, .5));
 
   // Hero content
   .hero-content {
@@ -49,35 +24,15 @@
     width: auto;
     height: auto;
     color: $base-color;
-    text-shadow: 10px 10px 15px $black;
   }
 
   // Main title
-  .hero-title,
-  .hero-desc {
-    width: 100%;
-    height: auto;
-  }
-
-  .hero-title {
-    font-size: 4rem;
+  .display-1 {
     line-height: 1.5;
+    font-weight: bolder;
 
-    @media (min-width: 576px) {
-      font-size: 5rem;
-    }
-
-    @media (min-width: 768px) {
-      font-size: 7.5rem;
-    }
-
-    @media (min-width: 1200px) {
+    @include media-breakpoint-up(xl) {
       font-size: 10rem;
     }
-  }
-
-  // Description
-  .hero-desc {
-    // code here
   }
 }

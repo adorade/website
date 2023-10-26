@@ -1,0 +1,15 @@
+//- includes/sections/_story.pug
+include ../../mixins/_pictures
+
+section.story#story
+  .story-window
+    //- +parallaxPicture("pine_trees_under_blue_sky_1920x1080", "Pine Trees Under Blue Sky")
+    .story-picture
+      img.story-img(src="images/story/story.svg" alt="Beautiful things")
+    .story-overlay
+      .container
+        .row.justify-content-center
+          .col.col-lg-8.col-hd-6.text-center
+            h2
+              | Once upon a time, we started a journey, to discover, to learn
+              |  #[span.p-2 beautiful things]

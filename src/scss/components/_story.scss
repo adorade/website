@@ -1,40 +1,36 @@
 //
-// Parallax effect
+// Story effect
 // -----------------------------------------------------------------------------
 
-.parallax {
+.story {
   // background-color: var(--ad-body-bg);
   // height: calc(100vh / 2);
-  height: 450px;
+  height: 480px;
   padding: 0;
 }
 
-.parallax-window {
+.story-window {
   position: relative;
   width: 100%;
   height: 100%;
   overflow: hidden;
 }
 
-.parallax-picture {
+.story-picture {
   position: relative;
   display: block;
   height: 100%;
 
-  .parallax-img {
+  .story-img {
     position: absolute;
     top: 0;
     left: 50%;
     width: auto;
     transform: translate(-50%, 0);
-
-    @media screen and (min-width: 1200px) {
-      width: 100%;
-    }
   }
 }
 
-.parallax-overlay {
+.story-overlay {
   position: absolute;
   top: 0;
   left: 0;
