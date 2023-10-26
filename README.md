@@ -1,6 +1,6 @@
-# Adorade [![Twitter URL](https://img.shields.io/twitter/url?url=https%3A%2F%2Fadorade.ro)](https://twitter.com/intent/tweet?text=Adorade%20-%20Your%20Web%20Design%20&url=https://adorade.ro&hashtags=webdesign,development,mobileapp,webapp,website,templates)
+# Adorade
 
-![Adorade](src/images/share/adorade_og_share.jpg)
+![Adorade](src/images/share/repository-og.png)
 
 [![GitHub package.json version](https://img.shields.io/github/package-json/v/adorade/website?color=green&logo=github)](https://github.com/adorade/website/blob/main/package.json)
 [![license](https://img.shields.io/github/license/adorade/website)](https://mit-license.org)
