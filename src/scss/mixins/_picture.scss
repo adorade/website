@@ -2,28 +2,10 @@
 // Fluid aspect
 // -----------------------------------------------------------------------------
 
-@mixin parent($ratio) {
+@mixin parent() {
   position: relative;
   display: block;
-  height: 0;
-  padding-bottom: percentage(calc(nth($ratio, 2) / nth($ratio, 1))); // Intrisic ratio
   background-color: var(--ad-bg-normal);
-}
-
-@mixin child-top() {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  width: 100%;
-  transform: translate(-50%, 0);
-
-  @media screen and (min-width: 992px) {
-    top: -20%;
-  }
-
-  @media screen and (min-width: 1200px) {
-    top: -35%;
-  }
 }
 
 @mixin child($ratio) {
@@ -38,32 +20,14 @@
   filter: grayscale(90%) blur(10px);
 }
 
-@mixin picture($ratio: 1 1, $selector: "> :first-child", $banner: true, $filter: true) {
+@mixin picture($ratio: 1 1, $selector: "> :first-child", $filter: true) {
   $selector-child: unquote($selector);
 
   // parent
-  position: relative;
-  display: block;
-  background-color: var(--ad-bg-normal);
+  @include parent();
   @if $filter {
     @include filter();
   }
-
-  // child
-  #{$selector-child} {
-    @if $banner {
-      @include child-top();
-    } @else {
-      @include child($ratio);
-    }
-  }
-}
-
-@mixin card($ratio: 1 1, $selector: "> :first-child") {
-  $selector-child: unquote($selector);
-
-  // parent
-  @include parent($ratio);
 
   // child
   #{$selector-child} {

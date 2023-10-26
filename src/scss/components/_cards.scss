@@ -31,7 +31,7 @@
 
   .card-picture {
     // intrinsic ratio
-    @include card(3 4, ".card-img");
+    @include picture(3 4, ".card-img", false);
   }
 
   .card-img {

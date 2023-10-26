@@ -17,19 +17,6 @@
   }
 }
 
-.masthead-picture {
-  // This images is used for Open Graph
-  // `Non-open Graph Stories Images` appear in a rectangular format.
-  // You should use a 1.91:1 image ratio, such as 600 x 315 px.
-  @include picture(16 9, ".masthead-img", true, true);
-
-  .masthead-img {
-    @media screen and (max-width: 575.98px) {
-      width: auto;
-    }
-  }
-}
-
 .mastehead-overlay {
   position: absolute;
   top: 0;
@@ -40,8 +27,8 @@
   justify-content: center;
   width: 100%;
   height: 100%;
-  color: $grey-100;
-  @include gradient-radial-circle(rgba($black, .1), rgba($black, .7));
+  color: $base-color;
+  @include gradient-radial-circle(rgba($black, .1), rgba($black, .5));
 
   @media screen and (min-width: 768px) {
     h1 {

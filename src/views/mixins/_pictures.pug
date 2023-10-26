@@ -36,14 +36,14 @@ mixin carouselPicture(name, alt)
 //- Top Banner
 //------------------------
 //- Usage: +banner("name", "alt")
-mixin banner(name, alt)
-  picture.masthead-picture
-    source(type="image/webp" srcset=`images/top/${name}.webp` media="(min-width: 576px)")
-    source(type="image/webp" srcset=`images/top/${name}-min.webp`)
-    source(type="image/jpeg" srcset=`images/top/${name}.jpg` media="(min-width: 576px)")
-    source(type="image/jpeg" srcset=`images/top/${name}-min.jpg`)
-    img.lazy-top.masthead-img(
-      src=`images/top/${name}-min.jpg` alt=alt)
+//- mixin banner(name, alt)
+//-   picture.masthead-picture
+//-     source(type="image/webp" srcset=`images/top/${name}.webp` media="(min-width: 576px)")
+//-     source(type="image/webp" srcset=`images/top/${name}-min.webp`)
+//-     source(type="image/jpeg" srcset=`images/top/${name}.jpg` media="(min-width: 576px)")
+//-     source(type="image/jpeg" srcset=`images/top/${name}-min.jpg`)
+//-     img.lazy-top.masthead-img(
+//-       src=`images/top/${name}-min.jpg` alt=alt)
 
 //- Features Picture
 //------------------------
