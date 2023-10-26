@@ -42,7 +42,9 @@
   $selector-child: unquote($selector);
 
   // parent
-  @include parent($ratio);
+  position: relative;
+  display: block;
+  background-color: var(--ad-bg-normal);
   @if $filter {
     @include filter();
   }
