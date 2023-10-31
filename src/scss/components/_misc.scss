@@ -3,6 +3,8 @@
 // Misc
 // -----------------------------------------------------------------------------
 
+// Scroll down
+// --------------------------
 .scroll-down {
   position: absolute;
   bottom: 0;
@@ -35,6 +37,8 @@
   }
 }
 
+// Back to top
+// --------------------------
 .back-to-top {
   position: fixed;
   right: 0;
@@ -51,7 +55,6 @@
     padding: .5rem;
     margin: 0;
     overflow: hidden;
-    border-radius: .25rem;
     border-radius: var(--bs-border-radius);
     background-color: rgba($base-gray, .5);
     color: #f8f9fa;
@@ -80,6 +83,8 @@
   }
 }
 
+// Get in touch
+// --------------------------
 .get-in-touch {
   position: fixed;
   right: 1rem;
@@ -101,6 +106,37 @@
     color: #fff;
   }
 }
+
+// Cookie Consent
+// --------------------------
+.cookie-settings {
+  position: fixed;
+  bottom: .5rem;
+  left: 1rem;
+  z-index: 20;
+
+  .btn-settings {
+    display: flex;
+    padding: .5rem;
+    border: 0;
+    border-radius: var(--bs-border-radius);
+    background-image: none;
+    color: $white;
+    font-size: 1.25rem;
+  }
+}
+
+// stylelint-disable
+#cm, #s-bl .act .b-acc, #s-inr,
+.cc_div .b-tl, .cc_div .c-bl {
+  border-radius: var(--bs-border-radius);
+}
+
+#cm.left {
+  bottom: .5rem;
+  left: 1rem;
+}
+// stylelint-enable
 
 // Toogler for color modes
 // --------------------------
@@ -149,6 +185,8 @@
   }
 }
 
+// Copyright
+// --------------------------
 .copyright {
   color: $base-color;
 

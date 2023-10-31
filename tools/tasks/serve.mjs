@@ -6,8 +6,8 @@
 
 import { series, watch, isProd, bs, fancyLog, bgBlue, bgRed, green, magenta, red, dirs, paths, opts } from '../utils/index.mjs';
 import {
-  vendorCss, lintScss, compile, minifyCss,
-  vendorJs, lintMjs, colorJs, transpile, minifyJs,
+  lintScss, compile, minifyCss,
+  lintMjs, colorJs, transpile, minifyJs,
   imagine, convert, favicons, statica, fontsCss, fontsSvg,
   lintPages, pagile, pagify
 } from './index.mjs';
@@ -30,19 +30,9 @@ export function serve () {
 
   const watchers = [
     {
-      name: 'Vendor CSS',
-      paths: paths.vendors.watch.css,
-      tasks: [vendorCss]
-    },
-    {
       name: 'Styles',
       paths: paths.styles.src,
       tasks: isProd ? [lintScss, compile, minifyCss] : [lintScss, compile]
-    },
-    {
-      name: 'Vendor JS',
-      paths: paths.vendors.watch.js,
-      tasks: [vendorJs]
     },
     {
       name: 'Color Modes',

@@ -39,28 +39,3 @@ h1, h2, h3, h4, h5, h6 { font-family: Aclonica, sans-serif; } // stylelint-disab
 .navbar-toggler {
   transition: all .5s ease-in-out;
 }
-
-// Cookie consent
-.cc-window {
-  background: #252e39;
-  color: #fff;
-}
-
-.cc-highlight {
-  .cc-btn {
-    border-color: transparent;
-    background: #17a2b8;
-    color: #000;
-
-    &:first-child {
-      border-color: transparent;
-      background-color: transparent;
-      color: #fff;
-    }
-  }
-}
-
-.cc-revoke.cc-bottom {
-  background-color: #252e39;
-  color: #fff;
-}

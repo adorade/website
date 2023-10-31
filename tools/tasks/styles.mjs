@@ -6,7 +6,7 @@
 
 import {
   src, dest, lastRun, isProd, del, size, bs, fancyLog, green, magenta,
-  concat, header, rename, paths, opts, banner
+  header, rename, paths, opts, banner
 } from '../utils/index.mjs';
 import gStylelintEsm from 'gulp-stylelint-esm';
 import * as dartSass from 'sass';
@@ -23,19 +23,6 @@ export async function cleanCss () {
 }
 cleanCss.displayName = 'clean:css';
 cleanCss.description = 'Clean up styles folders';
-
-export function vendorCss () {
-  fancyLog(`${green('-> Copying vendor CSS files...')}`);
-  return src(paths.vendors.src.css, {
-    since: lastRun(vendorCss)
-  })
-    .pipe(concat('vendors.min.css'))
-    .pipe(size(opts.size))
-    .pipe(dest(paths.vendors.dest.css))
-    .pipe(bs.stream({ match: '**/*.css' }));
-}
-vendorCss.displayName = 'vendor:css';
-vendorCss.description = 'Copy vendor CSS files';
 
 export function lintScss () {
   fancyLog(`${green('-> Linting SCSS files...')}`);

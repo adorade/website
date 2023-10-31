@@ -6,7 +6,7 @@
 
 import {
   src, dest, lastRun, isProd, fs, del, size, bs, fancyLog, green, magenta,
-  concat, header, rename, replace, paths, opts, banner
+  header, rename, paths, opts, banner
 } from '../utils/index.mjs';
 import gEslint from 'gulp-eslint';
 import gTerser from 'gulp-terser-js';
@@ -21,21 +21,6 @@ export async function cleanJs () {
 }
 cleanJs.displayName = 'clean:js';
 cleanJs.description = 'Clean up scripts folders';
-
-export function vendorJs () {
-  fancyLog(`${green('-> Copying vendor JS files...')}`);
-  return src(paths.vendors.src.js, {
-    // since: lastRun(vendorJs)
-  })
-    .pipe(replace(/\/\/[#@]\s(source(?:Mapping)?URL)=\s*(\S+)/, ''))
-    .pipe(replace(/^(?:[\t ]*(?:\r?\n|\r))+/, ''))
-    .pipe(concat('vendors.min.js'))
-    .pipe(size(opts.size))
-    .pipe(dest(paths.vendors.dest.js))
-    .pipe(bs.stream({ match: '**/*.js' }));
-}
-vendorJs.displayName = 'vendor:js';
-vendorJs.description = 'Copy vendor JS files';
 
 export function lintMjs () {
   fancyLog(`${green('-> Linting MJS files...')}`);

@@ -7,8 +7,8 @@
 export { help } from './help.mjs';                                                        // Help
 export { checks } from './checks.mjs';                                                    // Checks
 export { clean } from './clean.mjs';                                                      // Clean
-export { cleanCss, vendorCss, lintScss, compile, minifyCss } from './styles.mjs';         // Styles
-export { cleanJs, vendorJs, lintMjs, colorJs, transpile, minifyJs } from './scripts.mjs'; // Scripts
+export { cleanCss, lintScss, compile, minifyCss } from './styles.mjs';                    // Styles
+export { cleanJs, lintMjs, colorJs, transpile, minifyJs } from './scripts.mjs';           // Scripts
 export { cleanStatics, favicons, statica } from './statics.mjs';                          // Statics
 export { cleanFonts, fontsCss, fontsSvg } from './fonts.mjs';                             // Fonts
 export { cleanImages, imagine, convert } from './images.mjs';                             // Images
