@@ -28,8 +28,6 @@ export const { bgBlue, bgRed, cyan, green, magenta, red } = colors;
 
 // Load specific modules
 import cached from 'gulp-cached';
-import concat from 'gulp-concat';
 import header from 'gulp-header';
 import rename from 'gulp-rename';
-import replace from 'gulp-replace';
-export { cached, concat, header, rename, replace };
+export { cached, header, rename };

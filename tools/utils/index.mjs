@@ -9,7 +9,7 @@ export {
   src, dest, series, parallel, lastRun, watch, tree,
   fs, del, size, bs,
   fancyLog, bgBlue, bgRed, cyan, green, magenta, red,
-  cached, concat, header, rename, replace
+  cached, header, rename
 } from './plugins.mjs';
 
 // Settings

@@ -50,25 +50,6 @@ export const paths = {
       format: 'cjs'
     }
   },
-  vendors: {
-    src: {
-      css: [
-        `${dirs.modules}/cookieconsent/build/cookieconsent.min.css`  // 3.1.1
-      ],
-      js: [
-        `${dirs.modules}/bootstrap/dist/js/bootstrap.bundle.min.js`, // 5.3.2
-        `${dirs.modules}/cookieconsent/build/cookieconsent.min.js`   // 3.1.1
-      ]
-    },
-    dest: {
-      css: isProd ? `${dirs.prod}/css/` : `${dirs.dev}/css/`,
-      js: isProd ? `${dirs.prod}/js/` : `${dirs.dev}/js/`
-    },
-    watch: {
-      css: `${dirs.src}/vendor/css/**/*.css`,
-      js: `${dirs.src}/vendor/js/**/*.js`
-    }
-  },
   fonts: {
     css: {
       src: `${dirs.src}/fonts/**/*.css`,

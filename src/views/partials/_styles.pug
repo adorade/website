@@ -1,15 +1,8 @@
 //- partials/_styles.pug
 block external-css
-  //--- Adorade CSS Files
-  //- external styles here (cdn), then ...
-
-block vendors-css
-  //--- Vendors main CSS
-  //- cookieconsent 3.1.1
-  if entry.inline
-    link#inline-vendors-css(href="css/vendors.min.css" inline)
-  else
-    link#vendors-css(rel="stylesheet" href="css/vendors.min.css")
+  //--- Adorade CSS Files, external styles here (cdn)
+  link#cc-style(rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanilla-cookieconsent@2.9.2/dist/cookieconsent.min.css"
+    integrity="sha384-u8HWPacvFUZhfG4V/pVc2ArshKqadLWxg/9hpFZHSztrnSwrWevl6j/uPdLLtKPb" crossorigin="anonymous")
 
 block custom-css
   //--- Main Style

@@ -1,8 +1,8 @@
 //- partials/_analytics.pug
 if entry.inline
   //--- Google tag (gtag.js)
-  script(async src="https://www.googletagmanager.com/gtag/js?id=G-TB28LRXJ7Y")
-  script.
+  script(async type="text/plain" data-cookiecategory="analytics" src="https://www.googletagmanager.com/gtag/js?id=G-TB28LRXJ7Y")
+  script(type="text/plain" data-cookiecategory="analytics").
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
