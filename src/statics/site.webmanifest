@@ -1,7 +1,10 @@
 {
     "name": "Adorade",
     "short_name": "Adorade",
-    "description": "Once upon a time we started a journey.",
+    "description": "Dream Big. Think Different. Do Better",
+    "lang": "en",
+    "dir": "ltr",
+    "id": "/?utm_source=homescreen",
     "start_url": "/?utm_source=homescreen",
     "scope": "/",
     "icons": [
@@ -12,27 +15,28 @@
             "purpose": "any"
         },
         {
+            "src": "statics/icons/android-chrome_192.svg",
+            "sizes": "192x192",
+            "type": "image/svg",
+            "purpose": "any"
+        },
+        {
             "src": "statics/icons/android-chrome-512x512.png",
             "sizes": "512x512",
             "type": "image/png",
             "purpose": "any"
         },
         {
-            "src": "statics/icons/icon-small-192x192.png",
-            "sizes": "192x192",
-            "type": "image/png",
-            "purpose": "maskable"
-        },
-        {
-            "src": "statics/icons/icon-large-512x512.png",
+            "src": "statics/icons/android-chrome_512.svg",
             "sizes": "512x512",
-            "type": "image/png",
-            "purpose": "maskable"
+            "type": "image/svg",
+            "purpose": "any"
         }
     ],
-    "theme_color": "#ff5722",
-    "background_color": "#ff5722",
+    "theme_color": "#212529",
+    "background_color": "#212529",
     "orientation": "portrait",
+    "display_override": ["standalone", "window-controls-overlay"],
     "display": "standalone",
     "shortcuts": [
         {
@@ -65,5 +69,22 @@
             "url": "/contact?utm_source=pwa",
             "icons": [{ "src": "statics/icons/icon-yellow-192x192.png", "sizes": "192x192" }]
         }
+    ],
+    "screenshots": [
+        {
+            "src": "statics/icons/screen-narrow.png",
+            "type": "image/png",
+            "sizes": "750x1334",
+            "form_factor": "narrow"
+        },
+        {
+            "src": "statics/icons/screen-wide.png",
+            "type": "image/png",
+            "sizes": "1280x800",
+            "form_factor": "wide"
+        }
+    ],
+    "categories": [
+      "business"
     ]
 }
