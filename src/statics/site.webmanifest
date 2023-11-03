@@ -15,21 +15,27 @@
             "purpose": "any"
         },
         {
+            "src": "statics/icons/android-chrome_192.svg",
+            "sizes": "192x192",
+            "type": "image/svg",
+            "purpose": "any"
+        },
+        {
             "src": "statics/icons/icon-small-192x192.png",
             "sizes": "192x192",
             "type": "image/png",
             "purpose": "maskable"
         },
         {
-            "src": "statics/icons/android-chrome.svg",
-            "sizes": "512x512",
-            "type": "image/svg",
-            "purpose": "any"
-        },
-        {
             "src": "statics/icons/android-chrome-512x512.png",
             "sizes": "512x512",
             "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "statics/icons/android-chrome_512.svg",
+            "sizes": "512x512",
+            "type": "image/svg",
             "purpose": "any"
         },
         {
@@ -80,13 +86,13 @@
         {
             "src": "statics/icons/screen-narrow.png",
             "type": "image/png",
-            "sizes": "320x640",
+            "sizes": "750x1334",
             "form_factor": "narrow"
         },
         {
             "src": "statics/icons/screen-wide.png",
             "type": "image/png",
-            "sizes": "1280x640",
+            "sizes": "1280x800",
             "form_factor": "wide"
         }
     ],
