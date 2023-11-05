@@ -15,7 +15,7 @@
   padding: 3rem 0 4.75rem;
   @include gradient-radial-circle(rgba($black, .1), rgba($black, .5));
 
-  @media screen and (min-width: 768px) {
+  @include media-breakpoint-up(md) {
     padding-bottom: 2rem;
   }
 }
@@ -51,7 +51,7 @@
       margin: 0 10px;
     }
 
-    @media screen and (min-width: 768px) {
+    @include media-breakpoint-up(md) {
       padding: 0;
     }
 

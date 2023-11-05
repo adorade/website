@@ -1,6 +1,6 @@
 //- includes/misc/_get-in-touch.pug
-button.btn.btn-info.btn-lg.get-in-touch.text-uppercase(
-  type="button"
-  data-bs-toggle="modal"
-  data-bs-target="#GetQuoteModal"
-  aria-label="Get in touch") get in touch
+button.btn.btn-info.get-in-touch(
+  type="button" aria-label="Get in touch"
+  data-bs-toggle="modal" data-bs-target="#GetQuoteModal")
+  | #[span.d-none.d-md-block get in touch]
+  | #[img.svg-inline--fa.fa-w-16.d-block.d-md-none#fa-envelope(src="fonts/svgs/solid/envelope.svg" alt="Get in touch" inline)]

@@ -15,7 +15,7 @@ form {
 .form-control {
   border-color: var(--bs-body-bg);
   text-indent: 82px;
-  @media (min-width: 992px) {
+  @include media-breakpoint-up(lg) {
     text-indent: 110px;
   }
 
@@ -31,7 +31,7 @@ form {
     // background-color: var(--ad-body-bg);
     border-color: var(--ad-body-bg);
 
-    @media (min-width: 992px) {
+    @include media-breakpoint-up(lg) {
       text-indent: 0;
     }
   }
@@ -59,7 +59,7 @@ form {
     border-radius: var(--bs-border-radius) 0;
   }
 
-  @media (min-width: 992px) {
+  @include media-breakpoint-up(lg) {
     width: 110px;
     padding: .375rem .75rem;
     font-size: 1rem;
@@ -79,7 +79,7 @@ form {
 // Border radius
 // --------------------------
 // stylelint-disable declaration-no-important
-@media (min-width: 992px) {
+@include media-breakpoint-up(lg) {
   .rounded-lg-0 {
     border-radius: 0 !important;
   }

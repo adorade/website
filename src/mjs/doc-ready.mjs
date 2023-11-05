@@ -57,7 +57,6 @@ window.onscroll = () => {
         scrollPos = windowPos ? windowPos : 0,
 
         togglers = document.querySelectorAll('.btn-toggler'),
-        getInTouch = document.querySelector('.get-in-touch'),
         hero = document.querySelector('.hero-unit'),
         masthead = document.querySelector('.masthead'),
         totop = document.querySelector('.back-to-top'),
@@ -128,7 +127,6 @@ window.onscroll = () => {
     togglers.forEach((toggler) => {
       toggler.classList.add('btn-orange')
     })
-    getInTouch.classList.add('shrink')
     if (totop.style.display !== 'block') {
       fadeIn(totop)
     }
@@ -136,7 +134,6 @@ window.onscroll = () => {
     togglers.forEach((toggler) => {
       toggler.classList.remove('btn-orange')
     })
-    getInTouch.classList.remove('shrink')
     if (totop.style.display !== 'none') {
       fadeOut(totop)
     }
