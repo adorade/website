@@ -7,7 +7,7 @@
   // background-color: var(--ad-bg-medium);
   // color: var(--ad-text-color);
 
-  @media (min-width: 1920px) {
+  @include media-breakpoint-up(hd) {
     .container {
       max-width: 1440px;
     }

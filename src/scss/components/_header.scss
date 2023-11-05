@@ -8,11 +8,11 @@
   height: 210px;
   overflow: hidden;
 
-  @media screen and (min-width: 576px) {
+  @include media-breakpoint-up(sm) {
     height: 300px;
   }
 
-  @media screen and (min-width: 768px) {
+  @include media-breakpoint-up(md) {
     height: 400px;
   }
 }
@@ -30,7 +30,7 @@
   color: $base-color;
   @include gradient-radial-circle(rgba($black, .1), rgba($black, .5));
 
-  @media screen and (min-width: 768px) {
+  @include media-breakpoint-up(md) {
     h1 {
       font-size: 4rem;
     }

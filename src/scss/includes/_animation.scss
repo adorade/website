@@ -41,7 +41,7 @@
   animation-fill-mode: both;
 
   // stylelint-disable
-  @media (prefers-reduced-motion:reduce), (print) {
+  @media print, (prefers-reduced-motion: reduce) {
     transition-duration: 1ms !important;
     animation-duration: 1ms !important;
     animation-iteration-count: 1 !important;
