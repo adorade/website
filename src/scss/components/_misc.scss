@@ -40,18 +40,12 @@
 // Back to top
 // --------------------------
 .back-to-top {
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  z-index: 20;
   display: none;
-  width: 100%;
-  margin: 0 auto;
+  width: auto;
+  margin-left: 1rem;
 
   .back-to-top-icon {
-    position: absolute;
-    right: 1rem;
-    bottom: .5rem;
+    position: relative;
     padding: .5rem;
     margin: 0;
     overflow: hidden;
@@ -86,20 +80,22 @@
 // Get in touch
 // --------------------------
 .get-in-touch {
-  position: fixed;
-  right: 1rem;
-  bottom: .5rem;
-  z-index: 21;
-  width: 8rem;
-  padding: .5rem .75rem;
-  color: #f8f9fa;
+  --bs-btn-padding-y: .5rem;
+  color: #fff;
   font-size: .75rem;
   font-weight: 900;
-  text-align: center;
+  text-transform: uppercase;
   transition: all .5s ease-in-out;
 
-  &.shrink {
-    transform: translate(-3.25rem);
+  @media (max-width: 767.98px) {
+    display: flex;
+    padding: .5rem;
+    border: 0;
+  }
+
+  .svg-inline--fa { // stylelint-disable-line
+    display: block;
+    font-size: 1.25rem;
   }
 
   &:hover {
@@ -110,11 +106,6 @@
 // Cookie Consent
 // --------------------------
 .cookie-settings {
-  position: fixed;
-  bottom: .5rem;
-  left: 1rem;
-  z-index: 20;
-
   .btn-settings {
     display: flex;
     padding: .5rem;

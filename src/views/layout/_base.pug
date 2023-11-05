@@ -19,9 +19,9 @@ html(lang="en" data-bs-theme="dark" prefix="og: http://ogp.me/ns#")
 
   body
     main
-      block navbar
+      block navbar-top
         include ../modules/offcanvas/_offcanvas
-        include ../modules/navbar/_navbar
+        include ../modules/navbar/_navbar-top
       block header
       block content
         include ../includes/forms/_newsletter
@@ -30,8 +30,7 @@ html(lang="en" data-bs-theme="dark" prefix="og: http://ogp.me/ns#")
         include ../modules/footer/_footer
     block modal
       include ../includes/forms/_modal-get-quote
-    include ../includes/misc/_get-in-touch
-    include ../includes/misc/_back-to-top
-    include ../includes/misc/_cc-settings
+    block navbar-bottom
+      include ../modules/navbar/_navbar-bottom
     block scripts
       include ../partials/_scripts
