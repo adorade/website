@@ -12,6 +12,8 @@
   text-align: center;
 
   .scroll-down-icon {
+    position: relative;
+    z-index: 1035;
     display: inline-flex;
     margin: 0 auto;
     color: rgba(255, 255, 255, .7);
