@@ -7,37 +7,36 @@
 # extends
 extends: [ stylelint-config-standard-scss ]
 # plugins
-plugins: [ stylelint-scss, stylelint-order ]
+plugins: [ stylelint-stylistic, stylelint-scss, stylelint-order ]
 # rules
 rules:
-# --- Deprecation warnings
-  # https://github.com/stylelint/stylelint/blob/main/docs/user-guide/rules.md#deprecated
-  at-rule-name-space-after: always
-  at-rule-semicolon-space-before: never
-  block-closing-brace-newline-after:
+# --- Stylelistic
+  stylistic/at-rule-name-space-after: always
+  stylistic/at-rule-semicolon-space-before: never
+  stylistic/block-closing-brace-newline-after:
     - always
     - ignoreAtRules: [ if, else ]
-  declaration-block-semicolon-newline-after: always-multi-line
-  declaration-block-semicolon-newline-before: never-multi-line
-  declaration-block-semicolon-space-after: always-single-line
-  indentation: 2
-  max-empty-lines: 2
-  media-feature-parentheses-space-inside: never
-  media-feature-range-operator-space-after: always
-  media-feature-range-operator-space-before: always
-  no-eol-whitespace: true
-  no-extra-semicolons: true
-  no-missing-end-of-source-newline: true
-  number-leading-zero: never
-  selector-list-comma-newline-after: always
-  selector-list-comma-newline-before: never-multi-line
-  selector-list-comma-space-after: always-single-line
-  selector-list-comma-space-before: never-single-line
-  selector-max-empty-lines: 1
-  string-quotes: double
-  value-list-comma-newline-after: always-multi-line
-  value-list-comma-newline-before: never-multi-line
-  value-list-comma-space-after: always-single-line
+  stylistic/declaration-block-semicolon-newline-after: always-multi-line
+  stylistic/declaration-block-semicolon-newline-before: never-multi-line
+  stylistic/indentation: 2
+  stylistic/max-empty-lines: 2
+  stylistic/media-feature-parentheses-space-inside: never
+  stylistic/media-feature-range-operator-space-after: always
+  stylistic/media-feature-range-operator-space-before: always
+  stylistic/no-eol-whitespace: true
+  stylistic/no-extra-semicolons: true
+  stylistic/no-missing-end-of-source-newline: true
+  stylistic/number-leading-zero: never
+  stylistic/selector-list-comma-newline-after: always
+  stylistic/selector-list-comma-newline-before: never-multi-line
+  stylistic/selector-list-comma-space-after: always-single-line
+  stylistic/selector-list-comma-space-before: never-single-line
+  stylistic/selector-max-empty-lines: 0
+  stylistic/string-quotes: double
+  stylistic/value-list-comma-newline-after: always-multi-line
+  stylistic/value-list-comma-newline-before: never-multi-line
+  stylistic/value-list-comma-space-after: always-single-line
+  stylistic/value-list-comma-space-before: never
 
 # --- Good Rules
   alpha-value-notation: number
