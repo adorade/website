@@ -9,9 +9,9 @@
 }
 
 @mixin child($ratio) {
+  aspect-ratio: #{nth($ratio, 1) + "/" + nth($ratio, 2)};
   width: 100%;
   height: auto;
-  aspect-ratio: #{nth($ratio, 1) + "/" + nth($ratio, 2)};
 }
 
 @mixin filter() {
