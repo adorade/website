@@ -25,7 +25,7 @@
       "labels": ["build"]
     },
     {
-      "matchPackagePatterns": ["^stylelint|stylelint$"],
+      "matchPackagePatterns": ["^stylelint|stylelint$|stylelint-config$"],
       "groupName": "stylelint packages",
       "labels": ["lint"]
     },

@@ -7,6 +7,15 @@
   resolved "https://registry.yarnpkg.com/@aashutoshrathi/word-wrap/-/word-wrap-1.2.6.tgz#bd9154aec9983f77b3a034ecaa015c2e4201f6cf"
   integrity sha512-1Yjs2SvM8TflER/OD3cOjhWWOZb58A2t7wpE2S9XfBYTiIl+XFhQG2bjy4Pu1I+EAlCNUzRDYDdFwFYUKvXcIA==
 
+"@adorade/stylelint-config@1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@adorade/stylelint-config/-/stylelint-config-1.0.1.tgz#c58ec35c7c41ca3c8e0cc15a2ebf2136d4120bbf"
+  integrity sha512-SnW7wztHlplaSbPOOZ6O1eAPzBBDg5H+QbEq79FmDjppQaRgLJYmYOih5xbJ7bB5fl7wuOEqb3fDbUSQXPf8GQ==
+  dependencies:
+    stylelint-config-standard-scss "11.1.0"
+    stylelint-order "6.0.3"
+    stylelint-stylistic "0.4.3"
+
 "@ampproject/remapping@^2.2.0":
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/@ampproject/remapping/-/remapping-2.2.1.tgz#99e8e11851128b8702cd57c33684f1d0f260b630"
@@ -5739,11 +5748,6 @@ kind-of@^6.0.2, kind-of@^6.0.3:
   resolved "https://registry.yarnpkg.com/kind-of/-/kind-of-6.0.3.tgz#07c05034a6c349fa06e24fa35aa76db4580ce4dd"
   integrity sha512-dcS1ul+9tmeD95T+x28/ehLgd9mENa3LsvDTtzm3vyBEO7RPptvAD+t44WVXaUjTBRcrpFeFlC8WCruUR456hw==
 
-known-css-properties@^0.28.0:
-  version "0.28.0"
-  resolved "https://registry.yarnpkg.com/known-css-properties/-/known-css-properties-0.28.0.tgz#8a8be010f368b3036fe6ab0ef4bbbed972bd6274"
-  integrity sha512-9pSL5XB4J+ifHP0e0jmmC98OGC1nL8/JjS+fi6mnTlIf//yt/MfVLtKg7S6nCtj/8KTcWX7nRlY0XywoYY1ISQ==
-
 known-css-properties@^0.29.0:
   version "0.29.0"
   resolved "https://registry.yarnpkg.com/known-css-properties/-/known-css-properties-0.29.0.tgz#e8ba024fb03886f23cb882e806929f32d814158f"
@@ -8367,11 +8371,11 @@ stylelint-order@6.0.3:
     postcss-sorting "^8.0.2"
 
 stylelint-scss@^5.3.0:
-  version "5.3.0"
-  resolved "https://registry.yarnpkg.com/stylelint-scss/-/stylelint-scss-5.3.0.tgz#32fd2681f8934e87dfa90f5188646d07f08c59c9"
-  integrity sha512-Sc7S1uWqStMc99NREsHNxpxHHFRvjo2pWILNl/UCwWO8PxhODK8qbJH0GHWIALxl6BD5rwJL4cSm4jk36hi6fg==
+  version "5.3.1"
+  resolved "https://registry.yarnpkg.com/stylelint-scss/-/stylelint-scss-5.3.1.tgz#7f0f5f06d0a2a3c515aa71d3a8de3548045e03e1"
+  integrity sha512-5I9ZDIm77BZrjOccma5WyW2nJEKjXDd4Ca8Kk+oBapSO4pewSlno3n+OyimcyVJJujQZkBN2D+xuMkIamSc6hA==
   dependencies:
-    known-css-properties "^0.28.0"
+    known-css-properties "^0.29.0"
     postcss-media-query-parser "^0.2.3"
     postcss-resolve-nested-selector "^0.1.1"
     postcss-selector-parser "^6.0.13"
