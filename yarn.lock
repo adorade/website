@@ -7,10 +7,10 @@
   resolved "https://registry.yarnpkg.com/@aashutoshrathi/word-wrap/-/word-wrap-1.2.6.tgz#bd9154aec9983f77b3a034ecaa015c2e4201f6cf"
   integrity sha512-1Yjs2SvM8TflER/OD3cOjhWWOZb58A2t7wpE2S9XfBYTiIl+XFhQG2bjy4Pu1I+EAlCNUzRDYDdFwFYUKvXcIA==
 
-"@adorade/stylelint-config@1.0.1":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@adorade/stylelint-config/-/stylelint-config-1.0.1.tgz#c58ec35c7c41ca3c8e0cc15a2ebf2136d4120bbf"
-  integrity sha512-SnW7wztHlplaSbPOOZ6O1eAPzBBDg5H+QbEq79FmDjppQaRgLJYmYOih5xbJ7bB5fl7wuOEqb3fDbUSQXPf8GQ==
+"@adorade/stylelint-config@1.1.2":
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/@adorade/stylelint-config/-/stylelint-config-1.1.2.tgz#09f8d106d67f21e271a78274fb2003f561e24a3a"
+  integrity sha512-I6T+Kx0qoUjfd3KDeR6fxzE/JAtnnoxWqpsE8DHxnVrOcUVik8rvNtP510b02zoTVoFl0zuMgOSG8H1IAaoUXw==
   dependencies:
     stylelint-config-standard-scss "11.1.0"
     stylelint-order "6.0.3"
