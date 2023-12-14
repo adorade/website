@@ -1,32 +1,31 @@
 //
 // Styles
 // =============================================================================
+// stylelint-disable scss/double-slash-comment-empty-line-before
 
 // --- 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
 @import "../../node_modules/bootstrap/scss/functions";
 
 // --- 2. Include any default variable overrides here
-// Import Material Color Palette.
-@import "includes/colors";
-
-@import "includes/variables";
-@import "includes/animation";
+@import "core/colors";
+@import "core/variables";
 
 // --- 3. Include remainder of required Bootstrap stylesheets
 @import "../../node_modules/bootstrap/scss/variables";
 @import "../../node_modules/bootstrap/scss/variables-dark";
 
-// Modified maps
+// --- 4. Include any default map overrides here
 // Be aware you must insert between our requirements just after its definition
 // in `variables` and before its usage in `maps`
-@import "includes/new-grid";
+@import "core/grid";
 
+// --- 5. Include remainder of required parts
 @import "../../node_modules/bootstrap/scss/maps";
 @import "../../node_modules/bootstrap/scss/mixins";
 @import "../../node_modules/bootstrap/scss/root";
 
-// stylelint-disable scss/double-slash-comment-empty-line-before
-// --- 4. Include any optional Bootstrap components as you like
+// --- 6. Include any optional Bootstrap components as you like
+@import "../../node_modules/bootstrap/scss/vendor/rfs";
 @import "../../node_modules/bootstrap/scss/utilities";
 @import "../../node_modules/bootstrap/scss/reboot";
 @import "../../node_modules/bootstrap/scss/type";
@@ -57,29 +56,24 @@
 @import "../../node_modules/bootstrap/scss/carousel";
 // @import "../../node_modules/bootstrap/scss/spinners";
 @import "../../node_modules/bootstrap/scss/offcanvas";
-// stylelint-enable scss/double-slash-comment-empty-line-before
 
 // Helpers
 @import "../../node_modules/bootstrap/scss/helpers";
 
-// --- 5. Optionally include utilities API last to generate classes based on the Sass map in `_utilities.scss`
+// --- 7. Optionally include utilities API last to generate classes based on the Sass map in `_utilities.scss`
 @import "../../node_modules/bootstrap/scss/utilities/api";
 
-// --- 6. Add additional custom code here
-// Reset loader, inline stylesheet
-// @import "plugins/loader";
-
-// Import Theme Color Scheme.
-@import "includes/color-scheme";
-
+// --- 8. Add additional custom code here
 @import "mixins/mixins";
 
-@import "components/basic";
+@import "base/animation";
+@import "base/root";
+@import "base/base";
+
 @import "components/buttons";
 @import "components/navbar";
 @import "components/offcanvas";
 @import "components/hero";
-@import "components/header";
 @import "components/content";
 @import "components/cards";
 @import "components/features";
@@ -88,14 +82,16 @@
 @import "components/story";
 @import "components/tags";
 @import "components/tech";
-@import "components/footer";
 @import "components/newsletter";
 @import "components/modal";
-@import "components/form";
 @import "components/misc";
+
+@import "layout/header";
+@import "layout/footer";
+@import "layout/form";
 
 @import "pages/pages";
 
 // for debug purpose
-// stylelint-disable scss/at-import-no-partial-leading-underscore
+// stylelint-disable scss/load-no-partial-leading-underscore
 // @import "__debug";
