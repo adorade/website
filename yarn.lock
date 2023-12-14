@@ -5345,10 +5345,10 @@ gulp-size@5.0.0:
     gzip-size "^7.0.0"
     pretty-bytes "^6.1.1"
 
-gulp-stylelint-esm@1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/gulp-stylelint-esm/-/gulp-stylelint-esm-1.0.0.tgz#539d4588c05ceaad5455eae2e100b1cd7180ac18"
-  integrity sha512-uhSe4SHISjmNAxVOAp8cSr7g9lDMlGLxRneC68S0HMfXDeS2B7kVucJeIpuxKr/onr4r0IopeoESbTEibTseog==
+gulp-stylelint-esm@1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/gulp-stylelint-esm/-/gulp-stylelint-esm-1.1.0.tgz#c1ead73f8c9a63a647516fecfe1e73b4a279ac13"
+  integrity sha512-WzS6wXMOuXC25vZsgZTspZEOHfAcA8nws+zpkUj/VN7g5k8zb8qCq7eWH1UF7mTMI/POY7qi8f3X3owuZJ2HnA==
   dependencies:
     ansi-colors "4.1.3"
     fancy-log "2.0.0"
