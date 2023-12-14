@@ -50,16 +50,16 @@
     font-weight: 700;
 
     @include hover-focus {
-      background-color: var(--ad-bg-normal);
       background-image: unset;
+      background-color: var(--ad-bg-normal);
       color: var(--ad-link-color);
     }
   }
 
   .nav-link.active,
   .show > .nav-link {
-    background-color: var(--ad-bg-normal);
     background-image: unset;
+    background-color: var(--ad-bg-normal);
     color: $base-color;
   }
 }
