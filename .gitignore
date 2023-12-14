@@ -10,7 +10,7 @@ tmp
 .todo
 tools/README.md
 
-# Folders to ignore
+# Files to ignore
 __debug.scss
 
 # Logs
