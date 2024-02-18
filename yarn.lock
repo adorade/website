@@ -7,6 +7,13 @@
   resolved "https://registry.yarnpkg.com/@aashutoshrathi/word-wrap/-/word-wrap-1.2.6.tgz#bd9154aec9983f77b3a034ecaa015c2e4201f6cf"
   integrity sha512-1Yjs2SvM8TflER/OD3cOjhWWOZb58A2t7wpE2S9XfBYTiIl+XFhQG2bjy4Pu1I+EAlCNUzRDYDdFwFYUKvXcIA==
 
+"@adorade/plugin-error@1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@adorade/plugin-error/-/plugin-error-1.0.0.tgz#bebb637290938d2c56bc9debc9ba87a7f7508629"
+  integrity sha512-P480ufC7aG8ML2jwVT8AkLPmVazfF5cwnHHsSMjnzdLepapt6FS02bPUISFINN92m4yYdGBYNoPHbMNRzO20rA==
+  dependencies:
+    ansi-colors "4.1.3"
+
 "@adorade/stylelint-config@1.1.2":
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/@adorade/stylelint-config/-/stylelint-config-1.1.2.tgz#09f8d106d67f21e271a78274fb2003f561e24a3a"
@@ -1728,6 +1735,14 @@
   version "1.4.15"
   resolved "https://registry.yarnpkg.com/@jridgewell/sourcemap-codec/-/sourcemap-codec-1.4.15.tgz#d7c6e6755c78567a951e04ab52ef0fd26de59f32"
   integrity sha512-eF2rxCRulEKXHTRiDrDy6erMYWqNw4LPdQ8UQA4huuxaQsVeRPFl2oM8oDGxMFhJUWZf9McpLtJasDDZb/Bpeg==
+
+"@jridgewell/trace-mapping@0.3.22":
+  version "0.3.22"
+  resolved "https://registry.yarnpkg.com/@jridgewell/trace-mapping/-/trace-mapping-0.3.22.tgz#72a621e5de59f5f1ef792d0793a82ee20f645e4c"
+  integrity sha512-Wf963MzWtA2sjrNt+g18IAln9lKnlRp+K2eH4jjIoF1wYeq3aMREpG09xhlhdzS0EjwU7qmUJYangWa+151vZw==
+  dependencies:
+    "@jridgewell/resolve-uri" "^3.1.0"
+    "@jridgewell/sourcemap-codec" "^1.4.14"
 
 "@jridgewell/trace-mapping@^0.3.17", "@jridgewell/trace-mapping@^0.3.9":
   version "0.3.20"
@@ -5345,15 +5360,15 @@ gulp-size@5.0.0:
     gzip-size "^7.0.0"
     pretty-bytes "^6.1.1"
 
-gulp-stylelint-esm@1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/gulp-stylelint-esm/-/gulp-stylelint-esm-1.1.0.tgz#c1ead73f8c9a63a647516fecfe1e73b4a279ac13"
-  integrity sha512-WzS6wXMOuXC25vZsgZTspZEOHfAcA8nws+zpkUj/VN7g5k8zb8qCq7eWH1UF7mTMI/POY7qi8f3X3owuZJ2HnA==
+gulp-stylelint-esm@2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/gulp-stylelint-esm/-/gulp-stylelint-esm-2.0.0.tgz#92ba0b8cf212cc1d9a75cc49080dab1dd61eff70"
+  integrity sha512-T40ycYXK/VJVdQcwirtqD5bY0B/PVG8ag9PIx4pti/j306qu/Cwd4IKG+9blWzncfXBbKIFAAMiqww1BXMqUpg==
   dependencies:
+    "@adorade/plugin-error" "1.0.0"
+    "@jridgewell/trace-mapping" "0.3.22"
     ansi-colors "4.1.3"
     fancy-log "2.0.0"
-    plugin-error "2.0.1"
-    source-map "0.7.4"
 
 gulp-terser-js@5.2.2:
   version "5.2.2"
@@ -7508,13 +7523,6 @@ pinkie@^2.0.0:
   resolved "https://registry.yarnpkg.com/pinkie/-/pinkie-2.0.4.tgz#72556b80cfa0d48a974e80e77248e80ed4f7f870"
   integrity sha512-MnUuEycAemtSaeFSjXKW/aroV7akBbY+Sv+RkyqFjgAe73F+MR0TBWKBRDkmfWq/HiFmdavfZ1G7h4SPZXaCSg==
 
-plugin-error@2.0.1:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/plugin-error/-/plugin-error-2.0.1.tgz#f2ac92bac8c85e3e23492d76d0c3ca12f30eb00b"
-  integrity sha512-zMakqvIDyY40xHOvzXka0kUvf40nYIuwRE8dWhti2WtjQZ31xAgBZBhxsK7vK3QbRXS1Xms/LO7B5cuAsfB2Gg==
-  dependencies:
-    ansi-colors "^1.0.1"
-
 plugin-error@^0.1.2:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/plugin-error/-/plugin-error-0.1.2.tgz#3b9bb3335ccf00f425e07437e19276967da47ace"
@@ -8693,11 +8701,6 @@ source-map-url@^0.4.0:
   resolved "https://registry.yarnpkg.com/source-map-url/-/source-map-url-0.4.1.tgz#0af66605a745a5a2f91cf1bbf8a7afbc283dec56"
   integrity sha512-cPiFOTLUKvJFIg4SKVScy4ilPPW6rFgMgfuZJPNoDuMs3nC1HbMUycBoJw77xFIp6z1UJQJOfx6C9GMH80DiTw==
 
-source-map@0.7.4, source-map@^0.7.3:
-  version "0.7.4"
-  resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.7.4.tgz#a9bbe705c9d8846f4e08ff6765acf0f1b0898656"
-  integrity sha512-l3BikUxvPOcn5E74dZiq5BGsTb5yEwhaTSzccU6t4sDOH8NWJCstKO5QT2CvtFoK6F0saL7p9xHAqHOlCPJygA==
-
 source-map@^0.5.1, source-map@^0.5.6:
   version "0.5.7"
   resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.5.7.tgz#8a039d2d1021d22d1ea14c80d8ea468ba2ef3fcc"
@@ -8707,6 +8710,11 @@ source-map@^0.6.0, source-map@^0.6.1, source-map@~0.6.0, source-map@~0.6.1:
   version "0.6.1"
   resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.6.1.tgz#74722af32e9614e9c287a8d0bbde48b5e2f1a263"
   integrity sha512-UjgapumWlbMhkBgzT7Ykc5YXUT46F0iKu8SGXq0bcwP5dz/h0Plj6enJqjz1Zbq2l5WaqYnrVbwWOWMyF3F47g==
+
+source-map@^0.7.3:
+  version "0.7.4"
+  resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.7.4.tgz#a9bbe705c9d8846f4e08ff6765acf0f1b0898656"
+  integrity sha512-l3BikUxvPOcn5E74dZiq5BGsTb5yEwhaTSzccU6t4sDOH8NWJCstKO5QT2CvtFoK6F0saL7p9xHAqHOlCPJygA==
 
 source-map@^0.8.0-beta.0:
   version "0.8.0-beta.0"
