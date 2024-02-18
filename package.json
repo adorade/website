@@ -21,7 +21,7 @@
     "bootstrap": "5.3.2"
   },
   "devDependencies": {
-    "@adorade/stylelint-config": "1.1.2",
+    "@adorade/stylelint-config": "2.0.1",
     "@babel/cli": "7.23.9",
     "@babel/core": "7.23.9",
     "@babel/eslint-parser": "7.23.10",
@@ -54,11 +54,11 @@
     "postcss": "8.4.35",
     "rollup": "4.9.0",
     "sass": "1.71.0",
-    "stylelint": "15.11.0",
+    "stylelint": "16.2.1",
     "workbox-build": "7.0.0"
   },
   "engines": {
-    "node": "^14.13.1 || >=16.0.0"
+    "node": ">=18.12.0"
   },
   "private": true,
   "license": "MIT"
