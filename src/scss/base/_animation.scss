@@ -32,6 +32,16 @@
   }
 }
 
+@keyframes letterspace {
+  0%,
+  100% {
+    letter-spacing: -.025em;
+  }
+  50% {
+    letter-spacing: .025em;
+  }
+}
+
 .shake-x {
   animation-name: shake-x;
 }
