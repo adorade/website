@@ -30,6 +30,8 @@
   .display-1 {
     line-height: 1.5;
     font-weight: bolder;
+    letter-spacing: -.025em;
+    animation: letterspace ease-in-out 2s infinite;
 
     @include media-breakpoint-up(xl) {
       font-size: 10rem;
