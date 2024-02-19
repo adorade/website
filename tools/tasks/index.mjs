@@ -14,4 +14,3 @@ export { cleanFonts, fontsCss, fontsSvg } from './fonts.mjs';                   
 export { cleanImages, imagine, convert } from './images.mjs';                             // Images
 export { cleanPages, lintPages, pagile, pagify } from './pages.mjs';                      // Pages
 export { serve } from './serve.mjs';                                                      // Serve and Watch
-export { cleanSW, serviceWorker } from './workbox.mjs';                                   // Workbox build
