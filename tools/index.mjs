@@ -12,6 +12,5 @@ export {
   cleanStatics, favicons, statica,                          // Statics
   cleanFonts, fontsCss, fontsSvg,                           // Fonts
   cleanPages, lintPages, pagile, pagify,                    // Pages
-  serve,                                                    // Serve and Watch
-  cleanSW, serviceWorker                                    // Workbox build
+  serve                                                     // Serve and Watch
 } from './tasks/index.mjs';

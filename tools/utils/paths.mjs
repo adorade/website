@@ -5,9 +5,6 @@
  * ========================================================================== */
 
 import { babel } from '@rollup/plugin-babel';
-import { isProd } from './index.mjs';
-
-const filename = isProd ? 'script' : 'script-dev';
 
 export const dirs = {
   root: './',
@@ -29,7 +26,7 @@ export const paths = {
   scripts: {
     color: `${dirs.src}/mjs/color-modes.js`,
     src: `${dirs.src}/mjs/**/*.mjs`,
-    input: isProd ? `${dirs.src}/mjs/script.mjs` : `${dirs.src}/mjs/script-dev.mjs`,
+    input: `${dirs.src}/mjs/script.mjs`,
     dev: `${dirs.dev}/js/`,
     prod: `${dirs.prod}/js/`,
     filter: [ `${dirs.dev}/js/**/*.js`, '!**/*.min.js' ]
@@ -46,7 +43,7 @@ export const paths = {
     },
     outputOpts: {
       // `sourcemap` is optional
-      file: `${filename}.js`,
+      file: 'script.js',
       format: 'cjs'
     }
   },

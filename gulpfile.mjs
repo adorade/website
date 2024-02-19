@@ -9,8 +9,7 @@ import {
   help, checks, clean, cleanCss, lintScss, compile, minifyCss,
   cleanJs, lintMjs, colorJs, transpile, minifyJs,
   cleanStatics, favicons, statica, cleanFonts, fontsCss, fontsSvg,
-  cleanImages, imagine, convert, cleanPages, lintPages, pagile, pagify,
-  serve, cleanSW, serviceWorker
+  cleanImages, imagine, convert, cleanPages, lintPages, pagile, pagify, serve
 } from './tools/index.mjs';
 
 if (isClean) {
@@ -94,18 +93,10 @@ buildPages.description = 'Build only html files';
 export { serve };
 
 /**
- * Precache files with workbox
- * -------------------------------------------------------------------------- */
-const sw = serviceWorker;
-export const buildSW = series(cleanSW, serviceWorker);
-buildSW.displayName = 'build:sw';
-buildSW.description = 'Build only Service Worker';
-
-/**
  * Define `build` task - Specify if tasks run in series or parallel
  * -------------------------------------------------------------------------- */
 export const build = series(
-  clean, styles, scripts, images, statics, fonts, pages, sw
+  clean, styles, scripts, images, statics, fonts, pages
 );
 build.description = 'Build task for production';
 
