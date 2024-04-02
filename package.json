@@ -22,15 +22,15 @@
   },
   "devDependencies": {
     "@adorade/stylelint-config": "2.0.1",
-    "@babel/cli": "7.23.9",
-    "@babel/core": "7.23.9",
-    "@babel/eslint-parser": "7.23.10",
-    "@babel/preset-env": "7.23.9",
+    "@babel/cli": "7.24.1",
+    "@babel/core": "7.24.3",
+    "@babel/eslint-parser": "7.24.1",
+    "@babel/preset-env": "7.24.3",
     "@rollup/plugin-babel": "6.0.4",
     "ansi-colors": "4.1.3",
     "browser-sync": "3.0.2",
     "del": "7.1.0",
-    "eslint": "8.56.0",
+    "eslint": "8.57.0",
     "fancy-log": "2.0.0",
     "gulp": "5.0.0",
     "gulp-autoprefixer": "9.0.0",
@@ -51,10 +51,10 @@
     "gulp-stylelint-esm": "2.0.0",
     "gulp-terser-js": "5.2.2",
     "gulp-webp": "5.0.0",
-    "postcss": "8.4.35",
-    "rollup": "4.12.0",
-    "sass": "1.71.0",
-    "stylelint": "16.2.1"
+    "postcss": "8.4.38",
+    "rollup": "4.13.2",
+    "sass": "1.72.0",
+    "stylelint": "16.3.1"
   },
   "engines": {
     "node": ">=18.12.0"
