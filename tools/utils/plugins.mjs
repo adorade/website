@@ -5,8 +5,7 @@
  * ========================================================================== */
 
 // Importing specific gulp API functions lets us write them as series() instead of gulp.series()
-import gulp from 'gulp';
-export const { src, dest, series, parallel, lastRun, watch, tree } = gulp;
+export { src, dest, series, parallel, lastRun, watch, tree } from 'gulp';
 
 // Fetch command line arguments for development or production environment
 // see: ./settings.js
