@@ -5,64 +5,49 @@
  * ========================================================================== */
 
 module.exports = {
-  parser: "@babel/eslint-parser",
+  parser: '@babel/eslint-parser',
   env: {
     browser: true,
     es6: true,
     jquery: true,
     node: true
   },
-  extends: "eslint:recommended",
+  extends: 'eslint:recommended',
+  plugins: [
+    '@stylistic/js'
+  ],
   globals: {
-    Atomics: "readonly",
-    SharedArrayBuffer: "readonly"
+    Atomics: 'readonly',
+    SharedArrayBuffer: 'readonly'
   },
   parserOptions: {
     ecmaVersion: 2018,
-    sourceType: "module"
+    sourceType: 'module'
   },
   rules: {
-    "block-spacing": "error",
-    "comma-dangle": "error",
-    "comma-style": ["error", "last"],
-    indent: ["error", 2, {
+    '@stylistic/js/block-spacing': 'error',
+    '@stylistic/js/comma-dangle': 'error',
+    '@stylistic/js/comma-style': ['error', 'last'],
+    '@stylistic/js/indent': ['error', 2, {
       VariableDeclarator: { var: 2, let: 2, const: 3 },
       SwitchCase: 1
     }],
-    "no-floating-decimal": "error",
-    "no-multiple-empty-lines": ["error", { max: 2, maxEOF: 1, maxBOF: 1 }],
-    "no-trailing-spaces": "error",
-    quotes: ["error", "single", { avoidEscape: true }],
-    semi: ["error", "never"],
-    "space-before-function-paren": "error"
+    '@stylistic/js/no-floating-decimal': 'error',
+    '@stylistic/js/no-multiple-empty-lines': ['error', { max: 2, maxEOF: 1, maxBOF: 1 }],
+    '@stylistic/js/no-trailing-spaces': 'error',
+    '@stylistic/js/quotes': ['error', 'single', { avoidEscape: true }],
+    '@stylistic/js/semi': ['error', 'never'],
+    '@stylistic/js/space-before-function-paren': 'error'
   },
   overrides: [
     {
       files: [
-        "gulpfile.mjs",
-        "**/vendor/js/**/*.js",
-        "tools/**/*.mjs",
-        ".eslintrc.js",
-        "functions/**/*.js"
+        'gulpfile.mjs',
+        'tools/**/*.mjs',
+        '.eslintrc.js'
       ],
       rules: {
-        semi: ["error", "always"]
-      }
-    },
-    {
-      files: [
-        "functions/**/*.js"
-      ],
-      rules: {
-        "no-unused-vars": "off"
-      }
-    },
-    {
-      files: [
-        ".eslintrc.js"
-      ],
-      rules: {
-        quotes: ["error", "double"]
+        '@stylistic/js/semi': ['error', 'always']
       }
     }
   ]

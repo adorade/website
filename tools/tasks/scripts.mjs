@@ -8,7 +8,7 @@ import {
   src, dest, lastRun, isProd, fs, del, size, bs, fancyLog, green, magenta,
   header, rename, paths, opts, banner
 } from '../utils/index.mjs';
-import gEslint from 'gulp-eslint';
+import gEslint from 'gulp-eslint-new';
 import gTerser from 'gulp-terser-js';
 
 import gulpRollup from '../rollup/index.mjs';
