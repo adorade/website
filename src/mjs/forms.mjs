@@ -11,8 +11,8 @@ window.addEventListener('load', () => {
   const forms = document.querySelectorAll('.needs-validation')
 
   // --- Attach a submit handler to each form
-  forms.forEach((form) => {
-    form.addEventListener('submit', (event) => {
+  forms.forEach(form => {
+    form.addEventListener('submit', event => {
       // --- Check form validity
       if (!form.checkValidity()) {
         // --- Stop form from submitting normally, handle the invalid form...
@@ -49,7 +49,7 @@ window.addEventListener('load', () => {
           headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
           body: data.toString()
         })
-          .then((response) => {
+          .then(response => {
             if (response.ok) {
               return response.text()
             } else {

@@ -87,10 +87,10 @@ window.addEventListener('load', () => {
           reject_all_btn: 'Reject all',
           close_btn_label: 'Close',
           cookie_table_headers: [
-            {col1: 'Name'},
-            {col2: 'Domain'},
-            {col3: 'Expiration'},
-            {col4: 'Description'}
+            { col1: 'Name' },
+            { col2: 'Domain' },
+            { col3: 'Expiration' },
+            { col4: 'Description' }
           ],
           blocks: [
             {
