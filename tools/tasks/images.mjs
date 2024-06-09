@@ -20,7 +20,8 @@ cleanImages.description = 'Clean up images folder';
 export function imagine () {
   fancyLog(`${green('-> Optimizing images...')}`);
   return src(paths.images.src, {
-    since: lastRun(imagine)
+    since: lastRun(imagine),
+    encoding: false
   })
     .pipe(imagemin([
       gifsicle(opts.images.gif),
@@ -38,7 +39,8 @@ imagine.description = 'Optimize images for production';
 export function convert () {
   fancyLog(`${green('-> Generating .webp formats...')}`);
   return src(paths.images.webp, {
-    since: lastRun(convert)
+    since: lastRun(convert),
+    encoding: false
   })
     .pipe(webp(opts.images.webp))
     .pipe(size(opts.size))

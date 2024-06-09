@@ -22,7 +22,8 @@ cleanStatics.description = 'Clean up statics folders';
 export function favicons () {
   fancyLog(`${green('-> Copying favicons files...')}`);
   return src(paths.statics.src.icons, {
-    since: lastRun(favicons)
+    since: lastRun(favicons),
+    encoding: false
   })
     .pipe(size(opts.size))
     .pipe(dest(taskFavTarget))

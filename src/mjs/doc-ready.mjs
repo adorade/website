@@ -89,7 +89,6 @@ window.onscroll = () => {
       }
 
       rAf()
-
     } else {
       el.style.opacity = 1
     }
@@ -116,7 +115,6 @@ window.onscroll = () => {
       }
 
       rAf()
-
     } else {
       el.style.opacity = 0
       el.style.display = displayStyle
@@ -124,14 +122,14 @@ window.onscroll = () => {
   }
 
   if (scrollPos > heroH || scrollPos > mastheadH) {
-    togglers.forEach((toggler) => {
+    togglers.forEach(toggler => {
       toggler.classList.add('btn-orange')
     })
     if (totop.style.display !== 'block') {
       fadeIn(totop)
     }
   } else {
-    togglers.forEach((toggler) => {
+    togglers.forEach(toggler => {
       toggler.classList.remove('btn-orange')
     })
     if (totop.style.display !== 'none') {
@@ -141,7 +139,7 @@ window.onscroll = () => {
 
   let scrollPercent = 0
   scrollPercent = 100 - Math.round(
-    ((documentH - windowH - windowPos) * 100) /
-    (documentH - windowH))
+    ((documentH - windowH - windowPos) * 100) / (documentH - windowH)
+  )
   percent.style.height = scrollPercent + '%'
 }
