@@ -1116,15 +1116,7 @@
   resolved "https://registry.yarnpkg.com/@jridgewell/sourcemap-codec/-/sourcemap-codec-1.4.15.tgz#d7c6e6755c78567a951e04ab52ef0fd26de59f32"
   integrity sha512-eF2rxCRulEKXHTRiDrDy6erMYWqNw4LPdQ8UQA4huuxaQsVeRPFl2oM8oDGxMFhJUWZf9McpLtJasDDZb/Bpeg==
 
-"@jridgewell/trace-mapping@0.3.22":
-  version "0.3.22"
-  resolved "https://registry.yarnpkg.com/@jridgewell/trace-mapping/-/trace-mapping-0.3.22.tgz#72a621e5de59f5f1ef792d0793a82ee20f645e4c"
-  integrity sha512-Wf963MzWtA2sjrNt+g18IAln9lKnlRp+K2eH4jjIoF1wYeq3aMREpG09xhlhdzS0EjwU7qmUJYangWa+151vZw==
-  dependencies:
-    "@jridgewell/resolve-uri" "^3.1.0"
-    "@jridgewell/sourcemap-codec" "^1.4.14"
-
-"@jridgewell/trace-mapping@^0.3.24", "@jridgewell/trace-mapping@^0.3.25":
+"@jridgewell/trace-mapping@0.3.25", "@jridgewell/trace-mapping@^0.3.24", "@jridgewell/trace-mapping@^0.3.25":
   version "0.3.25"
   resolved "https://registry.yarnpkg.com/@jridgewell/trace-mapping/-/trace-mapping-0.3.25.tgz#15f190e98895f3fc23276ee14bc76b675c2e50f0"
   integrity sha512-vNk6aEwybGtawWmy/PzwnGDOjCkLWSD2wqvjGGAgOAwCGWySYXfYoxt00IJkTF+8Lb57DwOb3Aa0o9CApepiYQ==
@@ -4154,13 +4146,13 @@ gulp-size@5.0.0:
     gzip-size "^7.0.0"
     pretty-bytes "^6.1.1"
 
-gulp-stylelint-esm@2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/gulp-stylelint-esm/-/gulp-stylelint-esm-2.0.0.tgz#92ba0b8cf212cc1d9a75cc49080dab1dd61eff70"
-  integrity sha512-T40ycYXK/VJVdQcwirtqD5bY0B/PVG8ag9PIx4pti/j306qu/Cwd4IKG+9blWzncfXBbKIFAAMiqww1BXMqUpg==
+gulp-stylelint-esm@2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/gulp-stylelint-esm/-/gulp-stylelint-esm-2.1.0.tgz#f11b356eb0221aa3828ad4c753c3cb2190fd8300"
+  integrity sha512-pFSx88uGB6eT8kprwvpbMIebM5s3Yyy1GuMgJSRYocc4fv0IN9TKiDkYc52DKxtM/6/53PCWlcRVJlQgMswSmA==
   dependencies:
     "@adorade/plugin-error" "1.0.0"
-    "@jridgewell/trace-mapping" "0.3.22"
+    "@jridgewell/trace-mapping" "0.3.25"
     ansi-colors "4.1.3"
     fancy-log "2.0.0"
 
