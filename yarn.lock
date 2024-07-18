@@ -4203,10 +4203,10 @@ gulp-debug@5.0.1:
     stringify-object "^5.0.0"
     tildify "^3.0.0"
 
-gulp-eslint-new@2.1.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/gulp-eslint-new/-/gulp-eslint-new-2.1.0.tgz#c0ddc605b3483d14cd75d27b49658f3d1f9675a1"
-  integrity sha512-HDA9nC4JYKcBn/2Nyyy4IxZoO9kUHCcPWYQP1908JsDPuiT3tk5qPmP+b16YLBqibeRfRX042Sh0JdHhhi5KvA==
+gulp-eslint-new@2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/gulp-eslint-new/-/gulp-eslint-new-2.2.0.tgz#a8013b15d1d89e7f1028670e34cb25bf09b1aa3e"
+  integrity sha512-B9sBfILAW563MQM81vxWOMeeNbkZTgZEYiwEVmv3fndB5zmGINlA4wbc4qjgPd4kTCtq0sTlFZJV0fpxl8b5kg==
   dependencies:
     "@types/eslint" "^8.56.10"
     "@types/node" ">=12"
