@@ -25,7 +25,7 @@ export const paths = {
   },
   scripts: {
     color: `${dirs.src}/mjs/color-modes.js`,
-    src: `${dirs.src}/mjs/**/*.mjs`,
+    src: `${dirs.src}/mjs/**/*.+(m|js)`,
     input: `${dirs.src}/mjs/script.mjs`,
     dev: `${dirs.dev}/js/`,
     prod: `${dirs.prod}/js/`,

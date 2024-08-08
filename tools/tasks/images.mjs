@@ -5,7 +5,7 @@
  * ========================================================================== */
 
 import { src, dest, lastRun, isProd, del, size, bs, fancyLog, green, magenta, paths, opts } from '../utils/index.mjs';
-import imagemin, {gifsicle, mozjpeg, optipng, svgo} from 'gulp-imagemin';
+import imagemin, { gifsicle, mozjpeg, optipng, svgo } from 'gulp-imagemin';
 import webp from 'gulp-webp';
 
 const taskTarget = isProd ? paths.images.prod : paths.images.dev;
