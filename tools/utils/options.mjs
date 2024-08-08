@@ -11,7 +11,7 @@ export const opts = {
     inline: isProd ? true : false
   },
   styles: {
-    failAfterError: true,
+    // failAfterError: true, // default: true
     reportOutputDir: paths.logs.gulp,
     reporters: [
       { formatter: 'string', console: true, save: 'styles.txt' }

@@ -16,7 +16,9 @@ export default [
       parser: babelParser,
       ecmaVersion: 'latest',
       sourceType: 'module',
-      globals: globals.browser
+      globals: {
+        ...globals.browser
+      }
     }
   },
   {
@@ -41,7 +43,7 @@ export default [
       '@stylistic/js/no-floating-decimal': 'error',
       '@stylistic/js/no-multiple-empty-lines': ['error', { max: 2, maxEOF: 1, maxBOF: 1 }],
       '@stylistic/js/no-trailing-spaces': 'error',
-      '@stylistic/js/object-curly-spacing': ['error', 'always'],
+      '@stylistic/js/object-curly-spacing': ['error', 'always', { arraysInObjects: false }],
       '@stylistic/js/operator-linebreak': ['error', 'after', {
         overrides: { '?': 'before', ':': 'before' }
       }],
@@ -52,6 +54,11 @@ export default [
   },
   {
     name: 'tools',
+    languageOptions: {
+      globals: {
+        ...globals.node
+      }
+    },
     files: [
       'gulpfile.mjs',
       'tools/**/*.mjs',
