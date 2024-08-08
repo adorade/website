@@ -12,17 +12,17 @@ window.onload = window.onresize = () => {
 
 // On Document Ready
 // -----------------------------------------------------------------------------
-function ready (fn) {
-  if (document.readyState != 'loading') {
-    fn()
-  } else {
+function domReady (fn) {
+  if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', fn)
+  } else {
+    fn()
   }
 }
 
 // Scroll to Next section
 // -----------------------------------------------------------------------------
-ready(() => {
+domReady(() => {
   const scrollDown = document.querySelector('.scroll-down')
 
   if (scrollDown)
@@ -39,7 +39,7 @@ ready(() => {
 
 // Back to Top
 // -----------------------------------------------------------------------------
-ready(() => {
+domReady(() => {
   document.querySelector('.back-to-top-icon').onclick = () => {
     window.scrollTo({
       top: 0,

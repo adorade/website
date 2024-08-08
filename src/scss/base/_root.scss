@@ -4,6 +4,8 @@
 
 :root,
 [data-bs-theme="light"] {
+  color-scheme: light;
+
   --ad-body-bg: #{$gray-100};
   --ad-bg-normal: #{$gray-200};
   --ad-bg-medium: #{$gray-300};
