@@ -1,6 +1,6 @@
 /*!
- * Adorade (v2.1.0): .babelrc.js
- * Copyright (c) 2019-23 Adorade (https://adorade.ro)
+ * Adorade (v2.2.0): .babelrc.js
+ * Copyright (c) 2019-24 Adorade (https://adorade.ro)
  * Licensed under MIT
  * ========================================================================== */
 
