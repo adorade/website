@@ -11,6 +11,10 @@ import stylisticJs from '@stylistic/eslint-plugin-js';
 
 export default [
   {
+    name: 'recommended',
+    ...js.configs.recommended
+  },
+  {
     name: 'default',
     languageOptions: {
       parser: babelParser,
@@ -20,10 +24,6 @@ export default [
         ...globals.browser
       }
     }
-  },
-  {
-    name: 'recommended',
-    ...js.configs.recommended
   },
   {
     name: 'stylistic',

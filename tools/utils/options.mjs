@@ -4,7 +4,7 @@
  * Licensed under MIT
  * ========================================================================== */
 
-import { isProd, isSilent, dirs, paths } from './index.mjs';
+import { isProd, isSilent, dirs } from './index.mjs';
 
 export const opts = {
   entry: {
@@ -12,9 +12,8 @@ export const opts = {
   },
   styles: {
     // failAfterError: true, // default: true
-    reportOutputDir: paths.logs.gulp,
     reporters: [
-      { formatter: 'string', console: true, save: 'styles.txt' }
+      { formatter: 'stylish', console: true, save: 'styles.txt' }
     ]
   },
   sass: {
