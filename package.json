@@ -1,6 +1,6 @@
 {
   "name": "website",
-  "version": "2.1.0-dev",
+  "version": "2.2.0",
   "description": "Your Web Design",
   "author": {
     "name": "Adorade",
@@ -21,7 +21,7 @@
     "bootstrap": "5.3.3"
   },
   "devDependencies": {
-    "@adorade/stylelint-config": "2.0.1",
+    "@adorade/stylelint-config": "3.0.0",
     "@babel/cli": "7.25.7",
     "@babel/core": "7.25.7",
     "@babel/eslint-parser": "7.25.7",

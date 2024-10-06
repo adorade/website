@@ -1,10 +1,10 @@
 /*!
- * Adorade (v2.1.0): tools/utils/options.mjs
- * Copyright (c) 2018-23 Adorade (https://adorade.ro)
+ * Adorade (v2.2.0): tools/utils/options.mjs
+ * Copyright (c) 2018-24 Adorade (https://adorade.ro)
  * Licensed under MIT
  * ========================================================================== */
 
-import { isProd, isSilent, dirs, paths } from './index.mjs';
+import { isProd, isSilent, dirs } from './index.mjs';
 
 export const opts = {
   entry: {
@@ -12,9 +12,8 @@ export const opts = {
   },
   styles: {
     // failAfterError: true, // default: true
-    reportOutputDir: paths.logs.gulp,
     reporters: [
-      { formatter: 'string', console: true, save: 'styles.txt' }
+      { formatter: 'stylish', console: true, save: 'styles.txt' }
     ]
   },
   sass: {

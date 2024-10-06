@@ -1,6 +1,6 @@
 /*!
- * Adorade (v2.1.0): eslint.config.js
- * Copyright (c) 2019-23 Adorade (https://adorade.ro)
+ * Adorade (v2.2.0): eslint.config.js
+ * Copyright (c) 2019-24 Adorade (https://adorade.ro)
  * Licensed under MIT
  * ========================================================================== */
 
@@ -11,6 +11,10 @@ import stylisticJs from '@stylistic/eslint-plugin-js';
 
 export default [
   {
+    name: 'recommended',
+    ...js.configs.recommended
+  },
+  {
     name: 'default',
     languageOptions: {
       parser: babelParser,
@@ -20,10 +24,6 @@ export default [
         ...globals.browser
       }
     }
-  },
-  {
-    name: 'recommended',
-    ...js.configs.recommended
   },
   {
     name: 'stylistic',
