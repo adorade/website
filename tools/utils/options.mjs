@@ -18,7 +18,14 @@ export const opts = {
   },
   sass: {
     outputStyle: 'expanded',
-    precision: 6
+    precision: 6,
+    silenceDeprecations: [
+      'legacy-js-api',
+      'import',
+      'global-builtin',
+      'color-functions',
+      'mixed-decls'
+    ]
   },
   autoprefixer: {
     // for browsers options see .browserslistrc
