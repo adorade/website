@@ -26,10 +26,10 @@
     "@jridgewell/gen-mapping" "^0.3.5"
     "@jridgewell/trace-mapping" "^0.3.24"
 
-"@babel/cli@7.25.7":
-  version "7.25.7"
-  resolved "https://registry.yarnpkg.com/@babel/cli/-/cli-7.25.7.tgz#f76693c7cfb93c99844d3ed87ed4f291383ef1bf"
-  integrity sha512-vQw4QjrqjLSuL0Tt3gfVXbxEHOfsCcHN8tKyTclpSMYLq3Bp0BTzWYZfMKBs3PQ+to8q3BnumBIAsMdOqDJ6nw==
+"@babel/cli@7.25.9":
+  version "7.25.9"
+  resolved "https://registry.yarnpkg.com/@babel/cli/-/cli-7.25.9.tgz#51036166fd0e9cfb26eee1b9ddc264a0d6d5f843"
+  integrity sha512-I+02IfrTiSanpxJBlZQYb18qCxB6c2Ih371cVpfgIrPQrjAYkf45XxomTJOG8JBWX5GY35/+TmhCMdJ4ZPkL8Q==
   dependencies:
     "@jridgewell/trace-mapping" "^0.3.25"
     commander "^6.2.0"
@@ -89,10 +89,10 @@
     json5 "^2.2.3"
     semver "^6.3.1"
 
-"@babel/eslint-parser@7.25.8":
-  version "7.25.8"
-  resolved "https://registry.yarnpkg.com/@babel/eslint-parser/-/eslint-parser-7.25.8.tgz#0119dec46be547d7a339978dedb9d29e517c2443"
-  integrity sha512-Po3VLMN7fJtv0nsOjBDSbO1J71UhzShE9MuOSkWEV9IZQXzhZklYtzKZ8ZD/Ij3a0JBv1AG3Ny2L3jvAHQVOGg==
+"@babel/eslint-parser@7.25.9":
+  version "7.25.9"
+  resolved "https://registry.yarnpkg.com/@babel/eslint-parser/-/eslint-parser-7.25.9.tgz#603c68a63078796527bc9d0833f5e52dd5f9224c"
+  integrity sha512-5UXfgpK0j0Xr/xIdgdLEhOFxaDZ0bRPWJJchRpqOSur/3rZoPbqqki5mm0p4NE2cs28krBEiSM2MB7//afRSQQ==
   dependencies:
     "@nicolo-ribaudo/eslint-scope-5-internals" "5.1.1-v1"
     eslint-visitor-keys "^2.1.0"
