@@ -16,4 +16,4 @@ import './forms'
 
 // cookie-consent init
 // -----------------------------------------------------------------------------
-import './cookieconsent-init'
+// import './cookieconsent-init'

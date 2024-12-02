@@ -107,33 +107,33 @@
 
 // Cookie Consent
 // --------------------------
-.cookie-settings {
-  .btn-settings {
-    display: flex;
-    padding: .5rem;
-    border: 0;
-    border-radius: var(--bs-border-radius);
-    background-image: none;
-    color: $white;
-    font-size: 1.25rem;
+// .cookie-settings {
+//   .btn-settings {
+//     display: flex;
+//     padding: .5rem;
+//     border: 0;
+//     border-radius: var(--bs-border-radius);
+//     background-image: none;
+//     color: $white;
+//     font-size: 1.25rem;
 
-    &:hover,
-    &:active {
-      color: $white;
-    }
-  }
-}
+//     &:hover,
+//     &:active {
+//       color: $white;
+//     }
+//   }
+// }
 
 // stylelint-disable
-#cm, #s-bl .act .b-acc, #s-inr,
-.cc_div .b-tl, .cc_div .c-bl {
-  border-radius: var(--bs-border-radius);
-}
+// #cm, #s-bl .act .b-acc, #s-inr,
+// .cc_div .b-tl, .cc_div .c-bl {
+//   border-radius: var(--bs-border-radius);
+// }
 
-#cm.left {
-  bottom: .5rem;
-  left: 1rem;
-}
+// #cm.left {
+//   bottom: .5rem;
+//   left: 1rem;
+// }
 // stylelint-enable
 
 // Toogler for color modes
