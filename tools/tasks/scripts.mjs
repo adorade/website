@@ -56,10 +56,10 @@ export function transpile () {
   return src(paths.scripts.input, {
     sourcemaps: true
   })
-    .pipe(gulpRollup(paths.rollup.inputOpts, paths.rollup.outputOpts))
+    .pipe(gulpRollup(opts.rollup.inputOpts, opts.rollup.outputOpts))
     .pipe(header(banner()))
     .pipe(size(opts.size))
-    .pipe(dest(paths.scripts.dev, { sourcemaps: './' }))
+    .pipe(dest(paths.scripts.dev, { sourcemaps: './maps' }))
     .pipe(bs.stream({ match: '**/*.js' }));
 }
 transpile.displayName = 'transpile:mjs';

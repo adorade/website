@@ -4,8 +4,6 @@
  * Licensed under MIT
  * ========================================================================== */
 
-import { babel } from '@rollup/plugin-babel';
-
 export const dirs = {
   root: './',
   src: 'src',
@@ -30,22 +28,6 @@ export const paths = {
     dev: `${dirs.dev}/js/`,
     prod: `${dirs.prod}/js/`,
     filter: [ `${dirs.dev}/js/**/*.js`, '!**/*.min.js' ]
-  },
-  rollup: {
-    inputOpts: {
-      // `input` is optional
-      plugins: [
-        babel({
-          // for more options see: .babelrc.js,
-          babelHelpers: 'bundled'
-        })
-      ]
-    },
-    outputOpts: {
-      // `sourcemap` is optional
-      file: 'script.js',
-      format: 'cjs'
-    }
   },
   fonts: {
     css: {

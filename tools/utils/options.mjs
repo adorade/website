@@ -4,6 +4,8 @@
  * Licensed under MIT
  * ========================================================================== */
 
+import { babel } from '@rollup/plugin-babel';
+
 import { isProd, isSilent, dirs } from './index.mjs';
 
 export const opts = {
@@ -17,10 +19,9 @@ export const opts = {
     ]
   },
   sass: {
-    outputStyle: 'expanded',
+    style: 'expanded',
     precision: 6,
     silenceDeprecations: [
-      'legacy-js-api',
       'import',
       'global-builtin',
       'color-functions',
@@ -36,6 +37,22 @@ export const opts = {
   },
   eslint: {
     // for more options see .eslintrc.js
+  },
+  rollup: {
+    inputOpts: {
+      // `input` is optional
+      plugins: [
+        babel({
+          // for more options see: .babelrc.js,
+          babelHelpers: 'bundled'
+        })
+      ]
+    },
+    outputOpts: {
+      file: 'script.js',
+      format: 'cjs'
+      // for `sourcemap` use gulp sourcemap
+    }
   },
   terser: {
     compress: {
