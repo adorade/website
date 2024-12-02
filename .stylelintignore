@@ -1,4 +1,4 @@
-# https://stylelint.io/user-guide/configuration/#stylelintignore
+# https://stylelint.io/user-guide/ignore-code#files-entirely
 **/*.min.css
 **/*.css
 **/dist

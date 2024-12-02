@@ -5,16 +5,15 @@
  * ========================================================================== */
 
 import { rollup } from 'rollup';
-import { Transform } from 'stream';
-import { relative, join, basename, extname } from 'path';
+import { Transform } from 'node:stream';
+import { relative, join, basename, extname } from 'node:path';
 import PluginError from 'plugin-error';
 import File from 'vinyl';
-import applySourceMap from 'vinyl-sourcemaps-apply';
 
 const PLUGIN_NAME = 'gulp-rollup-bundler';
 
 // Map object storing rollup cache objects for each input file
-let rollupCache = {};
+let rollupCache = new Map();
 let inputOptions;
 let bundleList;
 
@@ -25,10 +24,13 @@ function parseBundles (arg) {
 }
 
 function assignCertainProperties (toObject, fromObject, properties = []) {
-  for (let key of properties) {
-    if (toObject[key] === undefined && fromObject[key] !== undefined)
-      toObject[key] = fromObject[key];
-  }
+  return Object.assign(toObject,
+    Object.fromEntries(
+      properties
+        .filter(key => toObject[key] === undefined && fromObject[key] !== undefined)
+        .map(key => [key, fromObject[key]])
+    )
+  );
 }
 
 // Transformer class
@@ -78,14 +80,9 @@ class GulpRollup extends Transform {
     // Caching is enabled by default because of the nature of gulp and the watching/recompilation
     // but can be disabled by setting 'cache' to false
     if (inputOptions.cache !== false) {
-      inputOptions.cache = rollupCache[inputOptions.input] || null;
+      inputOptions.cache = rollupCache.get(inputOptions.input) || null;
     }
 
-    // Enable sourcemap if gulp sourcemaps is enabled
-    const createSourceMap = file.sourceMap !== undefined;
-
-    const originalCwd = file.cwd;
-    const originalPath = file.path;
     const moduleName = basename(file.path, extname(file.path));
 
     function generateAndApplyBundle (bundle, outputOptions, targetFile) {
@@ -97,15 +94,17 @@ class GulpRollup extends Transform {
         'dir', 'file', 'format', 'globals', /*'name', 'plugins',*/
 
         // advanced output options
-        'assetFileNames', 'banner', 'chunkFileNames', 'compact', 'entryFileNames', 'extend',
-        'externalLiveBindings', 'footer', 'hoistTransitiveImports', 'inlineDynamicImports',
+        'assetFileNames', 'banner', 'chunkFileNames', 'compact', 'dynamicImportInCjs',
+        'entryFileNames',  'extend', 'externalImportAttributes', 'footer', 'generatedCode',
+        'hashCharacters', 'hoistTransitiveImports', 'importAttributesKey', 'inlineDynamicImports',
         'interop', 'intro', 'manualChunks', 'minifyInternalExports', 'outro', 'paths',
-        'preserveModules', 'preserveModulesRoot', 'sourcemap', 'sourcemapExcludeSources',
-        'sourcemapFile', 'sourcemapPathTransform', 'validate',
+        'preserveModules', 'preserveModulesRoot', 'sourcemap', 'sourcemapBaseUrl', 'sourcemapDebugIds',
+        'sourcemapExcludeSources', 'sourcemapFile', 'sourcemapFileNames', 'sourcemapIgnoreList',
+        'sourcemapPathTransform', 'validate',
 
         // danger zone
-        /*'amd',*/ 'esModule', 'exports', 'freeze', 'indent', 'namespaceToStringTag',
-        'noConflict', 'preferConst', 'sanitizeFileName', 'strict', 'systemNullSetters'
+        /*'amd',*/ 'esModule', 'exports', 'externalLiveBindings', 'freeze', 'indent',
+        'noConflict', 'reexportProtoFromExternal', 'sanitizeFileName', 'strict', 'systemNullSetters'
       ];
 
       assignCertainProperties(outputOptions, inputOptions, propsToCopy);
@@ -121,27 +120,14 @@ class GulpRollup extends Transform {
         outputOptions.amd = Object.assign({}, outputOptions.amd, { id: outputOptions.name });
       }
 
-      // Enable sourcemap
-      outputOptions.sourcemap = createSourceMap;
-
       // Generate bundle according to given or autocompleted options
       return bundle.generate(outputOptions).then(result => {
         if (result === undefined) return;
 
         const output = result.output[0];
 
-        // Pass sourcemap content and metadata to gulp sourcemaps to handle
-        // destination (and custom name) was given, possibly multiple output bundles.
-        if (createSourceMap) {
-          output.map.file = relative(originalCwd, originalPath);
-          output.map.sources = output.map.sources.map(source => relative(originalCwd, source));
-        }
-
         // Return bundled file as buffer
         targetFile.contents = Buffer.from(output.code);
-
-        // Apply sourcemap to output file
-        if (createSourceMap) applySourceMap(targetFile, output.map);
       });
     }
 
@@ -192,7 +178,7 @@ class GulpRollup extends Transform {
       .then(bundle => {
         // Cache rollup object if caching is enabled
         if (inputOptions.cache !== false)
-          rollupCache[inputOptions.input] = bundle;
+          rollupCache.set(inputOptions.input, bundle);
 
         // Generate ouput according to (each of) given outputOptions
         return Promise.all(bundleList.map(
@@ -206,7 +192,7 @@ class GulpRollup extends Transform {
       // Catch the `error`
       .catch(err => {
         if (inputOptions.cache !== false)
-          rollupCache[inputOptions.input] = null;
+          rollupCache.set(inputOptions.input, null);
 
         process.nextTick(() => {
           this.emit('error', new PluginError({

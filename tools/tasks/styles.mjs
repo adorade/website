@@ -9,9 +9,9 @@ import {
   header, rename, paths, opts, banner
 } from '../utils/index.mjs';
 import gStylelintEsm from 'gulp-stylelint-esm';
-import * as dartSass from 'sass';
+import * as embeddedSass from 'sass-embedded';
 import gulpSass from 'gulp-sass';
-const gSass = gulpSass(dartSass);
+const gSass = gulpSass(embeddedSass);
 import autoprefixer from 'gulp-autoprefixer';
 import csso from 'gulp-csso';
 
