@@ -92,7 +92,10 @@ export const opts = {
     collapseInlineTagWhitespace: true,
     collapseWhitespace: true,
     minifyCSS: true,
-    minifyJS: true,
+    // minifyJS: false,
+    minifyJS: {
+      compress: false
+    },
     removeAttributeQuotes: true,
     removeComments: true,
     removeRedundantAttributes: true,
