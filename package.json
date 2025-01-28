@@ -56,7 +56,7 @@
     "gulp-webp": "5.0.0",
     "postcss": "8.5.1",
     "rollup": "4.28.0",
-    "sass-embedded": "1.81.0",
+    "sass-embedded": "1.83.4",
     "stylelint": "16.14.1"
   },
   "engines": {
