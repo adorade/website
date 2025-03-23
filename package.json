@@ -54,7 +54,7 @@
     "gulp-stylelint-esm": "3.0.0",
     "gulp-terser-js": "5.2.2",
     "gulp-webp": "5.0.0",
-    "postcss": "8.5.1",
+    "postcss": "8.5.3",
     "rollup": "4.37.0",
     "sass-embedded": "1.83.4",
     "stylelint": "16.14.1"
