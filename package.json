@@ -57,7 +57,7 @@
     "postcss": "8.5.3",
     "rollup": "4.37.0",
     "sass-embedded": "1.83.4",
-    "stylelint": "16.14.1"
+    "stylelint": "16.16.0"
   },
   "engines": {
     "node": "^18.18.0 || ^20.9.0 || >=21.1.0"
