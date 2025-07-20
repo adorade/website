@@ -14,6 +14,8 @@ import gulpSass from 'gulp-sass';
 const gSass = gulpSass(embeddedSass);
 import autoprefixer from 'gulp-autoprefixer';
 import csso from 'gulp-csso';
+import { Transform } from 'stream';
+import { PurgeCSS } from 'purgecss';
 
 const taskTarget = isProd ? paths.styles.prod : paths.styles.dev;
 
@@ -34,14 +36,65 @@ export function lintScss () {
 lintScss.displayName = 'lint:scss';
 lintScss.description = 'Lint SCSS files';
 
+// Custom PurgeCSS transform stream
+function purgeCSS() {
+  return new Transform({
+    objectMode: true,
+    async transform(file, encoding, callback) {
+      if (file.isNull()) {
+        return callback(null, file);
+      }
+
+      if (file.isStream()) {
+        return callback(new Error('Streaming not supported'));
+      }
+
+      try {
+        const purgeCSS = new PurgeCSS();
+        const result = await purgeCSS.purge({
+          content: opts.purgecss.content,
+          css: [{ raw: file.contents.toString(), extension: 'css' }],
+          safelist: opts.purgecss.safelist,
+          fontFace: opts.purgecss.fontFace,
+          keyframes: opts.purgecss.keyframes,
+          variables: opts.purgecss.variables
+        });
+
+        if (result.length > 0) {
+          file.contents = Buffer.from(result[0].css);
+          
+          const originalSize = file.contents.length;
+          const newSize = result[0].css.length;
+          const reduction = ((originalSize - newSize) / originalSize * 100).toFixed(1);
+          
+          if (!isProd) {
+            fancyLog(`${green('-> PurgeCSS:')} Removed ${reduction}% unused CSS`);
+          }
+        }
+
+        callback(null, file);
+      } catch (error) {
+        callback(error);
+      }
+    }
+  });
+}
+
 export function compile () {
   fancyLog(`${green('-> Compiling SCSS...')}`);
-  return src(paths.styles.src, {
+  const stream = src(paths.styles.src, {
     sourcemaps: true
   })
     .pipe(gSass(opts.sass).on('error', gSass.logError))
     .pipe(autoprefixer(opts.autoprefixer))
-    .pipe(header(banner()))
+    .pipe(header(banner()));
+
+  // Add PurgeCSS only in production (disabled for now)
+  // if (isProd) {
+  //   stream.pipe(purgeCSS());
+  // }
+
+  return stream
     .pipe(size(opts.size))
     .pipe(dest(paths.styles.dev, { sourcemaps: './maps' }))
     .pipe(bs.stream({ match: '**/*.css' }));

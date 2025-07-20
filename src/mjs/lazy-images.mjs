@@ -1,60 +1,105 @@
 //
-// Lazy-load images
+// Lazy-load images - Performance Optimized
 // -----------------------------------------------------------------------------
 
+// Use modern intersection observer with performance optimizations
 document.addEventListener('DOMContentLoaded', () => {
-  const cardPictures = [].slice.call(document.querySelectorAll('.card-picture'))
-  const featurePictures = [].slice.call(document.querySelectorAll('.lazy-features'))
-  const topPictures = [].slice.call(document.querySelectorAll('.lazy-top'))
+  // Get elements for lazy loading
+  const cardPictures = document.querySelectorAll('.card-picture');
+  const featurePictures = document.querySelectorAll('.lazy-features');
+  const topPictures = document.querySelectorAll('.lazy-top');
 
+  // Pre-fade top pictures
   topPictures.forEach(top => {
-    top.parentNode.classList.add('fade-in')
-  })
+    top.parentNode?.classList.add('fade-in');
+  });
 
+  // Check for intersection observer support
   if ('IntersectionObserver' in window) {
-    let cardImageObserver = new IntersectionObserver(entries => {
+    // Optimize intersection observer configuration
+    const observerConfig = {
+      threshold: 0.1, // Reduced threshold for faster loading
+      rootMargin: '50px 0px', // Load images 50px before they come into view
+    };
+
+    // Card image observer
+    const cardImageObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          let cardImage = entry.target
-          cardImage.parentNode.classList.add('card-fade-in')
-          cardImageObserver.unobserve(cardImage)
+          const cardImage = entry.target;
+          // Use requestAnimationFrame for smoother animations
+          requestAnimationFrame(() => {
+            cardImage.parentNode?.classList.add('card-fade-in');
+          });
+          cardImageObserver.unobserve(cardImage);
         }
-      })
-    }, {
-      threshold: 0.3
-    })
+      });
+    }, observerConfig);
 
-    let featImageObserver = new IntersectionObserver(entries => {
+    // Feature image observer
+    const featImageObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          let featImage = entry.target
-          featImage.parentNode.classList.add('fade-in')
-          featImageObserver.unobserve(featImage)
+          const featImage = entry.target;
+          requestAnimationFrame(() => {
+            featImage.parentNode?.classList.add('fade-in');
+          });
+          featImageObserver.unobserve(featImage);
         }
-      })
-    }, {
-      threshold: 0.3
-    })
+      });
+    }, observerConfig);
 
-    cardPictures.forEach(card => {
-      cardImageObserver.observe(card)
-    })
+    // Observe elements
+    cardPictures.forEach(card => cardImageObserver.observe(card));
+    featurePictures.forEach(feat => featImageObserver.observe(feat));
 
-    featurePictures.forEach(feat => {
-      featImageObserver.observe(feat)
-    })
   } else {
-    cardPictures.forEach(card => {
-      card.parentNode.classList.add('card-fade-in')
-    })
+    // Fallback for browsers without intersection observer
+    // Use a more performant approach with requestAnimationFrame
+    const applyFadeIn = (elements, className) => {
+      let index = 0;
+      const applyNext = () => {
+        if (index < elements.length) {
+          elements[index].parentNode?.classList.add(className);
+          index++;
+          requestAnimationFrame(applyNext);
+        }
+      };
+      requestAnimationFrame(applyNext);
+    };
 
-    featurePictures.forEach(feat => {
-      feat.parentNode.classList.add('fade-in')
-    })
+    applyFadeIn(cardPictures, 'card-fade-in');
+    applyFadeIn(featurePictures, 'fade-in');
   }
 
-  const images = document.querySelectorAll('img[loading="lazy"]')
-  images.forEach(img => {
-    img.src = img.dataset.src
-  })
-})
+  // Optimize native lazy loading for modern browsers
+  const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+  
+  // Use modern approach: swap data-src to src for better performance
+  if ('loading' in HTMLImageElement.prototype) {
+    // Browser supports native lazy loading
+    lazyImages.forEach(img => {
+      if (img.dataset.src) {
+        img.src = img.dataset.src;
+        img.removeAttribute('data-src');
+      }
+    });
+  } else {
+    // Fallback: use intersection observer for lazy loading
+    const imageObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const img = entry.target;
+          if (img.dataset.src) {
+            img.src = img.dataset.src;
+            img.removeAttribute('data-src');
+            img.removeAttribute('loading');
+          }
+          imageObserver.unobserve(img);
+        }
+      });
+    }, { rootMargin: '100px 0px' });
+
+    lazyImages.forEach(img => imageObserver.observe(img));
+  }
+});

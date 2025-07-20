@@ -4,13 +4,14 @@
  * Licensed under MIT
  * ========================================================================== */
 
-export { help } from './help.mjs';                                                        // Help
-export { checks } from './checks.mjs';                                                    // Checks
-export { clean } from './clean.mjs';                                                      // Clean
-export { cleanCss, lintScss, compile, minifyCss } from './styles.mjs';                    // Styles
-export { cleanJs, lintMjs, colorJs, transpile, minifyJs } from './scripts.mjs';           // Scripts
-export { cleanStatics, favicons, statica } from './statics.mjs';                          // Statics
-export { cleanFonts, fontsCss, fontsSvg } from './fonts.mjs';                             // Fonts
-export { cleanImages, imagine, convert } from './images.mjs';                             // Images
-export { cleanPages, lintPages, pagile, pagify } from './pages.mjs';                      // Pages
-export { serve } from './serve.mjs';                                                      // Serve and Watch
+export { help } from './help.mjs';
+export { checks } from './checks.mjs';
+export { clean } from './clean.mjs';
+export { cleanCss, lintScss, compile, minifyCss } from './styles.mjs';
+export { cleanJs, lintMjs, colorJs, transpile, minifyJs } from './scripts.mjs';
+export { cleanStatics, favicons, statica } from './statics.mjs';
+export { cleanFonts, fontsCss, fontsSvg } from './fonts.mjs';
+export { cleanImages, imagine, convert } from './images.mjs';
+export { cleanPages, lintPages, pagile, pagify } from './pages.mjs';
+export { serve } from './serve.mjs';
+export { performanceAnalysis } from './performance.mjs';
