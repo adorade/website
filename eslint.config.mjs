@@ -1,28 +1,30 @@
 /*!
- * Adorade (v2.2.0): eslint.config.js
- * Copyright (c) 2019-24 Adorade (https://adorade.ro)
+ * Adorade (v2.2.0-dev): eslint.config.js
+ * Copyright (c) 2019-26 Adorade (https://adorade.ro)
  * Licensed under MIT
- * ========================================================================== */
+ * ========================================================================= */
 
 import babelParser from '@babel/eslint-parser';
+import { defineConfig } from 'eslint/config';
 import globals from 'globals';
 import js from '@eslint/js';
 import stylistic from '@stylistic/eslint-plugin';
 
-export default [
+export default defineConfig ([
   {
-    name: 'recommended',
-    ...js.configs.recommended
+    name: 'main',
+    files: ['**/*.{js,mjs,cjs}'],
+    plugins: { js },
+    extends: ['js/recommended']
   },
   {
-    name: 'default',
+    name: 'module',
+    files: ['**/*.{js,mjs}'],
     languageOptions: {
       parser: babelParser,
       ecmaVersion: 'latest',
       sourceType: 'module',
-      globals: {
-        ...globals.browser
-      }
+      globals: globals.browser
     }
   },
   {
@@ -55,13 +57,12 @@ export default [
   {
     name: 'tools',
     languageOptions: {
-      globals: {
-        ...globals.node
-      }
+      globals: globals.node
     },
     files: [
       'gulpfile.mjs',
       'tools/**/*.mjs',
+      'babel.config.mjs',
       'eslint.config.mjs'
     ],
     rules: {
@@ -77,4 +78,4 @@ export default [
       'tmp'
     ]
   }
-];
+]);

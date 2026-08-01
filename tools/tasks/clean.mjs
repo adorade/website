@@ -1,8 +1,8 @@
 /*!
- * Adorade (v2.2.0): tools/tasks/clean.mjs
- * Copyright (c) 2018-24 Adorade (https://adorade.ro)
+ * Adorade (v2.2.0-dev): tools/tasks/clean.mjs
+ * Copyright (c) 2018-26 Adorade (https://adorade.ro)
  * Licensed under MIT
- * ========================================================================== */
+ * ========================================================================= */
 
 import { isClean, isProd, del, fancyLog, green, magenta, dirs } from '../utils/index.mjs';
 

@@ -1,12 +1,12 @@
 /*!
- * Adorade (v2.2.0): tools/utils/options.mjs
- * Copyright (c) 2018-24 Adorade (https://adorade.ro)
+ * Adorade (v2.2.0-dev): tools/utils/options.mjs
+ * Copyright (c) 2018-26 Adorade (https://adorade.ro)
  * Licensed under MIT
- * ========================================================================== */
+ * ========================================================================= */
 
 import { babel } from '@rollup/plugin-babel';
 
-import { isProd, isSilent, dirs } from './index.mjs';
+import { isProd, isSilent, dirs, paths } from './index.mjs';
 
 export const opts = {
   entry: {
@@ -15,7 +15,7 @@ export const opts = {
   styles: {
     // failAfterError: true, // default: true
     reporters: [
-      { formatter: 'stylish', console: true, save: 'styles.txt' }
+      { formatter: 'stylish', console: true, log: `${paths.logs.gulp}/styles.txt` }
     ]
   },
   sass: {
@@ -36,15 +36,16 @@ export const opts = {
     comments: false
   },
   eslint: {
-    // for more options see .eslintrc.js
+    // for more options see eslint.config.mjs
   },
   rollup: {
     inputOpts: {
       // `input` is optional
       plugins: [
         babel({
-          // for more options see: .babelrc.js,
+          // for more options see: babel.config.mjs,
           babelHelpers: 'bundled'
+          // comments: false, // default: true
         })
       ]
     },
@@ -65,12 +66,35 @@ export const opts = {
     keep_fnames: true
   },
   images: {
-    gif: { interlaced: true },
-    jpeg: { progressive: true },
-    png: { optimizationLevel: 4 },
+    gif: { interlaced: true, optimizationLevel: 3 },
+    jpeg: {
+      progressive: true,
+      quality: isProd ? 85 : 90,
+      mozjpeg: true
+    },
+    png: {
+      optimizationLevel: isProd ? 7 : 4,
+      strip: isProd
+    },
     svg: { plugins: [
       {
         name: 'removeViewBox',
+        active: true
+      },
+      {
+        name: 'removeUselessStrokeAndFill',
+        active: true
+      },
+      {
+        name: 'cleanupIDs',
+        active: true
+      },
+      {
+        name: 'removeMetadata',
+        active: true
+      },
+      {
+        name: 'removeComments',
         active: true
       }
     ]},
@@ -80,7 +104,13 @@ export const opts = {
     },
     webp: {
       preset: 'default',
-      quality: 60
+      quality: isProd ? 80 : 85,
+      method: 6,
+      lossless: false
+    },
+    avif: {
+      quality: isProd ? 70 : 80,
+      speed: 2
     }
   },
   pug: {
@@ -106,9 +136,15 @@ export const opts = {
     rootpath: isProd ? `${dirs.prod}/` : `${dirs.dev}/`
   },
   size: {
-    gzip: isProd ? true : false,
+    // gzip: isProd ? true : false,
+    brotli: isProd ? true : false,
     showFiles: isSilent ? false : true,
     showTotal: isSilent ? false : true
+  },
+  performance: {
+    css: 200 * 1024, // 200 KB
+    js: 50 * 1024, // 50 KB
+    images: 2.5 * 1024 * 1024 // 2.5 MB
   },
   watch: {
     delay: 2000

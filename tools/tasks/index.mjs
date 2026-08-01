@@ -1,8 +1,8 @@
 /*!
- * Adorade (v2.2.0): tools/tasks/index.mjs
- * Copyright (c) 2018-24 Adorade (https://adorade.ro)
+ * Adorade (v2.2.0-dev): tools/tasks/index.mjs
+ * Copyright (c) 2018-26 Adorade (https://adorade.ro)
  * Licensed under MIT
- * ========================================================================== */
+ * ========================================================================= */
 
 export { help } from './help.mjs';                                                        // Help
 export { checks } from './checks.mjs';                                                    // Checks
@@ -14,3 +14,4 @@ export { cleanFonts, fontsCss, fontsSvg } from './fonts.mjs';                   
 export { cleanImages, imagine, convert } from './images.mjs';                             // Images
 export { cleanPages, lintPages, pagile, pagify } from './pages.mjs';                      // Pages
 export { serve } from './serve.mjs';                                                      // Serve and Watch
+export { performanceAnalysis } from './performance.mjs';                                  // Performance

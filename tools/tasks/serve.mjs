@@ -1,8 +1,8 @@
 /*!
- * Adorade (v2.2.0): tools/tasks/serve.mjs
- * Copyright (c) 2018-24 Adorade (https://adorade.ro)
+ * Adorade (v2.2.0-dev): tools/tasks/serve.mjs
+ * Copyright (c) 2018-26 Adorade (https://adorade.ro)
  * Licensed under MIT
- * ========================================================================== */
+ * ========================================================================= */
 
 import { series, watch, isProd, bs, fancyLog, bgBlue, bgRed, green, magenta, red, dirs, paths, opts } from '../utils/index.mjs';
 import {

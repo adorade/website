@@ -1,8 +1,8 @@
 /*!
- * Adorade (v2.2.0): tools/utils/plugins.mjs
- * Copyright (c) 2018-24 Adorade (https://adorade.ro)
+ * Adorade (v2.2.0-dev): tools/utils/plugins.mjs
+ * Copyright (c) 2018-26 Adorade (https://adorade.ro)
  * Licensed under MIT
- * ========================================================================== */
+ * ========================================================================= */
 
 // Importing specific gulp API functions lets us write them as series() instead of gulp.series()
 export { src, dest, series, parallel, lastRun, watch, tree } from 'gulp';

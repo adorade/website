@@ -1,8 +1,8 @@
 /*!
- * Adorade (v2.2.0): tools/tasks/scripts.mjs
- * Copyright (c) 2018-24 Adorade (https://adorade.ro)
+ * Adorade (v2.2.0-dev): tools/tasks/scripts.mjs
+ * Copyright (c) 2018-26 Adorade (https://adorade.ro)
  * Licensed under MIT
- * ========================================================================== */
+ * ========================================================================= */
 
 import {
   src, dest, lastRun, isProd, fs, del, size, bs, fancyLog, green, magenta,
