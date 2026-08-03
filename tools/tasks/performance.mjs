@@ -1,5 +1,5 @@
 /*!
- * Adorade (v2.2.0-dev): tools/tasks/performance.mjs
+ * Build Tools (3.0.0): tools/tasks/performance.mjs
  * Copyright (c) 2026 Adorade (https://adorade.ro)
  * Licensed under MIT
  * ========================================================================= */

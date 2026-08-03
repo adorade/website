@@ -1,5 +1,5 @@
 /*!
- * Adorade (v2.2.0-dev): tools/rollup/index.mjs
+ * Build Tools (3.0.0): tools/plugins/rollup.mjs
  * Copyright (c) 2018-26 Adorade (https://adorade.ro)
  * Licensed under MIT
  * ========================================================================= */

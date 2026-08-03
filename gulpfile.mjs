@@ -4,6 +4,8 @@
  * Licensed under MIT
  * ========================================================================= */
 
+// Using Build Tools from `tools` folder for better maintainability and performance
+
 import { series, isClean, isProd, isSilent, fancyLog, green } from './tools/utils/index.mjs';
 import {
   help, checks, clean, cleanCss, lintScss, compile, minifyCss,

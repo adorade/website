@@ -1,5 +1,5 @@
 /*!
- * Adorade (v2.2.0-dev): tools/utils/options.mjs
+ * Build Tools (3.0.0): tools/utils/options.mjs
  * Copyright (c) 2018-26 Adorade (https://adorade.ro)
  * Licensed under MIT
  * ========================================================================= */
@@ -25,7 +25,7 @@ export const opts = {
       'import',
       'global-builtin',
       'color-functions',
-      'mixed-decls'
+      'if-function'
     ]
   },
   autoprefixer: {
