@@ -1,17 +1,15 @@
 //
 // Document ready
-// =============================================================================
+// ============================================================================
 
-// Prepare hero height on load and reset on resize
-// -----------------------------------------------------------------------------
+// --- Prepare hero height on load and reset on resize
 window.onload = window.onresize = () => {
   const heroUnit = document.querySelector('.hero-unit')
   if (heroUnit)
     heroUnit.style.height = window.innerHeight + 'px'
 }
 
-// On Document Ready
-// -----------------------------------------------------------------------------
+// --- On Document Ready
 function domReady (fn) {
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', fn)
@@ -20,8 +18,7 @@ function domReady (fn) {
   }
 }
 
-// Scroll to Next section
-// -----------------------------------------------------------------------------
+// --- Scroll to Next section
 domReady(() => {
   const scrollDown = document.querySelector('.scroll-down')
 
@@ -37,8 +34,7 @@ domReady(() => {
     }
 })
 
-// Back to Top
-// -----------------------------------------------------------------------------
+// --- Back to Top
 domReady(() => {
   document.querySelector('.back-to-top-icon').onclick = () => {
     window.scrollTo({
@@ -48,8 +44,7 @@ domReady(() => {
   }
 })
 
-// On Window Scroll
-// -----------------------------------------------------------------------------
+// --- On Window Scroll
 window.onscroll = () => {
   const windowPos = window.scrollY,
         windowH = window.innerHeight,
@@ -137,8 +132,8 @@ window.onscroll = () => {
     }
   }
 
-  let scrollPercent = 0
-  scrollPercent = 100 - Math.round(
+  // let scrollPercent = 0
+  let scrollPercent = 100 - Math.round(
     ((documentH - windowH - windowPos) * 100) / (documentH - windowH)
   )
   percent.style.height = scrollPercent + '%'

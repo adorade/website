@@ -6,7 +6,7 @@
 // when changing pages or themes. The reason we add this script to the `<head>`
 // tag and not before the closing `<body>` tag is because we want to avoid a
 // flicking effect when setting the page to dark or light mode.
-// =============================================================================
+// ============================================================================
 
 (() => {
   const getStoredTheme = () => localStorage.getItem('theme')

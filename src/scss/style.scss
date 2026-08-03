@@ -1,5 +1,5 @@
 //
-// Styles
+// Styles - Optimized for Performance
 // =============================================================================
 // stylelint-disable scss/double-slash-comment-empty-line-before
 
@@ -24,14 +24,18 @@
 @import "../../node_modules/bootstrap/scss/mixins";
 @import "../../node_modules/bootstrap/scss/root";
 
-// --- 6. Include any optional Bootstrap components as you like
+// --- 6. Include only essential Bootstrap components
 @import "../../node_modules/bootstrap/scss/vendor/rfs";
 @import "../../node_modules/bootstrap/scss/utilities";
+
+// Core Bootstrap components (always needed)
 @import "../../node_modules/bootstrap/scss/reboot";
 @import "../../node_modules/bootstrap/scss/type";
 @import "../../node_modules/bootstrap/scss/images";
 @import "../../node_modules/bootstrap/scss/containers";
 @import "../../node_modules/bootstrap/scss/grid";
+
+// UI Components (only include what's used)
 // @import "../../node_modules/bootstrap/scss/tables";
 @import "../../node_modules/bootstrap/scss/forms";
 @import "../../node_modules/bootstrap/scss/buttons";
@@ -60,7 +64,7 @@
 // Helpers
 @import "../../node_modules/bootstrap/scss/helpers";
 
-// --- 7. Optionally include utilities API last to generate classes based on the Sass map in `_utilities.scss`
+// --- 7. Include utilities API last
 @import "../../node_modules/bootstrap/scss/utilities/api";
 
 // --- 8. Add additional custom code here
