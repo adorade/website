@@ -1,5 +1,5 @@
 /*!
- * Adorade (v2.2.0-dev): babel.config.mjs
+ * Adorade (v2.3.0): babel.config.mjs
  * Copyright (c) 2026 Adorade (https://adorade.ro)
  * Licensed under MIT
  * ========================================================================= */

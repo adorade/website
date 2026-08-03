@@ -1,5 +1,5 @@
 /*!
- * Adorade (v2.2.0-dev): eslint.config.js
+ * Adorade (v2.3.0): eslint.config.js
  * Copyright (c) 2019-26 Adorade (https://adorade.ro)
  * Licensed under MIT
  * ========================================================================= */

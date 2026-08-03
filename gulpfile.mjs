@@ -1,5 +1,5 @@
 /*!
- * Adorade (v2.2.0-dev): gulpfile.mjs
+ * Adorade (v2.3.0): gulpfile.mjs
  * Copyright (c) 2018-26 Adorade (https://adorade.ro)
  * Licensed under MIT
  * ========================================================================= */
