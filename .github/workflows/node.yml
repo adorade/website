@@ -6,8 +6,22 @@ on:
     branches: [main, content, develop, forms, theme]
   pull_request:
     branches: [main]
-  schedule:
-  - cron: 0 9 * * SAT
+  # --- Uncomment to run manually
+  # workflow_dispatch:
+  #   inputs:
+  #     reason:
+  #       description: "Optional reason for manual run"
+  #       required: false
+  # --- Uncomment to schedule
+  # schedule:
+  #         # ┌───────────── minute (0 - 59)
+  #         # │ ┌───────────── hour (0 - 23)
+  #         # │ │ ┌───────────── day of the month (1 - 31)
+  #         # │ │ │ ┌───────────── month (1 - 12 or JAN-DEC)
+  #         # │ │ │ │ ┌───────────── day of the week (0 - 6 or SUN-SAT)
+  #         # │ │ │ │ │
+  #         # * * * * *
+  #   - cron: 0 9 * * SAT
 
 jobs:
   build:
@@ -16,18 +30,19 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-        node_version: [22]
+        node_version: [22, 24]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     runs-on: ${{ matrix.os }}
 
     steps:
       # checkout the repo
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       # use node.js matrix
       - name: Use Node.js ${{ matrix.node_version }}
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
           node-version: ${{ matrix.node_version }}
 

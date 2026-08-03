@@ -1,8 +1,8 @@
 /*!
- * Adorade (v2.2.0): tools/tasks/help.mjs
- * Copyright (c) 2018-24 Adorade (https://adorade.ro)
+ * Build Tools (3.0.0): tools/tasks/help.mjs
+ * Copyright (c) 2018-26 Adorade (https://adorade.ro)
  * Licensed under MIT
- * ========================================================================== */
+ * ========================================================================= */
 
 import { title, fancyLog,  cyan, green, magenta } from '../utils/index.mjs';
 

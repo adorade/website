@@ -23,6 +23,16 @@
   background-color: var(--ad-body-bg);
 }
 
+.portfolio,
+.services,
+.feature {
+  @include media-breakpoint-up(hd) {
+    .container {
+      max-width: 1440px;
+    }
+  }
+}
+
 .features,
 .technologies {
   background-color: var(--ad-bg-normal);

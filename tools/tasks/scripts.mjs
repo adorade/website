@@ -1,8 +1,8 @@
 /*!
- * Adorade (v2.2.0): tools/tasks/scripts.mjs
- * Copyright (c) 2018-24 Adorade (https://adorade.ro)
+ * Build Tools (3.0.0): tools/tasks/scripts.mjs
+ * Copyright (c) 2018-26 Adorade (https://adorade.ro)
  * Licensed under MIT
- * ========================================================================== */
+ * ========================================================================= */
 
 import {
   src, dest, lastRun, isProd, fs, del, size, bs, fancyLog, green, magenta,
@@ -11,7 +11,7 @@ import {
 import gEslint from 'gulp-eslint-new';
 import gTerser from 'gulp-terser-js';
 
-import gulpRollup from '../rollup/index.mjs';
+import gulpRollup from '../plugins/rollup.mjs';
 
 const taskTarget = isProd ? paths.scripts.prod : paths.scripts.dev;
 

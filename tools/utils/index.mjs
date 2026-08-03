@@ -1,8 +1,8 @@
 /*!
- * Adorade (v2.2.0): tools/utils/index.mjs
- * Copyright (c) 2018-24 Adorade (https://adorade.ro)
+ * Build Tools (3.0.0): tools/utils/index.mjs
+ * Copyright (c) 2018-26 Adorade (https://adorade.ro)
  * Licensed under MIT
- * ========================================================================== */
+ * ========================================================================= */
 
 // Load plugins
 export {
@@ -10,7 +10,7 @@ export {
   fs, del, size, bs,
   fancyLog, bgBlue, bgRed, cyan, green, magenta, red,
   cached, header, rename
-} from './plugins.mjs';
+} from './modules.mjs';
 
 // Settings
 export { pkg, title, time, arg, isClean, isProd, isSilent } from './settings.mjs';

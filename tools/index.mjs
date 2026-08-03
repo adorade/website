@@ -1,8 +1,8 @@
 /*!
- * Adorade (v2.2.0): tools/index.mjs
- * Copyright (c) 2018-24 Adorade (https://adorade.ro)
+ * Build Tools (3.0.0): tools/index.mjs
+ * Copyright (c) 2018-26 Adorade (https://adorade.ro)
  * Licensed under MIT
- * ========================================================================== */
+ * ========================================================================= */
 
 export {
   help, checks, clean,                                      // Help, Checks and Clean
@@ -12,5 +12,6 @@ export {
   cleanStatics, favicons, statica,                          // Statics
   cleanFonts, fontsCss, fontsSvg,                           // Fonts
   cleanPages, lintPages, pagile, pagify,                    // Pages
-  serve                                                     // Serve and Watch
+  serve,                                                    // Serve and Watch
+  performanceAnalysis                                       // Performance Analysis
 } from './tasks/index.mjs';

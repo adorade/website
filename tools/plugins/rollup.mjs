@@ -1,8 +1,8 @@
 /*!
- * Adorade (v2.2.0): tools/rollup/index.mjs
- * Copyright (c) 2018-24 Adorade (https://adorade.ro)
+ * Build Tools (3.0.0): tools/plugins/rollup.mjs
+ * Copyright (c) 2018-26 Adorade (https://adorade.ro)
  * Licensed under MIT
- * ========================================================================== */
+ * ========================================================================= */
 
 import { rollup } from 'rollup';
 import { Transform } from 'node:stream';

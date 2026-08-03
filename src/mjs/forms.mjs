@@ -1,11 +1,11 @@
 //
 // Form Submissions
-// -----------------------------------------------------------------------------
+// ============================================================================
 // Disabling form submissions if there are invalid fields
 // Note: Keep in mind that
 // each <form> element must have the `novalidate` attribute and at the same time,
 // each <input> element in it must have the `required` attribute.
-// -----------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
 window.addEventListener('load', () => {
   // --- Grab all the forms
   const forms = document.querySelectorAll('.needs-validation')

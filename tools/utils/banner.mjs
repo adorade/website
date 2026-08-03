@@ -1,8 +1,8 @@
 /*!
- * Adorade (v2.2.0): tools/utils/banner.mjs
- * Copyright (c) 2018-24 Adorade (https://adorade.ro)
+ * Build Tools (3.0.0): tools/utils/banner.mjs
+ * Copyright (c) 2018-26 Adorade (https://adorade.ro)
  * Licensed under MIT
- * ========================================================================== */
+ * ========================================================================= */
 
 import { pkg, title, time } from './index.mjs';
 
@@ -14,11 +14,11 @@ export function banner () {
   try {
     result = [
       '/*!',
-      ` * ${title} (v${pkg.version}): <%= file.relative %>`,
+      ` * Adorade ${title} (v${pkg.version}): <%= file.relative %>`,
       ` * ${pkg.description}`,
       ` * Copyright (c) 2010 - ${year} ${pkg.author.name} (${pkg.homepage})`,
       ` * License under ${pkg.license} (${pkg.repository}/blob/master/LICENSE)`,
-      ' * ========================================================================== */',
+      ' * ========================================================================= */',
       '' // new line
     ].join('\n');
   } catch (err) {
